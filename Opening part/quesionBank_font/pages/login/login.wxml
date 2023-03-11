@@ -1,0 +1,72 @@
+<!-- pick stuent -->
+<view class="background_stu" wx:if="{{is_student}}">
+    <!-- 背景图片 -->
+    <image src="../../static/images/student_bg.png" class="image_bg" >
+    </image>
+    <!-- 切换选择器 -->
+    <view class="Cotaniner_stu" bindtap="pick_student">
+            <view class="student_pick">
+                <text class="student_pick_word">学生</text>
+            </view>
+    </view>
+    <view class="Cotaniner_tea" bindtap="pick_teacher">
+            <view class="teacher_pick">
+                <text class="teacher_pick_word">教师</text>
+            </view>
+    </view>
+    <!-- 提示文字 -->
+    <view class="word_tip">你好，同学</view>
+    <!-- 输入框 -->
+    <van-cell-group class="cell">
+        <van-field
+            value="{{ student_num_value }}"
+            placeholder="请输入学号"
+            label="学号"
+            bind:change="student_num"
+        />
+        <van-field
+            value="{{ student_pwd_value }}"
+            placeholder="请输入密码"
+            label="密码"
+            bind:change="student_pwd"
+        />
+    </van-cell-group>
+    <van-button type="primary" class="login_button" bindtap="stu_login">登录</van-button>
+</view>
+
+
+<!-- pick teacher -->
+<view class="background_tea" wx:if="{{is_teacher}}">
+    <!-- 背景图片 -->
+    <image src="../../static/images/teacher_bg.png" class="image_bg" >
+    </image>
+    <!-- 切换选择器 -->
+    <view class="Cotaniner_stu1" bindtap="pick_student">
+            <view class="student_pick1">
+                <text class="student_pick_word1">学生</text>
+            </view>
+    </view>
+    <view class="Cotaniner_tea1" bindtap="pick_teacher">
+            <view class="teacher_pick1">
+                <text class="teacher_pick_word1">教师</text>
+            </view>
+    </view>
+    <!-- 提示文字 -->
+    <view class="word_tip">您好，老师</view>
+    <!-- 输入框 -->
+    <van-cell-group class="cell">
+        <van-field
+            value="{{ student_num_value }}"
+            placeholder="请输入学号"
+            label="工号"
+            bind:change="student_num"
+        />
+        <van-field
+            value="{{ student_pwd_value }}"
+            placeholder="请输入密码"
+            label="密码"
+            bind:change="student_pwd"
+        />
+    </van-cell-group>
+    <van-button type="primary" class="login_button" bindtap="tea_login">登录</van-button>
+</view>
