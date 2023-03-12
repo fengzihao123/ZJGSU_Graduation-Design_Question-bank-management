@@ -48,13 +48,13 @@ Page({
       // 学生登录
       stu_login(){
         wx.navigateTo({
-          url: '../index/index',
+          url: '../stuPart/myCourse/myCourse',
         })
       },
       // 教师登录
       tea_login(){
-        wx.navigateTo({
-          url: '../index/index',
+        wx.switchTab({
+          url: '../teaPart/bankGM/bankGM',
         })
       },
 

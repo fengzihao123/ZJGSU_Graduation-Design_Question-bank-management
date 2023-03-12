@@ -1,8 +1,17 @@
 {
-    "pages": [      
-        "pages/index/index", 
+    "pages": [
         "pages/login/login",
-        "pages/logs/logs"
+        "pages/stuPart/myCourse/myCourse",
+        "pages/teaPart/bankGM/bankGM",
+        "pages/teaPart/courseGM/courseGM",
+        "pages/teaPart/examGM/examGM",
+        "pages/index/index",
+        "pages/teaPart/gradeGM/gradeGM",
+        "pages/logs/logs",
+        "pages/teaPart/studentGM/studentGM",
+        "pages/stuPart/myGrade/myGrade",
+        "pages/stuPart/myExam/myExam"
+        
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -10,6 +19,46 @@
         "navigationBarTitleText": "Weixin",
         "navigationBarTextStyle": "black"
     },
+
+    "tabBar": {
+        "color": "#333",
+        "selectedColor": "#87CEFA",
+        "list": [
+            {
+                "pagePath": "pages/teaPart/bankGM/bankGM",
+                "text": "题库",
+                "iconPath": "/static/images/icon/questionBank.png",
+                "selectedIconPath": "/static/images/icon/questionBank_select.png"
+            },
+            {
+                "pagePath": "pages/teaPart/courseGM/courseGM",
+                "text": "课程",
+                "iconPath": "/static/images/icon/course.png",
+                "selectedIconPath": "/static/images/icon/course_select.png"
+            },
+            {
+                "pagePath": "pages/teaPart/examGM/examGM",
+                "text": "考试",
+                "iconPath": "/static/images/icon/exam.png",
+                "selectedIconPath": "/static/images/icon/exam_select.png"
+            },
+            {
+                "pagePath": "pages/teaPart/gradeGM/gradeGM",
+                "text": "成绩",
+                "iconPath": "/static/images/icon/grade.png",
+                "selectedIconPath": "/static/images/icon/grade_select.png"
+            } ,
+            {
+                "pagePath": "pages/teaPart/studentGM/studentGM",
+                "text": "学生",
+                "iconPath": "/static/images/icon/student.png",
+                "selectedIconPath": "/static/images/icon/student_select.png"
+            }
+        ]
+    },
+    
+   
+    
     "style": "v2",
     "sitemapLocation": "sitemap.json",
     "lazyCodeLoading": "requiredComponents"
