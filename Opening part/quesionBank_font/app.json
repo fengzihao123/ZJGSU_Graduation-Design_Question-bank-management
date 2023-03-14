@@ -1,7 +1,9 @@
 {
     "pages": [
-        "pages/login/login",
+        "pages/stuPart/course/course",
         "pages/stuPart/myCourse/myCourse",
+        "pages/stuPart/setting/setting",
+        "pages/login/login",
         "pages/teaPart/bankGM/bankGM",
         "pages/teaPart/courseGM/courseGM",
         "pages/teaPart/examGM/examGM",
@@ -10,7 +12,10 @@
         "pages/logs/logs",
         "pages/teaPart/studentGM/studentGM",
         "pages/stuPart/myGrade/myGrade",
-        "pages/stuPart/myExam/myExam"
+        "pages/stuPart/myExam/myExam",
+        
+        "pages/stuPart/historyError/historyError",
+        "pages/stuPart/questionCollection/questionCollection"
         
     ],
     "window": {
@@ -19,7 +24,6 @@
         "navigationBarTitleText": "Weixin",
         "navigationBarTextStyle": "black"
     },
-
     "tabBar": {
         "color": "#333",
         "selectedColor": "#87CEFA",
@@ -47,7 +51,7 @@
                 "text": "成绩",
                 "iconPath": "/static/images/icon/grade.png",
                 "selectedIconPath": "/static/images/icon/grade_select.png"
-            } ,
+            },
             {
                 "pagePath": "pages/teaPart/studentGM/studentGM",
                 "text": "学生",
@@ -56,9 +60,6 @@
             }
         ]
     },
-    
-   
-    
     "style": "v2",
     "sitemapLocation": "sitemap.json",
     "lazyCodeLoading": "requiredComponents"

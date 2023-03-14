@@ -1,0 +1,89 @@
+<!--pages/stuPart/setting/setting.wxml-->
+<!-- 头像、姓名、性别 -->
+<view class="resumeBasicInfo">
+    <view class="RBICon1" bindtap="selectImage">
+        <image 
+            class="RBICon1avatar" src='{{value_Avatal?value_Avatal:"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F01%2F55%2F09%2F4557474d965eb71.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652326801&t=246ba216bd67b12cce71058d67f15f83"}}'>
+        </image>
+        <text wx:if="{{!value_Avatal}}" class="RBICon1Text1">编辑头像</text>
+    </view>
+    <view class="RBICon2">
+        <van-cell-group class="RBICon2Input">
+            <van-field 
+                size="large"
+                value="{{ value_realName }}"
+                placeholder="请输入真实姓名"
+                border="{{ false }}"
+                bind:change="onChange_realName"
+            />
+        </van-cell-group>
+        <van-radio-group class="RBICon2radio" 
+            value="{{ gender }}"
+            bind:change="onChange_pick"
+            direction="horizontal"
+        >
+        <van-radio name="男" bind:click="onClick_pick">男</van-radio>
+        <van-radio name="女" bind:click="onClick_pick">女</van-radio>
+        </van-radio-group>
+    </view>
+</view>
+<!-- 分割线 -->
+<view class="resumeBasicInfoLine"></view>
+<!-- 电话号码 -->
+<view class="resumePhone">
+    <text class="resumePhoneText">手机号</text>
+    <view class="RPCon1">
+        <van-cell-group class="RPInput">
+            <van-field 
+                required="true"    
+                type="number"
+                size="normal"
+                value="{{ value_Phone }}"
+                placeholder="请输入手机号"
+                border="{{ false }}"
+                bind:change="onChange_Phone"
+            />
+        </van-cell-group>
+        <text wx:if="{{is_ok}}" class="iconfont icon-gou-copy RPIcon "></text>
+    </view>
+    <!-- 分割线 -->
+    <view class="resumeBasicInfoLine"></view>
+    <!-- 出生学院、专业、年级、班级 -->
+    <van-dropdown-menu class="RPMenu">
+        <van-dropdown-item bind:change="change1" value="{{ value1 }}" options="{{ option1 }}" />
+        <van-dropdown-item bind:change="change2" value="{{ value2 }}" options="{{ option2 }}" />
+        <van-dropdown-item bind:change="change3" value="{{ value3 }}" options="{{ option3 }}" />
+        <van-dropdown-item bind:change="change4" value="{{ value4 }}" options="{{ option4 }}" />
+    </van-dropdown-menu>
+    <!-- 分割线 -->
+    <view class="resumeBasicInfoLine"></view>
+
+  <!-- 选项结果 -->
+    <view class="pickResult">
+        <view class="wordStyle">
+            <text class="wordStyleTitle">学院：</text>
+            <text class="wordStyleContent">{{value1_content}}计算机与信息工程学院</text>
+        </view>
+        <view class="wordStyle">
+            <text class="wordStyleTitle">专业：</text>
+            <text class="wordStyleContent">{{value2_content}}计算机科学</text>
+        </view>
+        <view class="wordStyle">
+            <text class="wordStyleTitle">年级：</text>
+            <text class="wordStyleContent">{{value3_content}}2019级</text>
+        </view>
+        <view class="wordStyle">
+            <text class="wordStyleTitle">班级：</text>
+            <text class="wordStyleContent">{{value4_content}}计科1902</text>
+        </view>
+    </view>
+
+    <!-- 申请和聊天 -->
+    <view class="application">
+        <view class="applicationCon2" bindtap="saveANDtoMycourse">
+            <text class="applicationCon2Text1">立即修改</text>
+        </view>
+    </view>
+   
+
+</view>

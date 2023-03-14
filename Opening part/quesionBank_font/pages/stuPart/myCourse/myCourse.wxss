@@ -1,1 +1,219 @@
-/* pages/stuPart/mycourse/myCourse.wxss */
+/* pages/mine/mine.wxss */
+
+/* 头部样式 */
+.headContainer{
+    width: 100%;
+    height: 100%;
+}
+.headContainer .headBackground{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 240rpx;
+    /* background-color: #33CC66; */
+    background: -webkit-linear-gradient(left,rgb(145, 238, 145),rgb(64, 185, 105),rgb(14, 126, 73));
+}
+.headContainer .Container{
+    position: absolute ;
+    z-index: 2;
+    width: 90%;
+    height: 250rpx;
+    margin-left: 5%;
+    margin-top: 110rpx;
+    border: 1px rgb(196, 190, 190) solid;
+    border-radius: 20rpx;
+    background-color:#FFF;
+}
+.resumeChangeBack{
+    width: 150rpx;
+    height: 40rpx;
+    border: 1px rgb(196, 190, 190) solid;
+    margin-left: 245rpx;
+    border-radius: 30rpx 0 0 30rpx;
+}
+.buildBack{
+    display: flex;
+    width: 105rpx;
+    height: 32rpx;
+    border: 1px rgb(196, 190, 190) solid;
+    margin-top: 30rpx;
+    margin-left: 240rpx;
+    border-radius: 20rpx;
+    background-color: #4EC83F;
+}
+
+.headContainer .Container .avatar{
+    margin: 30rpx;
+    width: 80rpx;
+    height: 80rpx;
+    /* border:2rpx solid rgb(196, 190, 190); */
+    border-radius: 50% 50% 0% 50%;
+}
+.con1{
+    display: flex;
+}
+.con2{
+    display: grid;
+}
+.con3{
+    display: flex;
+}
+.con4{
+    display: grid;
+}
+.resumeChangeBack{
+    display: flex;
+}
+.userInfoBox{
+    display: flex;
+}
+.infocompany{
+    font-size: 10px;
+    margin-left: 20rpx;
+    color: darkgray;
+}
+.infoperson{
+    font-size: 10px;
+    margin-left: 20rpx;
+    color: darkgray;
+}
+.headContainer .Container .username{
+    margin-left: 20rpx;
+    font-size: 14px;
+    font-weight: 600;
+    font-family:sans-serif;
+}
+.buildResume{
+    display: flex;
+}
+.xiugai{
+    margin-top: 46rpx;
+    margin-left: 6rpx;
+    font-size: 12px;
+}
+.gongwenbao{
+    margin-left: 20rpx;
+    margin-top: 5rpx;
+    font-size: 12px;
+}
+.rctext{
+    font-size: 12px;
+    margin-left: 5rpx;
+    margin-top: 2rpx;
+}
+.r1text{
+    margin-left: 30rpx;
+    font-size: 14px;
+    margin-top: 30rpx;
+}
+.r2text{
+    font-size: 12px;
+    margin-left:10rpx;
+    /* font-weight: 600; */
+    color: #FFF;
+}
+/* 中部样式 */
+.jobResult{
+    display:grid;
+    width: 90%;
+    height: 260rpx;
+    margin-left: 5%;
+    margin-top: 180rpx;
+    border: 1px rgb(196, 190, 190) solid;
+    border-radius: 20rpx;
+    background-color:#FFF;
+}
+.jobResultTitle{
+    font-size: 14px;
+    margin-left: 30rpx;
+    margin-top: 30rpx;
+}
+.resultContainer{
+    display: flex;
+}
+.rCon{
+    display: grid;
+}
+.iconResult{
+    font-size: 30px;
+    margin-left: 180rpx;
+    font-weight: 600;
+}
+.resultText{
+    font-size: 14px;
+    margin-left: 155rpx;
+}
+/* 中下部样式 */
+.historyBack{
+    display: flex;
+    width: 90%;
+    height: 60rpx;
+    margin-left: 5%;
+    margin-top: 50rpx;
+    border: 1px rgb(196, 190, 190) solid;
+    border-radius: 30rpx 30rpx 30rpx 30rpx;
+}
+.collectionBack{
+    display: flex;
+    width: 90%;
+    height: 60rpx;
+    margin-left: 5%;
+    margin-top: 30rpx;
+    border: 1px rgb(196, 190, 190) solid;
+    border-radius: 30rpx 30rpx 30rpx 30rpx;
+}
+.iconHitsoty{
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 15rpx;
+    margin-left: 30rpx;
+}
+.iconCollection{
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 15rpx;
+    margin-left: 30rpx;
+}
+.histoyText{
+    font-size: 14px;
+    margin-top: 8rpx;
+    margin-left: 25rpx;
+}
+.collectionText{
+    font-size: 14px;
+    margin-top: 10rpx;
+    margin-left: 25rpx;
+}
+/* 下部样式 */
+.myServe{
+    display:grid;
+    width: 90%;
+    height: 260rpx;
+    margin-left: 5%;
+    margin-top: 50rpx;
+    border: 1px rgb(196, 190, 190) solid;
+    border-radius: 20rpx;
+    background-color:#FFF;
+}
+.myServeTitle{
+    font-size: 14px;
+    margin-left: 30rpx;
+    margin-top: 30rpx;
+}
+.myServeContainer{
+    display: flex;
+}
+.mCon{
+    display: grid;
+}
+.iconMyserve{
+    font-size: 26px;
+    margin-left: 200rpx;
+    font-weight: 600;
+}
+.myServeText{
+    font-size: 14px;
+    margin-left: 196rpx;
+}
+
+

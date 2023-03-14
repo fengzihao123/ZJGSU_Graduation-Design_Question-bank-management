@@ -9,7 +9,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        active: 'info'
+        active: 'info',
+        show: false
     },
     //页面跳转
     onChange(event) {
@@ -24,6 +25,53 @@ Page({
             })
         }
       },
+
+      //课程说明  弹窗弹出
+      courseDescription(){
+        this.setData({ show: true });
+      },
+      // 弹窗关闭
+      onClose() {
+        this.setData({ show: false });
+      },
+
+      // 跳转课程
+      toCourse(){
+        wx.navigateTo({
+          url: '../course/course',
+        })
+      },
+
+      // 跳转历史错题
+      toHistory(){
+        wx.navigateTo({
+          url: '../historyError/historyError',
+        })
+      },
+      //  跳转题目收藏
+      toCollection(){
+        wx.navigateTo({
+          url: '../questionCollection/questionCollection',
+        })
+      },
+
+      // 跳转设置
+      toSetting(){
+        wx.navigateTo({
+          url: '../setting/setting',
+        })
+      },
+
+      // 退出
+      quit(){
+        wx.navigateTo({
+          url: '../../login/login',
+        })
+      },
+
+      
+
+
     /**
      * 生命周期函数--监听页面加载
      */

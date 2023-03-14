@@ -1,0 +1,105 @@
+/* pages/stuPart/setting/setting.wxss */
+
+/* 头像、姓名、性别 */
+.resumeBasicInfo{
+    display: flex;
+}
+.RBICon1{
+    display: grid;
+}
+.RBICon1avatar{
+    margin-top: 60rpx;
+    margin-left: 120rpx;
+    width: 120rpx;
+    height: 120rpx;
+    /* border:2rpx solid rgb(196, 190, 190); */
+    border-radius: 50% 50% 50% 50%;
+}
+.RBICon1Text1{
+    margin-left: 120rpx;
+    color: #959494;
+}
+.RBICon2{
+    display: grid;
+}
+.RBICon2Input{
+    margin-top: 60rpx;
+    margin-left: 60rpx;
+}
+.RBICon2radio{
+    margin-left: 95rpx;
+    color: #959494;
+}
+.resumeBasicInfoLine{
+    margin-top: 30rpx;
+    width:90%;
+    margin-left: 5%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+/* 电话号码 */
+.resumePhone{
+    display: grid;
+}
+.resumePhoneText{
+    margin-top: 30rpx;
+    font-size: 28rpx;
+    text-align: center;
+    color: #959494;
+}
+.RPCon1{
+    display: flex;
+}
+.RPInput{
+    margin-left: 260rpx;
+}
+.RPMenu{
+    margin-top: 30rpx;
+}
+.RPMenu1{
+    margin-top: 30rpx;
+}
+.RPInput2{
+    margin-top: 30rpx;
+    margin-left: 260rpx;
+}
+.RPIcon{
+    margin-top: 34rpx;
+    color: #00CC00;
+    font-size: 28rpx;
+}
+
+.application{
+    margin-top: 30rpx;
+    display: flex;
+}
+.applicationCon2{
+    display: flex;
+    width: 90%;
+    height: 60rpx;
+    margin-left: 5%;
+    margin-top: 10rpx;
+    border: 1px rgb(196, 190, 190) solid;
+    border-radius: 50rpx;
+    background-color:#51B317;
+}
+.applicationCon2Text1{
+    margin-top: 10rpx;
+    margin-left: 300rpx;
+    font-size: 30rpx;
+    color: #fff;
+}
+/* 出生年份、学历、工作时间 */
+
+.pickResult{
+    margin-left: 40rpx;
+}
+
+.wordStyle{
+    margin-top: 40rpx;
+}
+
+.wordStyleTitle{
+    font-size: 34rpx;
+    font-weight: 600;
+}
