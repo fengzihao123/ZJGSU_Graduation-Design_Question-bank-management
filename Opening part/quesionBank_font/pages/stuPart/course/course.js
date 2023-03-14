@@ -1,12 +1,23 @@
 // pages/stuPart/course/course.js
+import Toast from '@vant/weapp/toast/toast';
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
-    },
+        option: [
+            { text: '学期', value: 'a' },
+            { text: '2022-2023 第二学期', value: '2022-2023 第二学期' },
+            { text: '2022-2023 第一学期', value: '2022-2023 第一学期' },
+            { text: '2021-2022 第二学期', value: '2021-2022 第二学期' },
+            { text: '2021-2022 第一学期', value: '2022-2023 第一学期' },
+          ],
+          value: 'a',
+        //   value_content: '',
+      },
+    
+     
 
     /**
      * 生命周期函数--监听页面加载

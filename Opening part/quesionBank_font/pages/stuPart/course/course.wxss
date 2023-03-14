@@ -1,1 +1,77 @@
 /* pages/stuPart/course/course.wxss */
+.titleContainer{
+    margin-top: 10rpx;
+    position: relative;
+}
+.title_word{
+    color: chocolate;
+    font-size: 36rpx;
+    font-weight: 600;
+    font-style: italic;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 40rpx;
+
+}
+.title_line{
+    margin-top: 20rpx;
+    width:90%;
+    margin-left: 5%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+
+
+.pickerContainer{
+    display: grid;
+}
+.picker{
+    margin-left: 65rpx;
+    margin-top: 30rpx;
+    display: flex;
+    width: 100%;
+}
+.picker_word{
+    font-weight: 600;
+    margin-top: 20rpx;
+    font-size: 34rpx;
+    margin-left: 40rpx;
+}
+.picker_select{
+    margin-left: 20rpx;
+    width: 360rpx;
+}
+.picker_line{
+    margin-top: 20rpx;
+    width:78%;
+    margin-left: 11%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+
+
+.courseContainer{
+    display: grid;
+    margin-top: 30rpx;
+}
+.courseTitle{
+    margin-left: 40rpx;
+    font-weight: 600;
+}
+.course_layout{
+    display: flex;
+}
+.course{
+    margin-left: 20rpx;
+    display: grid;
+}
+.course_picture{
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+    width: 300rpx;
+    height: 200rpx;
+}
+.coureseName{
+    margin-top: 10rpx;
+    margin-left: 95rpx;
+    align-items: center;
+}

@@ -1,2 +1,32 @@
 <!--pages/stuPart/course/course.wxml-->
-<text>pages/stuPart/course/course.wxml</text>
+<view class="titleContainer">
+    <text class="title_word">我的课程</text>
+    <view class="title_line"></view>
+</view>
+<view class="pickerContainer">
+    <view class="picker">
+        <text class="picker_word">学期选择：</text>
+        <van-dropdown-menu class="picker_select">
+            <van-dropdown-item bind:change="change" value="{{ value }}" options="{{ option }}" />
+        </van-dropdown-menu>
+    </view>
+    <view class="picker_line"></view>
+</view>
+
+<view class="courseContainer">
+    <text class="courseTitle">已加入课程：</text>
+    <view class="course_layout" wx:for="{{3}}">
+        <view class="course">
+            <image src="https://nos.netease.com/edu-image/7357a4122de84b5793d7eb9cb341fe22.jpg" class="course_picture"></image>
+            <text class="coureseName">计算机网络</text>
+        </view>
+        <view class="course">
+            <image src="https://nos.netease.com/edu-image/7357a4122de84b5793d7eb9cb341fe22.jpg" class="course_picture"></image>
+            <text class="coureseName">计算机网络</text>
+        </view>
+    </view>
+</view>
+
+
+
+
