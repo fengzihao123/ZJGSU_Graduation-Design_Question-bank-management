@@ -1,12 +1,50 @@
-// pages/stuPart/questionCollection/questionCollection.js
+// pages/stuPart/historyError/historyError.js
+import Dialog from '@vant/weapp/dialog/dialog';
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        is_collect: true,
+        show: false,
     },
+
+
+    // 收藏
+    collect(){
+        let is_collect = true
+        this.setData({
+            is_collect
+        })
+    },
+    //取消收藏
+    no_collect(){
+        let is_collect = false
+        this.setData({
+            is_collect
+        })
+    },
+    //删除
+    shanchu(){
+        Dialog.confirm({
+            title: '删除',
+            message: '确认删除吗',
+          })
+            .then(() => {
+              // on confirm
+            })
+            .catch(() => {
+              // on cancel
+            });
+    },
+    // 点击全部
+    quanbu(){
+        this.setData({ show: true });
+    },   
+    onClose() {
+        this.setData({ show: false });
+      },
 
     /**
      * 生命周期函数--监听页面加载

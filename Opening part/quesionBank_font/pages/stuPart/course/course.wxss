@@ -57,12 +57,21 @@
     margin-left: 40rpx;
     font-weight: 600;
 }
-.course_layout{
+.course_layoutContainer{
+    flex-direction: row;
+    flex-wrap: wrap;
     display: flex;
+    align-content: space-around;
+}
+.course_layout{
+    
+    display: flex;
+
 }
 .course{
     margin-left: 20rpx;
     display: grid;
+
 }
 .course_picture{
     margin-top: 30rpx;

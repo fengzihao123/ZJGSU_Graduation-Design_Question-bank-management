@@ -1,2 +1,65 @@
-<!--pages/stuPart/questionCollection/questionCollection.wxml-->
-<text>pages/stuPart/questionCollection/questionCollection.wxml</text>
+<!--pages/stuPart/historyError/historyError.wxml-->
+<!-- 选择题 -->
+    <!-- 单选题 -->
+    <view class="danxuantiContainer">
+        <view class="danxuanti">
+            <view class="questionType">
+                <text class="QTword">单选</text>
+            </view>
+            <text class="QTitle">剩余价值转化为利润，是因为剩余价值被看作是生商品中所（）。</text>
+        </view>
+        <view class="titleLine"></view>
+        <!-- 四个选项 -->
+        <view class="choice">
+            <text>A</text>
+            <text class="choice_word">耗费的可变资本的增加额</text>
+        </view>
+        <view class="choiceLine"></view>
+        <view class="choice">
+            <text>B</text>
+            <text class="choice_word">预付的不变资本的增加额</text>
+        </view>
+        <view class="choiceLine"></view>
+        <view class="choice">
+            <text>C</text>
+            <text class="choice_word">预付的全部资本的增加额</text>
+        </view>
+        <view class="choiceLine"></view>
+        <view class="choice">
+            <text>D</text>
+            <text class="choice_word">耗费的全变资本的增加额</text>
+        </view>
+        <view class="choiceLine"></view>
+
+        <!-- 错题解析 -->
+        <view class="explain">
+        <text class="explain_title">解析：</text>
+        <text>剩余价值是预付资金的增加额而不是耗费时间的增加额</text>
+        </view>
+        <!-- 底部导航 -->
+        <view class="bottomNavi">
+        <text class="iconfont icon-shoucang iconShoucang" bindtap="collect" wx:if="{{!is_collect}}"></text>
+        <text class="text_shoucang" bindtap="collect" wx:if="{{!is_collect}}">收藏</text>
+        <text class="iconfont icon-shoucang iconShoucang1" bindtap="no_collect" wx:if="{{is_collect}}"></text>
+        <text class="text_shoucang" bindtap="no_collect" wx:if="{{is_collect}}">收藏</text>
+
+        <text class="iconfont icon-shanchu1 iconShanchu" bindtap="shanchu"></text>
+        <text class="text_shanchu" bindtap="shanchu">删除</text>
+        <van-dialog id="van-dialog" />
+
+        <text class="iconfont icon-quanbu iconQuanbu" bindtap="quanbu"></text>
+        <text class="text_quanbu" bindtap="quanbu">1/131</text>
+        <van-popup 
+        show="{{ show }}"
+         bind:close="onClose" 
+         position="bottom"
+        custom-style="height: 40%;">
+        <view class="popContainer">
+            <view class="pop_circle" wx:for="{{23}}">
+                <text class="pop_timu">1</text>
+            </view>
+        </view>
+        </van-popup>
+        </view>
+    </view>
+    

@@ -1,1 +1,135 @@
 /* pages/stuPart/historyError/historyError.wxss */
+.danxuanti{
+
+    display: flex;
+    margin-left: 30rpx;
+}
+.questionType{
+    margin-top: 5rpx;
+    position: absolute;
+    width: 95rpx;
+    height: 36rpx;
+    background-color: cornflowerblue;
+}
+.QTword{
+    position: absolute;
+    font-size: 28rpx;
+    margin-bottom: 5rpx;
+    margin-left: 20rpx;
+    color: cornsilk;
+    align-items: center;
+}
+.QTitle{
+    margin-top: 2rpx;
+    font-size: 28rpx;
+    margin-right: 30rpx;
+    margin-left: 100rpx;
+}
+.titleLine{
+    margin-top: 50rpx;
+    width:90%;
+    margin-left: 5%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+
+
+.choiceLine{
+    margin-top: 20rpx;
+    width:98%;
+    margin-left: 1%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+.choice{
+    font-size: 28rpx;
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+}
+.choice_word{
+    margin-left: 30rpx;
+}
+.explain{
+    margin: 30rpx;
+}
+.explain_title{
+    font-weight: 600;
+    color: rgb(4, 131, 4);
+}
+
+
+
+
+
+.bottomNavi{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(245, 241, 241);
+    width: 100%;
+    height: 80rpx;
+}
+
+.iconShoucang{
+    font-size: 34rpx;
+    position: absolute;
+    margin: 20rpx;
+}
+.text_shoucang{
+    font-size: 30rpx;
+    margin-top: 18rpx;
+    margin-left: 60rpx;
+}
+.iconShoucang1{
+    font-size: 34rpx;
+    position: absolute;
+    margin: 20rpx;
+    color: darkorange;
+}
+
+.iconShanchu{
+    
+    margin-top: 20rpx;
+    font-size: 34rpx;
+    margin-left: 20rpx;
+}
+.text_shanchu{
+    font-size: 30rpx;
+    margin-top: 18rpx;
+    margin-left: 10rpx;
+}
+
+.iconQuanbu{
+    margin-top: 20rpx;
+    font-size: 34rpx;
+    margin-left: 350rpx;
+}
+.text_quanbu{
+    font-size: 30rpx;
+    margin-top: 16rpx;
+    margin-left: 10rpx;
+}
+
+.popContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.pop_circle{
+    width: 60rpx;
+    height: 60rpx;
+    background-color: darkgray;
+    border-radius: 50%;
+    margin-left: 30rpx;
+    margin-top: 20rpx;
+}
+.pop_timu{
+    position: absolute;
+    font-size: 30rpx;
+    font-weight: 600;
+    margin-left: 20rpx;
+    margin-top: 8rpx;
+
+}
