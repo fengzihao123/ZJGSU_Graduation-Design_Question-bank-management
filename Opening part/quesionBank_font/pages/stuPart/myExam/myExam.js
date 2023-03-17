@@ -5,7 +5,18 @@ Page({
      * 页面的初始数据
      */
     data: {
-        active: 'exam'
+        active: 'exam',
+        option: [
+          { text: '学期', value: 'a' },
+          { text: '2022-2023 第二学期', value: '2022-2023 第二学期' },
+          { text: '2022-2023 第一学期', value: '2022-2023 第一学期' },
+          { text: '2021-2022 第二学期', value: '2021-2022 第二学期' },
+          { text: '2021-2022 第一学期', value: '2022-2023 第一学期' },
+        ],
+        value: 'a',
+        v1:2,
+        v2:0,
+        v3:3,
     },
 
     //页面跳转
@@ -20,6 +31,13 @@ Page({
               url: '../myGrade/myGrade',
             })
         }
+      },
+
+      // 跳转考试详情页面
+      toExamDetail(){
+        wx.navigateTo({
+          url: '/pages/stuPart/examDetail/examDetail',
+        })
       },
 
     /**

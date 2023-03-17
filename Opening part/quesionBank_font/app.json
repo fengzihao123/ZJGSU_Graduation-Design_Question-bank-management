@@ -1,8 +1,9 @@
 {
     "pages": [
+        "pages/stuPart/examDetail/examDetail",
+        "pages/stuPart/myExam/myExam",
         "pages/stuPart/myCourse/myCourse",
         "pages/stuPart/historyError/historyError",
-
         "pages/stuPart/course/course",
         "pages/stuPart/setting/setting",
         "pages/login/login",
@@ -14,9 +15,8 @@
         "pages/logs/logs",
         "pages/teaPart/studentGM/studentGM",
         "pages/stuPart/myGrade/myGrade",
-        "pages/stuPart/myExam/myExam",
-        "pages/stuPart/questionCollection/questionCollection"
-        
+        "pages/stuPart/questionCollection/questionCollection",
+        "pages/stuPart/examing/examing"
     ],
     "window": {
         "backgroundTextStyle": "light",

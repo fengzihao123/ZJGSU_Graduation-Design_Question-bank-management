@@ -1,0 +1,293 @@
+/* pages/stuPart/examDetail/examDetail.wxss */
+.titleContainer{
+    margin-top: 10rpx;
+    position: relative;
+}
+.title_word{
+    color: darkseagreen;
+    font-size: 36rpx;
+    font-weight: 600;
+    font-style: italic;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 40rpx;
+
+}
+.title_line{
+    margin-top: 20rpx;
+    width:90%;
+    margin-left: 5%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+
+
+
+
+
+.examDetailContainer{
+    
+    margin-left: 30rpx;
+    margin-top: 30rpx;
+    margin-right: 30rpx;
+}
+.examTab{
+    font-size: 26rpx;    
+}
+.boder1{
+    position: relative;
+    margin-top: 40rpx;
+    width: 100%;
+    height: 290rpx;
+    background-color: blanchedalmond;
+}
+.border_1{
+    display: flex;
+    position: fixed;
+    right: 0;
+    margin-right: 45rpx;
+}
+
+.examHead{
+    margin-top: 30rpx;
+    display: flex;
+
+}
+.examName{
+    margin-left: 15rpx;
+    font-weight: 600;
+    font-size: 30rpx;
+}
+.Cotaniner_zongfen{
+    border: 1rpx  #c4c3c3 solid;
+    /* margin-left: 360rpx; */
+    width: 80rpx;
+    height: 40rpx;
+    background-color:#c4c3c3;
+}
+.zongfen_word{
+    color: white;
+    font-weight: 600;
+    margin-left: 6rpx;
+}
+.Cotaniner_fenshu{
+    border: 1rpx  #c4c3c3 solid;
+    width: 80rpx;
+    height: 40rpx;
+    background-color:white;
+}
+.fenshu_word{
+    font-weight: 600;
+    margin-left: 6rpx;
+}
+.examBody{
+    display: flex;
+    margin-top: 50rpx;
+    margin-left: 15rpx;
+}
+.examType{
+    margin-left: 30rpx;
+    width: 120rpx;
+    height:48rpx;
+    border: 1rpx darkgray solid;
+}
+.examType_word{
+    font-weight: 600;
+    margin-left: 6rpx;
+    font-size: 26rpx;
+}
+.update_word{
+    margin-top: 5rpx;
+    font-size: 28rpx;
+    color: rgb(148, 148, 148);
+    font-weight: 600;
+}
+
+.examStart{
+    margin-left: 140rpx;
+    width: 120rpx;
+    height:48rpx;
+    background-color: rgb(138, 200, 241);
+}
+.examStart_word{
+    font-weight: 600;
+    color: rgb(10, 6, 226);
+    margin-left: 6rpx;
+    font-size: 26rpx;
+}
+.line{
+    margin-top: 40rpx;
+    width:96%;
+    margin-left: 2%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+.line1{
+    margin-top: 10rpx;
+    width:96%;
+    margin-left: 2%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+
+
+.border_2{
+    display: flex;
+    
+    margin-left: 15rpx;
+}
+.icontongzhi{
+    margin-top: 30rpx;
+}
+
+.tongzhi_word{
+    margin-left: 15rpx;
+    margin-top: 27rpx;
+    font-size: 28rpx;
+}
+
+
+
+.examBodyContainer{
+    margin-left: 30rpx;
+    margin-top: 60rpx;
+    margin-right: 30rpx;
+}
+.Bodyborder{
+    
+    position: relative;
+    margin-top: 20rpx;
+    width: 100%;
+    height: 450rpx;
+    background-color: blanchedalmond;
+}
+.border_3{
+    display: flex;
+}
+.bb_word1{
+    margin-left: 15rpx;
+    font-size: 30rpx;
+    font-weight: 600;
+}
+.iconxiugai{
+    margin-left: 10rpx;
+    margin-top: 6rpx;
+}
+.word2Container{
+    position: fixed;
+    right: 0;
+    margin-right: 45rpx;
+}
+.bb_word2{
+    font-size: 28rpx;
+}
+.line{
+    margin-top: 40rpx;
+    width:96%;
+    margin-left: 2%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+
+.danxuanti{
+    display: flex;
+}
+.DXCon1{
+    margin-left: 15rpx;
+    margin-top: 10rpx;
+}
+.danxuanti_word1{
+    font-size: 28rpx;
+    font-weight: 600;
+}
+.DXCon2{
+    margin-left: 15rpx;
+    margin-top: 10rpx;
+}
+.danxuanti_word2{
+    font-size: 28rpx;
+    font-weight: 600;
+}
+
+
+
+.duoxuanti{
+    display: flex;
+}
+.DXCon1{
+    margin-left: 15rpx;
+    margin-top: 10rpx;
+}
+.duoxuanti_word1{
+    font-size: 28rpx;
+    font-weight: 600;
+}
+.DXCon2{
+    margin-left: 15rpx;
+    margin-top: 10rpx;
+}
+.duoxuanti_word2{
+    font-size: 28rpx;
+    font-weight: 600;
+}
+
+.tiankongti{
+    display: flex;
+}
+.DXCon1{
+    margin-left: 15rpx;
+    margin-top: 10rpx;
+}
+.tiankongti_word1{
+    font-size: 28rpx;
+    font-weight: 600;
+}
+.DXCon2{
+    margin-left: 15rpx;
+    margin-top: 10rpx;
+}
+.tiankongti_word2{
+    font-size: 28rpx;
+    font-weight: 600;
+}
+
+
+.jisuanti{
+    display: flex;
+}
+.DXCon1{
+    margin-left: 15rpx;
+    margin-top: 10rpx;
+}
+.jisuanti_word1{
+    font-size: 28rpx;
+    font-weight: 600;
+}
+.DXCon2{
+    margin-left: 15rpx;
+    margin-top: 10rpx;
+}
+.jisuanti_word2{
+    font-size: 28rpx;
+    font-weight: 600;
+}
+
+
+.wendati{
+    display: flex;
+}
+.DXCon1{
+    margin-left: 15rpx;
+    margin-top: 10rpx;
+}
+.wendati_word1{
+    font-size: 28rpx;
+    font-weight: 600;
+}
+.DXCon2{
+    margin-left: 15rpx;
+    margin-top: 10rpx;
+}
+.wendati_word2{
+    font-size: 28rpx;
+    font-weight: 600;
+}

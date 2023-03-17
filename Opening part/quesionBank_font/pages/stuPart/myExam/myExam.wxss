@@ -1,1 +1,158 @@
 /* pages/stuPart/myExam/myExam.wxss */
+.titleContainer{
+    margin-top: 10rpx;
+    position: relative;
+}
+.title_word{
+    color: darkseagreen;
+    font-size: 36rpx;
+    font-weight: 600;
+    font-style: italic;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 40rpx;
+
+}
+.title_line{
+    margin-top: 20rpx;
+    width:90%;
+    margin-left: 5%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+
+
+.pickerContainer{
+    display: grid;
+}
+.picker{
+    margin-left: 65rpx;
+    margin-top: 30rpx;
+    display: flex;
+    width: 100%;
+}
+.picker_word{
+    font-weight: 600;
+    margin-top: 20rpx;
+    font-size: 34rpx;
+    margin-left: 40rpx;
+}
+.picker_select{
+    margin-left: 20rpx;
+    width: 360rpx;
+}
+.picker_line{
+    margin-top: 20rpx;
+    width:78%;
+    margin-left: 11%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+
+.exam1Container{
+    display: grid;
+    margin-top: 30rpx;
+}
+.exam1_word{
+    color: green;
+    font-size: 32rpx;
+    margin-left: 40rpx;
+    font-weight: 600;
+}
+.exam1_layoutContainer{
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    align-content: space-around;
+}
+.exam1_layout{
+    display: flex;
+}
+.exam1{
+    margin-left: 20rpx;
+    display: grid;
+
+}
+.exam1_picture{
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+    width: 300rpx;
+    height: 200rpx;
+}
+.exam1Name{
+    margin-top: 10rpx;
+    margin-left: 95rpx;
+    align-items: center;
+}
+
+
+.exam2Container{
+    display: grid;
+    margin-top: 30rpx;
+}
+.exam2_word{
+    color: red;
+    font-size: 32rpx;
+    margin-left: 40rpx;
+    font-weight: 600;
+}
+.exam2_layoutContainer{
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    align-content: space-around;
+}
+.exam2_layout{
+    display: flex;
+}
+.exam2{
+    margin-left: 20rpx;
+    display: grid;
+
+}
+.exam2_picture{
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+    width: 300rpx;
+    height: 200rpx;
+}
+.exam2Name{
+    margin-top: 10rpx;
+    margin-left: 95rpx;
+    align-items: center;
+}
+
+
+.exam3Container{
+    display: grid;
+    margin-top: 30rpx;
+}
+.exam3_word{
+    font-size: 32rpx;
+    margin-left: 40rpx;
+    font-weight: 600;
+}
+.exam3_layoutContainer{
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    align-content: space-around;
+}
+.exam3_layout{
+    display: flex;
+}
+.exam3{
+    margin-left: 20rpx;
+    display: grid;
+
+}
+.exam3_picture{
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+    width: 300rpx;
+    height: 200rpx;
+}
+.exam3Name{
+    margin-top: 10rpx;
+    margin-left: 95rpx;
+    align-items: center;
+}

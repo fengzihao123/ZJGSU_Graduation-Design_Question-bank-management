@@ -4,3 +4,56 @@
   <van-tabbar-item name="exam" icon="/static/images/icon/exam_select.png">考试</van-tabbar-item>
   <van-tabbar-item name="grade" icon="/static/images/icon/grade.png">成绩</van-tabbar-item>
 </van-tabbar>
+
+<view class="titleContainer">
+    <text class="title_word">我的考试</text>
+    <view class="title_line"></view>
+</view>
+
+<view class="pickerContainer">
+    <view class="picker">
+        <text class="picker_word">学期选择：</text>
+        <van-dropdown-menu class="picker_select">
+            <van-dropdown-item bind:change="change" value="{{ value }}" options="{{ option }}" />
+        </van-dropdown-menu>
+    </view>
+    <view class="picker_line"></view>
+</view>
+
+<!-- 考试 --- 进行中 -->
+<view class="exam1Container">
+  <text class="exam1_word">进行中:</text>
+  <view class="exam1_layoutContainer">
+        <view class="exam1_layout" wx:for="{{v1}}" bindtap="toExamDetail">
+            <view class="exam1">
+                <image src="https://nos.netease.com/edu-image/7357a4122de84b5793d7eb9cb341fe22.jpg" class="exam1_picture"></image>
+                <text class="exam1Name">计算机网络</text>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 考试 --- 未开始 -->
+<view class="exam2Container">
+  <text class="exam2_word">未开始:</text>
+  <view class="exam2_layoutContainer">
+        <view class="exam2_layout" wx:for="{0}" >
+            <view class="exam2">
+                <image src="https://nos.netease.com/edu-image/7357a4122de84b5793d7eb9cb341fe22.jpg" class="exam2_picture"></image>
+                <text class="exam2Name">计算机组成</text>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!-- 考试 --- 已结束 -->
+<view class="exam3Container">
+  <text class="exam3_word">已结束:</text>
+  <view class="exam3_layoutContainer">
+        <view class="exam3_layout" wx:for="{0}">
+            <view class="exam3">
+                <image src="https://nos.netease.com/edu-image/7357a4122de84b5793d7eb9cb341fe22.jpg" class="exam3_picture"></image>
+                <text class="exam3Name">计算机组成</text>
+            </view>
+        </view>
+    </view>
+</view>
