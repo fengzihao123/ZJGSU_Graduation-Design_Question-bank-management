@@ -25,34 +25,79 @@
   <text class="exam1_word">进行中:</text>
   <view class="exam1_layoutContainer">
         <view class="exam1_layout" wx:for="{{v1}}" bindtap="toExamDetail">
-            <view class="exam1">
-                <image src="https://nos.netease.com/edu-image/7357a4122de84b5793d7eb9cb341fe22.jpg" class="exam1_picture"></image>
-                <text class="exam1Name">计算机网络</text>
+            <view class="exam1_layout_Container">
+                <text class="ELC_word">计算机网络</text>
+                <text class="ELC_word1">2022-2023 第一学期</text>
+                <text class="ELC_word2">期末考试</text>
+                <view class="timeCon">
+                    <text class="iconfont icon-rili iconrili"></text>
+                    <text class="time_word">2023-01-09</text>
+                </view>
+                <view class="timeCon1">
+                    <text class="iconfont icon-naozhong_o icon-naozhong_o"></text>
+                    <text class="time1_word">120</text>
+                    <text class="time1_word">分钟</text>
+                </view>
+                <view class="scoreCon">
+                    <text class="iconfont icon-shijuan icon-shijuan"></text>
+                    <text class="score_word">100</text>
+                    <text class="score_word">分</text>
+                </view>
             </view>
         </view>
     </view>
 </view>
 <!-- 考试 --- 未开始 -->
-<view class="exam2Container">
+<view class="exam1Container">
   <text class="exam2_word">未开始:</text>
-  <view class="exam2_layoutContainer">
-        <view class="exam2_layout" wx:for="{0}" >
-            <view class="exam2">
-                <image src="https://nos.netease.com/edu-image/7357a4122de84b5793d7eb9cb341fe22.jpg" class="exam2_picture"></image>
-                <text class="exam2Name">计算机组成</text>
+  <view class="exam1_layoutContainer">
+        <view class="exam1_layout" wx:for="{{v2}}" bindtap="toExamDetail">
+            <view class="exam1_layout_Container">
+                <text class="ELC_word">计算机网络</text>
+                <text class="ELC_word1">2022-2023 第一学期</text>
+                <text class="ELC_word2">期末考试</text>
+                <view class="timeCon">
+                    <text class="iconfont icon-rili iconrili"></text>
+                    <text class="time_word">2023-01-09</text>
+                </view>
+                <view class="timeCon1">
+                    <text class="iconfont icon-naozhong_o icon-naozhong_o"></text>
+                    <text class="time1_word">120</text>
+                    <text class="time1_word">分钟</text>
+                </view>
+                <view class="scoreCon">
+                    <text class="iconfont icon-shijuan icon-shijuan"></text>
+                    <text class="score_word">100</text>
+                    <text class="score_word">分</text>
+                </view>
             </view>
         </view>
     </view>
 </view>
 
 <!-- 考试 --- 已结束 -->
-<view class="exam3Container">
+<view class="exam1Container">
   <text class="exam3_word">已结束:</text>
-  <view class="exam3_layoutContainer">
-        <view class="exam3_layout" wx:for="{0}">
-            <view class="exam3">
-                <image src="https://nos.netease.com/edu-image/7357a4122de84b5793d7eb9cb341fe22.jpg" class="exam3_picture"></image>
-                <text class="exam3Name">计算机组成</text>
+  <view class="exam1_layoutContainer">
+        <view class="exam1_layout" wx:for="{{v3}}" bindtap="toExamDetail">
+            <view class="exam1_layout_Container">
+                <text class="ELC_word">计算机网络</text>
+                <text class="ELC_word1">2022-2023 第一学期</text>
+                <text class="ELC_word2">期末考试</text>
+                <view class="timeCon">
+                    <text class="iconfont icon-rili iconrili"></text>
+                    <text class="time_word">2023-01-09</text>
+                </view>
+                <view class="timeCon1">
+                    <text class="iconfont icon-naozhong_o icon-naozhong_o"></text>
+                    <text class="time1_word">120</text>
+                    <text class="time1_word">分钟</text>
+                </view>
+                <view class="scoreCon">
+                    <text class="iconfont icon-shijuan icon-shijuan"></text>
+                    <text class="score_word">100</text>
+                    <text class="score_word">分</text>
+                </view>
             </view>
         </view>
     </view>

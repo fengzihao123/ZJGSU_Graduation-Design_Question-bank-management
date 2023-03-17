@@ -63,96 +63,85 @@
     flex-wrap: wrap;
     display: flex;
     align-content: space-around;
+   
 }
 .exam1_layout{
-    display: flex;
-}
-.exam1{
-    margin-left: 20rpx;
-    display: grid;
-
-}
-.exam1_picture{
-    margin-top: 30rpx;
+    margin-top: 20rpx;
     margin-left: 30rpx;
-    width: 300rpx;
-    height: 200rpx;
-}
-.exam1Name{
-    margin-top: 10rpx;
-    margin-left: 95rpx;
-    align-items: center;
+    width: 330rpx;
+    height: 250rpx;
+    border: 1rpx darkgray solid;
 }
 
-
-.exam2Container{
+.exam1_layout_Container{
     display: grid;
-    margin-top: 30rpx;
 }
+.ELC_word{
+    font-size: 28rpx;
+    font-weight: 600;
+    margin-left: 20rpx;
+}
+
+.ELC_word1{
+    margin-top: 10rpx;
+    margin-left: 20rpx;
+    font-size: 26rpx;
+    font-weight: 600;
+    color: darkgray;
+}
+.ELC_word2{
+    margin-left: 20rpx;
+    font-size: 26rpx;
+    font-weight: 600;
+    color: darkgray;
+}
+.timeCon{
+    margin-left: 20rpx;
+}
+.iconrili{
+    margin-top: 2rpx;
+    color: rgb(12, 83, 236);
+}
+.time_word{
+    font-size: 26rpx;
+    font-weight: 600;
+    color: rgb(12, 83, 236);
+}
+.timeCon1{
+    margin-left: 20rpx;
+}
+.icon-naozhong_o{
+    margin-top: 2rpx;
+    color: rgb(238, 59, 68);
+}
+.time1_word{
+    font-size: 26rpx;
+    font-weight: 600;
+    color: rgb(238, 59, 68);
+}
+
+.scoreCon{
+    margin-left: 20rpx;
+}
+.icon-shijuan{
+    margin-top: 2rpx;
+    color: rgb(41, 145, 49);
+}
+.score_word{
+    font-size: 26rpx;
+    font-weight: 600;
+    color: rgb(41, 145, 49);
+}
+
 .exam2_word{
     color: red;
     font-size: 32rpx;
     margin-left: 40rpx;
     font-weight: 600;
 }
-.exam2_layoutContainer{
-    flex-direction: row;
-    flex-wrap: wrap;
-    display: flex;
-    align-content: space-around;
-}
-.exam2_layout{
-    display: flex;
-}
-.exam2{
-    margin-left: 20rpx;
-    display: grid;
-
-}
-.exam2_picture{
-    margin-top: 30rpx;
-    margin-left: 30rpx;
-    width: 300rpx;
-    height: 200rpx;
-}
-.exam2Name{
-    margin-top: 10rpx;
-    margin-left: 95rpx;
-    align-items: center;
-}
-
-
-.exam3Container{
-    display: grid;
-    margin-top: 30rpx;
-}
 .exam3_word{
+
     font-size: 32rpx;
     margin-left: 40rpx;
     font-weight: 600;
-}
-.exam3_layoutContainer{
-    flex-direction: row;
-    flex-wrap: wrap;
-    display: flex;
-    align-content: space-around;
-}
-.exam3_layout{
-    display: flex;
-}
-.exam3{
-    margin-left: 20rpx;
-    display: grid;
-
-}
-.exam3_picture{
-    margin-top: 30rpx;
-    margin-left: 30rpx;
-    width: 300rpx;
-    height: 200rpx;
-}
-.exam3Name{
-    margin-top: 10rpx;
-    margin-left: 95rpx;
-    align-items: center;
 }

@@ -1,8 +1,9 @@
 {
     "pages": [
-        "pages/stuPart/examDetail/examDetail",
         "pages/stuPart/myExam/myExam",
         "pages/stuPart/myCourse/myCourse",
+        "pages/stuPart/examDetail/examDetail",
+     
         "pages/stuPart/historyError/historyError",
         "pages/stuPart/course/course",
         "pages/stuPart/setting/setting",
