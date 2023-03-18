@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/stuPart/examing/examing",
         "pages/stuPart/myExam/myExam",
         "pages/stuPart/myCourse/myCourse",
         "pages/stuPart/examDetail/examDetail",
@@ -16,8 +17,8 @@
         "pages/logs/logs",
         "pages/teaPart/studentGM/studentGM",
         "pages/stuPart/myGrade/myGrade",
-        "pages/stuPart/questionCollection/questionCollection",
-        "pages/stuPart/examing/examing"
+        "pages/stuPart/questionCollection/questionCollection"
+        
     ],
     "window": {
         "backgroundTextStyle": "light",
