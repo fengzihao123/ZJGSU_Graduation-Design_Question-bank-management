@@ -245,6 +245,27 @@
     margin-left: 30rpx;
     margin-top: 20rpx;
 }
+.pop_circle4{
+    width: 100rpx;
+    height: 60rpx;
+    border: 1rpx darkgray solid;
+    border-radius: 20rpx;
+    background-color: #3399FF;
+    margin-left: 30rpx;
+    margin-top: 20rpx;
+}
+.datiType4{
+    margin-left: 270rpx;
+    margin-top: 20rpx;
+}
+.type4{
+    margin-top: 10rpx;
+    position: absolute;
+    margin-left: 20rpx;
+    font-size: 28rpx;
+    color: white;
+    font-weight: 600;
+}
 .type3{
     margin-left: 32rpx;
     font-size: 28rpx;

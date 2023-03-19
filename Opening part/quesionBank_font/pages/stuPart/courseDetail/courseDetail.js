@@ -1,29 +1,18 @@
-// pages/stuPart/course/course.js
-import Toast from '@vant/weapp/toast/toast';
+// pages/stuPart/courseDetail/courseDetail.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        option: [
-            { text: '学期', value: 'a' },
-            { text: '2022-2023 第二学期', value: '2022-2023 第二学期' },
-            { text: '2022-2023 第一学期', value: '2022-2023 第一学期' },
-            { text: '2021-2022 第二学期', value: '2021-2022 第二学期' },
-            { text: '2021-2022 第一学期', value: '2022-2023 第一学期' },
-          ],
-          value: 'a',
-        //   value_content: '',
-      },
-    
-     // 前往课程详情页面
-     toCourseDetail(){
-       wx.navigateTo({
-         url: '/pages/stuPart/courseDetail/courseDetail',
-       })
-     },
 
+    },
+    //前往考试页面
+    toExam(){
+        wx.navigateTo({
+          url: '../myExam/myExam',
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

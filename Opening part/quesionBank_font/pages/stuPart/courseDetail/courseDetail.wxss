@@ -1,0 +1,92 @@
+/* pages/stuPart/courseDetail/courseDetail.wxss */
+.titleContainer{
+    margin-top: 10rpx;
+    position: relative;
+}
+.title_word{
+    color: chocolate;
+    font-size: 36rpx;
+    font-weight: 600;
+    font-style: italic;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 40rpx;
+
+}
+.title_line{
+    margin-top: 20rpx;
+    width:90%;
+    margin-left: 5%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+
+
+.courseContainer{
+    display: grid;
+    margin-top: 30rpx;
+}
+.courseTitle{
+    margin-left: 40rpx;
+    font-weight: 600;
+}
+.course_layoutContainer{
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    align-content: space-around;
+}
+.course_layout{
+    display: flex;
+
+}
+.course{
+    margin-left: 20rpx;
+    display: grid;
+
+}
+.course_picture{
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+    width: 650rpx;
+    height: 330rpx;
+}
+.courseinfo                                                                                                                                                                 {
+    margin-top: 20rpx ;
+    display: flex;
+}
+.courseinfo1                                                                                                                                                                  {
+    display: flex;
+}
+.courseinfo2                                                                                                                                                                  {
+    margin-top: 50rpx;
+    margin-left: 360rpx;
+    display: flex;
+}
+.examChaxun{
+    margin-left: 20rpx;
+    width: 100rpx;
+    height: 45rpx;
+    margin-top: 20rpx;
+    border-radius: 20rpx;
+    background-color: #33CCFF;
+}
+.examChaxun_word{
+    position: absolute;
+    font-size: 28rpx;
+    font-weight: 600;
+    color: white;
+    margin-top: 2rpx;
+    margin-left: 22rpx;
+}
+.Name{
+    margin-top: 20rpx;
+    margin-left: 35rpx;
+    font-weight: 600;
+    align-items: center;
+}
+.Name1{
+    margin-top: 20rpx;
+    margin-left: 35rpx;
+    font-weight: 600;
+    align-items: center;
+}

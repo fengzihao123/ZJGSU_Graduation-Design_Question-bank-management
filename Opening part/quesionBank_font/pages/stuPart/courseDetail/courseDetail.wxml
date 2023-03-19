@@ -1,0 +1,33 @@
+<!--pages/stuPart/courseDetail/courseDetail.wxml-->
+<view class="titleContainer">
+    <text class="title_word">我的课程</text>
+    <view class="title_line"></view>
+</view>
+
+<view class="courseContainer">
+    <view class="course_layoutContainer">
+        <view class="course_layout" bindtap="toCourseDetail">
+            <view class="course">
+                <image src="https://nos.netease.com/edu-image/7357a4122de84b5793d7eb9cb341fe22.jpg" class="course_picture"></image>
+                <view class="courseinfo">
+                    <text class="Name">课程名：</text>
+                    <text class="Name1">计算机网络</text>
+                </view>
+                <view class="courseinfo1">
+                    <text class="Name">班　级：</text>
+                    <text class="Name1">计科1902</text>
+                </view>
+                <view class="courseinfo1">
+                    <text class="Name">老　师：</text>
+                    <text class="Name1">张三</text>
+                </view>
+                <view class="courseinfo2" bindtap="toExam">
+                    <text class="Name">考试查询：</text>
+                    <view class="examChaxun">
+                        <text class="examChaxun_word">查询</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -29,6 +29,13 @@
                             </view>
                             <text class="type3">已答</text>
                         </view>
+
+                        <view class="datiType4">
+                        <!-- 提交 -->
+                            <view class="pop_circle4">
+                                <text class="type4">提交</text>
+                            </view>   
+                        </view>
                         
                     </view>
                     <view class="line"></view>
