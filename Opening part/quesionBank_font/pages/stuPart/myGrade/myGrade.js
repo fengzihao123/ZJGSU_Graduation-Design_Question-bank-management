@@ -1,11 +1,18 @@
 // pages/stuPart/myGrade/myGrade.js
+// 引入
+import * as echarts from '../../../ec-canvas/echarts'
+let chart = null
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        active: 'grade'
+        active: 'grade',
+        values:'70',
+        ec:{
+          onInit: initChart
+        }
     },
     //页面跳转
     onChange(event) {
@@ -20,6 +27,9 @@ Page({
             })
         }
       },
+     
+        
+    
 
     /**
      * 生命周期函数--监听页面加载
@@ -39,6 +49,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+
 
     },
 
@@ -76,4 +87,35 @@ Page({
     onShareAppMessage: function () {
 
     }
+    
 })
+ // 初始化
+ function initChart(canvas,width,height,dpr){
+  chart = echarts.init(canvas,null,{
+    width:width,
+    height:height,
+    devicePixelRatio:dpr
+  })
+  canvas.setChart(chart)
+  let option = getOption() //echarts 的配置信息
+
+  chart.setOption(option)
+  return chart
+}
+function  getOption(){
+  let v = getCurrentPages()
+  console.log(v[0].data.values)
+  return {
+    xAxis:{
+      type: 'category',
+      data:['第一次','第二次','第三次']
+    },
+    yAxis:{
+      type:'value'
+    },
+    series:[{
+      data:[67,v[0].data.values,82],
+      type: 'line'
+    }]
+  }
+}

@@ -1,5 +1,6 @@
 {
     "pages": [  
+        "pages/stuPart/myGrade/myGrade",
         "pages/stuPart/courseDetail/courseDetail",
         "pages/stuPart/myExam/myExam",
         "pages/stuPart/myCourse/myCourse",
@@ -16,7 +17,7 @@
         "pages/teaPart/gradeGM/gradeGM",
         "pages/logs/logs",
         "pages/teaPart/studentGM/studentGM",
-        "pages/stuPart/myGrade/myGrade",
+        
         "pages/stuPart/questionCollection/questionCollection"
         
     ],

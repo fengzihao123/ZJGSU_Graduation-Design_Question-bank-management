@@ -4,3 +4,13 @@
   <van-tabbar-item name="exam" icon="/static/images/icon/exam.png">考试</van-tabbar-item>
   <van-tabbar-item name="grade" icon="/static/images/icon/grade_select.png">成绩</van-tabbar-item>
 </van-tabbar>
+
+<view class="titleContainer">
+    <text class="title_word">我的成绩</text>
+    <view class="title_line"></view>
+</view>
+
+<view class="my_chart">
+  <ec-canvas id="mychart_dom" canvas_id="mychart" ec="{{ec}}"></ec-canvas>
+</view>
+
