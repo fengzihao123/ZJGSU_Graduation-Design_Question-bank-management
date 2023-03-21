@@ -56,16 +56,16 @@
     <!-- 输入框 -->
     <van-cell-group class="cell">
         <van-field
-            value="{{ student_num_value }}"
-            placeholder="请输入学号"
+            value="{{ teacher_num_value }}"
+            placeholder="请输入工号"
             label="工号"
-            bind:change="student_num"
+            bind:change="teacher_num"
         />
         <van-field
-            value="{{ student_pwd_value }}"
+            value="{{ teacher_pwd_value }}"
             placeholder="请输入密码"
             label="密码"
-            bind:change="student_pwd"
+            bind:change="teacher_pwd"
         />
     </van-cell-group>
     <van-button type="primary" class="login_button" bindtap="tea_login">登录</van-button>

@@ -1,11 +1,12 @@
 {
     "pages": [  
+        "pages/stuPart/myCourse/myCourse",
+        "pages/login/login",
         "pages/stuPart/myGrade/myGrade",
         "pages/stuPart/courseDetail/courseDetail",
         "pages/stuPart/myExam/myExam",
-        "pages/stuPart/myCourse/myCourse",
+        
         "pages/stuPart/course/course",
-        "pages/login/login",
         "pages/stuPart/examing/examing",
         "pages/stuPart/examDetail/examDetail",
         "pages/stuPart/historyError/historyError",

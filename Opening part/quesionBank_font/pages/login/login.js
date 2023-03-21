@@ -1,4 +1,7 @@
 // pages/login/student_login/student_login.js
+
+import request from '../../utils/request'
+
 Page({
 
     /**
@@ -8,17 +11,41 @@ Page({
         is_student: true,
         is_teacher: false,
         student_pwd_value: '',
-        student_pwd_value: '',
+        student_num_value: '',
+        teacher_pwd_value: '',
+        teacher_num_value: '',
       },
     // 学生学号获取
       student_num(event) {
         // event.detail 为当前输入的值
-        console.log(event.detail);
+        let student_num_value = event.detail
+        this.setData({
+          student_num_value
+        })
       },
     //   学生密码获取
       student_pwd(event) {
         // event.detail 为当前输入的值
-        console.log(event.detail);
+        let student_pwd_value = event.detail
+        this.setData({
+          student_pwd_value
+        })
+      },
+
+      // 教工号获取
+      teacher_num(event) {
+        // event.detail 为当前输入的值
+        let teacher_num_value = event.detail
+        this.setData({
+          teacher_num_value
+        })
+      },
+    //   教师密码获取
+      teacher_pwd(event) {
+        let teacher_pwd_value = event.detail
+        this.setData({
+          teacher_pwd_value
+        })
       },
 
     /**
@@ -46,16 +73,60 @@ Page({
       },
 
       // 学生登录
-      stu_login(){
-        wx.navigateTo({
-          url: '../stuPart/myCourse/myCourse',
-        })
+      async stu_login(){
+        let result = await request('/student/user/login',{stuId:'1911060118',stuPwd:'splendid1013'})
+        console.log(result.result)
+        if(this.data.student_num_value.length == 0){
+          wx.showToast({
+            title: '学号为空',
+            icon: 'none'
+          })
+        }else if(this.data.student_pwd_value.length == 0){
+          wx.showToast({
+            title: '密码为空',
+            icon: 'none'
+          })
+        }else {
+            if(result.result == true){
+              wx.navigateTo({
+                url: '../stuPart/myCourse/myCourse',
+              })
+            }else if(result.result == false){
+              wx.showToast({
+                title: '学号或密码错误',
+                icon: 'none',
+              })
+          }
+        }
+        
+        
       },
       // 教师登录
-      tea_login(){
-        wx.switchTab({
-          url: '../teaPart/bankGM/bankGM',
-        })
+      async tea_login(){
+        let result = await request('/teacher/user/login',{stuId:'958608363',stuPwd:'a123456'})
+        console.log(result.result)
+        if(this.data.teacher_num_value.length == 0){
+          wx.showToast({
+            title: '教工号为空',
+            icon: 'none'
+          })
+        }else if(this.data.teacher_pwd_value.length == 0){
+          wx.showToast({
+            title: '密码为空',
+            icon: 'none'
+          })
+        }else {
+            if(result.result == true){
+              wx.switchTab({
+                url: '/pages/teaPart/bankGM/bankGM',
+              })
+            }else if(result.result == false){
+              wx.showToast({
+                title: '工号或密码错误',
+                icon: 'none',
+              })
+          }
+        }
       },
 
     onLoad: function (options) {
