@@ -8,6 +8,7 @@ Page({
     data: {
         active: 'exam',
         examList:[],
+        curName:'',
         option: [
           { text: '学期', value: 'a' },
           { text: '2022-2023 第二学期', value: '2022-2023 第二学期' },
@@ -44,14 +45,20 @@ Page({
 
       //考试列表获取
       async getExamList(){
-        let examList = await re
+        let examList = await request('/student/exam/getExamList',{stuId:'1911060118'})
+        let courseList = await request('/student/course/getCourse',{curId:examList.examList.curId})
+        let curName = courseList.curName
+        this.setData({
+          examList,
+          curName
+        })
       },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      this.getExamList()
     },
 
     /**
