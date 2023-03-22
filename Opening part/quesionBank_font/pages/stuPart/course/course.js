@@ -1,11 +1,15 @@
 // pages/stuPart/course/course.js
 import Toast from '@vant/weapp/toast/toast';
+import request from '../../../utils/request'
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        courseList:[],
+        teaName:'',
+        className:'',
         option: [
             { text: '学期', value: 'a' },
             { text: '2022-2023 第二学期', value: '2022-2023 第二学期' },
@@ -24,11 +28,20 @@ Page({
        })
      },
 
+     // 课程列表获取
+     async getCourse(){
+       let courseList = await request('/student/course/getCourse',{stuId:'1911060118'})
+       
+       this.setData({
+         courseList
+       })
+     },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      this.getCourse()
     },
 
     /**

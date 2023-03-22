@@ -1,4 +1,5 @@
 // pages/stuPart/myExam/myExam.js
+import request from '../../../utils/request'
 Page({
 
     /**
@@ -6,6 +7,7 @@ Page({
      */
     data: {
         active: 'exam',
+        examList:[],
         option: [
           { text: '学期', value: 'a' },
           { text: '2022-2023 第二学期', value: '2022-2023 第二学期' },
@@ -38,6 +40,11 @@ Page({
         wx.navigateTo({
           url: '/pages/stuPart/examDetail/examDetail',
         })
+      },
+
+      //考试列表获取
+      async getExamList(){
+        let examList = await re
       },
 
     /**

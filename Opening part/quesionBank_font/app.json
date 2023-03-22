@@ -1,14 +1,17 @@
 {
     "pages": [  
+        "pages/stuPart/myExam/myExam",
         "pages/stuPart/myGrade/myGrade",
         "pages/stuPart/course/course",
+ 
+        
         "pages/stuPart/myCourse/myCourse",
         "pages/stuPart/setting/setting",
         
         "pages/login/login",
   
         "pages/stuPart/courseDetail/courseDetail",
-        "pages/stuPart/myExam/myExam",
+      
         
         
         "pages/stuPart/examing/examing",

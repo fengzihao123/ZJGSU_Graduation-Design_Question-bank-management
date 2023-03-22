@@ -140,7 +140,6 @@
     font-weight: 600;
 }
 .exam3_word{
-
     font-size: 32rpx;
     margin-left: 40rpx;
     font-weight: 600;
