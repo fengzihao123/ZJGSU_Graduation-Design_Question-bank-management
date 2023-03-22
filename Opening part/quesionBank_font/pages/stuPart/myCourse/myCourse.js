@@ -3,6 +3,8 @@
 // 引用导航栏
 import {studentBar} from '../../../utils/tabBar.js'
 
+import request from '../../../utils/request'
+
 Page({
 
     /**
@@ -10,7 +12,9 @@ Page({
      */
     data: {
         active: 'info',
-        show: false
+        show: false,
+        stuInfo:[],
+        className:''
     },
     //页面跳转
     onChange(event) {
@@ -24,6 +28,17 @@ Page({
               url: '../myGrade/myGrade',
             })
         }
+      },
+
+    async getStuInfo(){
+      let stuInfo = await request('/student/user/userInfo',{stuId:'1911060118'}) 
+      let className = await request('/student/user/class',{classId:stuInfo.classId})
+      this.setData({
+        stuInfo,
+        className
+      })
+      stuInfo.className = className.className
+      wx.setStorageSync('stuInfo', stuInfo)
       },
 
       //课程说明  弹窗弹出
@@ -76,6 +91,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      this.getStuInfo()
 
     },
 

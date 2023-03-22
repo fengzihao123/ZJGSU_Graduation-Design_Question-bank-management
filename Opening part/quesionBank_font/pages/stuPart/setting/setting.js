@@ -5,8 +5,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-        value_realName:'',
         gender: '',
+        value_phone:'',
+        stuInfo:[],
         option1: [
             { text: '学院', value: 'a' },
             { text: '工商管理学院', value: '工商管理学院' },
@@ -80,6 +81,13 @@ Page({
     onChange_pick(event){
         console.log("性别："+ event.detail)
     },
+    // 电话号码
+    onChange_Phone(event){
+        let value_phone = event.detail
+        this.setData({
+            value_phone
+        })
+    },
 
 
 
@@ -91,11 +99,29 @@ Page({
         })
     },
 
+    // 获取本地学生信息
+    getStuInfo(){
+       let stuInfo = wx.getStorageSync('stuInfo')
+       this.setData({
+           stuInfo
+       })
+       if(stuInfo.gender == false){
+           this.setData({
+               gender:'男'
+           })
+       }else{
+        this.setData({
+            gender:'女'
+        })
+       }
+    },
+    
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.getStuInfo()
     },
 
     /**

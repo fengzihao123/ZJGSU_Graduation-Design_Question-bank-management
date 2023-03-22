@@ -11,7 +11,7 @@
         <van-cell-group class="RBICon2Input">
             <van-field 
                 size="large"
-                value="{{ value_realName }}"
+                value="{{ stuInfo.stuName }}"
                 placeholder="请输入真实姓名"
                 border="{{ false }}"
                 bind:change="onChange_realName"
@@ -38,7 +38,7 @@
                 required="true"    
                 type="number"
                 size="normal"
-                value="{{ value_Phone }}"
+                value="{{ stuInfo.phoneNum }}"
                 placeholder="请输入手机号"
                 border="{{ false }}"
                 bind:change="onChange_Phone"
@@ -62,19 +62,19 @@
     <view class="pickResult">
         <view class="wordStyle">
             <text class="wordStyleTitle">学院：</text>
-            <text class="wordStyleContent">{{value1_content}}计算机与信息工程学院</text>
+            <text class="wordStyleContent">{{stuInfo.collegeName}}</text>
         </view>
         <view class="wordStyle">
             <text class="wordStyleTitle">专业：</text>
-            <text class="wordStyleContent">{{value2_content}}计算机科学</text>
+            <text class="wordStyleContent">{{stuInfo.major}}</text>
         </view>
         <view class="wordStyle">
             <text class="wordStyleTitle">年级：</text>
-            <text class="wordStyleContent">{{value3_content}}2019级</text>
+            <text class="wordStyleContent">{{stuInfo.grade}}</text>
         </view>
         <view class="wordStyle">
             <text class="wordStyleTitle">班级：</text>
-            <text class="wordStyleContent">{{value4_content}}计科1902</text>
+            <text class="wordStyleContent">{{stuInfo.className}}</text>
         </view>
     </view>
 

@@ -1,16 +1,20 @@
 {
     "pages": [  
-        "pages/stuPart/myCourse/myCourse",
-        "pages/login/login",
         "pages/stuPart/myGrade/myGrade",
+        "pages/stuPart/course/course",
+        "pages/stuPart/myCourse/myCourse",
+        "pages/stuPart/setting/setting",
+        
+        "pages/login/login",
+  
         "pages/stuPart/courseDetail/courseDetail",
         "pages/stuPart/myExam/myExam",
         
-        "pages/stuPart/course/course",
+        
         "pages/stuPart/examing/examing",
         "pages/stuPart/examDetail/examDetail",
         "pages/stuPart/historyError/historyError",
-        "pages/stuPart/setting/setting",
+        
         "pages/teaPart/bankGM/bankGM",
         "pages/teaPart/courseGM/courseGM",
         "pages/teaPart/examGM/examGM",

@@ -12,7 +12,7 @@
                 <view class="con1" bindtap="getUserinfo">
                 <!-- 用户名 -->
                 <text class="username">
-                {{userInfo.nickName?userInfo.nickName:'张三'}}
+                {{stuInfo.stuName?stuInfo.stuName:'张三'}}
                 </text>
                 <!-- 修改资料图标 -->
                 <text class="iconfont icon-xiugai  xiugai" bindtap="toSetting">
@@ -21,10 +21,10 @@
                 </view>
                 <view class="con3">
                     <view class="con4">
-                        <!-- 公司职位信息填写 -->
-                        <text class="infocompany">计科1902</text>
-                        <!-- 公司职位信息填写 -->
-                        <text class="infoperson">1911060118</text>
+                        <!-- 班级信息填写 -->
+                        <text class="infocompany">{{className.className?className.className:'计科1902'}}</text>
+                        <!-- 学号信息填写 -->
+                        <text class="infoperson">{{stuInfo.stuId?stuInfo.stuId:'1911060118'}}</text>
                     </view>
                      
                     <view class="resumeChangeBack" bindtap="toSetting">

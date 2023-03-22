@@ -1,6 +1,7 @@
 // pages/stuPart/myGrade/myGrade.js
 // 引入
 import * as echarts from '../../../ec-canvas/echarts'
+import request from '../../../utils/request'
 let chart = null
 Page({
 
@@ -8,8 +9,14 @@ Page({
      * 页面的初始数据
      */
     data: {
+        grade:[],
+        test:['a','b'],
+        gradeList:[],
+        courseNameList:[],
+        course:[],
         active: 'grade',
         values:'70',
+        
         ec:{
           onInit: initChart
         }
@@ -27,6 +34,27 @@ Page({
             })
         }
       },
+
+      // 成绩查询
+      async getGrade(){
+        let grade = await request('/student/grade/getGrade',{stuId:'1911060118'})
+        let course = await request('/student/course/getCourse',{stuId:'1911050119'})
+        let gradeList = []
+        let courseNameList = []
+        for(var i = 0; i < 3 ;i++ ){
+          gradeList.push(grade.score)
+          courseNameList.push(course.curName)
+        }
+        wx.setStorageSync('gradeList',gradeList)
+        wx.setStorageSync('courseNameList',courseNameList)
+        this.setData({
+          grade,
+          course,
+          gradeList,
+          courseNameList
+        })
+        
+      },
      
         
     
@@ -35,7 +63,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      this.getGrade()
     },
 
     /**
@@ -102,19 +130,21 @@ Page({
   chart.setOption(option)
   return chart
 }
-function  getOption(){
-  let v = getCurrentPages()
-  console.log(v[0].data.values)
+ function  getOption(){
+  // let v =   getCurrentPages()
+  // console.log(v[0].data)
+  let gradeList = wx.getStorageSync('gradeList')
+  let courseNameList = wx.getStorageSync('courseNameList')
   return {
     xAxis:{
       type: 'category',
-      data:['第一次','第二次','第三次']
+      data:courseNameList
     },
     yAxis:{
       type:'value'
     },
     series:[{
-      data:[67,v[0].data.values,82],
+      data:gradeList,
       type: 'line'
     }]
   }
