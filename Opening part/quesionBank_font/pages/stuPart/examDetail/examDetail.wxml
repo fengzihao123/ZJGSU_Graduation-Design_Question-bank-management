@@ -5,24 +5,24 @@
 </view>
 
 <view class="examDetailContainer">
-<text class="examTab">试卷列表/计算机网络</text>
+<text class="examTab">试卷列表/{{curName}}</text>
 <view class="boder1">
     <view class="examHead">
-        <text class="examName">计算机网络</text>
+        <text class="examName">{{curName}}</text>
         <view class="border_1">
             <view class="Cotaniner_zongfen" >
                 <text class="zongfen_word">总分</text>
             </view>
             <view class="Cotaniner_fenshu" >
-                <text class="fenshu_word">100</text>
+                <text class="fenshu_word">{{examDetail.examDetail.totalPoint}}</text>
             </view> 
         </view>
     </view>   
     <view class="examBody">
             <text class="update_word">更新于</text>
-            <text class="update_word">2023-01-08</text>
+            <text class="update_word">{{examDetail.examDetail.startTime}}</text>
             <view class="examType">
-            <text class="examType_word">期末考试</text>
+            <text class="examType_word">{{examDetail.examDetail.examType}}</text>
             </view>
             <view class="examStart" bindtap="toExaming">
             <text class="examStart_word">开始考试</text>
@@ -45,13 +45,13 @@
 <view class="examBodyContainer">
     <view class="Bodyborder">
         <view class="border_3">
-            <text class="bb_word1">计算机网络</text>
+            <text class="bb_word1">{{curName}}</text>
             <text class="iconfont icon-xiugai07 iconxiugai"></text>
             <view class="word2Container">
-                <text class="bb_word2">100</text>
+                <text class="bb_word2">{{examDetail.examDetail.totalPoint}}</text>
                 <text class="bb_word2">分</text>
                 <text class="bb_word2">/</text>
-                <text class="bb_word2">120</text>
+                <text class="bb_word2">{{examDetail.examDetail.duration}}</text>
                 <text class="bb_word2">分钟</text>
             </view> 
         </view>
@@ -61,12 +61,12 @@
             <view class="DXCon1">
                 <text class="danxuanti_word1">单选题</text>
                 <text class="danxuanti_word1">(共</text>
-                <text class="danxuanti_word1">20</text>
+                <text class="danxuanti_word1">{{examDetail.examDetail.danxuan}}</text>
                 <text class="danxuanti_word1">题</text>
             </view>
             <view class="DXCon2">
                 <text class="danxuanti_word2">共计</text>
-                <text class="danxuanti_word2">20</text>
+                <text class="danxuanti_word2">{{examDetail.examDetail.DanXScore}}</text>
                 <text class="danxuanti_word2">分)</text>
             </view>
         </view>
@@ -76,12 +76,12 @@
             <view class="DXCon1">
                 <text class="duoxuanti_word1">多选题</text>
                 <text class="duoxuanti_word1">(共</text>
-                <text class="duoxuanti_word1">5</text>
+                <text class="duoxuanti_word1">{{examDetail.examDetail.duoxuan}}</text>
                 <text class="duoxuanti_word1">题</text>
             </view>
             <view class="DXCon2">
                 <text class="duoxuanti_word2">共计</text>
-                <text class="duoxuanti_word2">10</text>
+                <text class="duoxuanti_word2">{{examDetail.examDetail.DuoXScore}}</text>
                 <text class="duoxuanti_word2">分)</text>
             </view>
         </view>
@@ -91,12 +91,12 @@
             <view class="DXCon1">
                 <text class="tiankongti_word1">填空题</text>
                 <text class="tiankongti_word1">(共</text>
-                <text class="tiankongti_word1">5</text>
+                <text class="tiankongti_word1">{{examDetail.examDetail.tiankong}}</text>
                 <text class="tiankongti_word1">题</text>
             </view>
             <view class="DXCon2">
                 <text class="tiankongti_word2">共计</text>
-                <text class="tiankongti_word2">10</text>
+                <text class="tiankongti_word2">{{examDetail.examDetail.TKScore}}</text>
                 <text class="tiankongti_word2">分)</text>
             </view>
         </view>
@@ -106,12 +106,12 @@
             <view class="DXCon1">
                 <text class="jisuanti_word1">计算题</text>
                 <text class="jisuanti_word1">(共</text>
-                <text class="jisuanti_word1">3</text>
+                <text class="jisuanti_word1">{{examDetail.examDetail.jisuan}}</text>
                 <text class="jisuanti_word1">题</text>
             </view>
             <view class="DXCon2">
                 <text class="jisuanti_word2">共计</text>
-                <text class="jisuanti_word2">30</text>
+                <text class="jisuanti_word2">{{examDetail.examDetail.JSScore}}</text>
                 <text class="jisuanti_word2">分)</text>
             </view>
         </view>
@@ -121,16 +121,31 @@
             <view class="DXCon1">
                 <text class="wendati_word1">问答题</text>
                 <text class="wendati_word1">(共</text>
-                <text class="wendati_word1">2</text>
+                <text class="wendati_word1">{{examDetail.examDetail.wenda}}</text>
                 <text class="wendati_word1">题</text>
             </view>
             <view class="DXCon2">
                 <text class="wendati_word2">共计</text>
-                <text class="wendati_word2">30</text>
+                <text class="wendati_word2">{{examDetail.examDetail.WDScore}}</text>
                 <text class="wendati_word2">分)</text>
             </view>
         </view>
         <view class="line1"></view>
+<!-- 编程题 -->
+        <view class="biancheng">
+            <view class="DXCon1">
+                <text class="wendati_word1">编程题</text>
+                <text class="wendati_word1">(共</text>
+                <text class="wendati_word1">{{examDetail.examDetail.biancheng}}</text>
+                <text class="wendati_word1">题</text>
+            </view>
+            <view class="DXCon2">
+                <text class="wendati_word2">共计</text>
+                <text class="wendati_word2">{{examDetail.examDetail.BCScore}}</text>
+                <text class="wendati_word2">分)</text>
+            </view>
+        </view>
     </view>
+    
     
 </view>

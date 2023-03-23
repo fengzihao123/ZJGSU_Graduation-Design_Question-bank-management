@@ -1,4 +1,5 @@
 // pages/stuPart/examDetail/examDetail.js
+import request from '../../../utils/request'
 Page({
 
     /**
@@ -6,6 +7,8 @@ Page({
      */
     data: {
         show: false,
+        examDetail:[],
+        curName:''
     },
 
     kaoshengxuzhi() {
@@ -23,11 +26,22 @@ Page({
         })
       },
 
+      // 获取考试详情
+      async getExamDetail(){
+        let examDetail = await request('/student/exam/examDetail',{examId:'11',stuId:'1911060118'})
+        let courseList = await request('/student/course/getCourse',{curId:examDetail.examDetail.curId})
+        let curName = courseList.curName
+        this.setData({
+          examDetail,
+          curName
+        })
+      },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      this.getExamDetail()
     },
 
     /**
