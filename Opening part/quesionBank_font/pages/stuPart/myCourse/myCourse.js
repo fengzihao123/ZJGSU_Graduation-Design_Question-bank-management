@@ -14,7 +14,8 @@ Page({
         active: 'info',
         show: false,
         stuInfo:[],
-        className:''
+        className:'',
+        
     },
     //页面跳转
     onChange(event) {
@@ -84,6 +85,7 @@ Page({
         })
       },
 
+      
       
 
 
