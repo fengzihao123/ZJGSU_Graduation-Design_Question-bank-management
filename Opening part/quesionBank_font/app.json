@@ -1,5 +1,6 @@
 {
     "pages": [  
+        "pages/stuPart/examing/examing",
         "pages/stuPart/myCourse/myCourse",
         "pages/stuPart/questionCollection/questionCollection",
         "pages/stuPart/myExam/myExam",
@@ -8,7 +9,7 @@
         "pages/stuPart/setting/setting",   
         "pages/login/login",
         "pages/stuPart/courseDetail/courseDetail",
-        "pages/stuPart/examing/examing",
+
         "pages/stuPart/examDetail/examDetail",
         "pages/stuPart/historyError/historyError",  
         "pages/teaPart/bankGM/bankGM",

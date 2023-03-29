@@ -2,7 +2,8 @@
   "usingComponents": 
   {
     "van-popup": "@vant/weapp/popup/index",
-    "van-dialog": "@vant/weapp/dialog/index"
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-count-down": "@vant/weapp/count-down/index"
   },
   "navigationBarTitleText": "考试中"
 }

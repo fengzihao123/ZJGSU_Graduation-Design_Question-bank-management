@@ -27,13 +27,13 @@
     position: fixed;
     margin-top: 7rpx;
     right: 0;
-    margin-right: 140rpx;
+    margin-right: 160rpx;
 }
 .time_word1{
     position: fixed;
     right: 0;
-    margin-top: 7rpx;
-    margin-right: 85rpx;
+    margin-top: 10rpx;
+    margin-right: 35rpx;
 }
 .time_word2{
     position: fixed;
@@ -278,72 +278,34 @@
     height:2rpx;
     background:#d3d1d1;
 }
-.timu1Con{
+.timuCon{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: space-around;
 }
-.timu1_word{
+.timu_word{
     margin-left: 30rpx;
     font-size: 28rpx;
     font-weight: 600;
 }
-.timu2Con{
+.kuang{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: space-around;
 }
-.timu2_word{
-    margin-left: 30rpx;
+.cancle{
+    color: rgb(4, 131, 4);
     font-size: 28rpx;
+    margin-top: 20rpx;
+    margin-left: 30rpx;
     font-weight: 600;
 }
-.timu3Con{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: space-around;
-}
-.timu3_word{
+.cancle_word{
     margin-left: 30rpx;
-    font-size: 28rpx;
-    font-weight: 600;
 }
-.timu4Con{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: space-around;
-}
-.timu4_word{
-    margin-left: 30rpx;
-    font-size: 28rpx;
-    font-weight: 600;
-}
-.timu5Con{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: space-around;
-}
-.timu5_word{
-    margin-left: 30rpx;
-    font-size: 28rpx;
-    font-weight: 600;
-}
-.timu6Con{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: space-around;
-}
-.timu6_word{
-    margin-left: 30rpx;
-    font-size: 28rpx;
-    font-weight: 600;
-}
+
 
 .datiquContainer{
     margin-top: 30rpx;
