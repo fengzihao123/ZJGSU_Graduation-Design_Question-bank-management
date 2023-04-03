@@ -2,7 +2,14 @@
 
 }
 .headIcon{
-
+    margin-top: 8px;
+    font-size: 70px;
+    color: #0068D9;
+}
+.headText{
+    font-size: 60px;
+    font-weight: 600;
+    color: #0068D9;
 }
 .headContainer{
     display: flex;
