@@ -1,7 +1,8 @@
 {
     "pages": [  
-        "pages/stuPart/examing/examing",
         "pages/stuPart/myCourse/myCourse",
+        "pages/stuPart/examing/examing",
+        
         "pages/stuPart/questionCollection/questionCollection",
         "pages/stuPart/myExam/myExam",
         "pages/stuPart/myGrade/myGrade",

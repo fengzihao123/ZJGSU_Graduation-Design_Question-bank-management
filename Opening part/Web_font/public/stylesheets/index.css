@@ -1,0 +1,15 @@
+.container{
+
+}
+.headIcon{
+
+}
+.headContainer{
+    display: flex;
+    margin-left: 100px;
+}
+.headBorder{
+    width: 300px;
+    height: 300px;
+    border: 10px solid gainsboro;
+}
