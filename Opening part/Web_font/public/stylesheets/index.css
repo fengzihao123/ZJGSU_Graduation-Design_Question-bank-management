@@ -1,22 +1,182 @@
-.container{
-
+                /*       todo     头部                 */
+*{
+    margin: 0;
+    padding: 0;
 }
 .headIcon{
-    margin-top: 8px;
-    font-size: 70px;
+    margin-top: 5px;
+    font-size: 55px;
     color: #0068D9;
 }
 .headText{
-    font-size: 60px;
+    font-size: 46px;
     font-weight: 600;
     color: #0068D9;
 }
 .headContainer{
+    margin-top: 22px;
     display: flex;
-    margin-left: 100px;
+    margin-left: 6%;
 }
-.headBorder{
-    width: 300px;
-    height: 300px;
-    border: 10px solid gainsboro;
+.headBorder1{
+    background-color: #3489E6;
+    position: absolute;
+    margin-top: 12px;
+    right: 225px;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid gainsboro;
+}
+.headBorder1Text{
+    color: white;
+    position: absolute;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 4px;
+    margin-left: 26px;
+
+}
+.headBorder2{
+    position: absolute;
+    margin-top: 12px;
+    right: 124px;
+    width: 99px;
+    height: 39px;
+    border-radius: 5px;
+    border: 2px solid gainsboro;
+}
+.headBorder2Text{
+    position: absolute;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 4px;
+    margin-left: 26px;
+}
+
+                /*         todo   中部                 */
+.bodyContainer{
+    overflow: hidden;
+    display: flex;
+    margin-top: 30px;
+    width: 88%;
+    height: 700px;
+    margin-left: 6%;
+    background-color: #F2F2F2;
+    border: 1px solid #BBBBBB;
+}
+.bodyBackgroundPic{
+    margin-top: 15px;
+    width: 1100px;
+    height: 670px;
+    margin-left: 15px;
+}
+.bodyLoginContainer{
+    margin-left: 15px;
+    width: 542px;
+    height: 570px;
+    margin-top: 15px;
+    background-color: white;
+    padding-top: 100px;
+    border: 1px solid #BBBBBB;
+
+}
+.loginText{
+    font-size: 28px;
+    font-weight: 600;
+    margin-left: 60px;
+    margin-top: 80px;
+}
+.userNameContainer{
+    margin-left: 15px;
+    margin-top: 20px;
+    display: flex;
+}
+.iconContainer{
+    overflow: hidden;
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 100px;
+    height: 45px;
+    padding-top: 10px;
+    border: 2px solid #BBBBBB;
+}
+.userNameIcon{
+    font-size: 30px;
+    color: darkgray;
+    margin-left: 35px;
+}
+.userNameInput{
+    font-size: 24px;
+    width: 220px;
+    height: 55px;
+    margin-top: 20px;
+    border: 2px solid #BBBBBB;
+    padding-left:80px;
+}
+.userNameInput::placeholder{
+    font-size: 24px;
+    font-weight: 300;
+    margin-left: 20px;
+    color: #BBBBBB;
+}
+
+.passwordContainer{
+    margin-left: 15px;
+    margin-top: 10px;
+    display: flex;
+}
+.passwordIcon{
+    font-size: 34px;
+    color: darkgray;
+    margin-left: 35px;
+}
+.passwordInput{
+    font-size: 24px;
+    width: 220px;
+    height: 55px;
+    margin-top: 20px;
+    border: 2px solid #BBBBBB;
+    padding-left:80px;
+}
+.passwordInput::placeholder{
+    font-size: 24px;
+    font-weight: 300;
+    margin-left: 20px;
+    color: #BBBBBB;
+}
+.forgetContainer{
+    display: grid;
+    margin-top: 16px;
+}
+.forgetPwd{
+    color: #0068D9;
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 365px;
+}
+.loginInput{
+    font-size: 24px;
+    font-weight: 600;
+    background-color: #0068D9;
+    color: white;
+    margin-top: 22px;
+    width: 410px;
+    height: 55px;
+    border: 1px solid #BBBBBB;
+    margin-left: 65px;
+}
+.tipsContainer{
+    padding-top: 25px;
+    width: 410px;
+    height: 55px;
+    border: 1px solid #BBBBBB;
+    background-color: #F2DEDE;
+    margin-top: 30px;
+    margin-left: 65px;
+}
+.tipsText{
+    font-size: 22px;
+    margin-left: 30px;
+    color: #A94442;
 }

@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1727485",
+      "name": "242锁定",
+      "font_class": "suoding",
+      "unicode": "e8d4",
+      "unicode_decimal": 59604
+    },
+    {
+      "icon_id": "10593837",
+      "name": "用户-角色-用户名-单人_jurassic",
+      "font_class": "jurassic_user",
+      "unicode": "e6a5",
+      "unicode_decimal": 59045
+    },
+    {
       "icon_id": "30955454",
       "name": "分类",
       "font_class": "nav-01",

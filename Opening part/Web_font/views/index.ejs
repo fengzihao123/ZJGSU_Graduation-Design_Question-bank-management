@@ -7,24 +7,58 @@
   <link rel='stylesheet' href='/stylesheets/index.css' />
 </head>
 <body>
-<div class="container">
   <!--      头部      -->
   <div class="headContainer">
 
     <i class="iconfont icon-nav-01 headIcon" ></i>
 
     <text class="headText">题库管理系统</text>
-    <div class="headBorder">
+    <div class="headBorder1">
+      <text class="headBorder1Text">登录</text>
+    </div>
+    <div class="headBorder2">
+      <text class="headBorder2Text">教师</text>
     </div>
   </div>
+
+
   <!--    中部    -->
-  <div>
-    <h1>
-      <img src="/images/login_background.jpg" >
+  <div class="bodyContainer">
+    <h1 >
+      <img src="/images/login_background.jpg" class="bodyBackgroundPic">
     </h1>
+    <div class="bodyLoginContainer">
+      <text class="loginText">用户登录</text>
+
+
+      <form action="/admin/main" method="post">
+        <!--  todo 用户名    -->
+        <div class="userNameContainer">
+          <div class="iconContainer">
+            <i class="iconfont icon-jurassic_user userNameIcon"></i>
+          </div>
+          <input type="text" class="userNameInput" placeholder="用户名" name="teaId">
+        </div>
+
+        <!--  todo 密码    -->
+        <div class="passwordContainer">
+          <div class="iconContainer">
+            <i class="iconfont icon-suoding passwordIcon"></i>
+          </div>
+          <input type="password" class="passwordInput" placeholder="密　码" name="teaPwd">
+        </div>
+        <div class="forgetContainer">
+          <text class="forgetPwd">忘记密码了?</text>
+          <input type="submit" class="loginInput" value="登录">
+        </div>
+        <div class="tipsContainer">
+          <text class="tipsText">用户名为学号/教工号</text>
+        </div>
+      </form>
+    </div>
   </div>
-  <form action="" method="post"></form>
-</div>
+
+
 
 </body>
 </html>
