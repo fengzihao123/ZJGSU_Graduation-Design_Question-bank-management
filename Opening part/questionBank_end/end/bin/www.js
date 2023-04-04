@@ -4,7 +4,7 @@ const http = require("http");
 const serverHandler = require('../app')
 
 // 端口 3000
-const PORT = 3000;
+const PORT = 3001;
 
 const server = http.createServer(serverHandler);
 
