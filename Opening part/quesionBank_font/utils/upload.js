@@ -9,7 +9,7 @@ export default (url , data = {} , method = 'post') => {
          method,
          //请求头  注：在get请求中可有可无，但post需要
         header: {
-            'Content-Type': 'application/x-www-form-urlencoded' // 默认值
+            'Content-Type': 'application/json' // 默认值
           },
          success: (res) => {
              resolve(res.data);//resolve修改promis的状态为成功状态resolved

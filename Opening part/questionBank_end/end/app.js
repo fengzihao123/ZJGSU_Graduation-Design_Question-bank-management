@@ -44,11 +44,13 @@ const serverHandler = (req, res) => {
         req.body = postData;
 
         //教师相关的路由
-        const teacherData = handleTeacherRoute(req, res);
-        if(teacherData){
-            res.end(
-                JSON.stringify(teacherData)
-            );
+        const teacherDataPromise = handleTeacherRoute(req, res);
+        if(teacherDataPromise){
+            teacherDataPromise.then(teacherData =>{
+                res.end(
+                    JSON.stringify(teacherData)
+                );
+            })
             return ;
         }
 

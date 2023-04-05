@@ -78,7 +78,7 @@
                 <text class="iconfont icon-shezhi iconMyserve"></text>
                 <text class="myServeText">设置</text>
             </view>
-            <view class="mCon" bindtap="quit">
+            <view class="mCon" bindtap="testPost">
                 <text class="iconfont icon-neizhaorencaiku iconMyserve"></text>
                 <text class="myServeText">退出</text>   
             </view>

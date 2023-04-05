@@ -4,6 +4,7 @@
 import {studentBar} from '../../../utils/tabBar.js'
 
 import request from '../../../utils/request'
+import upload from '../../../utils/upload'
 
 Page({
 
@@ -85,7 +86,7 @@ Page({
         })
       },
 
-      
+  
       
 
 
