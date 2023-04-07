@@ -1,0 +1,89 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.content{
+    width: 100%;
+    height: 100%;
+}
+.content-left{
+    width: 19%;
+    height: 600px;
+    background-color: #1c232f;
+    /*左浮动*/
+    float: left;
+}
+.content-right{
+    width: 81%;
+    height: 600px;
+    background-color: #6495ED;
+    /*右浮动*/
+    float: right;
+}
+.leftTitle{
+    height: 50px;
+    width: 100%;
+}
+.leftTitle>a{
+    display: block;
+    width: 100%;
+    height: 50px;
+    /*垂直居中*/
+    line-height: 50px;
+    /*水平居中*/
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    /* 去掉下划线*/
+    text-decoration: none;
+}
+.seg{
+    height: 1px;
+    width: 98%;
+    background-color: black;
+}
+.nav{
+    margin: 5px 0;
+}
+/*主标题*/
+.nav-title{
+    height: 40px;
+    width: 100%;
+    color: white;
+    /*垂直居中*/
+    line-height: 40px;
+    /*水平居中*/
+    text-align: center;
+    /*当鼠标滑过主标题时,显示手型*/
+    cursor: pointer;
+}
+.nav-content{
+    width: 100%;
+    height: 100%;
+    background-color: #0c1119;
+}
+.nav-content>a{
+    display: block;
+    height: 30px;
+    width: 100%;
+    color: #CCCCCC;
+    text-decoration: none;
+    /*垂直居中*/
+    line-height: 30px;
+    /*水平居中*/
+    text-align: center;
+    font-size: 14px;
+}
+.nav-content>a:hover{
+    display: block;
+    height: 30px;
+    width: 100%;
+    color: #FFFFFF;
+    text-decoration: none;
+    /*垂直居中*/
+    line-height: 30px;
+    /*水平居中*/
+    text-align: center;
+    background-color: #12040C;
+}
+

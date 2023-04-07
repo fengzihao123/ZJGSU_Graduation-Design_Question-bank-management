@@ -32,15 +32,16 @@ Page({
         }
       },
 
+    //学生信息完善
     async getStuInfo(){
-      let stuInfo = await request('/student/user/userInfo',{stuId:'1911060118'}) 
-      let className = await request('/student/user/class',{classId:stuInfo.classId})
-      this.setData({
-        stuInfo,
-        className
-      })
-      stuInfo.className = className.className
+      let stuInfo = wx.getStorageSync('stuInfo')
+      let classData = await request('/student/user/class',{classId:stuInfo[0].classId})
+      stuInfo[0].className = classData.data[0].className
+      console.log(stuInfo)
       wx.setStorageSync('stuInfo', stuInfo)
+      this.setData({
+        stuInfo
+      })
       },
 
       //课程说明  弹窗弹出

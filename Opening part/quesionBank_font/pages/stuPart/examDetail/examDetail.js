@@ -8,7 +8,7 @@ Page({
     data: {
         show: false,
         examDetail:[],
-        curName:''
+        examId:'',
     },
 
     kaoshengxuzhi() {
@@ -27,13 +27,10 @@ Page({
       },
 
       // 获取考试详情
-      async getExamDetail(){
-        let examDetail = await request('/student/exam/examDetail',{examId:'11',stuId:'1911060118'})
-        let courseList = await request('/student/course/getCourse',{curId:examDetail.examDetail.curId})
-        let curName = courseList.curName
+      async getExamDetail(examId){
+        let examDetail = await request('/exam/student/examDetail',{examId:examId})
         this.setData({
           examDetail,
-          curName
         })
       },
 
@@ -41,7 +38,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.getExamDetail()
+      let examId = options.examId
+      this.setData({
+        examId
+      })
+      this.getExamDetail(examId)
     },
 
     /**

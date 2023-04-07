@@ -7,26 +7,23 @@ Page({
      */
     data: {
       courseDetail:[],
-      teaName:'',
-      className:''
+      stuInfo: [],
+      curId: '',
+      teaInfo:[]
     },
     //前往考试页面
     toExam(){
         wx.navigateTo({
-          url: '../myExam/myExam',
+          url: '../myExam/myExam?curId=' + this.data.courseDetail.data[0].curId,
         })
     },
     //获取课程详情
-    async getCourseDetail(){
-      let courseDetail = await request('/student/course/getCourse',{stuId:'1911060118',curId:'123445'})
-      let teaList = await request('/teacher/user/userInfo',{teaId:courseDetail.teaId})
-      let classList = await request('/student/user/class',{classId:courseDetail.classId})
-      let className = classList.className
-      let teaName = teaList.teaInfo.teaName
+    async getCourseDetail(stuId, curId){
+      let courseDetail = await request('/course/student/getCourseDetail',{stuId:stuId,curId:curId})
+      let teaInfo = await request('/teacher/user/userInfo',{teaId:courseDetail.data[0].teaId})
       this.setData({
         courseDetail,
-        teaName,
-        className
+        teaInfo
       })
     },
 
@@ -35,7 +32,14 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.getCourseDetail()
+
+      let curId = options.curId
+      let stuInfo = wx.getStorageSync('stuInfo')
+      this.setData({
+        curId,
+        stuInfo
+      })
+      this.getCourseDetail(stuInfo[0].stuId, curId)
     },
 
     /**

@@ -16,10 +16,10 @@
 <view class="courseContainer">
     <text class="courseTitle">已加入课程：</text>
     <view class="course_layoutContainer" >
-        <view class="course_layout" wx:for="{{courseList}}" bindtap="toCourseDetail">
+        <view class="course_layout" wx:for="{{courseList.data}}" bindtap="toCourseDetail" data-index="{{index}}" data-course="{{item}}">
             <view class="course">
-                <image src="https://nos.netease.com/edu-image/7357a4122de84b5793d7eb9cb341fe22.jpg" class="course_picture"></image>
-                <text class="coureseName">计算机网络</text>
+                <image src="{{item.curImage}}" class="course_picture"></image>
+                <text class="coureseName">{{item.curName}}</text>
             </view>
         </view>
     </view>

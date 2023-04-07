@@ -20,27 +20,29 @@
     <view class="picker_line"></view>
 </view>
 
+<wxs module="tools" src="/pages/function.wxs"></wxs>
+
 <!-- 考试 --- 进行中 -->
 <view class="exam1Container">
-  <text class="exam1_word">进行中:</text>
+  <text class="exam1_word" bindtap="test">进行中:</text>
   <view class="exam1_layoutContainer">
-        <view class="exam1_layout" wx:if="{{examList.examList.status == 1}}" wx:for="{{examList}}" bindtap="toExamDetail">
+        <view class="exam1_layout" wx:if="{{item.status == 1}}" wx:for="{{examList.data}}" bindtap="toExamDetail" data-exam="{{item}}">
             <view class="exam1_layout_Container">
-                <text class="ELC_word">计算机网络</text>
-                <text class="ELC_word1">2022-2023 第一学期</text>
-                <text class="ELC_word2">期末考试</text>
+                <text class="ELC_word">{{item.curName}}</text>
+                <text class="ELC_word1">{{item.schoolTerm}}</text>
+                <text class="ELC_word2">{{item.examType}}</text>
                 <view class="timeCon">
                     <text class="iconfont icon-rili iconrili"></text>
-                    <text class="time_word">2023-01-09</text>
+                    <text class="time_word">{{tools.subStr(item.startTime,0,10)}}</text>
                 </view>
                 <view class="timeCon1">
                     <text class="iconfont icon-naozhong_o icon-naozhong_o"></text>
-                    <text class="time1_word">120</text>
+                    <text class="time1_word">{{item.duration}}</text>
                     <text class="time1_word">分钟</text>
                 </view>
                 <view class="scoreCon">
                     <text class="iconfont icon-shijuan icon-shijuan"></text>
-                    <text class="score_word">100</text>
+                    <text class="score_word">{{item.totalPoint}}</text>
                     <text class="score_word">分</text>
                 </view>
             </view>
@@ -51,23 +53,23 @@
 <view class="exam1Container">
   <text class="exam2_word">未开始:</text>
   <view class="exam1_layoutContainer">
-        <view class="exam1_layout" wx:if="{{examList.examList.status == 2}}" wx:for="{{examList}}" bindtap="toExamDetail">
+        <view class="exam1_layout" wx:if="{{item.status == 0}}" wx:for="{{examList.data}}" bindtap="toExamDetail" data-exam="{{item}}">
             <view class="exam1_layout_Container">
-                <text class="ELC_word">计算机网络</text>
-                <text class="ELC_word1">2022-2023 第一学期</text>
-                <text class="ELC_word2">期末考试</text>
+                <text class="ELC_word">{{item.curName}}</text>
+                <text class="ELC_word1">{{item.schoolTerm}}</text>
+                <text class="ELC_word2">{{item.examType}}</text>
                 <view class="timeCon">
                     <text class="iconfont icon-rili iconrili"></text>
-                    <text class="time_word">2023-01-09</text>
+                    <text class="time_word">{{tools.subStr(item.startTime,0,10)}}</text>
                 </view>
                 <view class="timeCon1">
                     <text class="iconfont icon-naozhong_o icon-naozhong_o"></text>
-                    <text class="time1_word">120</text>
+                    <text class="time1_word">{{item.duration}}</text>
                     <text class="time1_word">分钟</text>
                 </view>
                 <view class="scoreCon">
                     <text class="iconfont icon-shijuan icon-shijuan"></text>
-                    <text class="score_word">100</text>
+                    <text class="score_word">{{item.totalPoint}}</text>
                     <text class="score_word">分</text>
                 </view>
             </view>
@@ -79,23 +81,23 @@
 <view class="exam1Container">
   <text class="exam3_word">已结束:</text>
   <view class="exam1_layoutContainer">
-        <view class="exam1_layout" wx:if="{{examList.examList.status == 3}}" wx:for="{{examList}}" bindtap="toExamDetail">
+        <view class="exam1_layout"wx:if="{{item.status == 2}}" wx:for="{{examList.data}}" bindtap="toExamDetail" data-exam="{{item}}">
             <view class="exam1_layout_Container">
-                <text class="ELC_word">{{curName}}</text>
-                <text class="ELC_word1">{{examList.examList.schoolTerm}}</text>
-                <text class="ELC_word2">{{examList.examList.examType}}</text>
+                <text class="ELC_word">{{item.curName}}</text>
+                <text class="ELC_word1">{{item.schoolTerm}}</text>
+                <text class="ELC_word2">{{item.examType}}</text>
                 <view class="timeCon">
                     <text class="iconfont icon-rili iconrili"></text>
-                    <text class="time_word">{{examList.examList.startTime}}</text>
+                    <text class="time_word">{{tools.subStr(item.startTime,0,10)}}</text>
                 </view>
                 <view class="timeCon1">
                     <text class="iconfont icon-naozhong_o icon-naozhong_o"></text>
-                    <text class="time1_word">{{examList.examList.duration}}</text>
+                    <text class="time1_word">{{item.duration}}</text>
                     <text class="time1_word">分钟</text>
                 </view>
                 <view class="scoreCon">
                     <text class="iconfont icon-shijuan icon-shijuan"></text>
-                    <text class="score_word">{{examList.examList.grade}}</text>
+                    <text class="score_word">{{item.totalPoint}}</text>
                     <text class="score_word">分</text>
                 </view>
             </view>

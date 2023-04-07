@@ -1,14 +1,15 @@
 {
     "pages": [
-        "pages/teaPart/postTest/postTest",
-        "pages/stuPart/myCourse/myCourse",
-        "pages/stuPart/examing/examing",
-        "pages/stuPart/questionCollection/questionCollection",
-        "pages/stuPart/myExam/myExam",
         "pages/stuPart/myGrade/myGrade",
+        "pages/stuPart/myExam/myExam",
+        "pages/stuPart/myCourse/myCourse",
         "pages/stuPart/course/course",
-        "pages/stuPart/setting/setting",
+        "pages/stuPart/setting/setting",  
         "pages/login/login",
+        "pages/teaPart/postTest/postTest",
+        "pages/stuPart/examing/examing",
+        "pages/stuPart/questionCollection/questionCollection", 
+        
         "pages/stuPart/courseDetail/courseDetail",
         "pages/stuPart/examDetail/examDetail",
         "pages/stuPart/historyError/historyError",
@@ -19,7 +20,6 @@
         "pages/teaPart/gradeGM/gradeGM",
         "pages/logs/logs",
         "pages/teaPart/studentGM/studentGM"
-        
     ],
     "window": {
         "backgroundTextStyle": "light",

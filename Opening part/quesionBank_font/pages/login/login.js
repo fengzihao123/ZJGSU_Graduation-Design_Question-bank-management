@@ -74,8 +74,9 @@ Page({
 
       // 学生登录
       async stu_login(){
-        let result = await request('/student/user/login',{stuId:'1911060118',stuPwd:'splendid1013'})
-        console.log(result.result)
+        let stuId = this.data.student_num_value
+        let stuPwd = this.data.student_pwd_value
+        
         if(this.data.student_num_value.length == 0){
           wx.showToast({
             title: '学号为空',
@@ -87,11 +88,13 @@ Page({
             icon: 'none'
           })
         }else {
-            if(result.result == true){
+            let result = await request('/student/user/login',{stuId:stuId,stuPwd:stuPwd})
+            if(result.data.length == 1){
+              wx.setStorageSync('stuInfo', result.data)
               wx.navigateTo({
                 url: '../stuPart/myCourse/myCourse',
               })
-            }else if(result.result == false){
+            }else if(result.data.length == 0){
               wx.showToast({
                 title: '学号或密码错误',
                 icon: 'none',

@@ -1,5 +1,9 @@
 const querystring = require('querystring')
 const handleTeacherRoute = require('./src/routes/teacher');
+const handleStudentRoute = require('./src/routes/student');
+const handleCourseRoute = require('./src/routes/course');
+const handleExamRoute = require('./src/routes/exam');
+const handleGradeRoute = require('./src/routes/grade')
 
 //处理POST数据
 const getPostData = (req) => {
@@ -54,6 +58,48 @@ const serverHandler = (req, res) => {
             return ;
         }
 
+        //学生相关的路由
+        const studentDataPromise = handleStudentRoute(req, res);
+        if(studentDataPromise){
+            studentDataPromise.then(studentData =>{
+                res.end(
+                    JSON.stringify(studentData)
+                );
+            })
+            return ;
+        }
+
+        //课程相关的路由
+        const courseDataPromise = handleCourseRoute(req, res);
+        if(courseDataPromise){
+            courseDataPromise.then(courseData =>{
+                res.end(
+                    JSON.stringify(courseData)
+                );
+            })
+            return ;
+        }
+
+        //考试相关的路由
+        const examDataPromise = handleExamRoute(req, res);
+        if(examDataPromise){
+            examDataPromise.then(examData =>{
+                res.end(
+                    JSON.stringify(examData)
+                );
+            })
+            return ;
+        }
+        //成绩相关的路由
+        const gradeDataPromise = handleGradeRoute(req, res);
+        if(gradeDataPromise){
+            gradeDataPromise.then(gradeData =>{
+                res.end(
+                    JSON.stringify(gradeData)
+                );
+            })
+            return ;
+        }
         //未匹配到任何路由
         res.writeHead(404, { 'Content-Type':'text/plain'});
         res.write('404 Not Found');

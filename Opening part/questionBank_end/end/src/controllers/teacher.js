@@ -46,13 +46,33 @@ const creatNewTeacher = (teacherData) =>{
 }
 
 //更新教师信息
-const updateTeacher = (teacherData = {}) =>{
-    return true;
+const updateTeacher = (teaId, teacherData = {}) =>{
+
+    const teaPwd = teacherData.teaPwd
+    const teaName = teacherData.teaName
+    const gender = teacherData.gender
+    const phoneNum = teacherData.phoneNum
+    const createAt = Date.now()
+    const sql = `update teacher set teaPwd='${teaPwd}', teaName='${teaName}', gender=${gender}, phoneNum='${phoneNum}', createAt=${createAt} where teaId='${teaId}'`
+    return execSQL(sql).then(updateResult =>{
+        if(updateResult.affectedRows > 0){
+            return true;
+        }
+        return false;
+    }) 
+    
+
 }
 
 //删除教师信息
 const deleteTeacher = (teaId) =>{
-    return true;
+    const sql = `delete from teacher where teaId='${teaId}'`;
+    return execSQL(sql).then(deleteResult => {
+        if(deleteResult.affectedRows > 0){
+            return true;
+        }
+        return false
+    })
 }
 module.exports = {
     getTeacherLoginResult,

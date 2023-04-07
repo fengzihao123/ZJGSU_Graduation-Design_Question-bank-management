@@ -9,14 +9,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-        grade:[],
-        test:['a','b'],
+        grade:[], 
         gradeList:[],
         courseNameList:[],
-        course:[],
-        active: 'grade',
-        values:'70',
-        
         ec:{
           onInit: initChart
         }
@@ -37,22 +32,22 @@ Page({
 
       // 成绩查询
       async getGrade(){
-        let grade = await request('/student/grade/getGrade',{stuId:'1911060118'})
-        let course = await request('/student/course/getCourse',{stuId:'1911050119'})
-        let gradeList = []
-        let courseNameList = []
-        for(var i = 0; i < 3 ;i++ ){
-          gradeList.push(grade.score)
-          courseNameList.push(course.curName)
-        }
-        wx.setStorageSync('gradeList',gradeList)
-        wx.setStorageSync('courseNameList',courseNameList)
-        this.setData({
-          grade,
-          course,
-          gradeList,
-          courseNameList
-        })
+        // let grade = await request('/student/grade/getGrade',{stuId:'1911060118'})
+        // let course = await request('/student/course/getCourse',{stuId:'1911050119'})
+        // let gradeList = []
+        // let courseNameList = []
+        // for(var i = 0; i < 3 ;i++ ){
+        //   gradeList.push(grade.score)
+        //   courseNameList.push(course.curName)
+        // }
+        // wx.setStorageSync('gradeList',gradeList)
+        // wx.setStorageSync('courseNameList',courseNameList)
+        // this.setData({
+        //   grade,
+        //   course,
+        //   gradeList,
+        //   courseNameList
+        // })
         
       },
      
@@ -131,8 +126,6 @@ Page({
   return chart
 }
  function  getOption(){
-  // let v =   getCurrentPages()
-  // console.log(v[0].data)
   let gradeList = wx.getStorageSync('gradeList')
   let courseNameList = wx.getStorageSync('courseNameList')
   return {

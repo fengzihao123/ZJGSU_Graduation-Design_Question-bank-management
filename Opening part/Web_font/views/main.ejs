@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>题库管理系统</title>
+    <link rel='stylesheet' href='/iconfont/iconfont.css' />
+    <link rel='stylesheet' href='/stylesheets/main.css' />
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(function (){
+            //1.隐藏所有的子标题
+            $(".nav-menu").each(function (){
+                $(this).children(".nav-content").hide()
+            })
+            //2.给所有的主标题绑定点击事件
+            $(".nav-title").each(function (){
+                $(this).click(function (){
+                    //展开|收起当前子菜单
+                    //获取到当前点击主标题对应的子标题
+                    var navEle = $(this).parents(".nav-menu").children(".nav-content");
+                    if(navEle.css("display") != "none"){
+                        //向上收起
+                        navEle.slideUp()
+                    }else{
+                        //向下展开
+                        navEle.slideDown()
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<!--<frameset cols="240px, *" border="0">-->
+<!--    <frame src="/left" name="left"/>-->
+<!--    <frame src="/right" name="right"/>-->
+<!--</frameset>-->
+<body>
+    <div class="content">
+        <!--     左侧       -->
+        <div class="content-left">
+            <div class="leftTitle">
+                <a href="#">题库后台</a>
+            </div>
+        <!--      分割线      -->
+            <div class="seg"></div>
+        <!--     菜单栏       -->
+            <div class="nav">
+            <!--      每一个菜单栏项          -->
+                <div class="nav-menu">
+            <!--    主标题        -->
+                    <div class="nav-title">商品管理</div>
+            <!--    子标题       -->
+                    <div class="nav-content">
+                        <a href="#">商品列表</a>
+                        <a href="#">添加商品</a>
+                    </div>
+                </div>
+
+                <!--      每一个菜单栏项          -->
+                <div class="nav-menu">
+                    <!--    主标题        -->
+                    <div class="nav-title">商品管理</div>
+                    <!--    子标题       -->
+                    <div class="nav-content">
+                        <a href="#">商品列表</a>
+                        <a href="#">添加商品</a>
+                    </div>
+                </div>
+
+                <!--      每一个菜单栏项          -->
+                <div class="nav-menu">
+                    <!--    主标题        -->
+                    <div class="nav-title">商品管理</div>
+                    <!--    子标题       -->
+                    <div class="nav-content">
+                        <a href="#">商品列表</a>
+                        <a href="#">添加商品</a>
+                    </div>
+                </div>
+
+                <!--      每一个菜单栏项          -->
+                <div class="nav-menu">
+                    <!--    主标题        -->
+                    <div class="nav-title">商品管理</div>
+                    <!--    子标题       -->
+                    <div class="nav-content">
+                        <a href="#">商品列表</a>
+                        <a href="#">添加商品</a>
+                    </div>
+                </div>
+            </div>
+            <div class="seg"></div>
+        </div>
+
+        <!--        右侧-->
+        <div class="content-right">
+            <h1>内容区</h1>
+        </div>
+    </div>
+</body>
+</html>

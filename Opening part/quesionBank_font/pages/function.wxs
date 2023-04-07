@@ -5,4 +5,13 @@ var arrayfind = function (arr,string){
         return -1
     }
 }
+
+var subStr = function (val, start, stop) {
+    if (val) {
+      return val.substring(start, stop) //start:从第几位开始截取，stop：截取到第几位
+    } else {
+      return ''
+    }
+  }
 module.exports.arrayfind = arrayfind;
+module.exports.subStr = subStr;

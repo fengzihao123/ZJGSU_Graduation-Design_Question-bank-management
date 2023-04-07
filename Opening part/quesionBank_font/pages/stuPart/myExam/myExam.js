@@ -8,18 +8,44 @@ Page({
     data: {
         active: 'exam',
         examList:[],
+        curId:'',
         curName:'',
         option: [
           { text: '学期', value: 'a' },
           { text: '2022-2023 第二学期', value: '2022-2023 第二学期' },
           { text: '2022-2023 第一学期', value: '2022-2023 第一学期' },
           { text: '2021-2022 第二学期', value: '2021-2022 第二学期' },
-          { text: '2021-2022 第一学期', value: '2022-2023 第一学期' },
+          { text: '2021-2022 第一学期', value: '2021-2022 第一学期' },
+          { text: '2020-2021 第二学期', value: '2020-2021 第二学期' },
+          { text: '2020-2021 第一学期', value: '2020-2021 第一学期' },
+          { text: '2019-2020 第二学期', value: '2019-2020 第二学期' },
+          { text: '2019-2020 第一学期', value: '2019-2020 第一学期' },
         ],
         value: 'a',
         v1:2,
         v2:0,
         v3:3,
+    },
+
+  //考试列表获取
+    async getExamList(classId, schoolTerm){
+      let examList = await request('/exam/student/getExamList',{classId:classId, schoolTerm:schoolTerm})
+      this.setData({
+        examList
+      })
+    },
+
+    async getExamListByCurId(classId, curId){
+      let examList = await request('/exam/student/getExamList',{classId:classId, curId:curId})
+      this.setData({
+        examList
+      })
+    },
+
+
+
+    change(event){
+      this.getExamList(this.data.stuInfo[0].classId, event.detail)
     },
 
     //页面跳转
@@ -37,28 +63,34 @@ Page({
       },
 
       // 跳转考试详情页面
-      toExamDetail(){
+      toExamDetail(event){
+        let {exam} = event.currentTarget.dataset;
+        console.log(exam.examId)
         wx.navigateTo({
-          url: '/pages/stuPart/examDetail/examDetail',
+          url: '/pages/stuPart/examDetail/examDetail?examId=' + exam.examId,
         })
       },
 
-      //考试列表获取
-      async getExamList(){
-        let examList = await request('/student/exam/getExamList',{stuId:'1911060118'})
-        let courseList = await request('/student/course/getCourse',{curId:examList.examList.curId})
-        let curName = courseList.curName
-        this.setData({
-          examList,
-          curName
-        })
-      },
+    
+     
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.getExamList()
+      let stuInfo = wx.getStorageSync('stuInfo')
+      let curId = options.curId
+      this.setData({
+        stuInfo,
+        curId
+      })
+      if(curId){
+        this.getExamListByCurId(stuInfo[0].classId,curId)
+      }else{
+        this.getExamList(stuInfo[0].classId,'')
+      }
+      
+      
     },
 
     /**

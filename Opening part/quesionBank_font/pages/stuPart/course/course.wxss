@@ -81,6 +81,9 @@
 }
 .coureseName{
     margin-top: 10rpx;
-    margin-left: 95rpx;
-    align-items: center;
+    margin-left: 25rpx;
+    display: flex;
+    font-size: 28rpx;
+    font-weight: 600;
+    justify-content: center;
 }

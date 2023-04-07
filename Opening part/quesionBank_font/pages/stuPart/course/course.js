@@ -8,29 +8,39 @@ Page({
      */
     data: {
         courseList:[],
-        teaName:'',
-        className:'',
+        stuInfo:[],
         option: [
             { text: '学期', value: 'a' },
             { text: '2022-2023 第二学期', value: '2022-2023 第二学期' },
             { text: '2022-2023 第一学期', value: '2022-2023 第一学期' },
             { text: '2021-2022 第二学期', value: '2021-2022 第二学期' },
-            { text: '2021-2022 第一学期', value: '2022-2023 第一学期' },
+            { text: '2021-2022 第一学期', value: '2021-2022 第一学期' },
+            { text: '2020-2021 第二学期', value: '2020-2021 第二学期' },
+            { text: '2020-2021 第一学期', value: '2020-2021 第一学期' },
+            { text: '2019-2020 第二学期', value: '2019-2020 第二学期' },
+            { text: '2019-2020 第一学期', value: '2019-2020 第一学期' },
           ],
           value: 'a',
         //   value_content: '',
       },
     
      // 前往课程详情页面
-     toCourseDetail(){
+     toCourseDetail(event){
+      let {course} = event.currentTarget.dataset;
        wx.navigateTo({
-         url: '/pages/stuPart/courseDetail/courseDetail',
+         url: '/pages/stuPart/courseDetail/courseDetail?curId=' + course.curId,
        })
      },
 
+     //学期选择
+     change(event){
+      console.log(event.detail)
+      this.getCourse(event.detail)
+     },
+
      // 课程列表获取
-     async getCourse(){
-       let courseList = await request('/student/course/getCourse',{stuId:'1911060118'})
+     async getCourse(term){
+       let courseList = await request('/course/student/getCourseList',{stuId:this.data.stuInfo[0].stuId,term:term})
        
        this.setData({
          courseList
@@ -41,7 +51,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.getCourse()
+      // 学生信息获取
+      let stuInfo = wx.getStorageSync('stuInfo')
+       this.setData({
+         stuInfo
+       })
+      this.getCourse('')
     },
 
     /**

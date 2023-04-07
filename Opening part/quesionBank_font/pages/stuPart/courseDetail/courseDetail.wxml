@@ -8,18 +8,18 @@
     <view class="course_layoutContainer">
         <view class="course_layout" bindtap="toCourseDetail">
             <view class="course">
-                <image src="https://nos.netease.com/edu-image/7357a4122de84b5793d7eb9cb341fe22.jpg" class="course_picture"></image>
+                <image src="{{courseDetail.data[0].curImage}}" class="course_picture"></image>
                 <view class="courseinfo">
                     <text class="Name">课程名：</text>
-                    <text class="Name1">{{courseDetail.curName}}</text>
+                    <text class="Name1">{{courseDetail.data[0].curName}}</text>
                 </view>
                 <view class="courseinfo1">
                     <text class="Name">班　级：</text>
-                    <text class="Name1">{{className}}</text>
+                    <text class="Name1">{{stuInfo[0].className}}</text>
                 </view>
                 <view class="courseinfo1">
                     <text class="Name">老　师：</text>
-                    <text class="Name1">{{teaName}}</text>
+                    <text class="Name1">{{teaInfo.data[0].teaName}}</text>
                 </view>
                 <view class="courseinfo2" bindtap="toExam">
                     <text class="Name">考试查询：</text>

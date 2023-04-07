@@ -49,21 +49,21 @@ Page({
             value1_content
         })
     },
-     // 选择2 学院
+     // 选择2 专业
      change2(event){
         let value2_content = event.detail
         this.setData({
             value2_content
         })
     },
-     // 选择3 学院
+     // 选择3 年级
      change3(event){
         let value3_content = event.detail
         this.setData({
             value3_content
         })
     },
-     // 选择4 学院
+     // 选择4 班级
      change4(event){
         let value4_content = event.detail
         this.setData({
@@ -105,7 +105,7 @@ Page({
        this.setData({
            stuInfo
        })
-       if(stuInfo.gender == false){
+       if(stuInfo[0].gender == 1){
            this.setData({
                gender:'男'
            })
@@ -114,6 +114,7 @@ Page({
             gender:'女'
         })
        }
+      
     },
     
 

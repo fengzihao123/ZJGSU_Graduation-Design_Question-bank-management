@@ -44,23 +44,29 @@ const handleTeacherRoute = (req, res) =>{
     if(method === 'POST' && req.path === '/teacher/user/userInfoUpdate'){
         const teaId = req.query.teaId || '';
         const teacherData = req.body;
-        const updateTeacherData = updateTeacher(teaId, teacherData);
-        if(updateTeacherData){
-            return new successModel('更新成功')
-        }else{
-            return new errorModel('更新失败')
-        }
+
+        const updateTeacherDataPromise = updateTeacher(teaId, teacherData);
+        return updateTeacherDataPromise.then(updateTeacherData => {
+            if(updateTeacherData){
+                return new successModel('更新成功')
+            }else{
+                return new errorModel('更新失败')
+            }
+        })
+        
     }
 
     //删除教师
     if(method === 'POST' && req.path === '/teacher/user/deleteUserInfo'){
         const teaId = req.query.teaId || '';
-        const deleteTeacherData = deleteTeacher(teaId)
-        if(deleteTeacherData){
-            return new successModel('删除成功')
-        }else{
-            return new errorModel('删除失败')
-        }
+        const deleteTeacherDataPromise = deleteTeacher(teaId)
+        return deleteTeacherDataPromise.then(deleteTeacherData =>{
+            if(deleteTeacherData){
+                return new successModel('删除成功')
+            }else{
+                return new errorModel('删除失败')
+            }
+        })
     }
 
 }

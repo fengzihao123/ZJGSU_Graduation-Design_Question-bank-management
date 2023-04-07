@@ -3,26 +3,26 @@
     <text class="title_word">我的考试</text>
     <view class="title_line"></view>
 </view>
-
+<wxs module="tools" src="/pages/function.wxs"></wxs>
 <view class="examDetailContainer">
-<text class="examTab">试卷列表/{{curName}}</text>
+<text class="examTab">试卷列表/{{examDetail.data[0].curName}}</text>
 <view class="boder1">
     <view class="examHead">
-        <text class="examName">{{curName}}</text>
+        <text class="examName">{{examDetail.data[0].curName}}</text>
         <view class="border_1">
             <view class="Cotaniner_zongfen" >
                 <text class="zongfen_word">总分</text>
             </view>
             <view class="Cotaniner_fenshu" >
-                <text class="fenshu_word">{{examDetail.examDetail.totalPoint}}</text>
+                <text class="fenshu_word">{{examDetail.data[0].totalPoint}}</text>
             </view> 
         </view>
     </view>   
     <view class="examBody">
             <text class="update_word">更新于</text>
-            <text class="update_word">{{examDetail.examDetail.startTime}}</text>
+            <text class="update_word">{{tools.subStr(examDetail.data[0].startTime,0,10)}}</text>
             <view class="examType">
-            <text class="examType_word">{{examDetail.examDetail.examType}}</text>
+            <text class="examType_word">{{examDetail.data[0].examType}}</text>
             </view>
             <view class="examStart" bindtap="toExaming">
             <text class="examStart_word">开始考试</text>
@@ -45,103 +45,103 @@
 <view class="examBodyContainer">
     <view class="Bodyborder">
         <view class="border_3">
-            <text class="bb_word1">{{curName}}</text>
+            <text class="bb_word1">{{examDetail.data[0].curName}}</text>
             <text class="iconfont icon-xiugai07 iconxiugai"></text>
             <view class="word2Container">
-                <text class="bb_word2">{{examDetail.examDetail.totalPoint}}</text>
+                <text class="bb_word2">{{examDetail.data[0].totalPoint}}</text>
                 <text class="bb_word2">分</text>
                 <text class="bb_word2">/</text>
-                <text class="bb_word2">{{examDetail.examDetail.duration}}</text>
+                <text class="bb_word2">{{examDetail.data[0].duration}}</text>
                 <text class="bb_word2">分钟</text>
             </view> 
         </view>
         <view class="line"></view>
 <!-- 单选题 -->
-        <view class="danxuanti">
+        <view class="danxuanti" wx:if="{{examDetail.data[0].danxuan != null}}">
             <view class="DXCon1">
                 <text class="danxuanti_word1">单选题</text>
                 <text class="danxuanti_word1">(共</text>
-                <text class="danxuanti_word1">{{examDetail.examDetail.danxuan}}</text>
+                <text class="danxuanti_word1">{{examDetail.data[0].danxuan}}</text>
                 <text class="danxuanti_word1">题</text>
             </view>
             <view class="DXCon2">
                 <text class="danxuanti_word2">共计</text>
-                <text class="danxuanti_word2">{{examDetail.examDetail.DanXScore}}</text>
+                <text class="danxuanti_word2">{{examDetail.data[0].DanXScore}}</text>
                 <text class="danxuanti_word2">分)</text>
             </view>
         </view>
-        <view class="line1"></view>
+        <view class="line1" wx:if="{{examDetail.data[0].danxuan != null}}"></view>
         <!-- 多选题 -->
-        <view class="duoxuanti">
+        <view class="duoxuanti" wx:if="{{examDetail.data[0].duoxuan != null}}">
             <view class="DXCon1">
                 <text class="duoxuanti_word1">多选题</text>
                 <text class="duoxuanti_word1">(共</text>
-                <text class="duoxuanti_word1">{{examDetail.examDetail.duoxuan}}</text>
+                <text class="duoxuanti_word1">{{examDetail.data[0].duoxuan}}</text>
                 <text class="duoxuanti_word1">题</text>
             </view>
             <view class="DXCon2">
                 <text class="duoxuanti_word2">共计</text>
-                <text class="duoxuanti_word2">{{examDetail.examDetail.DuoXScore}}</text>
+                <text class="duoxuanti_word2">{{examDetail.data[0].DuoXScore}}</text>
                 <text class="duoxuanti_word2">分)</text>
             </view>
         </view>
-        <view class="line1"></view>
+        <view class="line1" wx:if="{{examDetail.data[0].duoxuan != null}}"></view>
         <!-- 填空题 -->
-        <view class="tiankongti">
+        <view class="tiankongti" wx:if="{{examDetail.data[0].tiankong != null}}">
             <view class="DXCon1">
                 <text class="tiankongti_word1">填空题</text>
                 <text class="tiankongti_word1">(共</text>
-                <text class="tiankongti_word1">{{examDetail.examDetail.tiankong}}</text>
+                <text class="tiankongti_word1">{{examDetail.data[0].tiankong}}</text>
                 <text class="tiankongti_word1">题</text>
             </view>
             <view class="DXCon2">
                 <text class="tiankongti_word2">共计</text>
-                <text class="tiankongti_word2">{{examDetail.examDetail.TKScore}}</text>
+                <text class="tiankongti_word2">{{examDetail.data[0].TKScore}}</text>
                 <text class="tiankongti_word2">分)</text>
             </view>
         </view>
-        <view class="line1"></view>
+        <view class="line1" wx:if="{{examDetail.data[0].tiankong != null}}"></view>
         <!-- 计算机题 -->
-        <view class="jisuanti">
+        <view class="jisuanti" wx:if="{{examDetail.data[0].jisuan != null}}">
             <view class="DXCon1">
                 <text class="jisuanti_word1">计算题</text>
                 <text class="jisuanti_word1">(共</text>
-                <text class="jisuanti_word1">{{examDetail.examDetail.jisuan}}</text>
+                <text class="jisuanti_word1">{{examDetail.data[0].jisuan}}</text>
                 <text class="jisuanti_word1">题</text>
             </view>
             <view class="DXCon2">
                 <text class="jisuanti_word2">共计</text>
-                <text class="jisuanti_word2">{{examDetail.examDetail.JSScore}}</text>
+                <text class="jisuanti_word2">{{examDetail.data[0].JSScore}}</text>
                 <text class="jisuanti_word2">分)</text>
             </view>
         </view>
-        <view class="line1"></view>
+        <view class="line1" wx:if="{{examDetail.data[0].jisuan != null}}"></view>
         <!-- 问答题 -->
-        <view class="wendati">
+        <view class="wendati" wx:if="{{examDetail.data[0].wenda != null}}">
             <view class="DXCon1">
                 <text class="wendati_word1">问答题</text>
                 <text class="wendati_word1">(共</text>
-                <text class="wendati_word1">{{examDetail.examDetail.wenda}}</text>
+                <text class="wendati_word1">{{examDetail.data[0].wenda}}</text>
                 <text class="wendati_word1">题</text>
             </view>
             <view class="DXCon2">
                 <text class="wendati_word2">共计</text>
-                <text class="wendati_word2">{{examDetail.examDetail.WDScore}}</text>
+                <text class="wendati_word2">{{examDetail.data[0].WDScore}}</text>
                 <text class="wendati_word2">分)</text>
             </view>
         </view>
-        <view class="line1"></view>
+        <view class="line1" wx:if="{{examDetail.data[0].wenda != null}}"></view>
 <!-- 编程题 -->
-        <view class="biancheng">
+        <view class="biancheng" wx:if="{{examDetail.data[0].biancheng != null}}">
             <view class="DXCon1">
                 <text class="wendati_word1">编程题</text>
                 <text class="wendati_word1">(共</text>
-                <text class="wendati_word1">{{examDetail.examDetail.biancheng}}</text>
+                <text class="wendati_word1">{{examDetail.data[0].biancheng}}</text>
                 <text class="wendati_word1">题</text>
             </view>
             <view class="DXCon2">
                 <text class="wendati_word2">共计</text>
-                <text class="wendati_word2">{{examDetail.examDetail.BCScore}}</text>
+                <text class="wendati_word2">{{examDetail.data[0].BCScore}}</text>
                 <text class="wendati_word2">分)</text>
             </view>
         </view>
