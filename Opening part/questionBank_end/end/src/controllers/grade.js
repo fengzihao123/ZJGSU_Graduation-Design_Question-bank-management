@@ -2,14 +2,11 @@ const {execSQL} = require('../db/mysql')
 // 跟成绩相关的方法
 
 // 成绩查询
-const getGrade = (teaId, teaPwd) =>{
+const getGrade = (stuId) =>{
     //从数据库拿数据
-    let sql = `select * from teacher where`;
-    if(teaId){
-        sql += ` teaId='${teaId}'`;
-    }
-    if(teaPwd){
-        sql += ` and teaPwd='${teaPwd}'`;
+    let sql = `select * from grade where`;
+    if(stuId){
+        sql += ` stuId='${stuId}'`;
     }
     return execSQL(sql)
 }

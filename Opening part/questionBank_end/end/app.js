@@ -4,6 +4,7 @@ const handleStudentRoute = require('./src/routes/student');
 const handleCourseRoute = require('./src/routes/course');
 const handleExamRoute = require('./src/routes/exam');
 const handleGradeRoute = require('./src/routes/grade')
+const handleQuestionRoute = require('./src/routes/question')
 
 //处理POST数据
 const getPostData = (req) => {
@@ -90,12 +91,24 @@ const serverHandler = (req, res) => {
             })
             return ;
         }
+
         //成绩相关的路由
         const gradeDataPromise = handleGradeRoute(req, res);
         if(gradeDataPromise){
             gradeDataPromise.then(gradeData =>{
                 res.end(
                     JSON.stringify(gradeData)
+                );
+            })
+            return ;
+        }
+
+        //题库相关的路由
+        const questionDataPromise = handleQuestionRoute(req, res);
+        if(questionDataPromise){
+            questionDataPromise.then(questionData =>{
+                res.end(
+                    JSON.stringify(questionData)
                 );
             })
             return ;

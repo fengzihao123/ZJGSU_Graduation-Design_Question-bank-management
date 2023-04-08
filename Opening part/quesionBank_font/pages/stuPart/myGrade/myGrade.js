@@ -9,9 +9,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        grade:[], 
+        stuInfo:[],
+        scoreList:[], 
         gradeList:[],
-        courseNameList:[],
+        curNameList:[],
         ec:{
           onInit: initChart
         }
@@ -31,24 +32,21 @@ Page({
       },
 
       // 成绩查询
-      async getGrade(){
-        // let grade = await request('/student/grade/getGrade',{stuId:'1911060118'})
-        // let course = await request('/student/course/getCourse',{stuId:'1911050119'})
-        // let gradeList = []
-        // let courseNameList = []
-        // for(var i = 0; i < 3 ;i++ ){
-        //   gradeList.push(grade.score)
-        //   courseNameList.push(course.curName)
-        // }
-        // wx.setStorageSync('gradeList',gradeList)
-        // wx.setStorageSync('courseNameList',courseNameList)
-        // this.setData({
-        //   grade,
-        //   course,
-        //   gradeList,
-        //   courseNameList
-        // })
-        
+      async getGrade(stuId){
+        let gradeList = await request('/grade/student/getGrade',{stuId:stuId})
+        let scoreList = []
+        let curNameList = []
+        for(var i = 0; i < gradeList.data.length; i++){
+          scoreList.push(gradeList.data[i].score)
+          curNameList.push(gradeList.data[i].curName)
+        }
+        this.setData({
+          gradeList,
+          scoreList,
+          curNameList
+        })
+        wx.setStorageSync('scoreList', scoreList)  
+        wx.setStorageSync('curNameList', curNameList)      
       },
      
         
@@ -58,7 +56,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.getGrade()
+      let stuInfo = wx.getStorageSync('stuInfo')
+      this.setData({
+        stuInfo
+      })
+      this.getGrade(stuInfo[0].stuId)
     },
 
     /**
@@ -126,18 +128,18 @@ Page({
   return chart
 }
  function  getOption(){
-  let gradeList = wx.getStorageSync('gradeList')
-  let courseNameList = wx.getStorageSync('courseNameList')
+  let scoreList = wx.getStorageSync('scoreList')
+  let curNameList = wx.getStorageSync('curNameList')
   return {
     xAxis:{
-      type: 'category',
-      data:courseNameList
+      data:curNameList,
+      type: 'category'
     },
     yAxis:{
       type:'value'
     },
     series:[{
-      data:gradeList,
+      data:scoreList,
       type: 'line'
     }]
   }

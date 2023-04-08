@@ -9,12 +9,11 @@ const handleGradeRoute = (req, res) =>{
     const method = req.method;
     
     //成绩查询
-    if(method === 'GET' && req.path === '/teacher/user/login'){ 
-        const teaId = req.query.teaId || '';
-        const teaPwd = req.query.teaPwd || '';
-        const teacherLoginDataPromise = getGrade(teaId, teaPwd);
-        return teacherLoginDataPromise.then(teacherLoginData => {
-            return new successModel(teacherLoginData)
+    if(method === 'GET' && req.path === '/grade/student/getGrade'){ 
+        const stuId = req.query.stuId || '';
+        const gradeDataPromise = getGrade(stuId);
+        return gradeDataPromise.then(gradeData => {
+            return new successModel(gradeData)
         })
     }
 
