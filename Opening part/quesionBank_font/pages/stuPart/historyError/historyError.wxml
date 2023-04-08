@@ -154,7 +154,7 @@
         <!-- 错题解析 -->
         <view class="explain">
         <text class="explain_title">解析：</text>
-        <text>{{errorList.data[index].explain}}</text>
+        <text>{{errorList.data[index].analysis}}</text>
         </view>
         
         <!-- 切题 -->

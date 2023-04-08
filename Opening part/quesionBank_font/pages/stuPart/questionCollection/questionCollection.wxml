@@ -149,7 +149,7 @@
         <!-- 错题解析 -->
         <view class="explain">
         <text class="explain_title">解析：</text>
-        <text>{{collectList.data[index].explain}}</text>
+        <text>{{collectList.data[index].analysis}}</text>
         </view>
         
         <!-- 切题 -->

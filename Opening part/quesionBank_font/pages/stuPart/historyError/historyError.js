@@ -22,39 +22,39 @@ Page({
     },
 
      
-    //删除
-    shanchu(){
-        let index = this.data.index
-        let errorList = this.data.errorList
-        var that = this
-        wx.showModal({
-            title: '提示',
-            content: '确认删除吗？',
-            success (res) {
-              if (res.confirm) {
-                that.deleteError()
-                let newError = that.getErrorList(that.data.stuInfo[0].stuId)
-                that.setData({
-                    errorList:newError
-                })
-              } else if (res.cancel) {
-              }
-            }
-          })
-    },
+    // //删除
+    // shanchu(){
+    //     let index = this.data.index
+    //     let errorList = this.data.errorList
+    //     var that = this
+    //     wx.showModal({
+    //         title: '提示',
+    //         content: '确认删除吗？',
+    //         success (res) {
+    //           if (res.confirm) {
+    //             that.deleteError()
+    //             let newError = that.getErrorList(that.data.stuInfo[0].stuId)
+    //             that.setData({
+    //                 errorList:newError
+    //             })
+    //           } else if (res.cancel) {
+    //           }
+    //         }
+    //       })
+    // },
 
      // 收藏
      collect(){
         let index = this.data.index
-        let errortList = this.data.errorList
+        let errorList = this.data.errorList
         var that = this
         wx.showModal({
             title: '提示',
             content: '确认收藏吗？',
             success (res) {
               if (res.confirm) {
-                that.Collect()
-                errortList.data[index].isCollect = 1
+                that.AddCollect()
+                errorList.data[index].isCollect = 1
                 that.setData({
                     errorList
                 })
@@ -64,12 +64,28 @@ Page({
           })
 
     },
-    //  //收藏函数
-    //  async Collect(){
-    //     let index = this.data.index
-    //     let errorList = this.data.errorList
-    //     await upload('/question/collect/collect?stuId=' + collectList.data[index].stuId + '&queId=' + collectList.data[index].queId,{isCollect:1})
-    // },
+     //收藏函数
+    async AddCollect(){
+        let index = this.data.index
+        let errorList = this.data.errorList
+        let result = await upload('/question/collect/newCollect',{
+            queId:errorList.data[index].queId,
+            stuId:errorList.data[index].stuId,
+            queType:errorList.data[index].queType,
+            stem:errorList.data[index].stem,
+            choiceA:errorList.data[index].choiceA,
+            choiceB:errorList.data[index].choiceB,
+            choiceC:errorList.data[index].choiceC,
+            choiceD:errorList.data[index].choiceD,
+            difficulty:errorList.data[index].difficulty,
+            chaName:errorList.data[index].chaName,
+            analysis:errorList.data[index].analysis,
+            answer:errorList.data[index].answer,
+            isCollect:1,
+            isPick:'false'
+        })
+        console.log(result)
+    },
     // //取消收藏函数
     // async cancleCollect(){
     //     let index = this.data.index
