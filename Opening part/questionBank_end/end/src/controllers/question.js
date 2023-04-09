@@ -16,7 +16,7 @@ const getQuestionError = (stuId) =>{
     //从数据库拿数据
     let sql = `select * from error where`;
     if(stuId){
-        sql += ` stuId='${stuId}'`;
+        sql += ` stuId='${stuId}' and isError=1`;
     }
     return execSQL(sql)
 }
@@ -33,7 +33,19 @@ const cancleCollect = (stuId, queId, questionData) =>{
         }
         return false;
     }) 
+}
 
+//取消错题
+const cancleError = (stuId, queId, questionData) =>{
+    //将数据存到数据库中
+    const isError = questionData.isError
+    const sql = `update error set isError=${isError} where stuId='${stuId}' and queId=${parseInt(queId)}`
+    return execSQL(sql).then(updateResult =>{
+        if(updateResult.affectedRows > 0){
+            return true;
+        }
+        return false;
+    }) 
 }
 
 //收藏
@@ -47,9 +59,52 @@ const Collect = (stuId, queId, questionData) =>{
         }
         return false;
     }) 
+}
+
+//新增收藏
+const AddCollect = (questionData) =>{
+    //将数据存到数据库中
+    const queId = questionData.queId
+    const stuId = questionData.stuId
+    const queType = questionData.queType
+    const stem = questionData.stem
+    const choiceA = questionData.choiceA
+    const choiceB = questionData.choiceB
+    const choiceC = questionData.choiceC
+    const choiceD = questionData.choiceD
+    const difficulty = questionData.difficulty
+    const chaName = questionData.chaName
+    const analysis = questionData.analysis
+    const answer = questionData.answer
+    const isCollect = questionData.isCollect
+    const isPick = questionData.isPick
+    console.log(analysis)
+
+    // const sql = `insert into collect (queId, stuId, queType, stem, choiceA, choiceB, choiceC, choiceD, difficulty, chaName, explain, answer, isCollect, isPick) values (${queId}, '${stuId}', '${queType}', '${stem}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', ${difficulty}, '${chaName}', '${explain}', '${answer}', ${isCollect}, '${isPick}')`
+    const sql = `insert into collect (queId, stuId, queType, stem, choiceA, choiceB, choiceC, choiceD, difficulty, chaName, answer, isCollect, isPick, analysis) values (${queId}, '${stuId}', '${queType}', '${stem}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', ${difficulty}, '${chaName}', '${answer}', ${isCollect}, '${isPick}', '${analysis}')`
+    
+    return execSQL(sql).then(insertedResult => {
+        console.log(insertedResult)
+        return{
+            stuId: insertedResult.insertstuId,
+            queId: insertedResult.insertqueId
+        }
+    })
 
 }
 
+//错题
+const Error = (stuId, queId, questionData) =>{
+    //将数据存到数据库中
+    const isError = questionData.isError
+    const sql = `update error set isError=${isError} where stuId='${stuId}' and queId=${parseInt(queId)}`
+    return execSQL(sql).then(updateResult =>{
+        if(updateResult.affectedRows > 0){
+            return true;
+        }
+        return false;
+    }) 
+}
 //更新教师信息
 const updateTeacher = (teaId, teacherData = {}) =>{
 
@@ -83,5 +138,8 @@ module.exports = {
     getQuestionCollect,
     getQuestionError,
     cancleCollect,
-    Collect
+    Collect,
+    cancleError,
+    Error,
+    AddCollect
 }

@@ -3,7 +3,7 @@
     <view class="headview">
         <view class="quanbuContainer">
             <text class="iconfont icon-quanbu iconQuanbu"bindtap="quanbu" ></text>
-            <text class="text_quanbu"bindtap="quanbu">{{index + 1}}/{{collectList.length}}</text>
+            <text class="text_quanbu"bindtap="quanbu">{{index + 1}}/{{questionList.data.length}}</text>
             <van-popup 
             show="{{ show }}"
             bind:close="onClose" 
@@ -39,62 +39,11 @@
                         
                     </view>
                     <view class="line"></view>
-                    <!-- <view class="timuContainer">
-                        <view class="timu1">
-                            <text class="timu1_word">单选题</text>
-                            <view class="timu1Con">
-                                <view class="pop_circle1" bindtap="select_danxuan" wx:for="{{25}}">
-                                    <text class="pop_timu">1</text>
-                                </view>
-                            </view>
-                        </view>
-                        <view class="timu2">
-                            <text class="timu2_word">多选题</text>
-                            <view class="timu2Con">
-                                <view class="pop_circle2" bindtap="select_duoxuan" wx:for="{{5}}">
-                                    <text class="pop_timu">1</text>
-                                </view>
-                            </view>
-                        </view>
-                        <view class="timu3">
-                            <text class="timu3_word">填空题</text>
-                            <view class="timu3Con">
-                                <view class="pop_circle2" bindtap="select_tiankong" wx:for="{{5}}">
-                                    <text class="pop_timu">1</text>
-                                </view>
-                            </view>
-                        </view>
-                        <view class="timu4">
-                            <text class="timu4_word">计算题</text>
-                            <view class="timu4Con">
-                                <view class="pop_circle2" bindtap="select_jisuan" wx:for="{{3}}">
-                                    <text class="pop_timu">1</text>
-                                </view>
-                            </view>
-                        </view>
-                        <view class="timu5">
-                            <text class="timu5_word">问答题</text>
-                            <view class="timu5Con">
-                                <view class="pop_circle2" bindtap="select_wenda" wx:for="{{3}}">
-                                    <text class="pop_timu">1</text>
-                                </view>
-                            </view>
-                        </view>
-                        <view class="timu6">
-                            <text class="timu6_word">编程题</text>
-                            <view class="timu6Con">
-                                <view class="pop_circle2" bindtap="select_biancheng" wx:for="{{2}}">
-                                    <text class="pop_timu">1</text>
-                                </view>
-                            </view>
-                        </view>
-                        
-                    </view> -->
 
                     <view class="timu">
                             <text class="timu_word">题目</text>
                             <view class="kuang">
-                                <view class="timuCon" wx:for="{{collectList}}">
+                                <view class="timuCon" wx:for="{{questionList.data}}">
                                 <view class="pop_circle1" data-index="{{index}}" bindtap="chageIndex" wx:if="{{item.selectStatus == '1'}}">
                                     <text class="pop_timu">{{index + 1}}</text>
                                 </view>
@@ -122,52 +71,52 @@
     
 </view>
     <!-- 单选题 -->
-    <view class="danxuantiContainer" wx:if="{{collectList[index].queType == '单选'}}">
+    <view class="danxuantiContainer" wx:if="{{questionList.data[index].queType == '单选'}}">
         <view class="danxuanti">
             <view class="questionType">
                 <text class="QTword">单选</text>
             </view>
-            <text class="QTitle">{{collectList[index].stem}}（）。</text>
+            <text class="QTitle">{{questionList.data[index].stem}}</text>
         </view>
         <view class="titleLine"></view>
         <!-- 四个选项 -->
         <view class="isXuanze" >
             <view class="cancle" bindtap="cancleA" wx:if="{{answer[index] == 'A'}}">
                 <text>A</text>
-                <text class="cancle_word" >{{collectList[index].choiceA}}</text>
+                <text class="cancle_word" >{{questionList.data[index].choiceA}}</text>
             </view>
             <view class="choice" bindtap="chooseA" wx:else>
                 <text>A</text>
-                <text class="choice_word" >{{collectList[index].choiceA}}</text>
+                <text class="choice_word" >{{questionList.data[index].choiceA}}</text>
             </view>
             <view class="choiceLine"></view>
 
             <view class="cancle" bindtap="cancleB" wx:if="{{answer[index] == 'B'}}">
                 <text>B</text>
-                <text class="cancle_word" >{{collectList[index].choiceB}}</text>
+                <text class="cancle_word" >{{questionList.data[index].choiceB}}</text>
             </view>
             <view class="choice" bindtap="chooseB" wx:else>
                 <text>B</text>
-                <text class="choice_word" >{{collectList[index].choiceB}}</text>
+                <text class="choice_word" >{{questionList.data[index].choiceB}}</text>
             </view>
             <view class="choiceLine"></view>
             <view class="cancle" bindtap="cancleC" wx:if="{{answer[index] == 'C'}}">
                 <text>C</text>
-                <text class="cancle_word" >{{collectList[index].choiceC}}</text>
+                <text class="cancle_word" >{{questionList.data[index].choiceC}}</text>
             </view>
             <view class="choice" bindtap="chooseC" wx:else>
                 <text>C</text>
-                <text class="choice_word" >{{collectList[index].choiceC}}</text>
+                <text class="choice_word" >{{questionList.data[index].choiceC}}</text>
             </view>
             <view class="choiceLine"></view>
     
             <view class="cancle" bindtap="cancleD" wx:if="{{answer[index] == 'D'}}">
                 <text>D</text>
-                <text class="cancle_word" >{{collectList[index].choiceD}}</text>
+                <text class="cancle_word" >{{questionList.data[index].choiceD}}</text>
             </view>
             <view class="choice" bindtap="chooseD"wx:else>
                 <text>D</text>
-                <text class="choice_word">{{collectList[index].choiceD}}</text>
+                <text class="choice_word">{{questionList.data[index].choiceD}}</text>
             </view>
             
         </view>
@@ -175,75 +124,64 @@
         <view class="choiceLine"></view>
 </view>
 <!-- 多选题 -->
-<view class="danxuantiContainer" wx:if="{{collectList[index].queType == '多选'}}" >
+<view class="danxuantiContainer" wx:if="{{questionList.data[index].queType == '多选'}}" >
         <view class="danxuanti">
             <view class="questionType1">
                 <text class="QTword">多选</text>
             </view>
-            <text class="QTitle">{{collectList[index].stem}}（）。</text>
+            <text class="QTitle">{{questionList.data[index].stem}}</text>
         </view>
         <view class="titleLine"></view>
-        <!-- 四个选项 -->
-        <!-- <van-checkbox-group value="{{ answer[index] }}" bind:change="onChange" bind:change="D_chooseA">
-        <van-checkbox name="A" class="choiceDX" checked-color="color: rgb(4, 131, 4)" >复选框 a</van-checkbox>
-        <view class="choiceLine"></view>
-        <van-checkbox name="B" class="choiceDX">复选框 b</van-checkbox>
-        <view class="choiceLine"></view>
-        <van-checkbox name="C" class="choiceDX">复选框 c</van-checkbox>
-        <view class="choiceLine"></view>
-        <van-checkbox name="D" class="choiceDX">复选框 c</van-checkbox>
-        <view class="choiceLine"></view>
-</van-checkbox-group> -->
 <view class="isXuanze" >
             <wxs module="tools" src="../../function.wxs"/>  
             <view class="cancle" bindtap="D_cancleA" wx:if="{{tools.arrayfind(answer[index],'A') !== -1}}">
                 <text>A</text>
-                <text class="cancle_word" >{{collectList[index].choiceA}}</text>
+                <text class="cancle_word" >{{questionList.data[index].choiceA}}</text>
             </view>
             <view class="choice" bindtap="D_chooseA" wx:else>
                 <text>A</text>
-                <text class="choice_word" >{{collectList[index].choiceA}}</text>
+                <text class="choice_word" >{{questionList.data[index].choiceA}}</text>
             </view>
             <view class="choiceLine"></view>
 
             <view class="cancle" bindtap="D_cancleB" wx:if="{{tools.arrayfind(answer[index],'B') !== -1}}">
                 <text>B</text>
-                <text class="cancle_word" >{{collectList[index].choiceB}}</text>
+                <text class="cancle_word" >{{questionList.data[index].choiceB}}</text>
             </view>
             <view class="choice" bindtap="D_chooseB" wx:else>
                 <text>B</text>
-                <text class="choice_word" >{{collectList[index].choiceB}}</text>
+                <text class="choice_word" >{{questionList.data[index].choiceB}}</text>
             </view>
             <view class="choiceLine"></view>
             <view class="cancle" bindtap="D_cancleC" wx:if="{{tools.arrayfind(answer[index],'C') !== -1}}">
                 <text>C</text>
-                <text class="cancle_word" >{{collectList[index].choiceC}}</text>
+                <text class="cancle_word" >{{questionList.data[index].choiceC}}</text>
             </view>
             <view class="choice" bindtap="D_chooseC" wx:else>
                 <text>C</text>
-                <text class="choice_word" >{{collectList[index].choiceC}}</text>
+                <text class="choice_word" >{{questionList.data[index].choiceC}}</text>
             </view>
             <view class="choiceLine"></view>
     
             <view class="cancle" bindtap="D_cancleD" wx:if="{{tools.arrayfind(answer[index],'D') !== -1}}">
                 <text>D</text>
-                <text class="cancle_word" >{{collectList[index].choiceD}}</text>
+                <text class="cancle_word" >{{questionList.data[index].choiceD}}</text>
             </view>
             <view class="choice" bindtap="D_chooseD"wx:else>
                 <text>D</text>
-                <text class="choice_word">{{collectList[index].choiceD}}</text>
+                <text class="choice_word">{{questionList.data[index].choiceD}}</text>
             </view>
             <view class="choiceLine"></view>
         </view>
 </view>
 
 <!-- 填空题 -->
-<view class="danxuantiContainer" wx:if="{{collectList[index].queType == '填空'}}">
+<view class="danxuantiContainer" wx:if="{{questionList.data[index].queType == '填空'}}">
         <view class="danxuanti">
             <view class="questionType2">
                 <text class="QTword">填空</text>
             </view>
-            <text class="QTitle">{{collectList[index].stem}}</text>
+            <text class="QTitle">{{questionList.data[index].stem}}</text>
         </view>
         <view class="titleLine"></view>
         <!-- 答题区 -->
@@ -254,12 +192,12 @@
         <view class="choiceLine"></view>
 </view>
 <!-- 计算题 -->
-<view class="danxuantiContainer" wx:if="{{collectList[index].queType == '计算'}}">
+<view class="danxuantiContainer" wx:if="{{questionList.data[index].queType == '计算'}}">
         <view class="danxuanti">
             <view class="questionType3">
                 <text class="QTword">计算</text>
             </view>
-            <text class="QTitle">{{collectList[index].stem}}</text>
+            <text class="QTitle">{{questionList.data[index].stem}}</text>
         </view>
         <view class="titleLine"></view>
         <!-- 答题区 -->
@@ -270,12 +208,12 @@
         <view class="choiceLine"></view>
 </view>
 <!-- 问答题 -->
-<view class="danxuantiContainer" wx:if="{{collectList[index].queType == '问答'}}">
+<view class="danxuantiContainer" wx:if="{{questionList.data[index].queType == '问答'}}">
         <view class="danxuanti">
             <view class="questionType4">
                 <text class="QTword">问答</text>
             </view>
-            <text class="QTitle">{{collectList[index].stem}}</text>
+            <text class="QTitle">{{questionList.data[index].stem}}</text>
         </view>
         <view class="titleLine"></view>
         <!-- 答题区 -->
@@ -286,12 +224,12 @@
         <view class="choiceLine"></view>
 </view>
 <!-- 编程题 -->
-<view class="danxuantiContainer" wx:if="{{collectList[index].queType == '编程'}}">
+<view class="danxuantiContainer" wx:if="{{questionList.data[index].queType == '编程'}}">
         <view class="danxuanti">
             <view class="questionType5">
                 <text class="QTword">编程</text>
             </view>
-            <text class="QTitle">{{collectList[index].stem}}</text>
+            <text class="QTitle">{{questionList.data[index].stem}}</text>
         </view>
         <view class="titleLine"></view>
         <!-- 答题区 -->

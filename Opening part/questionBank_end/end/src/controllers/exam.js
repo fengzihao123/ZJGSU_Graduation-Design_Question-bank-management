@@ -26,45 +26,64 @@ const getExamDetail = (examId) =>{
     return execSQL(sql)
 }
 
-//新增教师信息
-const creatNewTeacher = (teacherData) =>{
-    //将数据存到数据库中
-    const teaId = teacherData.teaId
-    const teaPwd = teacherData.teaPwd
-    const teaName = teacherData.teaName
-    const gender = teacherData.gender
-    const phoneNum = teacherData.phoneNum
-    const createAt = Date.now()
+// 考试题目查询
+const getExamQuestion = (classId, examId) =>{
+    let sql = `select * from questioning where`;
+    if(classId){
+        sql += ` classId=${classId}`
+    }
+    if(examId){
+        sql += ` and examId=${examId}`
+    }
+    return execSQL(sql)
+}
 
+//考试答案上传
+const postAnswer = (examQuestionData) =>{
+    //将数据存到数据库中
+    const classId = examQuestionData.classId
+    const examId = examQuestionData.examId
+    const stuId = examQuestionData.stuId
+    const queId = examQuestionData.queId
+    const queType = examQuestionData.queType
+    
     const sql = `
-    insert into teacher (teaId, teaPwd, teaName, gender, phoneNum, createAt) values ('${teaId}', '${teaPwd}', '${teaName}', ${gender}, '${phoneNum}', ${createAt})
+    insert into answer (classId, examId, stuId, queId, queType) values (${classId}, ${examId}, '${stuId}', ${queId}, '${queType}')
     `
     return execSQL(sql).then(insertedResult => {
         console.log(insertedResult)
         return{
-            teaId: insertedResult.insertteaId
+            classId: insertedResult.insertclassId,
+            examId: insertedResult.insertexamId
         }
     })
 
 }
 
-//更新教师信息
-const updateTeacher = (teaId, teacherData = {}) =>{
+// 考试答案查询
+const getExamAnswer = (examId, stuId) =>{
+    let sql = `select * from answer where`;
+    if(examId){
+        sql += ` examId=${examId}`
+    }
+    if(stuId){
+        sql += ` and stuId='${stuId}'`
+    }
+    return execSQL(sql)
+}
 
-    const teaPwd = teacherData.teaPwd
-    const teaName = teacherData.teaName
-    const gender = teacherData.gender
-    const phoneNum = teacherData.phoneNum
-    const createAt = Date.now()
-    const sql = `update teacher set teaPwd='${teaPwd}', teaName='${teaName}', gender=${gender}, phoneNum='${phoneNum}', createAt=${createAt} where teaId='${teaId}'`
+//更新答案
+const updateAnswer = (id, examQuestionData = {}) =>{
+
+    const answer = examQuestionData.answer
+
+    const sql = `update answer set answer='${answer}' where id=${id}`
     return execSQL(sql).then(updateResult =>{
         if(updateResult.affectedRows > 0){
             return true;
         }
         return false;
     }) 
-    
-
 }
 
 //删除教师信息
@@ -79,5 +98,9 @@ const deleteTeacher = (teaId) =>{
 }
 module.exports = {
     getExamList,
-    getExamDetail
+    getExamDetail,
+    getExamQuestion,
+    postAnswer,
+    updateAnswer,
+    getExamAnswer
 }

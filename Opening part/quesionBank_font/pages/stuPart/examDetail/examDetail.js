@@ -21,9 +21,19 @@ Page({
     
       // 前往考试页面
       toExaming(){
-        wx.navigateTo({
-          url: '/pages/stuPart/examing/examing',
-        })
+        var that = this
+        wx.showModal({
+            title: '确认考试吗？',
+            content: '一旦开始无法退出！',
+            success (res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/stuPart/examing/examing?examId=' + that.data.examDetail.data[0].examId,
+                })
+              } else if (res.cancel) {
+              }
+            }
+          })
       },
 
       // 获取考试详情

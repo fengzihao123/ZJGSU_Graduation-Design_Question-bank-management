@@ -2,7 +2,10 @@ const { successModel, errorModel } = require("../model/responseModel");
 const { getQuestionCollect,
         getQuestionError,
         cancleCollect,
-        Collect
+        Collect,
+        cancleError,
+        Error,
+        AddCollect
     } = require('../controllers/question')
 
 
@@ -40,12 +43,43 @@ const handleQuestionRoute = (req, res) =>{
         })
     }
 
+    //取消错题
+    if(method === 'POST' && req.path === '/question/errorQuestion/deleteError'){
+        const stuId = req.query.stuId || '';
+        const queId = req.query.queId || '';
+        const questionData = req.body;
+        const questionDataPromise = cancleError(stuId, queId, questionData);
+        return questionDataPromise.then(questionData => {
+            return new successModel(questionData)
+        })
+    }
+
     //收藏
     if(method === 'POST' && req.path === '/question/collect/collect'){
         const stuId = req.query.stuId || '';
         const queId = req.query.queId || '';
         const questionData = req.body;
         const questionDataPromise = Collect(stuId, queId, questionData);
+        return questionDataPromise.then(questionData => {
+            return new successModel(questionData)
+        })
+    }
+
+    //新增收藏
+    if(method === 'POST' && req.path === '/question/collect/newCollect'){
+        const questionData = req.body;
+        const questionDataPromise = AddCollect(questionData);
+        return questionDataPromise.then(questionData => {
+            return new successModel(questionData)
+        })
+    }
+
+    //错题
+    if(method === 'POST' && req.path === '/question/errorQuestion/error'){
+        const stuId = req.query.stuId || '';
+        const queId = req.query.queId || '';
+        const questionData = req.body;
+        const questionDataPromise = Error(stuId, queId, questionData);
         return questionDataPromise.then(questionData => {
             return new successModel(questionData)
         })

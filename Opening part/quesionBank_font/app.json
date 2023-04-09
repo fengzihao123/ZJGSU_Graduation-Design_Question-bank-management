@@ -1,15 +1,20 @@
 {
     "pages": [
+        "pages/stuPart/myExam/myExam",
+        "pages/teaPart/postTest/postTest",
         "pages/stuPart/myCourse/myCourse",
+
+        
+
         "pages/stuPart/historyError/historyError",
         "pages/stuPart/questionCollection/questionCollection", 
         "pages/stuPart/myGrade/myGrade",
-        "pages/stuPart/myExam/myExam",
+
 
         "pages/stuPart/course/course",
         "pages/stuPart/setting/setting",  
         "pages/login/login",
-        "pages/teaPart/postTest/postTest",
+
         "pages/stuPart/examing/examing",
         
         

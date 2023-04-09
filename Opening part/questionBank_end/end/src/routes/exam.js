@@ -1,6 +1,10 @@
 const { successModel, errorModel } = require("../model/responseModel");
 const { getExamList,
         getExamDetail,
+        getExamQuestion,
+        postAnswer,
+        updateAnswer,
+        getExamAnswer
     } = require('../controllers/exam')
 
 
@@ -29,23 +33,43 @@ const handleExamRoute = (req, res) =>{
         })
     }
 
-    //新增教师
-    if(method === 'POST' && req.path === '/teacher/user/newUserInfo'){
-        const teacherData = req.body;
-        const newTeacherDataPromise = creatNewTeacher(teacherData);
-        return newTeacherDataPromise.then(newTeacherData => {
-            return new successModel(newTeacherData)
+    //考试题目查询
+    if(method === 'GET' && req.path === '/exam/student/getExamQuestion'){
+        const classId = req.query.classId || '';
+        const examId = req.query.examId || '';
+        const examQuestionDataPromise = getExamQuestion(classId, examId);
+        return examQuestionDataPromise.then(examQuestionData => {
+            return new successModel(examQuestionData)
         })
     }
 
-    //教师信息更新
-    if(method === 'POST' && req.path === '/teacher/user/userInfoUpdate'){
-        const teaId = req.query.teaId || '';
-        const teacherData = req.body;
+    //学生答案上传
+    if(method === 'POST' && req.path === '/exam/answer/postAnswer'){
+        const examQuestionData = req.body;
+        const examQuestionDataPromise = postAnswer(examQuestionData);
+        return examQuestionDataPromise.then(examQuestionData => {
+            return new successModel(examQuestionData)
+        })
+    }
 
-        const updateTeacherDataPromise = updateTeacher(teaId, teacherData);
-        return updateTeacherDataPromise.then(updateTeacherData => {
-            if(updateTeacherData){
+    //考试答案查询
+    if(method === 'GET' && req.path === '/exam/answer/getAnswer'){
+        const examId = req.query.examId || '';
+        const stuId = req.query.stuId || '';
+        const examAnswerDataPromise = getExamAnswer(examId, stuId);
+        return examAnswerDataPromise.then(examAnswerData => {
+            return new successModel(examAnswerData)
+        })
+    }
+
+    //学生答案更新
+    if(method === 'POST' && req.path === '/exam/answer/updateAnswer'){
+        const id = req.query.id || '';
+        const examQuestionData = req.body;
+
+        const examQuestionDataPromise = updateAnswer(id, examQuestionData);
+        return examQuestionDataPromise.then(examQuestionData => {
+            if(examQuestionData){
                 return new successModel('更新成功')
             }else{
                 return new errorModel('更新失败')
