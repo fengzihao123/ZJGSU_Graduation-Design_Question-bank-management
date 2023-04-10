@@ -5,8 +5,25 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var leftRouter = require('./routes/left');
-var rightRouter = require('./routes/right');
+var welcomeRouter = require('./routes/welcome');
+var mainRouter = require('./routes/main');
+// todo 考试管理
+var examExplainRouter = require('./routes/examExplain');
+var examQueryRouter = require('./routes/examQuery');
+var AddExamRouter = require('./routes/AddExam');
+// todo 题库管理
+var questionExplainRouter = require('./routes/questionExplain');
+var questionQueryRouter = require('./routes/questionQuery');
+var AddQuestionRouter = require('./routes/AddQuestion');
+// todo 成绩查询
+var gradeCountRouter = require('./routes/gradeCount');
+var gradeQueryRouter = require('./routes/gradeQuery');
+// todo 学生管理
+var studentManageRouter = require('./routes/studentManage');
+var AddStudentRouter = require('./routes/AddStudent');
+// todo 课程管理
+var courseManageRouter = require('./routes/courseManage');
+var courseExplainRouter = require('./routes/courseExplain');
 
 var app = express();
 
@@ -21,10 +38,26 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/admin', indexRouter);
-//左侧
-app.use('/left', leftRouter);
-//右侧
-app.use('/right', rightRouter);
+app.use('/admin/main', mainRouter);
+app.use('/admin/welcome', welcomeRouter);
+// todo 考试管理
+app.use('/admin/examExplain', examExplainRouter);
+app.use('/admin/examQuery', examQueryRouter);
+app.use('/admin/AddExam', AddExamRouter);
+// todo 题库管理
+app.use('/admin/questionExplain', questionExplainRouter);
+app.use('/admin/questionQuery', questionQueryRouter);
+app.use('/admin/AddQuestion', AddQuestionRouter);
+// todo 成绩查询
+app.use('/admin/gradeCount', gradeCountRouter);
+app.use('/admin/gradeQuery', gradeQueryRouter);
+// todo 学生管理
+app.use('/admin/studentManage', studentManageRouter);
+app.use('/admin/AddStudent', AddStudentRouter);
+// todo 课程管理
+app.use('/admin/courseExplain', courseExplainRouter);
+app.use('/admin/courseManage', courseManageRouter);
+
 
 
 // catch 404 and forward to error handler
