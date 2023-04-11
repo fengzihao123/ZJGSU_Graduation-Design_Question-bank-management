@@ -21,6 +21,24 @@ const getQuestionError = (stuId) =>{
     return execSQL(sql)
 }
 
+//题库查询
+const getQuestion = (curName, queType, chaName, difficulty) =>{
+    //从数据库拿数据
+    let sql = `select * from question`;
+    if(curName){
+        sql += ` where curName='${curName}'`;
+    }
+    if(queType){
+        sql += ` and queType='${queType}'`;
+    }
+    if(chaName){
+        sql += ` and chaName='${chaName}'`;
+    }
+    if(difficulty){
+        sql += ` and difficulty='${difficulty}'`;
+    }
+    return execSQL(sql)
+}
 
 //取消收藏
 const cancleCollect = (stuId, queId, questionData) =>{
@@ -141,5 +159,6 @@ module.exports = {
     Collect,
     cancleError,
     Error,
-    AddCollect
+    AddCollect,
+    getQuestion
 }

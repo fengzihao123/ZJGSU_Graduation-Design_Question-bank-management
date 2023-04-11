@@ -15,6 +15,7 @@ var AddExamRouter = require('./routes/AddExam');
 var questionExplainRouter = require('./routes/questionExplain');
 var questionQueryRouter = require('./routes/questionQuery');
 var AddQuestionRouter = require('./routes/AddQuestion');
+var AddQuestionAutoRouter = require('./routes/AddQuestionAuto');
 // todo 成绩查询
 var gradeCountRouter = require('./routes/gradeCount');
 var gradeQueryRouter = require('./routes/gradeQuery');
@@ -48,6 +49,7 @@ app.use('/admin/AddExam', AddExamRouter);
 app.use('/admin/questionExplain', questionExplainRouter);
 app.use('/admin/questionQuery', questionQueryRouter);
 app.use('/admin/AddQuestion', AddQuestionRouter);
+app.use('/admin/AddQuestionAuto', AddQuestionAutoRouter);
 // todo 成绩查询
 app.use('/admin/gradeCount', gradeCountRouter);
 app.use('/admin/gradeQuery', gradeQueryRouter);

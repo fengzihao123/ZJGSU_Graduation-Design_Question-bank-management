@@ -5,7 +5,8 @@ const { getQuestionCollect,
         Collect,
         cancleError,
         Error,
-        AddCollect
+        AddCollect,
+        getQuestion
     } = require('../controllers/question')
 
 
@@ -29,6 +30,18 @@ const handleQuestionRoute = (req, res) =>{
         const questionErrorDataPromise = getQuestionError(stuId);
         return questionErrorDataPromise.then(questionErrorData => {
             return new successModel(questionErrorData)
+        })
+    }
+
+    //题库查询
+    if(method === 'GET' && req.path === '/question/question/getQuestion'){ 
+        const curName = req.query.curName || '';
+        const queType = req.query.queType || '';
+        const chaName = req.query.chaName || '';
+        const difficulty = req.query.difficulty || '';
+        const questionDataPromise = getQuestion(curName, queType, chaName, difficulty);
+        return questionDataPromise.then(questionData => {
+            return new successModel(questionData)
         })
     }
 

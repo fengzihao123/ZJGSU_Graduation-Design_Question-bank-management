@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.headPartContainer{
+    margin-top: 10px;
+}
+.headPartText{
+    font-size: 26px;
+    margin-left: 50px;
+    font-weight: 500;
+}
+.line{
+    height: 1px;
+    width: 96%;
+    margin-top: 10px;
+    margin-left: 2%;
+    background-color: black
+}
+.selectContainer{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.select1{
+    font-size: 24px;
+}
+
+.select2{
+    font-size: 20px;
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+.bodyContainer{
+    width: 96%;
+    height: 650px;
+    margin-left: 2%;
+    margin-top: 30px;
+    background-color: #E4F4F5;
+}
+.importExplainContainer{
+    display: flex;
+    margin-left: 150px;
+}
+.importExplainText{
+    margin-top: 40px;
+    font-weight: 600;
+    font-size: 22px;
+}
+.importExplainA{
+    width: 100px;
+    height: 35px;
+    background-color: #1F74E4;
+    border-radius: 10px;
+    margin-top: 38px;
+    margin-left: 10px;
+}
+.importExplainA>a{
+    display: block;
+    font-size: 18px;
+    text-align: center;
+    line-height: 35px;
+    text-decoration: none;
+    color: white;
+}
+.importExplainContainer1{
+    margin-left: 150px;
+    margin-top: 40px;
+    display: grid;
+}
+.importContainer{
+    width: 90%;
+    height: 180px;
+    margin-top: 40px;
+    border: 1px solid gainsboro;
+    background-color: white;
+}
+.addFile{
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    width: 80px;
+    height: 40px;
+    margin-left: 45%;
+    border: 1px solid #1F74E4;
+    margin-top: 80px;
+    background-color: #1F74E4;
+}

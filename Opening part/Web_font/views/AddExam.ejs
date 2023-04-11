@@ -6,8 +6,94 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel='stylesheet' href='/iconfont/iconfont.css' />
+    <link rel='stylesheet' href='/stylesheets/AddExam.css' />
 </head>
 <body>
-这是考试管理添加试卷页面
+
+    <div class="headPartContainer">
+        <text class="headPartText">考试管理</text>
+        <div class="line"></div>
+    </div>
+
+    <form action="/admin/AddExam/examQuery" method="post">
+
+        <div class="oneInputContainer">
+            <text class="examNameText">试卷名称</text>
+<!--            <input type="text" class="examNameInput"  placeholder="试卷名" name="examName">-->
+            <div class="dropdown">
+                <input type="text" class="text01" readonly placeholder="试卷名称" name="examName">
+                <div class="option">
+                    <div onmouseover="show('数据结构')">数据结构</div>
+                    <div onmouseover="show('计算机组成原理')">计算机组成原理</div>
+                    <div onmouseover="show('计算机网络')">计算机网络</div>
+                    <div onmouseover="show('操作系统')">操作系统</div>
+                </div>
+            </div>
+            <script>
+                function show(a){
+                    document.querySelector('.text01').value=a;
+                }
+                let dropdown = document.querySelector('.dropdown');
+                dropdown.onclick = function (){
+                    dropdown.classList.toggle('active');
+                }
+            </script>
+        </div>
+
+        <div class="oneInputContainer">
+            <text class="examNameText">测试类型</text>
+            <!--            <input type="text" class="examNameInput"  placeholder="试卷名" name="examName">-->
+            <div class="dropdown1">
+                <input type="text" class="text02" readonly placeholder="测试类型" name="examType">
+                <div class="option">
+                    <div onmouseover="show1('期末测试')">期末测试</div>
+                    <div onmouseover="show1('单元测试')">单元测试</div>
+                </div>
+            </div>
+            <script>
+                function show1(a){
+                    document.querySelector('.text02').value=a;
+                }
+                let dropdown1 = document.querySelector('.dropdown1');
+                dropdown1.onclick = function (){
+                    dropdown1.classList.toggle('active1');
+                }
+            </script>
+        </div>
+
+        <div class="oneInputContainer">
+            <text class="examNameText">考试班级</text>
+            <!--            <input type="text" class="examNameInput"  placeholder="试卷名" name="examName">-->
+            <div class="dropdown2">
+                <input type="text" class="text03" readonly placeholder="考试班级" name="classId">
+                <div class="option">
+                    <div onmouseover="show2('计科1902')">计科1902</div>
+                    <div onmouseover="show2('计科1901')">计科1901</div>
+                </div>
+            </div>
+            <script>
+                function show2(a){
+                    document.querySelector('.text03').value=a;
+                }
+                let dropdown2 = document.querySelector('.dropdown2');
+                dropdown2.onclick = function (){
+                    dropdown2.classList.toggle('active2');
+                }
+            </script>
+        </div>
+
+        <div class="oneInputContainer">
+            <text class="examNameText">开始时间</text>
+            <!--            <input type="text" class="examNameInput"  placeholder="试卷名" name="examName">-->
+            <div class="dropdown3">
+                <input type="date" class="text04"  name="startTime">
+            </div>
+        </div>
+        <div class="dropdown4">
+            <input type="submit" value="立即创建">
+        </div>
+    </form>
+
 </body>
 </html>

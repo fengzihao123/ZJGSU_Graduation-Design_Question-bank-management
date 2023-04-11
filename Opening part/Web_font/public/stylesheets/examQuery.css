@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.headPartContainer{
+    margin-top: 10px;
+}
+.headPartText{
+    font-size: 26px;
+    margin-left: 50px;
+    font-weight: 500;
+}
+.line{
+    height: 1px;
+    width: 96%;
+    margin-top: 10px;
+    margin-left: 2%;
+    background-color: black
+}
+
+.query1{
+    margin-top: 30px;
+}
+.query2{
+    margin-top: 50px;
+}
+.query3{
+    margin-top: 50px;
+}
+.content{
+    margin-top: 10px;
+    border-radius: 24px;
+}
+.table{
+    width: 94%;
+    margin-left: 3%;
+    text-align: center;
+}
+.table thead tr{
+    height: 64px;
+}
+.table th{
+    text-align: center;
+}
+.table tbody{
+    line-height: 48px;
+}
+.edit{
+    width: 20px;
+    height: 20px;
+}
+.del{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+.query1Text{
+    font-weight: 600;
+    font-size: 20px;
+    color: #2DA954;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+.query2Text{
+    font-weight: 600;
+    font-size: 20px;
+    color: #CD525B;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+.query3Text{
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-top: 10px;
+}

@@ -6,8 +6,175 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel='stylesheet' href='/iconfont/iconfont.css' />
+    <link rel='stylesheet' href='/stylesheets/AddQuestion.css' />
 </head>
 <body>
-这是题库管理添加试题页面
+
+    <div class="headPartContainer">
+        <text class="headPartText">题库管理</text>
+        <div class="line"></div>
+    </div>
+
+    <div class="selectContainer">
+        <a href="#" class="select1">手动添加</a>
+        <a href="/admin/AddQuestionAuto" class="select2">批量导入</a>
+    </div>
+    <form action="">
+        <div class="allContainer">
+            <div class="oneInputContainer">
+                <text class="examNameText">课程名称</text>
+                <div class="dropdown">
+                    <input type="text" class="text01" readonly placeholder="试卷名称" name="curName">
+                    <div class="option">
+                        <div onmouseover="show('数据结构')">数据结构</div>
+                        <div onmouseover="show('计算机组成原理')">计算机组成原理</div>
+                        <div onmouseover="show('计算机网络')">计算机网络</div>
+                        <div onmouseover="show('操作系统')">操作系统</div>
+                    </div>
+                </div>
+                <script>
+                    function show(a){
+                        document.querySelector('.text01').value=a;
+                    }
+                    let dropdown = document.querySelector('.dropdown');
+                    dropdown.onclick = function (){
+                        dropdown.classList.toggle('active');
+                    }
+                </script>
+            </div>
+
+            <div class="oneInputContainer">
+                <text class="examNameText">题目类型</text>
+                <!--            <input type="text" class="examNameInput"  placeholder="试卷名" name="examName">-->
+                <div class="dropdown1">
+                    <input type="text" class="text02" readonly placeholder="题目类型" name="queType">
+                    <div class="option">
+                        <div onmouseover="show1('单选题')">单选题</div>
+                        <div onmouseover="show1('多选题')">多选题</div>
+                        <div onmouseover="show1('填空题')">填空题</div>
+                        <div onmouseover="show1('问答题')">问答题</div>
+                        <div onmouseover="show1('计算题')">计算题</div>
+                        <div onmouseover="show1('编程题')">编程题</div>
+                    </div>
+                </div>
+                <script>
+                    function show1(a){
+                        document.querySelector('.text02').value=a;
+                    }
+                    let dropdown1 = document.querySelector('.dropdown1');
+                    dropdown1.onclick = function (){
+                        dropdown1.classList.toggle('active1');
+                    }
+                </script>
+            </div>
+
+            <div class="oneInputContainer">
+                <text class="examNameText">所属章节</text>
+                <!--            <input type="text" class="examNameInput"  placeholder="试卷名" name="examName">-->
+                <div class="dropdown2">
+                    <input type="text" class="text03" readonly placeholder="所属章节" name="classId">
+                    <div class="option">
+                        <div onmouseover="show2('第一章 序章')">第一章 序章</div>
+                        <div onmouseover="show2('第二章 物理层')">第二章 物理层</div>
+                        <div onmouseover="show2('第三章 链路层')">第三章 链路层</div>
+                        <div onmouseover="show2('第四章 网络层')">第四章 网络层</div>
+                    </div>
+                </div>
+                <script>
+                    function show2(a){
+                        document.querySelector('.text03').value=a;
+                    }
+                    let dropdown2 = document.querySelector('.dropdown2');
+                    dropdown2.onclick = function (){
+                        dropdown2.classList.toggle('active2');
+                    }
+                </script>
+            </div>
+
+            <div class="oneInputContainer">
+                <text class="examNameText">难度</text>
+                <!--            <input type="text" class="examNameInput"  placeholder="试卷名" name="examName">-->
+                <div class="dropdown3">
+                    <input type="text" class="text04" readonly placeholder="难度" name="classId">
+                    <div class="option">
+                        <div onmouseover="show3('1')">1</div>
+                        <div onmouseover="show3('2')">2</div>
+                        <div onmouseover="show3('3')">3</div>
+                        <div onmouseover="show3('4')">4</div>
+                        <div onmouseover="show3('5')">5</div>
+                    </div>
+                </div>
+                <script>
+                    function show3(a){
+                        document.querySelector('.text04').value=a;
+                    }
+                    let dropdown3 = document.querySelector('.dropdown3');
+                    dropdown3.onclick = function (){
+                        dropdown3.classList.toggle('active3');
+                    }
+                </script>
+            </div>
+        </div>
+
+        <div class="bodyContainer">
+            <div class="bodyPartTips">
+                <div class="bodyPartTipsType">
+                    <text class="bodyPartTipsText">
+                        题目
+                    </text>
+                </div>
+                <text class="bodyPartTipsText1">在下面输入题目，形如Internet中发送邮件的协议是（）</text>
+            </div>
+
+            <input type="text" class="stem" name="stem" placeholder="请输入题目">
+
+            <div class="choiceContainer">
+                <div class="choiceType">
+                    <text class="choiceText">A</text>
+                </div>
+                <input type="text" class="choiceInput" name="choiceA" placeholder="请输入选项A">
+            </div>
+            <div class="choiceContainer">
+                <div class="choiceType">
+                    <text class="choiceText">B</text>
+                </div>
+                <input type="text" class="choiceInput" name="choiceB" placeholder="请输入选项B">
+            </div>
+            <div class="choiceContainer">
+                <div class="choiceType">
+                    <text class="choiceText">C</text>
+                </div>
+                <input type="text" class="choiceInput" name="choiceC" placeholder="请输入选项C">
+            </div>
+            <div class="choiceContainer">
+                <div class="choiceType">
+                    <text class="choiceText">D</text>
+                </div>
+                <input type="text" class="choiceInput" name="choiceD" placeholder="请输入选项D">
+            </div>
+            <div class="bodyPartTips">
+                <div class="bodyPartTipsType2">
+                    <text class="bodyPartTipsText2">
+                        答案
+                    </text>
+                </div>
+                <input type="text" class="answerInput" name="answer" placeholder="请输入正确答案">
+            </div>
+            <div class="bodyPartTips">
+                <div class="bodyPartTipsType2">
+                    <text class="bodyPartTipsText2">
+                        解析
+                    </text>
+                </div>
+            </div>
+            <input type="text" class="analysisInput" name="analysis" placeholder="请输入解析">
+            <input type="submit" class="submitInput" value="添加">
+        </div>
+    </form>
+
+
+
+
 </body>
 </html>

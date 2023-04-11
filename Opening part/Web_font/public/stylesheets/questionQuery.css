@@ -1,0 +1,376 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.headPartContainer{
+    margin-top: 10px;
+}
+.headPartText{
+    font-size: 26px;
+    margin-left: 50px;
+    font-weight: 500;
+}
+.line{
+    height: 1px;
+    width: 96%;
+    margin-top: 10px;
+    margin-left: 2%;
+    background-color: black
+}
+
+/*  todo  表单  */
+.oneInputContainer{
+    display: flex;
+    margin-left: 200px;
+    margin-top: 25px;
+}
+.examNameText{
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+.headAllContainer{
+    display: flex;
+}
+
+/*  todo  下拉菜单  */
+.dropdown{
+    position: relative;
+    width: 220px;
+    height: 50px;
+}
+.dropdown::before{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 28px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(40deg);
+    transition: 0.5s;
+}
+.dropdown.active::before{
+    right: 20px;
+}
+.dropdown.active::after{
+    right: 28px;
+}
+.dropdown::after{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(-40deg);
+    transition: 0.5s;
+}
+.dropdown input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    outline: none;
+    border: none;
+}
+.dropdown .option{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 100;
+    transition: 0.5s;
+}
+.dropdown.active .option{
+    visibility: visible;
+    opacity: 1;
+}
+.dropdown .option div{
+    padding: 12px;
+    cursor: pointer;
+}
+.dropdown .option div:hover{
+    background: #62baea;
+    color: #fff;
+}
+/*  todo  第二个  */
+.dropdown1{
+    margin-top: 25px;
+    margin-left: 10px;
+    position: relative;
+    width: 220px;
+    height: 50px;
+}
+.dropdown1::before{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 28px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(40deg);
+    transition: 0.5s;
+}
+.dropdown1.active1::before{
+    right: 20px;
+}
+.dropdown1.active1::after{
+    right: 28px;
+}
+.dropdown1::after{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(-40deg);
+    transition: 0.5s;
+}
+.dropdown1 input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    outline: none;
+    border: none;
+}
+.dropdown1 .option{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 100;
+    transition: 0.5s;
+}
+.dropdown1.active1 .option{
+    visibility: visible;
+    opacity: 1;
+}
+.dropdown1 .option div{
+    padding: 12px;
+    cursor: pointer;
+}
+.dropdown1 .option div:hover{
+    background: #62baea;
+    color: #fff;
+}
+
+/*  todo  第三个  */
+.dropdown2{
+    margin-top: 25px;
+    margin-left: 10px;
+    position: relative;
+    width: 220px;
+    height: 50px;
+}
+.dropdown2::before{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 28px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(40deg);
+    transition: 0.5s;
+}
+.dropdown2.active2::before{
+    right: 20px;
+}
+.dropdown2.active2::after{
+    right: 28px;
+}
+.dropdown2::after{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(-40deg);
+    transition: 0.5s;
+}
+.dropdown2 input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    outline: none;
+    border: none;
+}
+.dropdown2 .option{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 100;
+    transition: 0.5s;
+}
+.dropdown2.active2 .option{
+    visibility: visible;
+    opacity: 1;
+}
+.dropdown2 .option div{
+    padding: 12px;
+    cursor: pointer;
+}
+.dropdown2 .option div:hover{
+    background: #62baea;
+    color: #fff;
+}
+
+/*  todo  第四个  */
+.dropdown3{
+    margin-top: 25px;
+    margin-left: 10px;
+    position: relative;
+    width: 220px;
+    height: 50px;
+}
+.dropdown3::before{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 28px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(40deg);
+    transition: 0.5s;
+}
+.dropdown3.active3::before{
+    right: 20px;
+}
+.dropdown3.active3::after{
+    right: 28px;
+}
+.dropdown3::after{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(-40deg);
+    transition: 0.5s;
+}
+.dropdown3 input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    outline: none;
+    border: none;
+}
+.dropdown3 .option{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 100;
+    transition: 0.5s;
+}
+.dropdown3.active3 .option{
+    visibility: visible;
+    opacity: 1;
+}
+.dropdown3 .option div{
+    padding: 12px;
+    cursor: pointer;
+}
+.dropdown3 .option div:hover{
+    background: #62baea;
+    color: #fff;
+}
+.content{
+    margin-top: 30px;
+    border-radius: 24px;
+}
+.table{
+    width: 94%;
+    margin-left: 3%;
+    text-align: center;
+}
+.table thead tr{
+    height: 64px;
+}
+.table th{
+    text-align: center;
+}
+.table tbody{
+    line-height: 48px;
+}
+.edit{
+    width: 20px;
+    height: 20px;
+}
+.del{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
