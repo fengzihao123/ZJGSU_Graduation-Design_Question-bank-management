@@ -15,20 +15,6 @@ const request = (url , data = {}) => {
             reject(error)
         });
     })
-    // $.get({
-    //     url:getUrl,    //请求的url地址
-    //     data: data,
-    //     success:function(req){
-    //         //请求成功
-    //         console.log(req)
-    //     },
-    //     error:function(){
-    //         //请求出错
-    //     },
-    //     complete:function(){
-    //         //请求完成
-    //     }
-    // });
 }
 
 module.exports = {

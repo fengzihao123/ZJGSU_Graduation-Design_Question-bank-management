@@ -25,6 +25,12 @@ var AddStudentRouter = require('./routes/AddStudent');
 // todo 课程管理
 var courseManageRouter = require('./routes/courseManage');
 var courseExplainRouter = require('./routes/courseExplain');
+// todo 上传
+var changeIndexRouter = require('./routes/changeIndex');
+var selectQuestionRouter = require('./routes/selectQuestion');
+var delRouter = require('./routes/del');
+var updateRouter = require('./routes/update');
+var newQuestionRouter = require('./routes/newQuestion');
 
 var app = express();
 
@@ -60,7 +66,12 @@ app.use('/admin/AddStudent', AddStudentRouter);
 app.use('/admin/courseExplain', courseExplainRouter);
 app.use('/admin/courseManage', courseManageRouter);
 
-
+//上传
+app.use('/changeIndex', changeIndexRouter);
+app.use('/selectQuestion', selectQuestionRouter);
+app.use('/del', delRouter);
+app.use('/update', updateRouter);
+app.use('/newQuestion', newQuestionRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

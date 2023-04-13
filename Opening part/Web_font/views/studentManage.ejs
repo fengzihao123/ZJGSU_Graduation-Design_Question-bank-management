@@ -11,9 +11,15 @@
     <link rel='stylesheet' href='/stylesheets/studentManage.css'/>
 </head>
 <body>
-    <div class="headPartContainer">
-        <text class="headPartText">学生管理</text>
-        <div class="line"></div>
+    <div class="oneSelect">
+        <% collectList.forEach(function (item){ %>
+            <form action="/changeIndex" method="post" class="oneSelect">
+                <input type="submit" value="<%= collectList.indexOf(item) + 1%>" class="submitInput" name="index">
+            </form>
+        <% }) %>
     </div>
+    <text><%= collectList[index].id%></text>
+
+
 </body>
 </html>

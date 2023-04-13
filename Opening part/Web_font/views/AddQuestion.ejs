@@ -20,7 +20,7 @@
         <a href="#" class="select1">手动添加</a>
         <a href="/admin/AddQuestionAuto" class="select2">批量导入</a>
     </div>
-    <form action="">
+    <form action="/newQuestion" method="post">
         <div class="allContainer">
             <div class="oneInputContainer">
                 <text class="examNameText">课程名称</text>
@@ -50,12 +50,12 @@
                 <div class="dropdown1">
                     <input type="text" class="text02" readonly placeholder="题目类型" name="queType">
                     <div class="option">
-                        <div onmouseover="show1('单选题')">单选题</div>
-                        <div onmouseover="show1('多选题')">多选题</div>
-                        <div onmouseover="show1('填空题')">填空题</div>
-                        <div onmouseover="show1('问答题')">问答题</div>
-                        <div onmouseover="show1('计算题')">计算题</div>
-                        <div onmouseover="show1('编程题')">编程题</div>
+                        <div onmouseover="show1('单选')">单选题</div>
+                        <div onmouseover="show1('多选')">多选题</div>
+                        <div onmouseover="show1('填空')">填空题</div>
+                        <div onmouseover="show1('问答')">问答题</div>
+                        <div onmouseover="show1('计算')">计算题</div>
+                        <div onmouseover="show1('编程')">编程题</div>
                     </div>
                 </div>
                 <script>
@@ -73,7 +73,7 @@
                 <text class="examNameText">所属章节</text>
                 <!--            <input type="text" class="examNameInput"  placeholder="试卷名" name="examName">-->
                 <div class="dropdown2">
-                    <input type="text" class="text03" readonly placeholder="所属章节" name="classId">
+                    <input type="text" class="text03" readonly placeholder="所属章节" name="chaName">
                     <div class="option">
                         <div onmouseover="show2('第一章 序章')">第一章 序章</div>
                         <div onmouseover="show2('第二章 物理层')">第二章 物理层</div>
@@ -96,7 +96,7 @@
                 <text class="examNameText">难度</text>
                 <!--            <input type="text" class="examNameInput"  placeholder="试卷名" name="examName">-->
                 <div class="dropdown3">
-                    <input type="text" class="text04" readonly placeholder="难度" name="classId">
+                    <input type="text" class="text04" readonly placeholder="难度" name="difficulty">
                     <div class="option">
                         <div onmouseover="show3('1')">1</div>
                         <div onmouseover="show3('2')">2</div>

@@ -24,7 +24,6 @@
                 <tr>
                     <th>试题分类</th>
                     <th>班级</th>
-                    <th>所属学院</th>
                     <th>考试时间</th>
                     <th>持续时间</th>
                     <th>总分</th>
@@ -32,18 +31,19 @@
                 </tr>
                 </thead>
                 <tbody>
+                <% examList0.forEach(function (item){ %>
                     <tr>
-                        <td>计算机网络</td>
-                        <td>计科1902</td>
-                        <td>计算机学院</td>
-                        <td>2022-10-21</td>
-                        <td>120分钟</td>
-                        <td>100分</td>
+                        <td><%= item.curName %></td>
+                        <td><%= item.className %></td>
+                        <td><%= item.startTime %></td>
+                        <td><%= item.duration %>分</td>
+                        <td><%= item.totalPoint %>分</td>
                         <td>
                             <img src="/images/xiugai.png" class="edit">
                             <img src="/images/shanchu.png" class="del">
                         </td>
                     </tr>
+                <% }) %>
                 </tbody>
             </table>
         </div>
@@ -57,7 +57,6 @@
                 <tr>
                     <th>试题分类</th>
                     <th>班级</th>
-                    <th>所属学院</th>
                     <th>考试时间</th>
                     <th>持续时间</th>
                     <th>总分</th>
@@ -65,18 +64,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>计算机网络</td>
-                    <td>计科1902</td>
-                    <td>计算机学院</td>
-                    <td>2022-10-21</td>
-                    <td>120分钟</td>
-                    <td>100分</td>
-                    <td>
-                        <img src="/images/xiugai.png" class="edit">
-                        <img src="/images/shanchu.png" class="del">
-                    </td>
-                </tr>
+                <% examList1.forEach(function (item){ %>
+                    <tr>
+                        <td><%= item.curName %></td>
+                        <td><%= item.className %></td>
+                        <td><%= item.startTime %></td>
+                        <td><%= item.duration %>分</td>
+                        <td><%= item.totalPoint %>分</td>
+                        <td>
+                            <img src="/images/xiugai.png" class="edit">
+                            <img src="/images/shanchu.png" class="del">
+                        </td>
+                    </tr>
+                <% }) %>
                 </tbody>
             </table>
         </div>
@@ -90,7 +90,6 @@
                 <tr>
                     <th>试题分类</th>
                     <th>班级</th>
-                    <th>所属学院</th>
                     <th>考试时间</th>
                     <th>持续时间</th>
                     <th>总分</th>
@@ -98,18 +97,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>计算机网络</td>
-                    <td>计科1902</td>
-                    <td>计算机学院</td>
-                    <td>2022-10-21</td>
-                    <td>120分钟</td>
-                    <td>100分</td>
-                    <td>
-                        <img src="/images/xiugai.png" class="edit">
-                        <img src="/images/shanchu.png" class="del">
-                    </td>
-                </tr>
+                <% examList2.forEach(function (item){ %>
+                    <tr>
+                        <td><%= item.curName %></td>
+                        <td><%= item.className %></td>
+                        <td><%= item.startTime %></td>
+                        <td><%= item.duration %>分</td>
+                        <td><%= item.totalPoint %>分</td>
+                        <td>
+                            <img src="/images/xiugai.png" class="edit">
+                            <img src="/images/shanchu.png" class="del">
+                        </td>
+                    </tr>
+                <% }) %>
                 </tbody>
             </table>
         </div>
