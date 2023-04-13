@@ -17,6 +17,18 @@ const getExamList = (classId, curId, schoolTerm) =>{
     return execSQL(sql)
 }
 
+// 教师考试列表查询
+const getExamListTeacher = (teaId, teacherStatus) =>{
+    //从数据库拿数据
+    let sql = `select * from exam where`;
+    if(teaId){
+        sql += ` teaId='${teaId}'`;
+    }
+    if(teacherStatus){
+        sql += ` and teacherStatus=${teacherStatus}`;
+    }
+    return execSQL(sql)
+}
 // 考试详情查询
 const getExamDetail = (examId) =>{
     let sql = `select * from exam where`;
@@ -102,5 +114,6 @@ module.exports = {
     getExamQuestion,
     postAnswer,
     updateAnswer,
-    getExamAnswer
+    getExamAnswer,
+    getExamListTeacher
 }

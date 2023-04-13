@@ -4,7 +4,8 @@ const { getExamList,
         getExamQuestion,
         postAnswer,
         updateAnswer,
-        getExamAnswer
+        getExamAnswer,
+        getExamListTeacher
     } = require('../controllers/exam')
 
 
@@ -19,6 +20,16 @@ const handleExamRoute = (req, res) =>{
         const schoolTerm = req.query.schoolTerm || '';
         const curId = req.query.curId || '';
         const examListDataPromise = getExamList(classId, curId, schoolTerm);
+        return examListDataPromise.then(examListData => {
+            return new successModel(examListData)
+        })
+    }
+
+    //教师考试列表查询
+    if(method === 'GET' && req.path === '/exam/student/getExamListTeacher'){
+        const teaId = req.query.teaId || '';
+        const teacherStatus = req.query.teacherStatus || '';
+        const examListDataPromise = getExamListTeacher(teaId, teacherStatus);
         return examListDataPromise.then(examListData => {
             return new successModel(examListData)
         })

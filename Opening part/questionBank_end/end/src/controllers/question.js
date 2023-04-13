@@ -22,11 +22,11 @@ const getQuestionError = (stuId) =>{
 }
 
 //题库查询
-const getQuestion = (curName, queType, chaName, difficulty) =>{
+const getQuestion = (curName, queType, chaName, difficulty, stem) =>{
     //从数据库拿数据
-    let sql = `select * from question`;
+    let sql = `select * from question where isDelete=0`;
     if(curName){
-        sql += ` where curName='${curName}'`;
+        sql += ` and curName='${curName}'`;
     }
     if(queType){
         sql += ` and queType='${queType}'`;
@@ -36,6 +36,9 @@ const getQuestion = (curName, queType, chaName, difficulty) =>{
     }
     if(difficulty){
         sql += ` and difficulty='${difficulty}'`;
+    }
+    if(stem){
+        sql += ` and stem like '%${stem}%'`;
     }
     return execSQL(sql)
 }
@@ -123,15 +126,12 @@ const Error = (stuId, queId, questionData) =>{
         return false;
     }) 
 }
-//更新教师信息
-const updateTeacher = (teaId, teacherData = {}) =>{
+//删除题库
+const deleteQuestion = (queId, questionData = {}) =>{
 
-    const teaPwd = teacherData.teaPwd
-    const teaName = teacherData.teaName
-    const gender = teacherData.gender
-    const phoneNum = teacherData.phoneNum
-    const createAt = Date.now()
-    const sql = `update teacher set teaPwd='${teaPwd}', teaName='${teaName}', gender=${gender}, phoneNum='${phoneNum}', createAt=${createAt} where teaId='${teaId}'`
+    const isDelete = questionData.params.isDelete
+
+    const sql = `update question set isDelete=${isDelete} where queId=${parseInt(queId)}`
     return execSQL(sql).then(updateResult =>{
         if(updateResult.affectedRows > 0){
             return true;
@@ -142,16 +142,52 @@ const updateTeacher = (teaId, teacherData = {}) =>{
 
 }
 
-//删除教师信息
-const deleteTeacher = (teaId) =>{
-    const sql = `delete from teacher where teaId='${teaId}'`;
-    return execSQL(sql).then(deleteResult => {
-        if(deleteResult.affectedRows > 0){
+//更新题库
+const updateQuestion = (queId, questionData = {}) =>{
+
+    const curName    = questionData.params.curName
+    const stem       = questionData.params.stem
+    const choiceA    = questionData.params.choiceA || ''
+    const choiceB    = questionData.params.choiceB || ''
+    const choiceC    = questionData.params.choiceC || ''
+    const choiceD    = questionData.params.choiceD || ''
+    const chaName    = questionData.params.chaName
+    const queType    = questionData.params.queType
+    const difficulty = questionData.params.difficulty
+    const answer     = questionData.params.answer
+    const sql = `update question set curName='${curName}', stem='${stem}', choiceA='${choiceA}', choiceB='${choiceB}', choiceC='${choiceC}', choiceD='${choiceD}', chaName='${chaName}', queType='${queType}', difficulty=${parseInt(difficulty)}, answer='${answer}' where queId=${parseInt(queId)}`
+    return execSQL(sql).then(updateResult =>{
+        if(updateResult.affectedRows > 0){
             return true;
         }
-        return false
-    })
+        return false;
+    }) 
 }
+
+//更新题库
+const newQuestion = (questionData = {}) =>{
+
+    const curName    = questionData.params.curName || ''
+    const stem       = questionData.params.stem || ''
+    const choiceA    = questionData.params.choiceA || ''
+    const choiceB    = questionData.params.choiceB || ''
+    const choiceC    = questionData.params.choiceC || ''
+    const choiceD    = questionData.params.choiceD || ''
+    const chaName    = questionData.params.chaName || ''
+    const queType    = questionData.params.queType || ''
+    const difficulty = questionData.params.difficulty || ''
+    const answer     = questionData.params.answer || ''
+    const analysis     = questionData.params.analysis || ''
+    
+    const sql = `insert into question values(0, '${curName}', '${stem}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', '${chaName}', '${queType}', ${parseInt(difficulty)}, '${answer}', '${analysis}', 0)`
+    return execSQL(sql).then(updateResult =>{
+        if(updateResult.affectedRows > 0){
+            return true;
+        }
+        return false;
+    }) 
+}
+
 module.exports = {
     getQuestionCollect,
     getQuestionError,
@@ -160,5 +196,8 @@ module.exports = {
     cancleError,
     Error,
     AddCollect,
-    getQuestion
+    getQuestion,
+    deleteQuestion,
+    updateQuestion,
+    newQuestion
 }

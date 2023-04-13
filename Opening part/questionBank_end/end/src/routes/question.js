@@ -6,7 +6,10 @@ const { getQuestionCollect,
         cancleError,
         Error,
         AddCollect,
-        getQuestion
+        getQuestion,
+        deleteQuestion,
+        updateQuestion,
+        newQuestion
     } = require('../controllers/question')
 
 
@@ -39,7 +42,8 @@ const handleQuestionRoute = (req, res) =>{
         const queType = req.query.queType || '';
         const chaName = req.query.chaName || '';
         const difficulty = req.query.difficulty || '';
-        const questionDataPromise = getQuestion(curName, queType, chaName, difficulty);
+        const stem = req.query.stem || '';
+        const questionDataPromise = getQuestion(curName, queType, chaName, difficulty, stem);
         return questionDataPromise.then(questionData => {
             return new successModel(questionData)
         })
@@ -98,14 +102,14 @@ const handleQuestionRoute = (req, res) =>{
         })
     }
 
-    //教师信息更新
-    if(method === 'POST' && req.path === '/teacher/user/userInfoUpdate'){
-        const teaId = req.query.teaId || '';
-        const teacherData = req.body;
+    //题库删除
+    if(method === 'POST' && req.path === '/question/delete/question'){
+        const queId = req.query.queId || '';
+        const questionData = req.body;
 
-        const updateTeacherDataPromise = updateTeacher(teaId, teacherData);
-        return updateTeacherDataPromise.then(updateTeacherData => {
-            if(updateTeacherData){
+        const questionDataPromise = deleteQuestion(queId, questionData);
+        return questionDataPromise.then(questionData => {
+            if(questionData){
                 return new successModel('更新成功')
             }else{
                 return new errorModel('更新失败')
@@ -114,17 +118,33 @@ const handleQuestionRoute = (req, res) =>{
         
     }
 
-    //删除教师
-    if(method === 'POST' && req.path === '/teacher/user/deleteUserInfo'){
-        const teaId = req.query.teaId || '';
-        const deleteTeacherDataPromise = deleteTeacher(teaId)
-        return deleteTeacherDataPromise.then(deleteTeacherData =>{
-            if(deleteTeacherData){
-                return new successModel('删除成功')
+    //题库修改
+    if(method === 'POST' && req.path === '/question/update/question'){
+        const queId = req.query.queId || '';
+        const questionData = req.body;
+        const questionDataPromise = updateQuestion(queId, questionData);
+        return questionDataPromise.then(questionData => {
+            if(questionData){
+                return new successModel('更新成功')
             }else{
-                return new errorModel('删除失败')
+                return new errorModel('更新失败')
             }
         })
+        
+    }
+
+    //题库新增
+    if(method === 'POST' && req.path === '/question/insert/question'){
+        const questionData = req.body;
+        const questionDataPromise = newQuestion(questionData);
+        return questionDataPromise.then(questionData => {
+            if(questionData){
+                return new successModel('更新成功')
+            }else{
+                return new errorModel('更新失败')
+            }
+        })
+        
     }
 
 }
