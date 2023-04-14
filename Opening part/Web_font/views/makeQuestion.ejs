@@ -8,15 +8,20 @@
     <title>Document</title>
     <link rel='stylesheet' href='/iconfont/iconfont.css'/>
     <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
-    <link rel='stylesheet' href='/stylesheets/questionQuery.css'/>
-
+    <link rel='stylesheet' href='/stylesheets/makeQuestion.css'/>
 </head>
 <body>
     <div class="headPartContainer">
-        <text class="headPartText">题库管理</text>
+        <text class="headPartText">考试管理</text>
         <div class="line"></div>
     </div>
-    <form action="/selectQuestion" method="post">
+
+    <div class="selectContainer">
+        <a href="#" class="select1">手动添加</a>
+        <a href="#" class="select2">自动组卷</a>
+    </div>
+
+    <form action="/selectQuestion1" method="post">
         <div class="headAllContainer">
             <div class="oneInputContainer">
                 <text class="examNameText">课程名称</text>
@@ -101,6 +106,32 @@
             </script>
             <input type="submit" class="selectInputSubmit" value="搜索">
         </div>
+        <div class="questionNumContainer">
+            <div class="oneNum">
+                <text class="typeText">单选:</text>
+                <text class="numText"><%= questionNum.danXuan%></text>
+            </div>
+            <div class="oneNum">
+                <text class="typeText">多选:</text>
+                <text class="numText"><%= questionNum.duoXuan%></text>
+            </div>
+            <div class="oneNum">
+                <text class="typeText">填空:</text>
+                <text class="numText"><%= questionNum.tianKong%></text>
+            </div>
+            <div class="oneNum">
+                <text class="typeText">计算:</text>
+                <text class="numText"><%= questionNum.jiSuan%></text>
+            </div>
+            <div class="oneNum">
+                <text class="typeText">问答:</text>
+                <text class="numText"><%= questionNum.wenDa%></text>
+            </div>
+            <div class="oneNum">
+                <text class="typeText">编程:</text>
+                <text class="numText"><%= questionNum.biangCheng%></text>
+            </div>
+        </div>
 
         <div class="search-box">
             <input type="text" class="search-txt" name="searchContent" placeholder="请输入搜索内容">
@@ -110,129 +141,47 @@
         </div>
     </form>
 
-    <!--  todo  删除操作  -->
-    <div class="deleteContainer">
-        <text class="deleteTips">确定删除吗？</text>
-        <div class="buttonContainer">
-            <button class="cancle-btn">
-                取消
-            </button>
-            <button class="confirm-btn">
-                确定
-            </button>
-        </div>
-    </div>
     <script src="/javascripts/jquery-3.2.1.js"></script>
     <script>
         $(function (){
-            var queId = ''
-            $('.del').click(function (){
-                queId = $(this).data('queid')
-                $('.deleteContainer').show()
-            })
-            $('.cancle-btn').click(function (){
-                $('.deleteContainer').hide()
-            })
-            $('.confirm-btn').click(function (){
-                window.location.href = `/del?queId=${queId}`
-            })
-        })
-    </script>
-    <!-- todo 编辑操作   -->
-    <script>
-        $(function (){
             var queId = '';
-            var curName = '';
             var stem = '';
             var choiceA = '';
             var choiceB = '';
             var choiceC = '';
             var choiceD = '';
-            var chaName = '';
             var queType = '';
-            var difficulty = '';
             var answer = '';
-            var updateHtml = ''
-            $('.edit').click(function (){
+
+            $('.edit').click(function () {
                 queId = $(this).data('queid')
-                curName = $(this).data('curname')
                 stem = $(this).data('stem')
                 choiceA = $(this).data('choicea')
                 choiceB = $(this).data('choiceb')
                 choiceC = $(this).data('choicec');
                 choiceD = $(this).data('choiced')
-                chaName = $(this).data('chaname')
                 queType = $(this).data('quetype')
-                difficulty = $(this).data('difficulty')
                 answer = $(this).data('answer')
-
-                updateHtml = `
-                <form action="/update" method="post">
-                    <div class="updateContainer">
-                        <div class="oneUpdateDiv">
-                            <text class="updateTipsText">I　D：</text>
-                            <input type="text" name="queId" class="typeInput queId"  readonly value="${queId}">
-                        </div>
-                        <div class="oneUpdateDiv">
-                            <text class="updateTipsText">课程名：</text>
-                            <input type="text" name="curName" class="type1Input curName" value="${curName}">
-                        </div>
-                        <div class="oneUpdateDiv">
-                            <text class="updateTipsText">题　干：</text>
-                            <input type="text" name="stem" class="type1Input stem" value="${stem}">
-                        </div>
-                        <div class="oneUpdateDiv">
-                            <text class="updateTipsText">选项A：</text>
-                            <input type="text" name="choiceA" class="type2Input choiceA" value="${choiceA}">
-                        </div>
-                        <div class="oneUpdateDiv">
-                            <text class="updateTipsText">选项B：</text>
-                            <input type="text" name="choiceB" class="type2Input choiceB" value="${choiceB}">
-                        </div>
-                        <div class="oneUpdateDiv">
-                            <text class="updateTipsText">选项C：</text>
-                            <input type="text" name="choiceC" class="type2Input choiceC" value="${choiceC}">
-                        </div>
-                        <div class="oneUpdateDiv">
-                            <text class="updateTipsText">选项D：</text>
-                            <input type="text" name="choiceD" class="type2Input choiceD" value="${choiceD}">
-                        </div>
-                        <div class="oneUpdateDiv">
-                            <text class="updateTipsText">章节名：</text>
-                            <input type="text" name="chaName" class="type1Input chaName" value="${chaName}">
-                        </div>
-                        <div class="oneUpdateDiv">
-                            <text class="updateTipsText">题　干：</text>
-                            <input type="text" name="queType" class="type1Input queType" value="${queType}">
-                        </div>
-                        <div class="oneUpdateDiv">
-                            <text class="updateTipsText">难　度：</text>
-                            <input type="text" name="difficulty" class="type2Input difficulty" value="${difficulty}">
-                        </div>
-                        <div class="oneUpdateDiv">
-                            <text class="updateTipsText">答　案：</text>
-                            <input type="text" name="answer" class="type2Input answer" value="${answer}">
-                        </div>
-                        <div class="updateButtonContainer">
-                            <div class="cancle-btn-update">
-                                取消
-                            </div>
-                            <input class="confirm-btn-update" value="确定" type="submit">
-                        </div>
-                    </div>
-                </form>
-                `
-                $('body').append(updateHtml)
-                $('.cancle-btn-update').click(function (){
-                    $('.updateContainer').hide()
-                })
+                // var editId = 'edit-'
+                // var delId = 'del-'
+                // editId += queId
+                // delId += queId
+                // $('#'+editId).attr('src','/images/square.png')
+                // $('#'+delId).attr('src','/images/cha.png')
+                window.location.href = `/insertExamQuestion?queId=${queId}&stem=${stem}&choiceA=${choiceA}&choiceB=${choiceB}&choiceC=${choiceC}&choiceD=${choiceD}&queType=${queType}&answer=${answer}`
             })
-
+            // $('.del').click(function () {
+            //     queId = $(this).data('queid')
+            //     var editId = 'edit-'
+            //     var delId = 'del-'
+            //     editId += queId
+            //     delId += queId
+            //     $('#'+editId).attr('src','/images/jia.png')
+            //     $('#'+delId).attr('src','/images/square.png')
+            //     // window.location.href = `/insertExamQuestion?queId=${queId}&stem=${stem}&choiceA=${choiceA}&choiceB=${choiceB}&choiceC=${choiceC}&choiceD=${choiceD}&queType=${queType}&answer=${answer}`
+            // })
         })
     </script>
-
-
-
 
     <div class="content">
         <table class="table">
@@ -248,26 +197,26 @@
             </tr>
             </thead>
             <tbody>
-                <% questionList.forEach(function (item){ %>
-                    <tr>
-                        <td><%= item.curName %></td>
-                        <td><%= item.stem %></td>
-                        <td><%= item.chaName %></td>
-                        <td><%= item.queType %></td>
-                        <td><%= item.difficulty %></td>
-                        <td><%= item.answer %></td>
-                        <td>
-                            <img src="/images/xiugai.png" class="edit" data-queid="<%= item.queId %>"
-                                 data-stem="<%= item.stem %>" data-curname="<%= item.curName %>"
-                                 data-choicea="<%= item.choiceA %>" data-choiceb="<%= item.choiceB %>"
-                                 data-choicec="<%= item.choiceC %>" data-choiced="<%= item.choiceD %>"
-                                 data-chaname="<%= item.chaName %>" data-quetype="<%= item.queType %>"
-                                 data-difficulty="<%= item.difficulty %>" data-answer="<%= item.answer %>"
-                            >
-                            <img src="/images/shanchu.png" class="del" data-queid="<%= item.queId %>">
-                        </td>
-                    </tr>
-                <% }) %>
+            <% questionList.forEach(function (item){ %>
+                <tr>
+                    <td><%= item.curName %></td>
+                    <td><%= item.stem %></td>
+                    <td><%= item.chaName %></td>
+                    <td><%= item.queType %></td>
+                    <td><%= item.difficulty %></td>
+                    <td><%= item.answer %></td>
+                    <td>
+                        <img src="/images/jia.png" class="edit" id="edit-<%= item.queId %>" data-queid="<%= item.queId %>"
+                             data-stem="<%= item.stem %>" data-curname="<%= item.curName %>"
+                             data-choicea="<%= item.choiceA %>" data-choiceb="<%= item.choiceB %>"
+                             data-choicec="<%= item.choiceC %>" data-choiced="<%= item.choiceD %>"
+                             data-chaname="<%= item.chaName %>" data-quetype="<%= item.queType %>"
+                             data-difficulty="<%= item.difficulty %>" data-answer="<%= item.answer %>"
+                        >
+<!--                        <img src="/images/square.png" class="del" id="del-<%= item.queId %>" data-queid="<%= item.queId %>">-->
+                    </td>
+                </tr>
+            <% }) %>
             </tbody>
         </table>
         <div class="page">
@@ -277,26 +226,26 @@
                 <li class="disabled"><a href="#"> 总<%= pager.pageCount%>页 </a></li>
 
                 <% if(pager.maxNum == 0) { %>
-                <li class="disabled"><a href="#"> 首页 </a></li>
+                    <li class="disabled"><a href="#"> 首页 </a></li>
                 <% }else{ %>
-                    <li><a href="/admin/questionQuery?page=1"> 首页 </a></li>
+                    <li><a href="/makeQuestionTwo?page=1"> 首页 </a></li>
                 <% } %>
 
                 <% if(pager.pageCurrent == 1) { %>
-                <li class="disabled"><a href="#>"> 上一页 </a></li>
+                    <li class="disabled"><a href="#>"> 上一页 </a></li>
                 <% }else{ %>
-                <li><a href="/admin/questionQuery?page=<%= parseInt(pager.pageCurrent) - 1 %>"> 上一页 </a></li>
+                    <li><a href="/makeQuestionTwo?page=<%= parseInt(pager.pageCurrent) - 1 %>"> 上一页 </a></li>
                 <% } %>
 
                 <!--      todo 循环显示页码    开始      -->
                 <% for(var i = prevNum; i > 0; i--){ %>
                     <% if(parseInt(pager.pageCurrent) - i > 0){%>
-                    <li><a href="/admin/questionQuery?page=<%= parseInt(pager.pageCurrent) - i %>"> <%= parseInt(pager.pageCurrent) - i %> </a></li>
+                        <li><a href="/makeQuestionTwo?page=<%= parseInt(pager.pageCurrent) - i %>"> <%= parseInt(pager.pageCurrent) - i %> </a></li>
                 <% } }%>
-                <li class="active"><a href="/admin/questionQuery?page=<%= pager.pageCurrent %>"> <%= pager.pageCurrent %> </a></li>
+                <li class="active"><a href="/makeQuestionTwo?page=<%= pager.pageCurrent %>"> <%= pager.pageCurrent %> </a></li>
                 <% for(var i = 1; i <= nextNum; i++){%>
                     <% if( parseInt(pager.pageCurrent) + i <= pager.pageCount) {%>
-                <li><a href="/admin/questionQuery?page=<%= parseInt(pager.pageCurrent) + i %>"> <%= parseInt(pager.pageCurrent) + i %> </a></li>
+                        <li><a href="/makeQuestionTwo?page=<%= parseInt(pager.pageCurrent) + i %>"> <%= parseInt(pager.pageCurrent) + i %> </a></li>
 
                 <% }} %>
                 <!--      todo 循环显示页码     结束     -->
@@ -304,21 +253,22 @@
                 <% if(pager.pageCurrent == pager.pageCount) { %>
                     <li class="disabled"><a href="#>"> 下一页 </a></li>
                 <% }else{ %>
-                    <li><a href="/admin/questionQuery?page=<%= parseInt(pager.pageCurrent) + 1 %>"> 下一页 </a></li>
+                    <li><a href="/makeQuestionTwo?page=<%= parseInt(pager.pageCurrent) + 1 %>"> 下一页 </a></li>
                 <% } %>
 
                 <% if(pager.maxNum == 0) { %>
                     <li class="disabled"><a href="#"> 尾页 </a></li>
                 <% }else{ %>
-                    <li><a href="/admin/questionQuery?page=<%= pager.pageCount %>"> 尾页 </a></li>
+                    <li><a href="/makeQuestionTwo?page=<%= pager.pageCount %>"> 尾页 </a></li>
                 <% } %>
 
             </ul>
         </div>
     </div>
 
-
-
+    <a class="finish" href="/makeQuestionDetail">
+        <text class="finishText">立即组卷</text>
+    </a>
 
 </body>
 </html>

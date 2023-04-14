@@ -46,11 +46,29 @@
 .table tbody{
     line-height: 48px;
 }
-.edit{
+.edit1{
     width: 20px;
     height: 20px;
 }
-.del{
+.del1{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+.edit2{
+    width: 20px;
+    height: 20px;
+}
+.del2{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+.edit3{
+    width: 20px;
+    height: 20px;
+}
+.del3{
     width: 20px;
     height: 20px;
     margin-left: 10px;

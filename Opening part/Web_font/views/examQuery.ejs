@@ -39,8 +39,8 @@
                         <td><%= item.duration %>分</td>
                         <td><%= item.totalPoint %>分</td>
                         <td>
-                            <img src="/images/xiugai.png" class="edit">
-                            <img src="/images/shanchu.png" class="del">
+                            <img src="/images/xiugai.png" class="edit1" data-classid="<%= item.classId %>" data-examid="<%= item.examId %>">
+                            <img src="/images/shanchu.png" class="del1">
                         </td>
                     </tr>
                 <% }) %>
@@ -48,6 +48,19 @@
             </table>
         </div>
     </div>
+    <script src="/javascripts/jquery-3.2.1.js"></script>
+    <script>
+        $(function (){
+            var examId = '';
+            var classId = '';
+            $('.edit1').click(function (){
+                examId = $(this).data('examid')
+                classId = $(this).data('classid')
+                window.location.href = `/makeQuestion?examId=${examId}&classId=${classId}`
+            })
+        })
+
+    </script>
 
     <div class="query2">
         <text class="query2Text">待批改</text>
@@ -72,8 +85,8 @@
                         <td><%= item.duration %>分</td>
                         <td><%= item.totalPoint %>分</td>
                         <td>
-                            <img src="/images/xiugai.png" class="edit">
-                            <img src="/images/shanchu.png" class="del">
+                            <img src="/images/xiugai.png" class="edit2">
+                            <img src="/images/shanchu.png" class="del2">
                         </td>
                     </tr>
                 <% }) %>
@@ -105,8 +118,8 @@
                         <td><%= item.duration %>分</td>
                         <td><%= item.totalPoint %>分</td>
                         <td>
-                            <img src="/images/xiugai.png" class="edit">
-                            <img src="/images/shanchu.png" class="del">
+                            <img src="/images/xiugai.png" class="edit3">
+                            <img src="/images/shanchu.png" class="del3">
                         </td>
                     </tr>
                 <% }) %>

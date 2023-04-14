@@ -11,7 +11,6 @@ async function getQuestionList(res, req){
 
     var pageNum = req.query.page;
 
-
     var pager = {};
     // todo 当前第几页
     pager.pageCurrent = pageNum || 1;

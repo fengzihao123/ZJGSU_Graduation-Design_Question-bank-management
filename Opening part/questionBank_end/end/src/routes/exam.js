@@ -5,7 +5,11 @@ const { getExamList,
         postAnswer,
         updateAnswer,
         getExamAnswer,
-        getExamListTeacher
+        getExamListTeacher,
+        newExam,
+        newExamQuestion,
+        deleteExamQuestion,
+        updateExam
     } = require('../controllers/exam')
 
 
@@ -28,8 +32,9 @@ const handleExamRoute = (req, res) =>{
     //教师考试列表查询
     if(method === 'GET' && req.path === '/exam/student/getExamListTeacher'){
         const teaId = req.query.teaId || '';
+        const examId = req.query.examId || '';
         const teacherStatus = req.query.teacherStatus || '';
-        const examListDataPromise = getExamListTeacher(teaId, teacherStatus);
+        const examListDataPromise = getExamListTeacher(teaId, examId, teacherStatus);
         return examListDataPromise.then(examListData => {
             return new successModel(examListData)
         })
@@ -48,9 +53,36 @@ const handleExamRoute = (req, res) =>{
     if(method === 'GET' && req.path === '/exam/student/getExamQuestion'){
         const classId = req.query.classId || '';
         const examId = req.query.examId || '';
-        const examQuestionDataPromise = getExamQuestion(classId, examId);
+        const queType = req.query.queType || '';
+        const examQuestionDataPromise = getExamQuestion(classId, examId, queType);
         return examQuestionDataPromise.then(examQuestionData => {
             return new successModel(examQuestionData)
+        })
+    }
+
+    //新增考试题目
+    if(method === 'POST' && req.path === '/exam/student/newExamQuestion'){
+        const examQuestionData = req.body;
+        const examQuestionDataPromise = newExamQuestion(examQuestionData);
+        return examQuestionDataPromise.then(examQuestionData => {
+            if(examQuestionData){
+                return new successModel('更新成功')
+            }else{
+                return new errorModel('更新失败')
+            }
+        })
+    }
+
+    //删除考试题目
+    if(method === 'POST' && req.path === '/exam/student/deleteExamQuestion'){
+        const id = req.query.id || '';
+        const examQuestionDataPromise = deleteExamQuestion(id);
+        return examQuestionDataPromise.then(examQuestionData => {
+            if(examQuestionData){
+                return new successModel('更新成功')
+            }else{
+                return new errorModel('更新失败')
+            }
         })
     }
 
@@ -88,6 +120,36 @@ const handleExamRoute = (req, res) =>{
         })
         
     }
+
+    //新增考试
+    if(method === 'POST' && req.path === '/exam/student/newExam'){
+        const examQuestionData = req.body;
+        const examQuestionDataPromise = newExam(examQuestionData);
+        return examQuestionDataPromise.then(examQuestionData => {
+            if(examQuestionData){
+                return new successModel('更新成功')
+            }else{
+                return new errorModel('更新失败')
+            }
+        })
+        
+    }
+
+    //修改考试
+    if(method === 'POST' && req.path === '/exam/student/updateExam'){
+        const examId = req.query.examId || '';
+        const examQuestionData = req.body;
+        const examQuestionDataPromise = updateExam(examId, examQuestionData);
+        return examQuestionDataPromise.then(examQuestionData => {
+            if(examQuestionData){
+                return new successModel('更新成功')
+            }else{
+                return new errorModel('更新失败')
+            }
+        })
+        
+    }
+    
 
     //删除教师
     if(method === 'POST' && req.path === '/teacher/user/deleteUserInfo'){

@@ -24,7 +24,8 @@ const handleStudentRoute = (req, res) =>{
     //学生班级查询
     if(method === 'GET' && req.path === '/student/user/class'){ 
         const classId = req.query.classId || '';
-        const studentClassDataPromise = getClassInfo(classId);
+        const className = req.query.className || '';
+        const studentClassDataPromise = getClassInfo(classId, className);
         return studentClassDataPromise.then(studentClassData => {
             return new successModel(studentClassData)
         })

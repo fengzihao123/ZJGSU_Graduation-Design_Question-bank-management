@@ -22,6 +22,15 @@ const handleCourseRoute = (req, res) =>{
         })
     }
 
+    if(method === 'GET' && req.path === '/course/student/getCourseList'){
+        const stuId = req.query.stuId || '';
+        const term = req.query.term || '';
+        const courseListDataPromise = getCourseList(stuId, term);
+        return courseListDataPromise.then(courseListData => {
+            return new successModel(courseListData)
+        })
+    }
+
     //获取课程详情
     if(method === 'GET' && req.path === '/course/student/getCourseDetail'){
             const stuId = req.query.stuId || '';

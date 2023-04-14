@@ -11,6 +11,10 @@ var mainRouter = require('./routes/main');
 var examExplainRouter = require('./routes/examExplain');
 var examQueryRouter = require('./routes/examQuery');
 var AddExamRouter = require('./routes/AddExam');
+var makeQuestionRouter = require('./routes/makeQuestion');
+var makeQuestionTwoRouter = require('./routes/makeQuestionTwo');
+var makeQuestionThreeRouter = require('./routes/makeQuestionThree');
+var makeQuestionDetailRouter = require('./routes/makeQuestionDetail');
 // todo 题库管理
 var questionExplainRouter = require('./routes/questionExplain');
 var questionQueryRouter = require('./routes/questionQuery');
@@ -28,9 +32,16 @@ var courseExplainRouter = require('./routes/courseExplain');
 // todo 上传
 var changeIndexRouter = require('./routes/changeIndex');
 var selectQuestionRouter = require('./routes/selectQuestion');
+var selectQuestion1Router = require('./routes/selectQuestion1');
+var selectQuestion2Router = require('./routes/selectQuestion2');
 var delRouter = require('./routes/del');
 var updateRouter = require('./routes/update');
 var newQuestionRouter = require('./routes/newQuestion');
+var newExamOneRouter = require('./routes/newExamOne');
+var insertExamQuestionRouter = require('./routes/insertExamQuestion');
+var deleteExamQuestionRouter = require('./routes/deleteExamQuestion');
+var updateExamRouter = require('./routes/updateExam');
+
 
 var app = express();
 
@@ -51,6 +62,10 @@ app.use('/admin/welcome', welcomeRouter);
 app.use('/admin/examExplain', examExplainRouter);
 app.use('/admin/examQuery', examQueryRouter);
 app.use('/admin/AddExam', AddExamRouter);
+app.use('/makeQuestion', makeQuestionRouter);
+app.use('/makeQuestionTwo', makeQuestionTwoRouter);
+app.use('/makeQuestionThree', makeQuestionThreeRouter);
+app.use('/makeQuestionDetail', makeQuestionDetailRouter);
 // todo 题库管理
 app.use('/admin/questionExplain', questionExplainRouter);
 app.use('/admin/questionQuery', questionQueryRouter);
@@ -69,9 +84,15 @@ app.use('/admin/courseManage', courseManageRouter);
 //上传
 app.use('/changeIndex', changeIndexRouter);
 app.use('/selectQuestion', selectQuestionRouter);
+app.use('/selectQuestion1', selectQuestion1Router);
+app.use('/selectQuestion2', selectQuestion2Router);
 app.use('/del', delRouter);
 app.use('/update', updateRouter);
 app.use('/newQuestion', newQuestionRouter);
+app.use('/newExamOne', newExamOneRouter);
+app.use('/insertExamQuestion', insertExamQuestionRouter);
+app.use('/deleteExamQuestion', deleteExamQuestionRouter);
+app.use('/updateExam', updateExamRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

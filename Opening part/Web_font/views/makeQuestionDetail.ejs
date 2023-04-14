@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' href='/iconfont/iconfont.css'/>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/stylesheets/makeQuestionDetail.css'/>
+</head>
+<body>
+<div class="headPartContainer">
+    <text class="headPartText">考试管理</text>
+    <div class="line"></div>
+</div>
+
+<form action="/selectQuestion2" method="post">
+    <div class="headAllContainer">
+        <div class="oneInputContainer">
+            <text class="examNameText">课程名称</text>
+            <div class="dropdown">
+                <input type="text" class="text01" readonly placeholder="试卷名称" name="curName">
+                <div class="option">
+                    <div onmouseover="show('数据结构')">数据结构</div>
+                    <div onmouseover="show('计算机组成原理')">计算机组成原理</div>
+                    <div onmouseover="show('计算机网络')">计算机网络</div>
+                    <div onmouseover="show('操作系统')">操作系统</div>
+                </div>
+            </div>
+            <script>
+                function show(a){
+                    document.querySelector('.text01').value=a;
+                }
+                let dropdown = document.querySelector('.dropdown');
+                dropdown.onclick = function (){
+                    dropdown.classList.toggle('active');
+                }
+            </script>
+        </div>
+
+        <div class="dropdown1">
+            <input type="text" class="text02" readonly placeholder="题目类型" name="queType">
+            <div class="option">
+                <div onmouseover="show1('单选')">单选题</div>
+                <div onmouseover="show1('多选')">多选题</div>
+                <div onmouseover="show1('填空')">填空题</div>
+                <div onmouseover="show1('问答')">问答题</div>
+                <div onmouseover="show1('计算')">计算题</div>
+                <div onmouseover="show1('编程')">编程题</div>
+            </div>
+        </div>
+        <script>
+            function show1(a){
+                document.querySelector('.text02').value=a;
+            }
+            let dropdown1 = document.querySelector('.dropdown1');
+            dropdown1.onclick = function (){
+                dropdown1.classList.toggle('active1');
+            }
+        </script>
+
+        <div class="dropdown2">
+            <input type="text" class="text03" readonly placeholder="所属章节" name="chaName">
+            <div class="option">
+                <div onmouseover="show2('第一章 序章')">第一章 序章</div>
+                <div onmouseover="show2('第二章 物理层')">第二章 物理层</div>
+                <div onmouseover="show2('第三章 链路层')">第三章 链路层</div>
+                <div onmouseover="show2('第四章 网络层')">第四章 网络层</div>
+            </div>
+        </div>
+        <script>
+            function show2(a){
+                document.querySelector('.text03').value=a;
+            }
+            let dropdown2 = document.querySelector('.dropdown2');
+            dropdown2.onclick = function (){
+                dropdown2.classList.toggle('active2');
+            }
+        </script>
+
+        <div class="dropdown3">
+            <input type="text" class="text04" readonly placeholder="难度" name="difficulty">
+            <div class="option">
+                <div onmouseover="show3('1')">1</div>
+                <div onmouseover="show3('2')">2</div>
+                <div onmouseover="show3('3')">3</div>
+                <div onmouseover="show3('4')">4</div>
+                <div onmouseover="show3('5')">5</div>
+            </div>
+        </div>
+        <script>
+            function show3(a){
+                document.querySelector('.text04').value=a;
+            }
+            let dropdown3 = document.querySelector('.dropdown3');
+            dropdown3.onclick = function (){
+                dropdown3.classList.toggle('active3');
+            }
+        </script>
+        <input type="submit" class="selectInputSubmit" value="搜索">
+    </div>
+    <div class="questionNumContainer">
+        <div class="oneNum">
+            <text class="typeText">单选:</text>
+            <text class="numText"><%= questionNum.danXuan%></text>
+        </div>
+        <div class="oneNum">
+            <text class="typeText">多选:</text>
+            <text class="numText"><%= questionNum.duoXuan%></text>
+        </div>
+        <div class="oneNum">
+            <text class="typeText">填空:</text>
+            <text class="numText"><%= questionNum.tianKong%></text>
+        </div>
+        <div class="oneNum">
+            <text class="typeText">计算:</text>
+            <text class="numText"><%= questionNum.jiSuan%></text>
+        </div>
+        <div class="oneNum">
+            <text class="typeText">问答:</text>
+            <text class="numText"><%= questionNum.wenDa%></text>
+        </div>
+        <div class="oneNum">
+            <text class="typeText">编程:</text>
+            <text class="numText"><%= questionNum.bianCheng%></text>
+        </div>
+    </div>
+
+    <div class="search-box">
+        <input type="text" class="search-txt" name="searchContent" placeholder="请输入搜索内容">
+        <button class="search-btn">
+            <i class="iconfont icon-fangdajing fangdajing"></i>
+        </button>
+    </div>
+</form>
+
+<script src="/javascripts/jquery-3.2.1.js"></script>
+<script>
+    $(function (){
+        var id = '';
+
+        $('.del').click(function () {
+            id = $(this).data('id')
+            window.location.href = `/deleteExamQuestion?id=${id}`
+        })
+    })
+</script>
+
+<div class="content">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>题干信息</th>
+            <th>题目类型</th>
+            <th>答案</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% questionList.forEach(function (item){ %>
+            <tr>
+                <td><%= item.stem %></td>
+                <td><%= item.queType %></td>
+                <td><%= item.answer %></td>
+                <td>
+                     <img src="/images/cha.png" class="del" data-id="<%= item.id %>">
+                </td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+    <div class="page">
+        <ul class="pagination">
+            <% var prevNum = 10; var nextNum = 10; %>
+            <li class="disabled"><a href="#"> 共<%= pager.maxNum%>条 </a></li>
+            <li class="disabled"><a href="#"> 总<%= pager.pageCount%>页 </a></li>
+
+            <% if(pager.maxNum == 0) { %>
+                <li class="disabled"><a href="#"> 首页 </a></li>
+            <% }else{ %>
+                <li><a href="/makeQuestionThree?page=1"> 首页 </a></li>
+            <% } %>
+
+            <% if(pager.pageCurrent == 1) { %>
+                <li class="disabled"><a href="#>"> 上一页 </a></li>
+            <% }else{ %>
+                <li><a href="/makeQuestionThree?page=<%= parseInt(pager.pageCurrent) - 1 %>"> 上一页 </a></li>
+            <% } %>
+
+            <!--      todo 循环显示页码    开始      -->
+            <% for(var i = prevNum; i > 0; i--){ %>
+                <% if(parseInt(pager.pageCurrent) - i > 0){%>
+                    <li><a href="/makeQuestionThree?page=<%= parseInt(pager.pageCurrent) - i %>"> <%= parseInt(pager.pageCurrent) - i %> </a></li>
+            <% } }%>
+            <li class="active"><a href="/makeQuestionThree?page=<%= pager.pageCurrent %>"> <%= pager.pageCurrent %> </a></li>
+            <% for(var i = 1; i <= nextNum; i++){%>
+                <% if( parseInt(pager.pageCurrent) + i <= pager.pageCount) {%>
+                    <li><a href="/makeQuestionThree?page=<%= parseInt(pager.pageCurrent) + i %>"> <%= parseInt(pager.pageCurrent) + i %> </a></li>
+
+            <% }} %>
+            <!--      todo 循环显示页码     结束     -->
+
+            <% if(pager.pageCurrent == pager.pageCount) { %>
+                <li class="disabled"><a href="#>"> 下一页 </a></li>
+            <% }else{ %>
+                <li><a href="/makeQuestionThree?page=<%= parseInt(pager.pageCurrent) + 1 %>"> 下一页 </a></li>
+            <% } %>
+
+            <% if(pager.maxNum == 0) { %>
+                <li class="disabled"><a href="#"> 尾页 </a></li>
+            <% }else{ %>
+                <li><a href="/makeQuestionThree?page=<%= pager.pageCount %>"> 尾页 </a></li>
+            <% } %>
+
+        </ul>
+    </div>
+</div>
+    <form action="/updateExam" method="post">
+        <div class="submitContainer">
+            <div class="submitItemContainer">
+                <text class="submit-text">考试时长：</text>
+                <input type="text" class="submit-input1 duration" name="duration">
+            </div>
+            <div class="submitItemContainer">
+                <text class="submit-text">　　总分：</text>
+                <input type="text" class="submit-input1 totalPoint" readonly name="totalPoint">
+            </div>
+            <div class="submitItemContainer">
+                <text class="submit-text">单选题数：</text>
+                <input type="text" class="submit-input1 danxuan" readonly name="danxuan">
+            </div>
+            <div class="submitItemContainer">
+                <text class="submit-text">单选分值：</text>
+                <input type="text" class="submit-input1 DanXScore"  name="DanXScore">
+            </div>
+            <div class="submitItemContainer">
+                <text class="submit-text">多选题数：</text>
+                <input type="text" class="submit-input1 duoxuan" readonly name="duoxuan">
+            </div>
+            <div class="submitItemContainer">
+                <text class="submit-text">多选分值：</text>
+                <input type="text" class="submit-input1 DuoXScore"  name="DuoXScore">
+            </div>
+            <div class="submitItemContainer">
+                <text class="submit-text">填空题数：</text>
+                <input type="text" class="submit-input1 tiankong" readonly name="tiankong">
+            </div>
+            <div class="submitItemContainer">
+                <text class="submit-text">填空分值：</text>
+                <input type="text" class="submit-input1 TKScore"  name="TKScore">
+            </div>
+            <div class="submitItemContainer">
+                <text class="submit-text">计算题数：</text>
+                <input type="text" class="submit-input1 jisuan" readonly name="jisuan">
+            </div>
+            <div class="submitItemContainer">
+                <text class="submit-text">计算分值：</text>
+                <input type="text" class="submit-input1 JSScore"  name="JSScore">
+            </div>
+            <div class="submitItemContainer">
+                <text class="submit-text">问答题数：</text>
+                <input type="text" class="submit-input1 wenda" readonly name="wenda">
+            </div>
+            <div class="submitItemContainer">
+                <text class="submit-text">问答分值：</text>
+                <input type="text" class="submit-input1 WDScore"  name="WDScore">
+            </div>
+            <div class="submitItemContainer">
+                <text class="submit-text">编程题数：</text>
+                <input type="text" class="submit-input1 biancheng"  readonly name="biancheng">
+            </div>
+            <div class="submitItemContainer">
+                <text class="submit-text">编程分值：</text>
+                <input type="text" class="submit-input1 BCScore"  name="BCScore">
+            </div>
+            <text class="JS">计算</text>
+            <div class="submitButtonContainer">
+                <text class="submit-cancle">取消</text>
+                <input type="submit" class="submit-confirm" value="确定">
+            </div>
+        </div>
+    </form>
+    <script>
+        $(function (){
+            $('.finish').click(function (){
+                $('.submitContainer').show()
+                $('.danxuan').val('<%= questionNum.danXuan %>')
+                $('.duoxuan').val('<%= questionNum.duoXuan %>')
+                $('.tiankong').val('<%= questionNum.tianKong %>')
+                $('.jisuan').val('<%= questionNum.jiSuan %>')
+                $('.wenda').val('<%= questionNum.wenDa %>')
+                $('.biancheng').val('<%= questionNum.bianCheng %>')
+            })
+            $('.JS').click(function (){
+
+                let totalPoint = 0
+                totalPoint = parseInt($('.danxuan').val()) * parseInt($('.DanXScore').val()) +
+                             parseInt($('.duoxuan').val()) * parseInt($('.DuoXScore').val())
+                             parseInt($('.tiankong').val()) * parseInt($('.TKScore').val()) +
+                             parseInt($('.jisuan').val()) * parseInt($('.JSScore').val()) +
+                             parseInt($('.wenda').val()) * parseInt($('.WDScore').val()) +
+                             parseInt($('.biancheng').val()) * parseInt($('.BCScore').val())
+                $('.totalPoint').val(totalPoint)
+            })
+            $('.submit-cancle').click(function (){
+                $('.submitContainer').hide()
+            })
+        })
+    </script>
+
+
+<a class="finish" href="#">
+    <text class="finishText">完成</text>
+</a>
+
+</body>
+</html>

@@ -15,10 +15,13 @@ const getStudentLoginResult = (stuId, stuPwd) =>{
 }
 
 // 学生班级查询
-const getClassInfo = (classId) =>{
+const getClassInfo = (classId, className) =>{
     let sql = `select * from class where `
     if(classId){
-        sql += `classId='${classId}'`
+        sql += `classId=${classId}`
+    }
+    if(className){
+        sql += `className='${className}'`
     }
     return execSQL(sql)
 }

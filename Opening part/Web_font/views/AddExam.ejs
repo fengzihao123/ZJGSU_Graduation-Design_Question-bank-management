@@ -16,13 +16,12 @@
         <div class="line"></div>
     </div>
 
-    <form action="/admin/AddExam/examQuery" method="post">
+    <form action="/newExamOne" method="post">
 
         <div class="oneInputContainer">
             <text class="examNameText">试卷名称</text>
-<!--            <input type="text" class="examNameInput"  placeholder="试卷名" name="examName">-->
             <div class="dropdown">
-                <input type="text" class="text01" readonly placeholder="试卷名称" name="examName">
+                <input type="text" class="text01" readonly placeholder="试卷名称" name="curName">
                 <div class="option">
                     <div onmouseover="show('数据结构')">数据结构</div>
                     <div onmouseover="show('计算机组成原理')">计算机组成原理</div>
@@ -66,7 +65,7 @@
             <text class="examNameText">考试班级</text>
             <!--            <input type="text" class="examNameInput"  placeholder="试卷名" name="examName">-->
             <div class="dropdown2">
-                <input type="text" class="text03" readonly placeholder="考试班级" name="classId">
+                <input type="text" class="text03" readonly placeholder="考试班级" name="className">
                 <div class="option">
                     <div onmouseover="show2('计科1902')">计科1902</div>
                     <div onmouseover="show2('计科1901')">计科1901</div>
