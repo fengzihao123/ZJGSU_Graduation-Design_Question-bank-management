@@ -2,11 +2,14 @@ const {execSQL} = require('../db/mysql')
 // 跟学生相关的方法
 
 // 学生登录接口
-const getStudentLoginResult = (stuId, stuPwd) =>{
+const getStudentLoginResult = (stuId, stuPwd, classId) =>{
     //从数据库拿数据
     let sql = `select * from student where`;
     if(stuId){
         sql += ` stuId='${stuId}'`;
+    }
+    if(classId){
+        sql += ` classId=${classId}`;
     }
     if(stuPwd){
         sql += ` and stuPwd='${stuPwd}'`;

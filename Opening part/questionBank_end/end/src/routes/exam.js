@@ -22,8 +22,8 @@ const handleExamRoute = (req, res) =>{
     if(method === 'GET' && req.path === '/exam/student/getExamList'){
         const classId = req.query.classId || '';
         const schoolTerm = req.query.schoolTerm || '';
-        const curId = req.query.curId || '';
-        const examListDataPromise = getExamList(classId, curId, schoolTerm);
+        const curName = req.query.curName || '';
+        const examListDataPromise = getExamList(classId, curName, schoolTerm);
         return examListDataPromise.then(examListData => {
             return new successModel(examListData)
         })

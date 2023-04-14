@@ -15,6 +15,8 @@ var makeQuestionRouter = require('./routes/makeQuestion');
 var makeQuestionTwoRouter = require('./routes/makeQuestionTwo');
 var makeQuestionThreeRouter = require('./routes/makeQuestionThree');
 var makeQuestionDetailRouter = require('./routes/makeQuestionDetail');
+var correctQuestionRouter = require('./routes/correctQuestion');
+var correctQuestionOneRouter = require('./routes/correctQuestionOne');
 // todo 题库管理
 var questionExplainRouter = require('./routes/questionExplain');
 var questionQueryRouter = require('./routes/questionQuery');
@@ -66,6 +68,8 @@ app.use('/makeQuestion', makeQuestionRouter);
 app.use('/makeQuestionTwo', makeQuestionTwoRouter);
 app.use('/makeQuestionThree', makeQuestionThreeRouter);
 app.use('/makeQuestionDetail', makeQuestionDetailRouter);
+app.use('/correctQuestion', correctQuestionRouter);
+app.use('/correctQuestionOne', correctQuestionOneRouter);
 // todo 题库管理
 app.use('/admin/questionExplain', questionExplainRouter);
 app.use('/admin/questionQuery', questionQueryRouter);

@@ -15,7 +15,8 @@ const handleStudentRoute = (req, res) =>{
     if(method === 'GET' && req.path === '/student/user/login'){ 
         const stuId = req.query.stuId || '';
         const stuPwd = req.query.stuPwd || '';
-        const studentLoginDataPromise = getStudentLoginResult(stuId, stuPwd);
+        const classId = req.query.classId || '';
+        const studentLoginDataPromise = getStudentLoginResult(stuId, stuPwd, classId);
         return studentLoginDataPromise.then(studentLoginData => {
             return new successModel(studentLoginData)
         })

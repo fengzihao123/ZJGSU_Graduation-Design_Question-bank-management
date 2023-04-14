@@ -28,7 +28,7 @@ Page({
      toCourseDetail(event){
       let {course} = event.currentTarget.dataset;
        wx.navigateTo({
-         url: '/pages/stuPart/courseDetail/courseDetail?curId=' + course.curId,
+         url: '/pages/stuPart/courseDetail/courseDetail?curName=' + course.curName,
        })
      },
 
@@ -41,7 +41,6 @@ Page({
      // 课程列表获取
      async getCourse(term){
        let courseList = await request('/course/student/getCourseList',{stuId:this.data.stuInfo[0].stuId,term:term})
-       
        this.setData({
          courseList
        })

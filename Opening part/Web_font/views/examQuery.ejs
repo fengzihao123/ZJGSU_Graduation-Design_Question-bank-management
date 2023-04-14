@@ -59,7 +59,6 @@
                 window.location.href = `/makeQuestion?examId=${examId}&classId=${classId}`
             })
         })
-
     </script>
 
     <div class="query2">
@@ -85,7 +84,7 @@
                         <td><%= item.duration %>分</td>
                         <td><%= item.totalPoint %>分</td>
                         <td>
-                            <img src="/images/xiugai.png" class="edit2">
+                            <img src="/images/xiugai.png" class="edit2" data-classid="<%= item.classId %>" data-examid="<%= item.examId %>">
                             <img src="/images/shanchu.png" class="del2">
                         </td>
                     </tr>
@@ -94,6 +93,17 @@
             </table>
         </div>
     </div>
+    <script>
+        $(function (){
+            var examId = '';
+            var classId = '';
+            $('.edit2').click(function (){
+                examId = $(this).data('examid')
+                classId = $(this).data('classid')
+                window.location.href = `/correctQuestion?examId=${examId}&classId=${classId}`
+            })
+        })
+    </script>
 
     <div class="query3">
         <text class="query3Text">已完成</text>

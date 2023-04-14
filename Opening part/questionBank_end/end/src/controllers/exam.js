@@ -2,14 +2,14 @@ const {execSQL} = require('../db/mysql')
 // 跟考试相关的方法
 
 // 考试列表查询
-const getExamList = (classId, curId, schoolTerm) =>{
+const getExamList = (classId, curName, schoolTerm) =>{
     //从数据库拿数据
     let sql = `select * from exam where`;
     if(classId){
         sql += ` classId='${classId}'`;
     }
-    if(curId){
-        sql += ` and curId='${curId}'`;
+    if(curName){
+        sql += ` and curName='${curName}'`;
     }
     if(schoolTerm){
         sql += ` and schoolTerm='${schoolTerm}'`;
@@ -127,8 +127,9 @@ const getExamAnswer = (examId, stuId) =>{
 const updateAnswer = (id, examQuestionData = {}) =>{
 
     const answer = examQuestionData.answer
-
-    const sql = `update answer set answer='${answer}' where id=${id}`
+    const myAnswer = examQuestionData.myAnswer
+    const point = examQuestionData.point
+    const sql = `update answer set answer='${answer}', myAnswer='${myAnswer}', point=${point} where id=${id}`
     return execSQL(sql).then(updateResult =>{
         if(updateResult.affectedRows > 0){
             return true;

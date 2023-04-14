@@ -8,7 +8,6 @@ Page({
     data: {
         active: 'exam',
         examList:[],
-        curId:'',
         curName:'',
         option: [
           { text: '学期', value: 'a' },
@@ -35,8 +34,8 @@ Page({
       })
     },
 
-    async getExamListByCurId(classId, curId){
-      let examList = await request('/exam/student/getExamList',{classId:classId, curId:curId})
+    async getExamListByCurId(classId, curName){
+      let examList = await request('/exam/student/getExamList',{classId:classId, curName})
       this.setData({
         examList
       })
@@ -79,13 +78,13 @@ Page({
      */
     onLoad: function (options) {
       let stuInfo = wx.getStorageSync('stuInfo')
-      let curId = options.curId
+      let curName = options.curName
       this.setData({
         stuInfo,
-        curId
+        curName
       })
-      if(curId){
-        this.getExamListByCurId(stuInfo[0].classId,curId)
+      if(curName){
+        this.getExamListByCurId(stuInfo[0].classId,curName)
       }else{
         this.getExamList(stuInfo[0].classId,'')
       }

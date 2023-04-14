@@ -34,8 +34,8 @@ const handleCourseRoute = (req, res) =>{
     //获取课程详情
     if(method === 'GET' && req.path === '/course/student/getCourseDetail'){
             const stuId = req.query.stuId || '';
-            const curId = req.query.curId || '';
-            const courseDetailDataPromise = getCourseDetail(stuId, curId);
+            const curName = req.query.curName || '';
+            const courseDetailDataPromise = getCourseDetail(stuId, curName);
             return courseDetailDataPromise.then(courseDetailData => {
                 return new successModel(courseDetailData)
             })

@@ -15,14 +15,14 @@ const getCourseList = (stuId, term) =>{
 }
 
 // 课程信息查询
-const getCourseDetail = (stuId, curId) =>{
+const getCourseDetail = (stuId, curName) =>{
 
     let sql = `select * from curriculum where`;
     if(stuId){
         sql += ` stuId='${stuId}'`
     }
-    if(curId){
-        sql += ` and curId='${curId}'`
+    if(curName){
+        sql += ` and curName='${curName}'`
     }
     return execSQL(sql)
 }

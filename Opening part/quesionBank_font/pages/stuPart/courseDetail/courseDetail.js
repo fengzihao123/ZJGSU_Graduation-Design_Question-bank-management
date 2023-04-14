@@ -8,18 +8,18 @@ Page({
     data: {
       courseDetail:[],
       stuInfo: [],
-      curId: '',
+      curName: '',
       teaInfo:[]
     },
     //前往考试页面
     toExam(){
         wx.navigateTo({
-          url: '../myExam/myExam?curId=' + this.data.courseDetail.data[0].curId,
+          url: '../myExam/myExam?curName=' + this.data.courseDetail.data[0].curName,
         })
     },
     //获取课程详情
-    async getCourseDetail(stuId, curId){
-      let courseDetail = await request('/course/student/getCourseDetail',{stuId:stuId,curId:curId})
+    async getCourseDetail(stuId, curName){
+      let courseDetail = await request('/course/student/getCourseDetail',{stuId:stuId,curName})
       let teaInfo = await request('/teacher/user/userInfo',{teaId:courseDetail.data[0].teaId})
       this.setData({
         courseDetail,
@@ -33,13 +33,13 @@ Page({
      */
     onLoad: function (options) {
 
-      let curId = options.curId
+      let curName = options.curName
       let stuInfo = wx.getStorageSync('stuInfo')
       this.setData({
-        curId,
+        curName,
         stuInfo
       })
-      this.getCourseDetail(stuInfo[0].stuId, curId)
+      this.getCourseDetail(stuInfo[0].stuId, curName)
     },
 
     /**
