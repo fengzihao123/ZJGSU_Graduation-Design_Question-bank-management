@@ -17,6 +17,8 @@ var makeQuestionThreeRouter = require('./routes/makeQuestionThree');
 var makeQuestionDetailRouter = require('./routes/makeQuestionDetail');
 var correctQuestionRouter = require('./routes/correctQuestion');
 var correctQuestionOneRouter = require('./routes/correctQuestionOne');
+var correctQuestionDetailRouter = require('./routes/correctQuestionDetail');
+var correctQuestionDetailOneRouter = require('./routes/correctQuestionDetailOne');
 // todo 题库管理
 var questionExplainRouter = require('./routes/questionExplain');
 var questionQueryRouter = require('./routes/questionQuery');
@@ -43,7 +45,8 @@ var newExamOneRouter = require('./routes/newExamOne');
 var insertExamQuestionRouter = require('./routes/insertExamQuestion');
 var deleteExamQuestionRouter = require('./routes/deleteExamQuestion');
 var updateExamRouter = require('./routes/updateExam');
-
+var answerPointUpdateRouter = require('./routes/answerPointUpdate');
+var insertGradeRouter = require('./routes/insertGrade');
 
 var app = express();
 
@@ -70,6 +73,8 @@ app.use('/makeQuestionThree', makeQuestionThreeRouter);
 app.use('/makeQuestionDetail', makeQuestionDetailRouter);
 app.use('/correctQuestion', correctQuestionRouter);
 app.use('/correctQuestionOne', correctQuestionOneRouter);
+app.use('/correctQuestionDetail', correctQuestionDetailRouter);
+app.use('/correctQuestionDetailOne', correctQuestionDetailOneRouter);
 // todo 题库管理
 app.use('/admin/questionExplain', questionExplainRouter);
 app.use('/admin/questionQuery', questionQueryRouter);
@@ -97,6 +102,8 @@ app.use('/newExamOne', newExamOneRouter);
 app.use('/insertExamQuestion', insertExamQuestionRouter);
 app.use('/deleteExamQuestion', deleteExamQuestionRouter);
 app.use('/updateExam', updateExamRouter);
+app.use('/answerPointUpdate', answerPointUpdateRouter);
+app.use('/insertGrade', insertGradeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

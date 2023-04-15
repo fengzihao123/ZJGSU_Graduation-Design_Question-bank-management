@@ -35,14 +35,22 @@
                     <td><%= item.grade %></td>
                     <td><%= item.className %></td>
                     <td>
-                        <img src="/images/xiugai.png" class="edit"
-                        >
-                        <img src="/images/shanchu.png" class="del" data-queid="<%= item.queId %>">
+                        <img src="/images/xiugai.png" class="edit" data-stuid="<%= item.stuId %>">
                     </td>
                 </tr>
             <% }) %>
             </tbody>
         </table>
+        <script src="/javascripts/jquery-3.2.1.js"></script>
+        <script>
+            $(function (){
+                var stuId = '';
+                $('.edit').click(function (){
+                    stuId = $(this).data('stuid')
+                    window.location.href = `/correctQuestionDetail?stuId=${stuId}`
+                })
+            })
+        </script>
         <div class="page">
             <ul class="pagination">
                 <% var prevNum = 10; var nextNum = 10; %>

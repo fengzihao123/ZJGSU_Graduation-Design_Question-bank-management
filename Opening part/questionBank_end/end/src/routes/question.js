@@ -9,7 +9,9 @@ const { getQuestionCollect,
         getQuestion,
         deleteQuestion,
         updateQuestion,
-        newQuestion
+        newQuestion,
+        getQuestionDetail,
+        newError
     } = require('../controllers/question')
 
 
@@ -44,6 +46,15 @@ const handleQuestionRoute = (req, res) =>{
         const difficulty = req.query.difficulty || '';
         const stem = req.query.stem || '';
         const questionDataPromise = getQuestion(curName, queType, chaName, difficulty, stem);
+        return questionDataPromise.then(questionData => {
+            return new successModel(questionData)
+        })
+    }
+
+    //题目详情查询
+    if(method === 'GET' && req.path === '/question/question/getQuestionDetail'){ 
+        const queId = req.query.queId || '';
+        const questionDataPromise = getQuestionDetail(queId);
         return questionDataPromise.then(questionData => {
             return new successModel(questionData)
         })
@@ -97,6 +108,15 @@ const handleQuestionRoute = (req, res) =>{
         const queId = req.query.queId || '';
         const questionData = req.body;
         const questionDataPromise = Error(stuId, queId, questionData);
+        return questionDataPromise.then(questionData => {
+            return new successModel(questionData)
+        })
+    }
+
+    //新增错题
+    if(method === 'POST' && req.path === '/question/errorQuestion/newError'){
+        const questionData = req.body;
+        const questionDataPromise = newError(questionData);
         return questionDataPromise.then(questionData => {
             return new successModel(questionData)
         })

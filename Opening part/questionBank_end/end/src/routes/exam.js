@@ -9,7 +9,9 @@ const { getExamList,
         newExam,
         newExamQuestion,
         deleteExamQuestion,
-        updateExam
+        updateExam,
+        updateAnswerPoint,
+        updateExamQuestion
     } = require('../controllers/exam')
 
 
@@ -54,7 +56,8 @@ const handleExamRoute = (req, res) =>{
         const classId = req.query.classId || '';
         const examId = req.query.examId || '';
         const queType = req.query.queType || '';
-        const examQuestionDataPromise = getExamQuestion(classId, examId, queType);
+        const queId = req.query.queId || '';
+        const examQuestionDataPromise = getExamQuestion(classId, examId, queType, queId);
         return examQuestionDataPromise.then(examQuestionData => {
             return new successModel(examQuestionData)
         })
@@ -64,6 +67,20 @@ const handleExamRoute = (req, res) =>{
     if(method === 'POST' && req.path === '/exam/student/newExamQuestion'){
         const examQuestionData = req.body;
         const examQuestionDataPromise = newExamQuestion(examQuestionData);
+        return examQuestionDataPromise.then(examQuestionData => {
+            if(examQuestionData){
+                return new successModel('更新成功')
+            }else{
+                return new errorModel('更新失败')
+            }
+        })
+    }
+
+     //更新考试题目错误数
+     if(method === 'POST' && req.path === '/exam/student/updateExamQuestionCount'){
+        const id = req.query.id || '';
+        const examQuestionData = req.body;
+        const examQuestionDataPromise = updateExamQuestion(id, examQuestionData);
         return examQuestionDataPromise.then(examQuestionData => {
             if(examQuestionData){
                 return new successModel('更新成功')
@@ -99,7 +116,8 @@ const handleExamRoute = (req, res) =>{
     if(method === 'GET' && req.path === '/exam/answer/getAnswer'){
         const examId = req.query.examId || '';
         const stuId = req.query.stuId || '';
-        const examAnswerDataPromise = getExamAnswer(examId, stuId);
+        const queType = req.query.queType || '';
+        const examAnswerDataPromise = getExamAnswer(examId, stuId, queType);
         return examAnswerDataPromise.then(examAnswerData => {
             return new successModel(examAnswerData)
         })
@@ -118,7 +136,21 @@ const handleExamRoute = (req, res) =>{
                 return new errorModel('更新失败')
             }
         })
-        
+    }
+    
+    //学生答案分数更新
+    if(method === 'POST' && req.path === '/exam/answer/updateAnswerPoint'){
+        const id = req.query.id || '';
+        const examQuestionData = req.body;
+
+        const examQuestionDataPromise = updateAnswerPoint(id, examQuestionData);
+        return examQuestionDataPromise.then(examQuestionData => {
+            if(examQuestionData){
+                return new successModel('更新成功')
+            }else{
+                return new errorModel('更新失败')
+            }
+        })
     }
 
     //新增考试

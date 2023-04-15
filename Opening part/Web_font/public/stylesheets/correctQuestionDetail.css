@@ -1,0 +1,282 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.headPartContainer{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background: #1F74E4;
+}
+.headPartText{
+    display: block;
+    line-height: 60px;
+    font-size: 26px;
+    margin-left: 40px;
+    font-weight: 600;
+    color: #fff;
+}
+.headPartText1{
+    display: block;
+    line-height: 60px;
+    font-size: 26px;
+    margin-left: 15px;
+    font-weight: 600;
+    color: #fff;
+}
+.headIcon{
+    margin-left: 68%;
+    font-size: 28px;
+    display: block;
+    line-height: 60px;
+    color: #fff;
+    font-weight: 600;
+}
+
+body{
+    background: gainsboro;
+}
+.fourPartContainer{
+    display: flex;
+}
+.leftPartContainer{
+    display: grid;
+}
+.leftHeadContainer{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 330px;
+    height: 100px;
+    background: #fff;
+    border: 1px solid gray;
+}
+.leftBodyContainer{
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 330px;
+    height: 520px;
+    background: #fff;
+    border: 1px solid gray;
+}
+.rightPartContainer{
+    display: grid;
+}
+.rightHeadContainer{
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 1150px;
+    height: 60px;
+    background: #fff;
+    border: 1px solid gray;
+}
+.rightHeadText{
+    line-height: 60px;
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    margin-left: 970px;
+}
+.rightBodyContainer{
+    position: absolute;
+    margin-top: 110px;
+    margin-left: 20px;
+    width: 1150px;
+    height: 420px;
+    background: #fff;
+    display: grid;
+    border: 1px solid gray;
+}
+.circleContainer{
+    display: grid;
+    margin-left: 47px;
+    margin-top: 15px;
+}
+.circle1{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: 2px solid red;
+}
+.circle2{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    background: #2595A1;
+}
+.circle3{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: 2px solid gray;
+}
+.circleIndex{
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 30px;
+}
+.circleText{
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 13px;
+}
+.oneItemContainer{
+    margin-left: 10px;
+    margin-top: 10px;
+    display: grid;
+}
+.oneItemText{
+    font-weight: 600;
+    font-size: 16px;
+}
+.oneItemSelectContainer{
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    display: flex;
+}
+.rightBodyOne{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+.rightOne{
+    width: 30px;
+    height: 30px;
+    background: #519CF7;
+}
+.rightOneOne{
+    display: block;
+    width: 50px;
+    height: 30px;
+    margin-left: 10px;
+    background: #5bc0de;
+}
+.rightOneText{
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.rightOneStem{
+    width: 806px;
+    height: 30px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 3px;
+    margin-left: 10px;
+}
+.rightBodyTwo{
+    display: flex;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 60px;
+}
+.rightTwoText{
+    font-size: 16px;
+    font-weight: 600;
+}
+.rightTwoPoint{
+    margin-left: 940px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.rightBodyThree{
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 100px;
+}
+.rightThreeInput{
+    height: 300px;
+    width: 1110px;
+    font-size: 16px;
+    font-weight: 600;
+    padding-left: 20px;
+}
+.daFen{
+    position: absolute;
+    display: flex;
+    margin-top: 550px;
+    margin-left: 370px;
+}
+.daFenText{
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 2px;
+}
+.daFenInput{
+    width: 80px;
+    height: 28px;
+    margin-left: 10px;
+}
+.daFenButton{
+    width: 80px;
+    height: 28px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    display: block;
+    line-height: 28px;
+    color: white;
+    border: none;
+    margin-left: 30px;
+    background: #1F74E4;
+}
+.finish-a{
+    width: 80px;
+    height: 28px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    display: block;
+    line-height: 28px;
+    color: white;
+    border: none;
+    margin-left: 840px;
+    background: #1F74E4;
+}
+.allContainer{
+    display: grid;
+}
+.changeContainer{
+    visibility: hidden;
+    display: flex;
+    position: absolute;
+    width: 1150px;
+    height: 40px;
+    background: #fff;
+    margin-top: 620px;
+    margin-left: 370px;
+    border: 1px solid gray;
+}
+.pre{
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    line-height: 40px;
+    margin-left: 100px;
+    text-align: center;
+}
+.next{
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    line-height: 40px;
+    margin-left: 815px;
+    text-align: center;
+}

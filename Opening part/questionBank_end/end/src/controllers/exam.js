@@ -42,16 +42,19 @@ const getExamDetail = (examId) =>{
 }
 
 // 考试题目查询
-const getExamQuestion = (classId, examId, queType) =>{
+const getExamQuestion = (classId, examId, queType, queId) =>{
     let sql = `select * from questioning where`;
-    if(classId){
-        sql += ` classId=${classId}`
-    }
     if(examId){
-        sql += ` and examId=${examId}`
+        sql += ` examId=${examId}`
+    }
+    if(classId){
+        sql += ` and classId=${classId}`
     }
     if(queType){
         sql += ` and queType='${queType}'`
+    }
+    if(queId){
+        sql += ` and queId='${queId}'`
     }
     return execSQL(sql)
 }
@@ -69,7 +72,20 @@ const newExamQuestion = (examQuestionData = {}) =>{
     const choiceD = examQuestionData.params.choiceD
     const answer = examQuestionData.params.answer
 
-    const sql = `insert into questioning (classId, examId, queId, queType, stem, choiceA, choiceB, choiceC, choiceD, answer, selectStatus) values (${classId}, ${examId}, ${queId}, '${queType}', '${stem}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', '${answer}', '2')`
+    const sql = `insert into questioning (classId, examId, queId, queType, stem, choiceA, choiceB, choiceC, choiceD, answer, selectStatus, errorCount) values (${classId}, ${examId}, ${queId}, '${queType}', '${stem}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', '${answer}', '2', 0)`
+    return execSQL(sql).then(updateResult =>{
+        if(updateResult.affectedRows > 0){
+            return true;
+        }
+        return false;
+    }) 
+}
+
+//更新考试题目错误数目
+const updateExamQuestion = (id, examQuestionData = {}) =>{
+    const errorCount = examQuestionData.params.errorCount
+
+    const sql = `update questioning set errorCount=${errorCount} where id=${id}`
     return execSQL(sql).then(updateResult =>{
         if(updateResult.affectedRows > 0){
             return true;
@@ -112,13 +128,16 @@ const postAnswer = (examQuestionData) =>{
 }
 
 // 考试答案查询
-const getExamAnswer = (examId, stuId) =>{
+const getExamAnswer = (examId, stuId, queType) =>{
     let sql = `select * from answer where`;
     if(examId){
         sql += ` examId=${examId}`
     }
     if(stuId){
         sql += ` and stuId='${stuId}'`
+    }
+    if(queType){
+        sql += ` and queType='${queType}'`
     }
     return execSQL(sql)
 }
@@ -128,8 +147,22 @@ const updateAnswer = (id, examQuestionData = {}) =>{
 
     const answer = examQuestionData.answer
     const myAnswer = examQuestionData.myAnswer
+    const stem = examQuestionData.stem
     const point = examQuestionData.point
-    const sql = `update answer set answer='${answer}', myAnswer='${myAnswer}', point=${point} where id=${id}`
+    const sql = `update answer set answer='${answer}', myAnswer='${myAnswer}', stem='${stem}', point=${point} where id=${id}`
+    return execSQL(sql).then(updateResult =>{
+        if(updateResult.affectedRows > 0){
+            return true;
+        }
+        return false;
+    }) 
+}
+
+//更新答案分数
+const updateAnswerPoint = (id, examQuestionData = {}) =>{
+
+    const point = examQuestionData.params.point
+    const sql = `update answer set point=${point} where id=${id}`
     return execSQL(sql).then(updateResult =>{
         if(updateResult.affectedRows > 0){
             return true;
@@ -208,5 +241,7 @@ module.exports = {
     newExam,
     newExamQuestion,
     deleteExamQuestion,
-    updateExam
+    updateExam,
+    updateAnswerPoint,
+    updateExamQuestion
 }

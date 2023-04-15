@@ -1,5 +1,7 @@
 const { successModel, errorModel } = require("../model/responseModel");
-const { getGrade, 
+const { 
+    getGrade, 
+    creatNewGrade
     } = require('../controllers/grade')
 
 
@@ -12,6 +14,15 @@ const handleGradeRoute = (req, res) =>{
     if(method === 'GET' && req.path === '/grade/student/getGrade'){ 
         const stuId = req.query.stuId || '';
         const gradeDataPromise = getGrade(stuId);
+        return gradeDataPromise.then(gradeData => {
+            return new successModel(gradeData)
+        })
+    }
+
+     //新增成绩
+     if(method === 'POST' && req.path === '/grade/student/newGrade'){
+        const gradeData = req.body;
+        const gradeDataPromise = creatNewGrade(gradeData);
         return gradeDataPromise.then(gradeData => {
             return new successModel(gradeData)
         })

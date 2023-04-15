@@ -11,6 +11,7 @@ Page({
         answer:[],
         stuInfo:[],
         answerList:[],
+        examDetail:[],
         examId:'',
         temp:'',
         flageA:false,
@@ -18,7 +19,7 @@ Page({
         flageC:false,
         flageD:false,
         temp:'',
-        time:1,
+        time:10,
         questionList:[],
         show: false,
     },
@@ -61,16 +62,31 @@ Page({
     },
 
     //答案更新
-    async updateAnswer(id, answer, myAnswer, queType){
-        if(queType == '单选' || queType == '多选' || queType == '填空'){
+    async updateAnswer(id, answer, myAnswer, stem, queType){
+        if(queType == '单选'){
             if(answer == myAnswer){
-                let result = upload('/exam/answer/updateAnswer?id=' + id,{answer, myAnswer, point:2})
+                let result = upload('/exam/answer/updateAnswer?id=' + id,{answer, myAnswer, stem, point:this.data.examDetail.data[0].DanXScore})
             }else{
-                let result = upload('/exam/answer/updateAnswer?id=' + id,{answer, myAnswer, point:0})
+                let result = upload('/exam/answer/updateAnswer?id=' + id,{answer, myAnswer, stem, point:0})
             }
         } 
-        let result = upload('/exam/answer/updateAnswer?id=' + id,{answer, myAnswer})
-        console.log(result)
+        if(queType == '多选'){
+            if(answer == myAnswer){
+                let result = upload('/exam/answer/updateAnswer?id=' + id,{answer, myAnswer, stem, point:this.data.examDetail.data[0].DuoXScore})
+            }else{
+                let result = upload('/exam/answer/updateAnswer?id=' + id,{answer, myAnswer, stem, point:0})
+            }
+        }
+        if(queType == '填空'){
+            if(answer == myAnswer){
+                let result = upload('/exam/answer/updateAnswer?id=' + id,{answer, myAnswer, stem, point:this.data.examDetail.data[0].TKScore})
+            }else{
+                let result = upload('/exam/answer/updateAnswer?id=' + id,{answer, myAnswer, stem, point:0})
+            }
+        }
+        if(queType == '计算' || queType == '问答' || queType == '编程'){
+            let result = upload('/exam/answer/updateAnswer?id=' + id,{answer, myAnswer, stem, point:0})
+        } 
     },
 
       // 查看index 修改样式
@@ -110,13 +126,12 @@ Page({
         }else{
             questionList.data[index].selectStatus = '2'
         }
-
         if(questionList.data[index].queType == '多选'){
             this.quick_sort()
             let temp = this.data.temp
             let answer = this.data.answer
             answer[index] = temp
-            this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+            this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
             this.setData({
               answer,
               temp:''
@@ -126,12 +141,11 @@ Page({
             index = length - 1 
 
             questionList.data[index].selectStatus = '1'
-
             if(questionList.data[index].queType == '多选'){
               let answer = this.data.answer
               let temp = this.data.temp
               temp = answer[index] 
-              this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+              this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
               this.setData({
                   answer,
                   temp,
@@ -139,13 +153,13 @@ Page({
             }
         }else{
             index = index - 1
-
             questionList.data[index].selectStatus = '1'
 
             if(questionList.data[index].queType == '多选'){
               let answer = this.data.answer
               let temp = this.data.temp
               temp = answer[index] 
+              this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
               this.setData({
                   answer,
                   temp
@@ -181,7 +195,7 @@ Page({
           let temp = this.data.temp
           let answer = this.data.answer
           answer[index] = temp
-          this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+          this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
           this.setData({
               answer,
               temp:''
@@ -191,12 +205,11 @@ Page({
           index = 0
 
           questionList.data[index].selectStatus = '1'
-
           if(questionList.data[index].queType == '多选'){
               let answer = this.data.answer
               let temp = this.data.temp
               temp = answer[index] 
-              this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+              this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
               this.setData({
                   answer,
                   temp
@@ -235,7 +248,7 @@ Page({
       this.setData({
           answer
       })
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
   },
   //取消A
   cancleA(){
@@ -245,7 +258,7 @@ Page({
       this.setData({
           answer
       })
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
   },
 
   //选择B
@@ -257,7 +270,7 @@ Page({
       this.setData({
           answer
       })
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
   },
   //取消B
   cancleB(){
@@ -268,7 +281,7 @@ Page({
       this.setData({
           answer
       })
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
   },
   //选择C
   chooseC(){
@@ -279,7 +292,7 @@ Page({
       this.setData({
           answer
       })
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
   },
   //取消C
   cancleC(){
@@ -290,7 +303,7 @@ Page({
       this.setData({
           answer
       })
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
   },
 
   //选择D
@@ -302,7 +315,7 @@ Page({
       this.setData({
           answer
       })
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
   },
   //取消D
   cancleD(){
@@ -313,7 +326,7 @@ Page({
       this.setData({
           answer
       })
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
   },
 
   //多选选择A
@@ -333,7 +346,7 @@ Page({
           })
           console.log(answer[index].indexOf('A') !== -1)
       }
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
       
   },
   D_cancleA(){
@@ -350,7 +363,7 @@ Page({
               temp
           })
       }
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
   },
   //多选选择B
   D_chooseB(){
@@ -367,7 +380,7 @@ Page({
               temp
           })
       }
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
       
   },
   D_cancleB(){
@@ -384,7 +397,7 @@ Page({
               temp
           })
       }
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
   },
   //多选选择C
   D_chooseC(){
@@ -401,7 +414,7 @@ Page({
               temp
           })
       }
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
       
   },
   D_cancleC(){
@@ -418,7 +431,7 @@ Page({
               temp
           })
       }
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
   },
   //多选选择D
   D_chooseD(){
@@ -435,7 +448,7 @@ Page({
               temp
           })
       }
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
       
   },
   D_cancleD(){
@@ -452,7 +465,7 @@ Page({
               temp
           })
       }
-      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+      this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
   },
   // 主观题答案获取
   getAnswer(event){
@@ -463,7 +476,7 @@ Page({
     this.setData({
         answer
     })
-    this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].queType)
+    this.updateAnswer(this.data.answerList.data[index].id, this.data.questionList.data[index].answer, answer[index], this.data.questionList.data[index].stem, this.data.questionList.data[index].queType)
 },
 
   quick_sort(){
@@ -528,12 +541,19 @@ submit(){
         })
         console.log(result)
     },
-
+    // 考试详情
+    async getExamDetail(examId){
+        let examDetail = await request('/exam/student/examDetail',{examId:examId})
+        this.setData({
+          examDetail,
+        })
+      },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
         let examId = options.examId
+        this.getExamDetail(examId)
         let stuInfo = wx.getStorageSync('stuInfo')
         this.setData({
             stuInfo,

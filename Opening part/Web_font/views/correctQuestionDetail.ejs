@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' href='/iconfont/iconfont.css'/>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/stylesheets/correctQuestionDetail.css'/>
+</head>
+<body>
+    <div class="headPartContainer">
+        <text class="headPartText"><%= examList[0].examType%>/<%= examList[0].curName%></text>
+        <i class="iconfont icon-shezhi headIcon"></i>
+        <text class="headPartText1">批改设置</text>
+    </div>
+    <div class="allContainer">
+        <div class="fourPartContainer">
+            <div class="leftPartContainer">
+                <div class="leftHeadContainer">
+                    <div class="circleContainer">
+                        <div class="circle1"></div>
+                        <text class="circleText">错误</text>
+                    </div>
+                    <div class="circleContainer">
+                        <div class="circle2"></div>
+                        <text class="circleText">正确</text>
+                    </div>
+                    <div class="circleContainer">
+                        <div class="circle3"></div>
+                        <text class="circleText">未答</text>
+                    </div>
+                </div>
+
+                <div class="leftBodyContainer">
+                    <% if(danList.length){ %>
+                        <div class="oneItemContainer">
+                            <text class="oneItemText">单选题</text>
+                            <div class="oneItemSelectContainer">
+                                <% danList.forEach(function (item){ %>
+                                    <% if(item.point > 0){ %>
+                                        <div class="circle2 circle-dan" data-type="<%= item.queType %>" data-index="<%= danList.indexOf(item) %>">
+                                            <text class="circleIndex"><%= danList.indexOf(item) + 1 %></text>
+                                        </div>
+                                    <% }else{ %>
+                                            <div class="circle1 circle-dan" data-type="<%= item.queType %>" data-index="<%= danList.indexOf(item) %>">
+                                                <text class="circleIndex"><%= danList.indexOf(item) + 1 %></text>
+                                            </div>
+                                    <% } %>
+                                <% }) %>
+                            </div>
+                        </div>
+                    <% } %>
+
+                    <% if(duoList.length){ %>
+                        <div class="oneItemContainer">
+                            <text class="oneItemText">多选题</text>
+                            <div class="oneItemSelectContainer">
+                                <% duoList.forEach(function (item){ %>
+                                    <% if(item.point > 0){ %>
+                                        <div class="circle2 circle-duo" data-type="<%= item.queType %>" data-index="<%= duoList.indexOf(item) %>">
+                                            <text class="circleIndex"><%= duoList.indexOf(item) + 1 %></text>
+                                        </div>
+                                    <% }else{ %>
+                                        <div class="circle1 circle-duo" data-type="<%= item.queType %>" data-index="<%= duoList.indexOf(item) %>">
+                                            <text class="circleIndex"><%= duoList.indexOf(item) + 1 %></text>
+                                        </div>
+                                    <% } %>
+                                <% }) %>
+                            </div>
+                        </div>
+                    <% } %>
+
+                    <% if(tianList.length){ %>
+                        <div class="oneItemContainer">
+                            <text class="oneItemText">填空题</text>
+                            <div class="oneItemSelectContainer">
+                            <% tianList.forEach(function (item){ %>
+                                <% if(item.point > 0){ %>
+                                    <div class="circle2 circle-tian" data-type="<%= item.queType %>" data-index="<%= tianList.indexOf(item) %>">
+                                        <text class="circleIndex"><%= tianList.indexOf(item) + 1 %></text>
+                                    </div>
+                                <% }else{ %>
+                                    <div class="circle1 circle-tian" data-type="<%= item.queType %>" data-index="<%= tianList.indexOf(item) %>">
+                                        <text class="circleIndex"><%= tianList.indexOf(item) + 1 %></text>
+                                    </div>
+                                <% } %>
+                            <% }) %>
+                        </div>
+                    </div>
+                <% } %>
+
+                    <% if(jiList.length){ %>
+                        <div class="oneItemContainer">
+                            <text class="oneItemText">计算题</text>
+                            <% jiList.forEach(function (item){ %>
+                                <% if(item.point > 0){ %>
+                                    <div class="circle2 circle-ji" data-type="<%= item.queType %>" data-index="<%= jiList.indexOf(item) %>">
+                                        <text class="circleIndex"><%= jiList.indexOf(item) + 1 %></text>
+                                    </div>
+                                <% }else if(item.point == 0){ %>
+                                    <div class="circle1 circle-ji" data-type="<%= item.queType %>" data-index="<%= jiList.indexOf(item) %>">
+                                        <text class="circleIndex"><%= jiList.indexOf(item) + 1 %></text>
+                                    </div>
+                                <% }else{ %>
+                                        <div class="circle3 circle-ji" data-type="<%= item.queType %>" data-index="<%= jiList.indexOf(item) %>">
+                                            <text class="circleIndex"><%= jiList.indexOf(item) + 1 %></text>
+                                        </div>
+                                <% } %>
+                            <% }) %>
+                        </div>
+                    <% } %>
+
+                    <% if(wenList.length){ %>
+                    <div class="oneItemContainer">
+                        <text class="oneItemText">问答题</text>
+                        <div class="oneItemSelectContainer">
+                            <% wenList.forEach(function (item){ %>
+                                <% if(item.point > 0){ %>
+                                    <div class="circle2 circle-wen" data-type="<%= item.queType %>" data-index="<%= wenList.indexOf(item) %>">
+                                        <text class="circleIndex"><%= wenList.indexOf(item) + 1 %></text>
+                                    </div>
+                                <% }else if(item.point == 0){ %>
+                                    <div class="circle1 circle-wen" data-type="<%= item.queType %>" data-index="<%= wenList.indexOf(item) %>">
+                                        <text class="circleIndex"><%= wenList.indexOf(item) + 1 %></text>
+                                    </div>
+                                <% }else{ %>
+                                    <div class="circle3 circle-wen" data-type="<%= item.queType %>" data-index="<%= wenList.indexOf(item) %>">
+                                        <text class="circleIndex"><%= wenList.indexOf(item) + 1 %></text>
+                                    </div>
+                                <% } %>
+                            <% }) %>
+                        </div>
+                    </div>
+                    <% } %>
+
+                    <% if(bianList.length){ %>
+                        <div class="oneItemContainer">
+                            <text class="oneItemText">编程题</text>
+                            <div class="oneItemSelectContainer">
+                                <% bianList.forEach(function (item){ %>
+                                    <% if(item.point > 0){ %>
+                                        <div class="circle2 circle-bian" data-type="<%= item.queType %>" data-index="<%= bianList.indexOf(item) %>">
+                                            <text class="circleIndex"><%= bianList.indexOf(item) + 1 %></text>
+                                        </div>
+                                    <% }else if(item.point == 0){ %>
+                                        <div class="circle1 circle-bian" data-type="<%= item.queType %>" data-index="<%= bianList.indexOf(item) %>">
+                                            <text class="circleIndex"><%= bianList.indexOf(item) + 1 %></text>
+                                        </div>
+                                    <% }else{ %>
+                                        <div class="circle3 circle-bian" data-type="<%= item.queType %>" data-index="<%= bianList.indexOf(item) %>">
+                                            <text class="circleIndex"><%= bianList.indexOf(item) + 1 %></text>
+                                        </div>
+                                    <% } %>
+                                <% }) %>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+
+                <script src="/javascripts/jquery-3.2.1.js"></script>
+                <script>
+                    $(function (){
+                        var index = '';
+                        var queType = '';
+                        $('.circle-dan').click(function (){
+                            index = $(this).data('index')
+                            queType = $(this).data('type')
+                            window.location.href = `/correctQuestionDetailOne?index=${index}&queType=${queType}`
+                        })
+                        $('.circle-duo').click(function (){
+                            index = $(this).data('index')
+                            queType = $(this).data('type')
+                            window.location.href = `/correctQuestionDetailOne?index=${index}&queType=${queType}`
+                        })
+                        $('.circle-tian').click(function (){
+                            index = $(this).data('index')
+                            queType = $(this).data('type')
+                            window.location.href = `/correctQuestionDetailOne?index=${index}&queType=${queType}`
+                        })
+                        $('.circle-ji').click(function (){
+                            index = $(this).data('index')
+                            queType = $(this).data('type')
+                            window.location.href = `/correctQuestionDetailOne?index=${index}&queType=${queType}`
+                        })
+                        $('.circle-wen').click(function (){
+                            index = $(this).data('index')
+                            queType = $(this).data('type')
+                            window.location.href = `/correctQuestionDetailOne?index=${index}&queType=${queType}`
+                        })
+                        $('.circle-bian').click(function (){
+                            index = $(this).data('index')
+                            queType = $(this).data('type')
+                            window.location.href = `/correctQuestionDetailOne?index=${index}&queType=${queType}`
+                        })
+                    })
+                </script>
+
+            </div>
+            <div class="rightPartContainer">
+                <div class="rightHeadContainer">
+                    <text class="rightHeadText"><%= stuInfo[0].className%>　<%= stuInfo[0].stuName %></text>
+                </div>
+                <div class="rightBodyContainer">
+                    <div class="rightBodyOne">
+                        <div class="rightOneOne">
+                            <text class="rightOneText"><%= questionList[index].queType %></text>
+                        </div>
+                        <div class="rightOne">
+                            <text class="rightOneText"><%= index + 1 %></text>
+                        </div>
+                        <text class="rightOneStem"><%= questionList[index].stem%></text>
+                    </div>
+                    <div class="rightBodyTwo">
+                        <text class="rightTwoText">学生答案</text>
+                        <% if(questionList[index].queType == '单选'){ %>
+                            <text class="rightTwoPoint">分值：<%= examDetail[0].DanXScore %></text>
+                        <% } %>
+                        <% if(questionList[index].queType == '多选'){ %>
+                            <text class="rightTwoPoint">分值：<%= examDetail[0].DuoXScore %></text>
+                        <% } %>
+                        <% if(questionList[index].queType == '填空'){ %>
+                            <text class="rightTwoPoint">分值：<%= examDetail[0].TKScore %></text>
+                        <% } %>
+                        <% if(questionList[index].queType == '计算'){ %>
+                            <text class="rightTwoPoint">分值：<%= examDetail[0].JSScore %></text>
+                        <% } %>
+                        <% if(questionList[index].queType == '问答'){ %>
+                            <text class="rightTwoPoint">分值：<%= examDetail[0].WDScore %></text>
+                        <% } %>
+                        <% if(questionList[index].queType == '编程'){ %>
+                            <text class="rightTwoPoint">分值：<%= examDetail[0].BCScore %></text>
+                        <% } %>
+                    </div>
+                    <div class="rightBodyThree">
+                        <input type="text" class="rightThreeInput" readonly value="<%= questionList[index].myAnswer %>">
+                    </div>
+                </div>
+            </div>
+            <div class="daFen">
+                <text class="daFenText">打分</text>
+                <input type="text" class="daFenInput">
+                <button class="daFenButton">确定</button>
+                <button class="finish-a">完成</button>
+            </div>
+
+            <script>
+                $(function (){
+                    var point = '';
+                    $('.daFenButton').click(function (){
+                        point = $('.daFenInput').val()
+                        window.location.href = `/answerPointUpdate?point=${point}&id=<%= questionList[index].id %>`
+                    })
+                    $('.finish-a').click(function (){
+                        window.location.href = `/insertGrade`
+                    })
+                })
+            </script>
+
+            <div class="changeContainer">
+                <text class="pre"><　上一题</text>
+                <text class="next">下一题　></text>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
