@@ -2,11 +2,24 @@ const {execSQL} = require('../db/mysql')
 // 跟成绩相关的方法
 
 // 成绩查询
-const getGrade = (stuId) =>{
+const getGrade = (stuId, examId) =>{
     //从数据库拿数据
     let sql = `select * from grade where`;
     if(stuId){
         sql += ` stuId='${stuId}'`;
+    }
+    if(examId){
+        sql += ` and examId=${examId}`;
+    }
+    return execSQL(sql)
+}
+
+// 成绩查询教师
+const getGradeTeacher = (examId) =>{
+    //从数据库拿数据
+    let sql = `select * from grade where`;
+    if(examId){
+        sql += ` examId=${examId}`;
     }
     return execSQL(sql)
 }
@@ -83,5 +96,6 @@ const deleteTeacher = (teaId) =>{
 }
 module.exports = {
     getGrade,
-    creatNewGrade
+    creatNewGrade,
+    getGradeTeacher
 }

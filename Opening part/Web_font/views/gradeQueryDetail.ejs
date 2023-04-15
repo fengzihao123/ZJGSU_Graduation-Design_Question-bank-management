@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/iconfont/iconfont.css'/>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/stylesheets/gradeQueryDetail.css'/>
+    <script src="/javascripts/echarts.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="headPartContainer">
+        <text class="headPartText">成绩管理</text>
+        <div class="line"></div>
+    </div>
+
+    <!--  todo 折线图容器  -->
+    <div class="chartContainer"></div>
+
+    <script>
+        var chartDom = document.querySelector('.chartContainer');
+        var myChart = echarts.init(chartDom);
+        var option;
+        var queTypeList = [];
+        var scoreList = [];
+        queTypeList = JSON.parse('<%- JSON.stringify(queTypeList) %>')
+        scoreList = JSON.parse('<%- JSON.stringify(scoreList) %>')
+        option = {
+            xAxis:{
+                data:queTypeList,
+                type: 'category'
+            },
+            yAxis:{
+                type:'value'
+            },
+            series:[{
+                data:scoreList,
+                type: 'line'
+            }]
+        }
+        myChart.setOption(option)
+    </script>
+</body>
+</html>

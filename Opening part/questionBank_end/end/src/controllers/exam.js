@@ -59,6 +59,15 @@ const getExamQuestion = (classId, examId, queType, queId) =>{
     return execSQL(sql)
 }
 
+//考试题目错题最多5个
+const getExamQuestionTOP = (examId) =>{
+    let sql = `select * from questioning where`;
+    if(examId){
+        sql += ` examId=${examId} order by errorCount desc limit 5`
+    }
+    return execSQL(sql)
+}
+
 //新增考试题目
 const newExamQuestion = (examQuestionData = {}) =>{
     const classId = examQuestionData.params.classId
@@ -243,5 +252,6 @@ module.exports = {
     deleteExamQuestion,
     updateExam,
     updateAnswerPoint,
-    updateExamQuestion
+    updateExamQuestion,
+    getExamQuestionTOP
 }

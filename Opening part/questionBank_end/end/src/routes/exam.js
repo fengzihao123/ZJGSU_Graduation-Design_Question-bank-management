@@ -11,7 +11,8 @@ const { getExamList,
         deleteExamQuestion,
         updateExam,
         updateAnswerPoint,
-        updateExamQuestion
+        updateExamQuestion,
+        getExamQuestionTOP
     } = require('../controllers/exam')
 
 
@@ -58,6 +59,15 @@ const handleExamRoute = (req, res) =>{
         const queType = req.query.queType || '';
         const queId = req.query.queId || '';
         const examQuestionDataPromise = getExamQuestion(classId, examId, queType, queId);
+        return examQuestionDataPromise.then(examQuestionData => {
+            return new successModel(examQuestionData)
+        })
+    }
+
+    //考试题目错题最多5个
+    if(method === 'GET' && req.path === '/exam/student/getExamQuestionTOP'){
+        const examId = req.query.examId || '';
+        const examQuestionDataPromise = getExamQuestionTOP(examId);
         return examQuestionDataPromise.then(examQuestionData => {
             return new successModel(examQuestionData)
         })

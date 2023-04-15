@@ -27,6 +27,10 @@ var AddQuestionAutoRouter = require('./routes/AddQuestionAuto');
 // todo 成绩查询
 var gradeCountRouter = require('./routes/gradeCount');
 var gradeQueryRouter = require('./routes/gradeQuery');
+var gradeQueryStudentRouter = require('./routes/gradeQueryStudent');
+var gradeQueryStudentOneRouter = require('./routes/gradeQueryStudentOne');
+var gradeQueryDetailRouter = require('./routes/gradeQueryDetail');
+var gradeCountDetailRouter = require('./routes/gradeCountDetail');
 // todo 学生管理
 var studentManageRouter = require('./routes/studentManage');
 var AddStudentRouter = require('./routes/AddStudent');
@@ -83,6 +87,10 @@ app.use('/admin/AddQuestionAuto', AddQuestionAutoRouter);
 // todo 成绩查询
 app.use('/admin/gradeCount', gradeCountRouter);
 app.use('/admin/gradeQuery', gradeQueryRouter);
+app.use('/gradeQueryStudent', gradeQueryStudentRouter);
+app.use('/gradeQueryStudentOne', gradeQueryStudentOneRouter);
+app.use('/gradeQueryDetail', gradeQueryDetailRouter);
+app.use('/gradeCountDetail', gradeCountDetailRouter);
 // todo 学生管理
 app.use('/admin/studentManage', studentManageRouter);
 app.use('/admin/AddStudent', AddStudentRouter);

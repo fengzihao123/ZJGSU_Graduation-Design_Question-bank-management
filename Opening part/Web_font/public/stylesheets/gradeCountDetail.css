@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.headPartContainer{
+    margin-top: 10px;
+}
+.headPartText{
+    font-size: 26px;
+    margin-left: 50px;
+    font-weight: 500;
+}
+.line{
+    height: 1px;
+    width: 96%;
+    margin-top: 10px;
+    margin-left: 2%;
+    background-color: black
+}
+.chartContainer{
+    margin-left: 30px;
+    margin-top: 80px;
+    width: 600px;
+    height: 600px;
+}
+.bodyContainer{
+    display: flex;
+}
+.content{
+    margin-top: 60px;
+    border-radius: 24px;
+}
+.table{
+    width: 900px;
+    margin-left: 20px;
+    text-align: center;
+}
+.table thead tr{
+    height: 100px;
+}
+.table th{
+    text-align: center;
+}
+.table tbody{
+    line-height: 48px;
+}
+.topContainer{
+    display: grid;
+}
+.topText{
+    position: absolute;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 50px;
+    display: block;
+    margin-left: 30px;
+}

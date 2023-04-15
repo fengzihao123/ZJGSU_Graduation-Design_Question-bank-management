@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' href='/iconfont/iconfont.css'/>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/stylesheets/gradeQueryStudent.css'/>
+</head>
+<body>
+<div class="headPartContainer">
+    <text class="headPartText">成绩管理</text>
+    <div class="line"></div>
+</div>
+
+<div class="content">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>年级</th>
+            <th>班级</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% studentList.forEach(function (item){ %>
+            <tr>
+                <td><%= item.stuId %></td>
+                <td><%= item.stuName %></td>
+                <td><%= item.grade %></td>
+                <td><%= item.className %></td>
+                <td>
+                    <img src="/images/xiugai.png" class="edit" data-stuid="<%= item.stuId %>">
+                </td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+    <script src="/javascripts/jquery-3.2.1.js"></script>
+    <script>
+        $(function (){
+            var stuId = '';
+            $('.edit').click(function (){
+                stuId = $(this).data('stuid')
+                window.location.href = `/gradeQueryDetail?stuId=${stuId}`
+            })
+        })
+    </script>
+    <div class="page">
+        <ul class="pagination">
+            <% var prevNum = 10; var nextNum = 10; %>
+            <li class="disabled"><a href="#"> 共<%= pager.maxNum%>条 </a></li>
+            <li class="disabled"><a href="#"> 总<%= pager.pageCount%>页 </a></li>
+
+            <% if(pager.maxNum == 0) { %>
+                <li class="disabled"><a href="#"> 首页 </a></li>
+            <% }else{ %>
+                <li><a href="/gradeQueryStudentOne?page=1"> 首页 </a></li>
+            <% } %>
+
+            <% if(pager.pageCurrent == 1) { %>
+                <li class="disabled"><a href="#>"> 上一页 </a></li>
+            <% }else{ %>
+                <li><a href="/gradeQueryStudentOne?page=<%= parseInt(pager.pageCurrent) - 1 %>"> 上一页 </a></li>
+            <% } %>
+
+            <!--      todo 循环显示页码    开始      -->
+            <% for(var i = prevNum; i > 0; i--){ %>
+                <% if(parseInt(pager.pageCurrent) - i > 0){%>
+                    <li><a href="/gradeQueryStudentOne?page=<%= parseInt(pager.pageCurrent) - i %>"> <%= parseInt(pager.pageCurrent) - i %> </a></li>
+            <% } }%>
+            <li class="active"><a href="/correctQuestionOne?page=<%= pager.pageCurrent %>"> <%= pager.pageCurrent %> </a></li>
+            <% for(var i = 1; i <= nextNum; i++){%>
+                <% if( parseInt(pager.pageCurrent) + i <= pager.pageCount) {%>
+                    <li><a href="/gradeQueryStudentOne?page=<%= parseInt(pager.pageCurrent) + i %>"> <%= parseInt(pager.pageCurrent) + i %> </a></li>
+
+            <% }} %>
+            <!--      todo 循环显示页码     结束     -->
+
+            <% if(pager.pageCurrent == pager.pageCount) { %>
+                <li class="disabled"><a href="#>"> 下一页 </a></li>
+            <% }else{ %>
+                <li><a href="/gradeQueryStudentOne?page=<%= parseInt(pager.pageCurrent) + 1 %>"> 下一页 </a></li>
+            <% } %>
+
+            <% if(pager.maxNum == 0) { %>
+                <li class="disabled"><a href="#"> 尾页 </a></li>
+            <% }else{ %>
+                <li><a href="/gradeQueryStudentOne?page=<%= pager.pageCount %>"> 尾页 </a></li>
+            <% } %>
+
+        </ul>
+    </div>
+</div>
+</body>
+</html>

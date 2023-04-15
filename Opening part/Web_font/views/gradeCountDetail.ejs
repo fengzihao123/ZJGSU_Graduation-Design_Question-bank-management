@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/iconfont/iconfont.css'/>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/stylesheets/gradeCountDetail.css'/>
+    <script src="/javascripts/echarts.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="headPartContainer">
+        <text class="headPartText">成绩管理</text>
+        <div class="line"></div>
+    </div>
+    <div class="bodyContainer">
+
+        <!--  todo 饼图容器  -->
+        <div class="chartContainer"></div>
+
+        <!-- todo 错题前五   -->
+        <div class="topContainer">
+            <text class="topText">错题前五：</text>
+            <div class="content">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>题目Id</th>
+                        <th>题目</th>
+                        <th>题目类型</th>
+                        <th>错误数</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% questionList.forEach(function (item){ %>
+                        <tr>
+                            <td><%= item.queId %></td>
+                            <td><%= item.stem %></td>
+                            <td><%= item.queType %></td>
+                            <td><%= item.errorCount %></td>
+                        </tr>
+                    <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script>
+            var chartDom = document.querySelector('.chartContainer');
+            var myChart = echarts.init(chartDom);
+            var option;
+            var countData = [];
+            countData = JSON.parse('<%- JSON.stringify(countData) %>')
+            option = {
+                title: {
+                    text: '学生成绩分数段统计',
+                    subtext: 'Evaluation System',
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left'
+                },
+                series: [
+                    {
+                        name: 'Access From',
+                        type: 'pie',
+                        radius: '50%',
+                        data: countData,
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+            myChart.setOption(option)
+        </script>
+    </div>
+
+</body>
+</html>

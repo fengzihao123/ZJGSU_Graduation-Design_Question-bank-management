@@ -15,6 +15,51 @@
     <text class="headPartText">成绩管理</text>
     <div class="line"></div>
 </div>
+<div class="selectContainer">
+    <div class="oneInputContainer">
+        <text class="examNameText">课程名</text>
+        <!--            <input type="text" class="examNameInput"  placeholder="试卷名" name="examName">-->
+        <div class="dropdown">
+            <input type="text" class="text01" readonly placeholder="课程名" name="curName">
+            <div class="option">
+                <div onmouseover="show1('计算机网络')">计算机网络</div>
+                <div onmouseover="show1('计算机组成')">计算机网络</div>
+            </div>
+        </div>
+        <script>
+            function show(a){
+                document.querySelector('.text01').value=a;
+            }
+            let dropdown = document.querySelector('.dropdown');
+            dropdown.onclick = function (){
+                dropdown.classList.toggle('active');
+            }
+        </script>
+    </div>
+
+    <div class="oneInputContainer">
+        <text class="examNameText">班级</text>
+        <!--            <input type="text" class="examNameInput"  placeholder="试卷名" name="examName">-->
+        <div class="dropdown1">
+            <input type="text" class="text02" readonly placeholder="班级" name="className">
+            <div class="option">
+                <div onmouseover="show('计科1902')">计科1902</div>
+                <div onmouseover="show('计科1901')">计科1901</div>
+
+            </div>
+        </div>
+        <script>
+            function show1(a){
+                document.querySelector('.text02').value=a;
+            }
+            let dropdown1 = document.querySelector('.dropdown1');
+            dropdown1.onclick = function (){
+                dropdown1.classList.toggle('active1');
+            }
+        </script>
+    </div>
+</div>
+
 
 <div class="content">
     <table class="table">
@@ -30,21 +75,32 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>计算机网络</td>
-            <td>计科1902</td>
-            <td>计算机学院</td>
-            <td>2022-10-21</td>
-            <td>120分钟</td>
-            <td>100分</td>
-            <td>
-                <img src="/images/xiugai.png" class="edit">
-                <img src="/images/shanchu.png" class="del">
-            </td>
-        </tr>
+        <% examList.forEach(function (item){ %>
+            <tr>
+                <td><%= item.curName %></td>
+                <td><%= item.className %></td>
+                <td><%= item.startTime %></td>
+                <td><%= item.duration %>分</td>
+                <td><%= item.totalPoint %>分</td>
+                <td>
+                    <img src="/images/xiugai.png" class="edit" data-classid="<%= item.classId %>" data-examid="<%= item.examId %>">
+                    <img src="/images/shanchu.png" class="del">
+                </td>
+            </tr>
+        <% }) %>
         </tbody>
     </table>
 </div>
+<script src="/javascripts/jquery-3.2.1.js"></script>
+<script>
+    $(function (){
+        var examId = '';
+        $('.edit').click(function (){
+            examId = $(this).data('examid')
+            window.location.href = `/gradeCountDetail?examId=${examId}`
+        })
+    })
+</script>
 
 </body>
 </html>

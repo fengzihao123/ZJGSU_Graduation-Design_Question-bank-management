@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.headPartContainer{
+    margin-top: 10px;
+}
+.headPartText{
+    font-size: 26px;
+    margin-left: 50px;
+    font-weight: 500;
+}
+.line{
+    height: 1px;
+    width: 96%;
+    margin-top: 10px;
+    margin-left: 2%;
+    background-color: black
+}
+.chartContainer{
+    margin-left: 250px;
+    margin-top: 60px;
+    width: 900px;
+    height: 600px;
+}

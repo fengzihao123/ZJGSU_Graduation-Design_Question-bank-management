@@ -75,21 +75,34 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>计算机网络</td>
-                <td>计科1902</td>
-                <td>计算机学院</td>
-                <td>2022-10-21</td>
-                <td>120分钟</td>
-                <td>100分</td>
-                <td>
-                    <img src="/images/xiugai.png" class="edit">
-                    <img src="/images/shanchu.png" class="del">
-                </td>
-            </tr>
+            <% examList.forEach(function (item){ %>
+                <tr>
+                    <td><%= item.curName %></td>
+                    <td><%= item.className %></td>
+                    <td><%= item.startTime %></td>
+                    <td><%= item.duration %>分</td>
+                    <td><%= item.totalPoint %>分</td>
+                    <td>
+                        <img src="/images/xiugai.png" class="edit" data-classid="<%= item.classId %>" data-examid="<%= item.examId %>">
+                        <img src="/images/shanchu.png" class="del">
+                    </td>
+                </tr>
+            <% }) %>
             </tbody>
         </table>
     </div>
+    <script src="/javascripts/jquery-3.2.1.js"></script>
+    <script>
+        $(function (){
+            var classId = '';
+            var examId = '';
+            $('.edit').click(function (){
+                classId = $(this).data('classid')
+                examId = $(this).data('examid')
+                window.location.href = `/gradeQueryStudent?examId=${examId}&classId=${classId}`
+            })
+        })
+    </script>
 
 </body>
 </html>
