@@ -8,35 +8,59 @@
     <title>Document</title>
     <link rel='stylesheet' href='/iconfont/iconfont.css' />
     <link rel='stylesheet' href='/stylesheets/courseManage.css' />
+    <script src="/javascripts/jquery-3.2.1.js"></script>
 </head>
 <body>
     <div class="headPartContainer">
         <text class="headPartText">课程管理</text>
         <div class="line"></div>
     </div>
-
-    <div class="oneInputContainer">
-        <text class="examNameText">筛选</text>
-        <div class="dropdown">
-            <input type="text" class="text01" readonly placeholder="学期" name="schoolTerm">
-            <div class="option">
-                <div onmouseover="show('2022-2023 第二学期')">2022-2023 第二学期</div>
-                <div onmouseover="show('2022-2023 第一学期')">2022-2023 第一学期</div>
-                <div onmouseover="show('2021-2022 第二学期')">2021-2022 第二学期</div>
-                <div onmouseover="show('2021-2022 第一学期')">2021-2022 第一学期</div>
+    <div class="selectContainer">
+        <div class="oneInputContainer">
+            <text class="examNameText">筛选</text>
+            <div class="dropdown">
+                <input type="text" class="text01" readonly placeholder="学期" name="schoolTerm">
+                <div class="option">
+                    <div onmouseover="show('2022-2023 第二学期')">2022-2023 第二学期</div>
+                    <div onmouseover="show('2022-2023 第一学期')">2022-2023 第一学期</div>
+                    <div onmouseover="show('2021-2022 第二学期')">2021-2022 第二学期</div>
+                    <div onmouseover="show('2021-2022 第一学期')">2021-2022 第一学期</div>
+                </div>
             </div>
+            <script>
+                function show(a){
+                    document.querySelector('.text01').value=a;
+                }
+                let dropdown = document.querySelector('.dropdown');
+                dropdown.onclick = function (){
+                    dropdown.classList.toggle('active');
+                }
+            </script>
         </div>
-        <script>
-            function show(a){
-                document.querySelector('.text01').value=a;
-            }
-            let dropdown = document.querySelector('.dropdown');
-            dropdown.onclick = function (){
-                dropdown.classList.toggle('active');
-            }
-        </script>
+        <input type="submit" class="selectInput" value="搜索">
     </div>
+
     <text class="tipsText">负责课程：</text>
-    <div></div>
+
+    <div class="bodyContainer">
+        <% courseList.forEach(function (item){ %>
+            <div class="oneCourseContainer" data-curname="<%= item.curName %>" data-classid="<%= item.classId %>">
+                <img src="<%= item.curImage %>" class="oneCourseImage">
+                    <text class="oneCourseText"><%= item.className %>　<%= item.curName %></text>
+            </div>
+        <% }) %>
+    </div>
+    <script>
+        $(function (){
+            var curName = '';
+            var classId = '';
+            $('.oneCourseContainer').click(function (){
+                curName = $(this).data('curname')
+                classId = $(this).data('classid')
+                window.location.href = `/courseManageDetail?curName=${curName}&classId=${classId}`
+            })
+        })
+    </script>
+
 </body>
 </html>

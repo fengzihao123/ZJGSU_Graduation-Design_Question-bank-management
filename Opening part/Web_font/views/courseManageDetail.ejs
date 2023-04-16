@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' href='/iconfont/iconfont.css'/>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/stylesheets/courseManageDetail.css'/>
+</head>
+<body>
+    <div class="headPartContainer">
+        <text class="headPartText">学生管理</text>
+        <div class="line"></div>
+    </div>
+
+    <div class="bodyContainer">
+        <img src="<%= course[0].curImage %>" class="bodyImage">
+        <div class="bodyRightContainer">
+            <div class="bodyRightText">课程名：<%= course[0].curName %></div>
+            <div class="bodyRightDownContainer">
+                <div class="oneRight">
+                    <text class="oneRightText">试卷：</text>
+                    <a href="/admin/AddExam" class="oneRightA">出卷</a>
+                </div>
+                <div class="oneRight">
+                    <text class="oneRightText">试题：</text>
+                    <a href="/admin/AddQuestion" class="oneRightA">出题</a>
+                </div>
+            </div>
+        </div>
+    </div>、
+    <div class="footContainer">
+        <text class="myClass">我的班级</text>
+        <div class="classContainer">
+            <img src="/images/studentClass.jpg" class="footImage">
+            <div class="rightFootContainer">
+                <text class="footText">班级：<%= course[0].className %></text>
+                <text class="footText">人数：<%= courseStudentList.length %>人</text>
+                <a href="/courseStudentManage?classId=<%= course[0].classId %>&curName=<%= course[0].curName %>" class="footA">学生管理</a>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

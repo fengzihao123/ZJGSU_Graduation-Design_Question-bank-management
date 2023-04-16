@@ -1,9 +1,10 @@
 const { successModel, errorModel } = require("../model/responseModel");
 const { getCourseList, 
         getCourseDetail,
-        // creatNewTeacher, 
-        // updateTeacher,
-        // deleteTeacher
+        getTeacherCourseList,
+        getTeacherCourseList1,
+        deleteCourseStudent,
+        newCourseStudent
     } = require('../controllers/course')
 
 
@@ -22,10 +23,23 @@ const handleCourseRoute = (req, res) =>{
         })
     }
 
-    if(method === 'GET' && req.path === '/course/student/getCourseList'){
-        const stuId = req.query.stuId || '';
-        const term = req.query.term || '';
-        const courseListDataPromise = getCourseList(stuId, term);
+    //课程列表查询教师
+    if(method === 'GET' && req.path === '/course/student/getTeacherCourseList'){
+        const teaId = req.query.teaId || '';
+        const classId = req.query.classId || '';
+        const curName = req.query.curName || '';
+        const courseListDataPromise = getTeacherCourseList(teaId, classId, curName);
+        return courseListDataPromise.then(courseListData => {
+            return new successModel(courseListData)
+        })
+    }
+
+    //课程列表查询教师
+    if(method === 'GET' && req.path === '/course/student/getTeacherCourseList1'){
+        const curName = req.query.curName || '';
+        const classId = req.query.classId || '';
+
+        const courseListDataPromise = getTeacherCourseList1(curName, classId);
         return courseListDataPromise.then(courseListData => {
             return new successModel(courseListData)
         })
@@ -40,44 +54,28 @@ const handleCourseRoute = (req, res) =>{
                 return new successModel(courseDetailData)
             })
         }
-    //新增教师
-    if(method === 'POST' && req.path === '/teacher/user/newUserInfo'){
-        const teacherData = req.body;
-        const newTeacherDataPromise = creatNewTeacher(teacherData);
-        return newTeacherDataPromise.then(newTeacherData => {
-            return new successModel(newTeacherData)
+
+   //删除课程信息
+   if(method === 'POST' && req.path === '/course/student/deleteCourseStudent'){
+    const id = req.query.id || '';
+    const deleteCourseDataPromise = deleteCourseStudent(id)
+    return deleteCourseDataPromise.then(deleteCourseData =>{
+        if(deleteCourseData){
+            return new successModel('删除成功')
+        }else{
+            return new errorModel('删除失败')
+        }
+    })
+}
+
+    //新增学生信息
+    if(method === 'POST' && req.path === '/course/student/newCourseStudent'){
+        const courseData = req.body;
+        const newCourseDataPromise = newCourseStudent(courseData);
+        return newCourseDataPromise.then(newCourseData => {
+            return new successModel(newCourseData)
         })
     }
-
-    //教师信息更新
-    if(method === 'POST' && req.path === '/teacher/user/userInfoUpdate'){
-        const teaId = req.query.teaId || '';
-        const teacherData = req.body;
-
-        const updateTeacherDataPromise = updateTeacher(teaId, teacherData);
-        return updateTeacherDataPromise.then(updateTeacherData => {
-            if(updateTeacherData){
-                return new successModel('更新成功')
-            }else{
-                return new errorModel('更新失败')
-            }
-        })
-        
-    }
-
-    //删除教师
-    if(method === 'POST' && req.path === '/teacher/user/deleteUserInfo'){
-        const teaId = req.query.teaId || '';
-        const deleteTeacherDataPromise = deleteTeacher(teaId)
-        return deleteTeacherDataPromise.then(deleteTeacherData =>{
-            if(deleteTeacherData){
-                return new successModel('删除成功')
-            }else{
-                return new errorModel('删除失败')
-            }
-        })
-    }
-
 }
 
 module.exports = handleCourseRoute;

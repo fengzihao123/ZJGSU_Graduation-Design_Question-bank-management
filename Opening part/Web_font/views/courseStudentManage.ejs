@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' href='/iconfont/iconfont.css'/>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/stylesheets/courseStudentManage.css'/>
+    <script src="/javascripts/jquery-3.2.1.js"></script>
+</head>
+<body>
+    <div class="headPartContainer">
+        <text class="headPartText">题库管理</text>
+        <div class="line"></div>
+    </div>
+
+    <button class="add-btn">
+        添加
+    </button>
+
+    <form action="/addCourseStudent" method="post">
+        <div class="allContainer">
+            <div class="addStudentContainer">
+                <text class="addTitle">添加学生</text>
+                <div class="oneAddStudentContainer">
+                    <text class="addText">学　号：</text>
+                    <input type="text" class="addInput" name="stuId">
+                </div>
+                <div class="oneAddStudentContainer">
+                    <text class="addText">课程名：</text>
+                    <input type="text" class="addInput" name="curName">
+                </div>
+                <div class="oneAddStudentContainer">
+                    <text class="addText">学生名：</text>
+                    <input type="text" class="addInput" name="stuName">
+                </div>
+                <div class="buttonContainer">
+                    <text class="submitCancle">取消</text>
+                    <input type="submit" class="submitAddInput" value="提交">
+                </div>
+
+            </div>
+        </div>
+    </form>
+    <script>
+        $(function (){
+            $('.add-btn').click(function (){
+                $('.allContainer').show()
+            })
+            $('.submitCancle').click(function (){
+                $('.allContainer').hide()
+            })
+        })
+    </script>
+    <div class="content">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>学号</th>
+                <th>课程名</th>
+                <th>学生姓名</th>
+                <th>学期</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% courseStudentList.forEach(function (item){ %>
+                <tr>
+                    <td><%= item.stuId %></td>
+                    <td><%= item.curName %></td>
+                    <td><%= item.stuName %></td>
+                    <td><%= item.term %></td>
+                    <td>
+                        <img src="/images/shanchu.png" class="del" data-id="<%= item.id %>">
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+        <script>
+            $(function (){
+                var id = '';
+                $('.del').click(function (){
+                    id = $(this).data('id')
+                    window.location.href = `/deleteCourseStudent?id=${id}`
+                })
+            })
+        </script>
+        <div class="page">
+            <ul class="pagination">
+                <% var prevNum = 10; var nextNum = 10; %>
+                <li class="disabled"><a href="#"> 共<%= pager.maxNum%>条 </a></li>
+                <li class="disabled"><a href="#"> 总<%= pager.pageCount%>页 </a></li>
+
+                <% if(pager.maxNum == 0) { %>
+                    <li class="disabled"><a href="#"> 首页 </a></li>
+                <% }else{ %>
+                    <li><a href="/courseStudentManageOne?page=1"> 首页 </a></li>
+                <% } %>
+
+                <% if(pager.pageCurrent == 1) { %>
+                    <li class="disabled"><a href="#>"> 上一页 </a></li>
+                <% }else{ %>
+                    <li><a href="/courseStudentManageOne?page=<%= parseInt(pager.pageCurrent) - 1 %>"> 上一页 </a></li>
+                <% } %>
+
+                <!--      todo 循环显示页码    开始      -->
+                <% for(var i = prevNum; i > 0; i--){ %>
+                    <% if(parseInt(pager.pageCurrent) - i > 0){%>
+                        <li><a href="/courseStudentManageOne?page=<%= parseInt(pager.pageCurrent) - i %>"> <%= parseInt(pager.pageCurrent) - i %> </a></li>
+                <% } }%>
+                <li class="active"><a href="/admin/questionQuery?page=<%= pager.pageCurrent %>"> <%= pager.pageCurrent %> </a></li>
+                <% for(var i = 1; i <= nextNum; i++){%>
+                    <% if( parseInt(pager.pageCurrent) + i <= pager.pageCount) {%>
+                        <li><a href="/courseStudentManageOne?page=<%= parseInt(pager.pageCurrent) + i %>"> <%= parseInt(pager.pageCurrent) + i %> </a></li>
+
+                <% }} %>
+                <!--      todo 循环显示页码     结束     -->
+
+                <% if(pager.pageCurrent == pager.pageCount) { %>
+                    <li class="disabled"><a href="#>"> 下一页 </a></li>
+                <% }else{ %>
+                    <li><a href="/courseStudentManageOne?page=<%= parseInt(pager.pageCurrent) + 1 %>"> 下一页 </a></li>
+                <% } %>
+
+                <% if(pager.maxNum == 0) { %>
+                    <li class="disabled"><a href="#"> 尾页 </a></li>
+                <% }else{ %>
+                    <li><a href="/courseStudentManageOne?page=<%= pager.pageCount %>"> 尾页 </a></li>
+                <% } %>
+
+            </ul>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

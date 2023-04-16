@@ -19,6 +19,24 @@
     background-color: black
 }
 
+.selectContainer{
+    display: flex;
+}
+
+.selectInput{
+    width: 80px;
+    height: 33px;
+    font-weight: 600;
+    background-color: #379BFF;
+    color: #fff;
+    outline: none;
+    margin-top: 24px;
+    margin-left: 60px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
 .oneInputContainer{
     display: flex;
     margin-left: 450px;
@@ -112,4 +130,33 @@
     font-weight: 600;
     font-size: 22px;
     margin-left: 200px;
+}
+
+.bodyContainer{
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    /*height: 500px;*/
+    padding: 0;
+}
+.oneCourseImage{
+    width: 400px;
+    height: 200px;
+}
+.oneCourseContainer{
+    display: grid;
+    margin-top: 20px;
+    cursor: pointer;
+    margin-left: 160px;
+}
+.oneCourseText{
+    font-weight: 600;
+    font-size: 16px;
+    display: block;
+    margin-top: 5px;
+    text-align: center;
 }

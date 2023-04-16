@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.headPartContainer{
+    margin-top: 10px;
+}
+.headPartText{
+    font-size: 26px;
+    margin-left: 50px;
+    font-weight: 500;
+}
+.line{
+    height: 1px;
+    width: 96%;
+    margin-top: 10px;
+    margin-left: 2%;
+    background-color: black
+}
+
+.bodyContainer{
+    display: flex;
+}
+.bodyImage{
+    width: 500px;
+    height: 300px;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+.bodyRightContainer{
+    display: grid;
+    margin-left: 200px;
+    margin-top: 30px;
+}
+.bodyRightText{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.bodyRightDownContainer{
+    display: grid;
+    width: 300px;
+    height: 200px;
+    border: 1px solid gray;
+}
+
+.oneRight{
+    display: flex;
+    margin-left: 50px;
+    margin-top: 35px;
+}
+.oneRightText{
+    font-size: 18px;
+    font-weight: 600;
+}
+.oneRightA{
+    width: 70px;
+    height: 28px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 20px;
+    background-color: #379BFF;
+    color: #fff;
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+    line-height: 28px;
+    text-decoration: none;
+}
+
+.footContainer{
+    display: grid;
+}
+.myClass{
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+.classContainer{
+    margin-left: 150px;
+    margin-top: 30px;
+    width: 330px;
+    height: 150px;
+    display: flex;
+    border: 1px solid gray;
+}
+.footImage{
+    margin-left: 20px;
+    margin-top: 10px;
+    width: 90px;
+    height: 90px;
+}
+.rightFootContainer{
+    display: grid;
+    margin-top: 10px;
+    height: 130px;
+    margin-left: 30px;
+}
+.footText{
+    font-weight: 600;
+    font-size: 16px;
+}
+.footA{
+    width: 70px;
+    height: 28px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 80px;
+    background-color: #379BFF;
+    color: #fff;
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+    line-height: 28px;
+    text-decoration: none;
+}

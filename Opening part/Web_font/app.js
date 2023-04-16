@@ -37,6 +37,9 @@ var AddStudentRouter = require('./routes/AddStudent');
 // todo 课程管理
 var courseManageRouter = require('./routes/courseManage');
 var courseExplainRouter = require('./routes/courseExplain');
+var courseManageDetailRouter = require('./routes/courseManageDetail');
+var courseStudentManageRouter = require('./routes/courseStudentManage');
+var courseStudentManageOneRouter = require('./routes/courseStudentManageOne');
 // todo 上传
 var changeIndexRouter = require('./routes/changeIndex');
 var selectQuestionRouter = require('./routes/selectQuestion');
@@ -51,6 +54,8 @@ var deleteExamQuestionRouter = require('./routes/deleteExamQuestion');
 var updateExamRouter = require('./routes/updateExam');
 var answerPointUpdateRouter = require('./routes/answerPointUpdate');
 var insertGradeRouter = require('./routes/insertGrade');
+var deleteCourseStudentRouter = require('./routes/deleteCourseStudent');
+var addCourseStudentRouter = require('./routes/addCourseStudent');
 
 var app = express();
 
@@ -97,7 +102,9 @@ app.use('/admin/AddStudent', AddStudentRouter);
 // todo 课程管理
 app.use('/admin/courseExplain', courseExplainRouter);
 app.use('/admin/courseManage', courseManageRouter);
-
+app.use('/courseManageDetail', courseManageDetailRouter);
+app.use('/courseStudentManage', courseStudentManageRouter);
+app.use('/courseStudentManageOne', courseStudentManageOneRouter);
 //上传
 app.use('/changeIndex', changeIndexRouter);
 app.use('/selectQuestion', selectQuestionRouter);
@@ -112,6 +119,8 @@ app.use('/deleteExamQuestion', deleteExamQuestionRouter);
 app.use('/updateExam', updateExamRouter);
 app.use('/answerPointUpdate', answerPointUpdateRouter);
 app.use('/insertGrade', insertGradeRouter);
+app.use('/deleteCourseStudent', deleteCourseStudentRouter);
+app.use('/addCourseStudent', addCourseStudentRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
