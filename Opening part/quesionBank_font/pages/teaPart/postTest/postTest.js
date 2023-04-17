@@ -1,30 +1,11 @@
 // pages/teaPart/postTest/postTest.js
-import upload from '../../../utils/upload'
-import request from '../../../utils/request'
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-      test:'test'
-    },
 
-    async getAnswer(){
-      let a = await request('/exam/answer/getAnswer',{examId:3,stuId:'1911060118'})
-      console.log(a)
-    },
-    async testPost(){
-        await upload('/teacher/user/newUserInfo',{teaId:"test",teaPwd:"123456",teaName:"冯子豪",gender:0,phoneNum:"12344566778"})
-        console.log("新建成功")
-      },
-    async testUpdate(){
-      await upload('/teacher/user/userInfoUpdate?teaId='+this.data.test,{teaPwd:"654321",teaName:"冯子豪",gender:0,phoneNum:"12344566778"})
-      console.log("更改成功")
-    },
-    async testDelete(){
-      await upload('/teacher/user/deleteUserInfo?teaId='+this.data.test,{})
-      console.log("删除成功")
     },
 
     /**

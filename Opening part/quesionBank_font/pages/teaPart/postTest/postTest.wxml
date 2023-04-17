@@ -1,5 +1,2 @@
 <!--pages/teaPart/postTest/postTest.wxml-->
-<text bindtap="testPost">POST测试</text>
-<text bindtap="testUpdate"> Update测试</text>
-<text bindtap="testDelete"> Delete测试</text>
-<text bindtap="getAnswer"> get测试</text>
+<text>pages/teaPart/postTest/postTest.wxml</text>

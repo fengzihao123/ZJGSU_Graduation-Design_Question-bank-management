@@ -110,7 +110,7 @@ Page({
     },
     //倒计时结束
     timeFinsh(){
-        wx.navigateTo({
+        wx.switchTab({
             url: '/pages/stuPart/myExam/myExam',
         })
     },
@@ -521,9 +521,9 @@ submit(){
             success (res) {
               if (res.confirm) {
                 console.log("提交完成")  
-                wx.navigateTo({
-                url: '/pages/stuPart/myExam/myExam',
-            })
+                wx.switchTab({
+                    url: '/pages/stuPart/myExam/myExam',
+                })
             } 
         }
     })

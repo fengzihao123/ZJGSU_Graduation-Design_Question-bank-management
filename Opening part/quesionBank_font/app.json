@@ -1,16 +1,16 @@
 {
     "pages": [
         "pages/stuPart/myExam/myExam",
-        "pages/stuPart/course/course",
-  
-        "pages/teaPart/postTest/postTest",
         "pages/stuPart/myCourse/myCourse",
+        "pages/login/login",
+
+        "pages/stuPart/course/course",
+        "pages/teaPart/postTest/postTest",
+
         "pages/stuPart/historyError/historyError",
         "pages/stuPart/questionCollection/questionCollection", 
         "pages/stuPart/myGrade/myGrade",
-
         "pages/stuPart/setting/setting",  
-        "pages/login/login",
         "pages/stuPart/examing/examing",   
         "pages/stuPart/courseDetail/courseDetail",
         "pages/stuPart/examDetail/examDetail",
@@ -33,34 +33,22 @@
         "selectedColor": "#87CEFA",
         "list": [
             {
-                "pagePath": "pages/teaPart/bankGM/bankGM",
-                "text": "题库",
-                "iconPath": "/static/images/icon/questionBank.png",
-                "selectedIconPath": "/static/images/icon/questionBank_select.png"
-            },
-            {
-                "pagePath": "pages/teaPart/courseGM/courseGM",
-                "text": "课程",
+                "pagePath": "pages/stuPart/myCourse/myCourse",
+                "text": "信息",
                 "iconPath": "/static/images/icon/course.png",
                 "selectedIconPath": "/static/images/icon/course_select.png"
             },
             {
-                "pagePath": "pages/teaPart/examGM/examGM",
+                "pagePath": "pages/stuPart/myExam/myExam",
                 "text": "考试",
                 "iconPath": "/static/images/icon/exam.png",
                 "selectedIconPath": "/static/images/icon/exam_select.png"
             },
             {
-                "pagePath": "pages/teaPart/gradeGM/gradeGM",
+                "pagePath": "pages/stuPart/myGrade/myGrade",
                 "text": "成绩",
                 "iconPath": "/static/images/icon/grade.png",
                 "selectedIconPath": "/static/images/icon/grade_select.png"
-            },
-            {
-                "pagePath": "pages/teaPart/studentGM/studentGM",
-                "text": "学生",
-                "iconPath": "/static/images/icon/student.png",
-                "selectedIconPath": "/static/images/icon/student_select.png"
             }
         ]
     },

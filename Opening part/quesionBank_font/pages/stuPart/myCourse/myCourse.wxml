@@ -6,7 +6,7 @@
         <view class="userInfoBox" >
             <!-- 头像 -->
             <image 
-                class="avatar" src='https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffb9431a4c99691e54952d85ed034faf9a6b7e4f22d45-xy5FHF_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652266099&t=a14622970b9f064bc7f4f1497399756c' bindtap="">
+                class="avatar" src='/static/images/studentClass.jpg' bindtap="">
             </image>
             <view class="con2">
                 <view class="con1" bindtap="getUserinfo">
@@ -58,7 +58,13 @@
                 <text class="iconfont icon-kecheng iconResult"></text>
                 <text class="resultText">我的课程</text>  
             </view>
-            <van-popup show="{{ show }}" bind:close="onClose">在这里你可以查看有关于我的课程的相关信息</van-popup>
+            <van-popup show="{{ show }}" bind:close="onClose">
+            <view class="explainContainer">
+                <text>
+                在我的课程中，你可以：\n1.查看自己已加入的课程。\n2.按学期进行筛选\n3.点击课程可以查看相应的考试信息
+                </text>
+            </view>
+            </van-popup>
         </view>
     </view>
     <!-- /* 中下部样式 */ -->
@@ -78,16 +84,10 @@
                 <text class="iconfont icon-shezhi iconMyserve"></text>
                 <text class="myServeText">设置</text>
             </view>
-            <view class="mCon" bindtap="testPost">
+            <view class="mCon" bindtap="quit">
                 <text class="iconfont icon-neizhaorencaiku iconMyserve"></text>
                 <text class="myServeText">退出</text>   
             </view>
         </view>
     </view>
-
-<van-tabbar active="{{ active }}" bind:change="onChange">
-  <van-tabbar-item name="info" icon="/static/images/icon/course_select.png">信息</van-tabbar-item>
-  <van-tabbar-item name="exam" icon="/static/images/icon/exam.png">考试</van-tabbar-item>
-  <van-tabbar-item name="grade" icon="/static/images/icon/grade.png">成绩</van-tabbar-item>
-</van-tabbar>
 </view>

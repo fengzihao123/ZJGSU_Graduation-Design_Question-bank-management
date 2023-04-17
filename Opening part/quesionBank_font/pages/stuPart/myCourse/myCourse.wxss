@@ -215,5 +215,10 @@
     font-size: 14px;
     margin-left: 196rpx;
 }
+.explainContainer{
+    width:600rpx;
+    height: 400rpx;
+    margin-left: 20rpx;
+}
 
 

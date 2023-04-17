@@ -1,7 +1,7 @@
 <!-- pick stuent -->
 <view class="background_stu" wx:if="{{is_student}}">
     <!-- 背景图片 -->
-    <image src="../../static/images/student_bg.png" class="image_bg" >
+    <image src="../../static/images/blue.jpg" class="image_bg" >
     </image>
     <!-- 切换选择器 -->
     <view class="Cotaniner_stu" bindtap="pick_student">

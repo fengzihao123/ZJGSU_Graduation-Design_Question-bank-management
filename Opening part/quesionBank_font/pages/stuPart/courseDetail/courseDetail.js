@@ -13,7 +13,7 @@ Page({
     },
     //前往考试页面
     toExam(){
-        wx.navigateTo({
+        wx.switchTab({
           url: '../myExam/myExam?curName=' + this.data.courseDetail.data[0].curName,
         })
     },

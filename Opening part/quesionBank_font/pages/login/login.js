@@ -91,8 +91,9 @@ Page({
             let result = await request('/student/user/login',{stuId:stuId,stuPwd:stuPwd})
             if(result.data.length == 1){
               wx.setStorageSync('stuInfo', result.data)
-              wx.navigateTo({
-                url: '../stuPart/myCourse/myCourse',
+              console.log(result.data)
+              wx.switchTab({
+                url: '../stuPart/myCourse/myCourse'
               })
             }else if(result.data.length == 0){
               wx.showToast({
