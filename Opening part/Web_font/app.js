@@ -62,6 +62,8 @@ var repeatabilityRouter = require('./routes/repeatability');
 var postQuestionRouter = require('./routes/postQuestion');
 var deleteRepeatRouter = require('./routes/deleteRepeat');
 var mobanPostRouter = require('./routes/mobanPost');
+var readFileRouter = require('./routes/readFile');
+var addFileRouter = require('./routes/addFile');
 
 var app = express();
 
@@ -133,6 +135,8 @@ app.use('/repeatability', repeatabilityRouter);
 app.use('/postQuestion', postQuestionRouter);
 app.use('/deleteRepeat', deleteRepeatRouter);
 app.use('/mobanPost', mobanPostRouter);
+app.use('/readFile', readFileRouter);
+app.use('/addFile', addFileRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -13,6 +13,7 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
+    "multiparty": "^4.2.3",
     "node-localstorage": "^2.2.1",
     "vue": "^3.2.47"
   },

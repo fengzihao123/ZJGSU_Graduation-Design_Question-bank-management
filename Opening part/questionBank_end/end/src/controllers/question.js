@@ -228,7 +228,7 @@ const updateQuestion = (queId, questionData = {}) =>{
     }) 
 }
 
-//更新题库
+//新增题库
 const newQuestion = (questionData = {}) =>{
 
     const curName    = questionData.params.curName || ''

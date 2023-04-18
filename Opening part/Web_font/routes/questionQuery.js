@@ -19,6 +19,7 @@ async function getQuestionList(res, req){
     pager.pageSize = 2;
     // todo 一共多少页
     pager.pageCount = parseInt(Math.ceil(pager.maxNum / pager.pageSize))
+    console.log(result)
 
     var dataList = result.data.slice( (pager.pageCurrent-1) * pager.pageSize , (pager.pageCurrent-1) * pager.pageSize + pager.pageSize )
     res.render('questionQuery', {
