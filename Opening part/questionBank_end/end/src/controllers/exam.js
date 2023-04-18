@@ -32,6 +32,7 @@ const getExamListTeacher = (teaId, examId, teacherStatus) =>{
     }
     return execSQL(sql)
 }
+
 // 考试详情查询
 const getExamDetail = (examId) =>{
     let sql = `select * from exam where`;
@@ -59,6 +60,69 @@ const getExamQuestion = (classId, examId, queType, queId) =>{
     return execSQL(sql)
 }
 
+// 考试题目查询--除了examId！=
+const getExamQuestionExcept = (examId, curName) =>{
+    let sql = `select * from questioning where`;
+    if(examId){
+        sql += ` examId!=${examId}`
+    }
+    if(curName){
+        sql += ` and curName='${curName}'`
+    }
+    return execSQL(sql)
+}
+
+// 考试题目查询--重复度
+const getExamQuestionRepeat = (queType, curName) =>{
+    let sql = `select * from questioning where`;
+    if(queType){
+        sql += ` queType='${queType}'`
+    }
+    if(curName){
+        sql += ` and curName='${curName}'`
+    }
+    return execSQL(sql)
+}
+
+//重复度上传
+const postRepeat = (examQuestionData) =>{
+    //将数据存到数据库中
+    const examId = examQuestionData.params.examId
+    const totalNum = examQuestionData.params.totalNum
+    const sql = `
+    insert into chongfu (examId, repeatNum, totalNum, repeatPercent) values (${examId}, 0, ${totalNum}, 0.1)
+    `
+    return execSQL(sql).then(insertedResult => {
+        console.log(insertedResult)
+        return{
+            classId: insertedResult.insertclassId,
+            examId: insertedResult.insertexamId
+        }
+    })
+}
+
+// 查询--重复度
+const getRepeat = (examId) =>{
+    let sql = `select * from chongfu where`;
+    if(examId){
+        sql += ` examId=${examId}`
+    }
+    return execSQL(sql)
+}
+
+//更新重复度
+const updateRepeat = (examId, examQuestionData = {}) =>{
+    const repeatNum = examQuestionData.params.repeatNum
+
+    const sql = `update chongfu set repeatNum=${repeatNum} where examId=${examId}`
+    return execSQL(sql).then(updateResult =>{
+        if(updateResult.affectedRows > 0){
+            return true;
+        }
+        return false;
+    }) 
+}
+
 //考试题目错题最多5个
 const getExamQuestionTOP = (examId) =>{
     let sql = `select * from questioning where`;
@@ -72,6 +136,7 @@ const getExamQuestionTOP = (examId) =>{
 const newExamQuestion = (examQuestionData = {}) =>{
     const classId = examQuestionData.params.classId
     const examId = examQuestionData.params.examId
+    const curName = examQuestionData.params.curName
     const queId = examQuestionData.params.queId
     const queType = examQuestionData.params.queType
     const stem = examQuestionData.params.stem
@@ -81,7 +146,7 @@ const newExamQuestion = (examQuestionData = {}) =>{
     const choiceD = examQuestionData.params.choiceD
     const answer = examQuestionData.params.answer
 
-    const sql = `insert into questioning (classId, examId, queId, queType, stem, choiceA, choiceB, choiceC, choiceD, answer, selectStatus, errorCount) values (${classId}, ${examId}, ${queId}, '${queType}', '${stem}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', '${answer}', '2', 0)`
+    const sql = `insert into questioning (classId, examId, curName, queId, queType, stem, choiceA, choiceB, choiceC, choiceD, answer, selectStatus, errorCount) values (${classId}, ${examId}, '${curName}' ,${queId}, '${queType}', '${stem}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', '${answer}', '2', 0)`
     return execSQL(sql).then(updateResult =>{
         if(updateResult.affectedRows > 0){
             return true;
@@ -229,15 +294,29 @@ const updateExam = (examId, examQuestionData = {}) =>{
         return false;
     }) 
 }
-//删除教师信息
-const deleteTeacher = (teaId) =>{
-    const sql = `delete from teacher where teaId='${teaId}'`;
+
+//删除考试题目
+const deleteRpeat = (examId) =>{
+    const sql = `delete from questioning where examId=${parseInt(examId)}`;
     return execSQL(sql).then(deleteResult => {
         if(deleteResult.affectedRows > 0){
             return true;
         }
         return false
     })
+}
+
+// 模板查询
+const getMoban = (moName, curName) =>{
+    let sql = `select * from moban where`;
+    if(moName){
+        sql += ` moName='${moName}'`
+    }
+    if(curName){
+        sql += ` and curName='${curName}'`
+    }
+    
+    return execSQL(sql)
 }
 module.exports = {
     getExamList,
@@ -253,5 +332,12 @@ module.exports = {
     updateExam,
     updateAnswerPoint,
     updateExamQuestion,
-    getExamQuestionTOP
+    getExamQuestionTOP,
+    getExamQuestionRepeat,
+    postRepeat,
+    getRepeat,
+    updateRepeat,
+    getExamQuestionExcept,
+    deleteRpeat,
+    getMoban
 }

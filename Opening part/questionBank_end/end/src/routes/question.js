@@ -11,7 +11,9 @@ const { getQuestionCollect,
         updateQuestion,
         newQuestion,
         getQuestionDetail,
-        newError
+        newError,
+        getQuestionAutoDiff,
+        getQuestionAutoSimple
     } = require('../controllers/question')
 
 
@@ -46,6 +48,28 @@ const handleQuestionRoute = (req, res) =>{
         const difficulty = req.query.difficulty || '';
         const stem = req.query.stem || '';
         const questionDataPromise = getQuestion(curName, queType, chaName, difficulty, stem);
+        return questionDataPromise.then(questionData => {
+            return new successModel(questionData)
+        })
+    }
+
+    //题库查询--自动组卷--困难
+    if(method === 'GET' && req.path === '/question/question/getQuestionAutoDiff'){ 
+        const diffNum = req.query.diffNum || '';
+        const curName = req.query.curName || '';
+        const queType = req.query.queType || '';
+        const questionDataPromise = getQuestionAutoDiff(diffNum, curName, queType);
+        return questionDataPromise.then(questionData => {
+            return new successModel(questionData)
+        })
+    }
+
+    //题库查询--自动组卷--简单
+    if(method === 'GET' && req.path === '/question/question/getQuestionAutoSimple'){ 
+        const simpleNum = req.query.simpleNum || '';
+        const curName = req.query.curName || '';
+        const queType = req.query.queType || '';
+        const questionDataPromise = getQuestionAutoSimple(simpleNum, curName, queType);
         return questionDataPromise.then(questionData => {
             return new successModel(questionData)
         })

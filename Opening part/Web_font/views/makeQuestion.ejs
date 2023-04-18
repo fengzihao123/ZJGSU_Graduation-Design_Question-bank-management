@@ -18,7 +18,7 @@
 
     <div class="selectContainer">
         <a href="#" class="select1">手动添加</a>
-        <a href="#" class="select2">自动组卷</a>
+        <a href="/makeQuestionAuto" class="select2">自动组卷</a>
     </div>
 
     <form action="/selectQuestion1" method="post">
@@ -152,6 +152,7 @@
             var choiceD = '';
             var queType = '';
             var answer = '';
+            var curName = '';
 
             $('.edit').click(function () {
                 queId = $(this).data('queid')
@@ -162,13 +163,14 @@
                 choiceD = $(this).data('choiced')
                 queType = $(this).data('quetype')
                 answer = $(this).data('answer')
+                curName = $(this).data('curname')
                 // var editId = 'edit-'
                 // var delId = 'del-'
                 // editId += queId
                 // delId += queId
                 // $('#'+editId).attr('src','/images/square.png')
                 // $('#'+delId).attr('src','/images/cha.png')
-                window.location.href = `/insertExamQuestion?queId=${queId}&stem=${stem}&choiceA=${choiceA}&choiceB=${choiceB}&choiceC=${choiceC}&choiceD=${choiceD}&queType=${queType}&answer=${answer}`
+                window.location.href = `/insertExamQuestion?queId=${queId}&stem=${stem}&choiceA=${choiceA}&choiceB=${choiceB}&choiceC=${choiceC}&choiceD=${choiceD}&queType=${queType}&answer=${answer}&curName=${curName}`
             })
             // $('.del').click(function () {
             //     queId = $(this).data('queid')

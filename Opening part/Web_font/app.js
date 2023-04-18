@@ -19,6 +19,7 @@ var correctQuestionRouter = require('./routes/correctQuestion');
 var correctQuestionOneRouter = require('./routes/correctQuestionOne');
 var correctQuestionDetailRouter = require('./routes/correctQuestionDetail');
 var correctQuestionDetailOneRouter = require('./routes/correctQuestionDetailOne');
+var makeQuestionAutoRouter = require('./routes/makeQuestionAuto');
 // todo 题库管理
 var questionExplainRouter = require('./routes/questionExplain');
 var questionQueryRouter = require('./routes/questionQuery');
@@ -56,6 +57,11 @@ var answerPointUpdateRouter = require('./routes/answerPointUpdate');
 var insertGradeRouter = require('./routes/insertGrade');
 var deleteCourseStudentRouter = require('./routes/deleteCourseStudent');
 var addCourseStudentRouter = require('./routes/addCourseStudent');
+var automaticallyRouter = require('./routes/automatically');
+var repeatabilityRouter = require('./routes/repeatability');
+var postQuestionRouter = require('./routes/postQuestion');
+var deleteRepeatRouter = require('./routes/deleteRepeat');
+var mobanPostRouter = require('./routes/mobanPost');
 
 var app = express();
 
@@ -84,6 +90,7 @@ app.use('/correctQuestion', correctQuestionRouter);
 app.use('/correctQuestionOne', correctQuestionOneRouter);
 app.use('/correctQuestionDetail', correctQuestionDetailRouter);
 app.use('/correctQuestionDetailOne', correctQuestionDetailOneRouter);
+app.use('/makeQuestionAuto', makeQuestionAutoRouter);
 // todo 题库管理
 app.use('/admin/questionExplain', questionExplainRouter);
 app.use('/admin/questionQuery', questionQueryRouter);
@@ -121,6 +128,11 @@ app.use('/answerPointUpdate', answerPointUpdateRouter);
 app.use('/insertGrade', insertGradeRouter);
 app.use('/deleteCourseStudent', deleteCourseStudentRouter);
 app.use('/addCourseStudent', addCourseStudentRouter);
+app.use('/automatically', automaticallyRouter);
+app.use('/repeatability', repeatabilityRouter);
+app.use('/postQuestion', postQuestionRouter);
+app.use('/deleteRepeat', deleteRepeatRouter);
+app.use('/mobanPost', mobanPostRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

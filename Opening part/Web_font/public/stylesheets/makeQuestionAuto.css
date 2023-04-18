@@ -1,0 +1,432 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.headPartContainer{
+    margin-top: 10px;
+}
+.headPartText{
+    font-size: 26px;
+    margin-left: 50px;
+    font-weight: 500;
+}
+.line{
+    height: 1px;
+    width: 96%;
+    margin-top: 10px;
+    margin-left: 2%;
+    background-color: black
+}
+.selectContainer{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.select1{
+    font-size: 20px;
+    margin-right: 30px;
+}
+
+.select2{
+    text-decoration: none;
+    font-size: 24px;
+}
+.headInputContainer{
+    display: flex;
+}
+.oneInputContainer{
+    display: flex;
+    margin-left: 130px;
+    margin-top: 40px;
+}
+.examNameText{
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+.headAllContainer{
+    display: flex;
+}
+
+/*  todo  下拉菜单  */
+.dropdown{
+    position: relative;
+    width: 220px;
+    height: 50px;
+}
+.dropdown::before{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 28px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(40deg);
+    transition: 0.5s;
+}
+.dropdown.active::before{
+    right: 20px;
+}
+.dropdown.active::after{
+    right: 28px;
+}
+.dropdown::after{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(-40deg);
+    transition: 0.5s;
+}
+.dropdown input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    outline: none;
+    border: none;
+}
+.dropdown .option{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 100;
+    transition: 0.5s;
+}
+.dropdown.active .option{
+    visibility: visible;
+    opacity: 1;
+}
+.dropdown .option div{
+    padding: 12px;
+    cursor: pointer;
+}
+.dropdown .option div:hover{
+    background: #62baea;
+    color: #fff;
+}
+/*  todo  第二个菜单  */
+.dropdown1{
+    position: relative;
+    width: 220px;
+    height: 50px;
+}
+.dropdown1::before{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 28px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(40deg);
+    transition: 0.5s;
+}
+.dropdown1.active::before{
+    right: 20px;
+}
+.dropdown1.active::after{
+    right: 28px;
+}
+.dropdown1::after{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(-40deg);
+    transition: 0.5s;
+}
+.dropdown1 input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    outline: none;
+    border: none;
+}
+.dropdown1 .option{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 100;
+    transition: 0.5s;
+}
+.dropdown1.active .option{
+    visibility: visible;
+    opacity: 1;
+}
+.dropdown1 .option div{
+    padding: 12px;
+    cursor: pointer;
+}
+.dropdown1 .option div:hover{
+    background: #62baea;
+    color: #fff;
+}
+/*  todo  第三个菜单  */
+.dropdown2{
+    position: relative;
+    width: 220px;
+    height: 50px;
+}
+.dropdown2::before{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 28px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(40deg);
+    transition: 0.5s;
+}
+.dropdown2.active::before{
+    right: 20px;
+}
+.dropdown2.active::after{
+    right: 28px;
+}
+.dropdown2::after{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 12px;
+    height: 2px;
+    background: #555;
+    z-index: 10;
+    transform: rotate(-40deg);
+    transition: 0.5s;
+}
+.dropdown2 input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    outline: none;
+    border: none;
+}
+.dropdown2 .option{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 100;
+    transition: 0.5s;
+}
+.dropdown2.active .option{
+    visibility: visible;
+    opacity: 1;
+}
+.dropdown2 .option div{
+    padding: 12px;
+    cursor: pointer;
+}
+.dropdown2 .option div:hover{
+    background: #62baea;
+    color: #fff;
+}
+
+/* todo 题型选择*/
+.questionContainer{
+    display: grid;
+    margin-top: 30px;
+    margin-left: 150px;
+}
+.oneQuestionSelect{
+    display: flex;
+    margin-top: 15px;
+}
+.questionNum{
+    width: 150px;
+    height: 33px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-right: 50px;
+    padding-left: 20px;
+}
+.questionInput{
+    width: 130px;
+    height: 33px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+.leftBodyContainer{
+    display: grid;
+}
+.allContainer{
+    display: flex;
+}
+.rightBodyContainer{
+    display: grid;
+}
+.rightOne{
+    margin-top: 100px;
+    margin-left: 150px;
+    display: flex;
+}
+.rightText{
+    font-size: 22px;
+    font-weight: 600;
+}
+.rightInput{
+    width: 130px;
+    height: 33px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 16px;
+    padding-left: 20px;
+}
+.moBan-btn{
+    margin-left: 50px;
+    margin-top: 50px;
+    border: none;
+    border-radius: 5px;
+    width: 80px;
+    height: 40px;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    background: #379BFF;
+}
+.buttonContainer{
+    display: flex;
+    margin-left: 400px;
+    margin-top: 50px;
+}
+.countPoint{
+    margin-left: 50px;
+    margin-top: 50px;
+    border: none;
+    border-radius: 5px;
+    width: 80px;
+    height: 40px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    background: #379BFF;
+}
+.postQuestion{
+    cursor: pointer;
+    margin-left: 50px;
+    margin-top: 50px;
+    border: none;
+    border-radius: 5px;
+    width: 80px;
+    height: 40px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 50px;
+    background: #8470FF;
+}
+.repeat{
+    cursor: pointer;
+    margin-left: 50px;
+    margin-top: 50px;
+    border: none;
+    border-radius: 5px;
+    width: 80px;
+    height: 40px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 50px;
+    background: #5bc0de;
+}
+.again{
+    cursor: pointer;
+    margin-left: 50px;
+    margin-top: 50px;
+    border: none;
+    border-radius: 5px;
+    width: 80px;
+    height: 40px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 50px;
+    background: #A94442;
+}
+.submitForm{
+    margin-left: 150px;
+    margin-top: 50px;
+    border: none;
+    border-radius: 5px;
+    width: 80px;
+    height: 40px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    margin-right: 50px;
+    background: #67b168;
+}

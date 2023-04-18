@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' href='/iconfont/iconfont.css'/>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/stylesheets/makeQuestionAuto.css'/>
+    <script src="/javascripts/jquery-3.2.1.js"></script>
+</head>
+<body>
+    <div class="headPartContainer">
+        <text class="headPartText">考试管理</text>
+        <div class="line"></div>
+    </div>
+
+    <div class="selectContainer">
+        <a href="/makeQuestion?examId=<%= examId %>&classId=<%= classId %>" class="select1">手动添加</a>
+        <a href="#" class="select2">自动组卷</a>
+    </div>
+
+    <form action="" method="post">
+        <div class="headInputContainer">
+            <div class="oneInputContainer">
+                <text class="examNameText">试卷难度</text>
+                <div class="dropdown">
+                    <input type="text" class="text01" readonly placeholder="总体难度" name="totalDifficulty">
+                    <div class="option">
+                        <div onmouseover="show('简单')">简单</div>
+                        <div onmouseover="show('中等')">中等</div>
+                        <div onmouseover="show('困难')">困难</div>
+                    </div>
+                </div>
+                <script>
+                    function show(a){
+                        document.querySelector('.text01').value=a;
+                    }
+                    let dropdown = document.querySelector('.dropdown');
+                    dropdown.onclick = function (){
+                        dropdown.classList.toggle('active');
+                    }
+                </script>
+            </div>
+
+            <div class="oneInputContainer">
+                <text class="examNameText">所属章节</text>
+                <div class="dropdown1">
+                    <input type="text" class="text02" readonly placeholder="章节名" name="chaName">
+                    <div class="option">
+                        <div onmouseover="show1('第一章 序章')">第一章 序章</div>
+                        <div onmouseover="show1('第二章 物理层')">第二章 物理层</div>
+                        <div onmouseover="show1('第三章 链路层')">第三章 链路层</div>
+                        <div onmouseover="show1('第四章 网络层')">第四章 网络层</div>
+                        <div onmouseover="show1('第五章 传输层')">第五章 传输层</div>
+                    </div>
+                </div>
+                <script>
+                    function show1(a){
+                        document.querySelector('.text02').value=a;
+                    }
+                    let dropdown1 = document.querySelector('.dropdown1');
+                    dropdown1.onclick = function (){
+                        dropdown1.classList.toggle('active');
+                    }
+                </script>
+            </div>
+
+            <div class="oneInputContainer">
+                <text class="examNameText">模板</text>
+                <div class="dropdown2">
+                    <input type="text" class="text03" readonly placeholder="出题模板" name="moban">
+                    <div class="option">
+                        <div onmouseover="show2('浙江工商大学')">浙江工商大学</div>
+                        <div onmouseover="show2('偏选择')">偏选择</div>
+                        <div onmouseover="show2('偏填空')">偏填空</div>
+                        <div onmouseover="show2('偏计算')">偏计算</div>
+                    </div>
+                </div>
+                <script>
+                    function show2(a){
+                        document.querySelector('.text03').value=a;
+                    }
+                    let dropdown2 = document.querySelector('.dropdown2');
+                    dropdown2.onclick = function (){
+                        dropdown2.classList.toggle('active');
+                    }
+                </script>
+            </div>
+            <input class="moBan-btn" formaction="/mobanPost" type="submit" formmethod="post" value="选择">
+
+        </div>
+        <div class="allContainer">
+            <div class="leftBodyContainer">
+                <div class="questionContainer">
+                    <div class="oneQuestionSelect">
+                        <text class="examNameText">单选题</text>
+                        <input type="text" class="questionNum danxuan" value="<%= danxuan %>" placeholder="请输入题数" name="danxuan">
+                    </div>
+                    <div class="oneQuestionSelect">
+                        <text class="examNameText">多选题</text>
+                        <input type="text" class="questionNum duoxuan" value="<%= duoxuan %>" placeholder="请输入题数" name="duoxuan">
+                    </div>
+                    <div class="oneQuestionSelect">
+                        <text class="examNameText">填空题</text>
+                        <input type="text" class="questionNum tiankong" value="<%= tiankong %>" placeholder="请输入题数" name="tiankong">
+                    </div>
+                    <div class="oneQuestionSelect">
+                        <text class="examNameText">计算题</text>
+                        <input type="text" class="questionNum jisuan" value="<%= jisuan %>" placeholder="请输入题数" name="jisuan">
+                    </div>
+                    <div class="oneQuestionSelect">
+                        <text class="examNameText">问答题</text>
+                        <input type="text" class="questionNum wenda" value="<%= wenda %>" placeholder="请输入题数" name="wenda">
+                    </div>
+                    <div class="oneQuestionSelect">
+                        <text class="examNameText">编程题</text>
+                        <input type="text" class="questionNum biancheng" value="<%= biancheng %>" placeholder="请输入题数" name="biancheng">
+                    </div>
+                </div>
+            </div>
+            <div class="rightBodyContainer">
+                <div class="rightOne">
+                    <text class="rightText">重复度：</text>
+                    <input type="text" readonly value="<%= repeatPercent %> " class="rightInput repeatability">
+                </div>
+            </div>
+        </div>
+        <div class="buttonContainer">
+            <input type="submit" class="postQuestion" formaction="/postQuestion" formmethod="post" value="第一步">
+            <input type="submit" class="repeat" formaction="/repeatability" formmethod="post" value="重复度">
+            <input type="submit" class="again" formaction="/deleteRepeat" formmethod="post" value="再一次">
+            <input type="submit" class="submitForm" formaction="/automatically" formmethod="post">
+        </div>
+    </form>
+    <script>
+
+    </script>
+</body>
+</html>

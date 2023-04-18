@@ -1,24 +1,46 @@
 var express = require('express');
+const {LocalStorage} = require("node-localstorage");
 const {request} = require("../public/javascripts/request");
+const {upload} = require("../public/javascripts/upload");
 var router = express.Router();
-var LocalStorage = require('node-localstorage').LocalStorage
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-    let examId = parseInt(req.query.examId)
-    let classId = parseInt(req.query.classId)
-    let curName = req.query.curName
+
+router.post('/', function(req, res, next) {
     localStorage = new LocalStorage('./scratch');
-    localStorage.setItem('examId',examId)
-    localStorage.setItem('classId',classId)
-    localStorage.setItem('curName',curName)
+    let examId = parseInt(localStorage.getItem('examId'))
+    let classId = parseInt(localStorage.getItem('classId'))
+
     let teaInfo = JSON.parse(localStorage.getItem('teaInfo'))
     let teaId = teaInfo[0].teaId
     getQuestionExamList(teaId, classId, examId, res, req)
 });
 
+
+
+async function difficultyQuestion(diffNum, curName, queType, examId, classId){
+    //todo 查询到满足条件的对应数量的题目
+    let result = await request('/question/question/getQuestionAutoDiff',{diffNum, curName, queType})
+    console.log(result.data)
+    //todo 上传题目
+    for(var i = 0; i < result.data.length; i++){
+        await upload('/exam/student/newExamQuestion',{
+            classId,
+            examId,
+            curName,
+            queId:result.data[i].queId,
+            queType:queType,
+            stem:result.data[i].stem,
+            choiceA:result.data[i].choiceA,
+            choiceB:result.data[i].choiceB,
+            choiceC:result.data[i].choiceC,
+            choiceD:result.data[i].choiceD,
+            answer:result.data[i].answer,
+        })
+    }
+}
 async function getQuestionExamList(teaId, classId, examId, res, req){
-    let result1 = await request('/question/question/getQuestion')
+    let result1 = await request('/exam/student/getExamQuestion',{classId, examId})
     let result2 = await request('/exam/student/getExamListTeacher',{teaId, examId})
     let resultDan = await request('/exam/student/getExamQuestion',{classId:result2.data[0].classId, examId, queType:'单选'})
     let resultDuo = await request('/exam/student/getExamQuestion',{classId:result2.data[0].classId, examId, queType:'多选'})
@@ -32,7 +54,7 @@ async function getQuestionExamList(teaId, classId, examId, res, req){
     QuestionNum.tianKong = resultTian.data.length
     QuestionNum.jiSuan = resultJi.data.length
     QuestionNum.wenDa = resultWen.data.length
-    QuestionNum.biangCheng = resultBian.data.length
+    QuestionNum.bianCheng = resultBian.data.length
 
     var pageNum = req.query.page;
 
@@ -46,7 +68,7 @@ async function getQuestionExamList(teaId, classId, examId, res, req){
     pager.pageCount = parseInt(Math.ceil(pager.maxNum / pager.pageSize))
 
     var dataList = result1.data.slice( (pager.pageCurrent-1) * pager.pageSize , (pager.pageCurrent-1) * pager.pageSize + pager.pageSize )
-    res.render('makeQuestion', {
+    res.render('makeQuestionDetail', {
         questionList:dataList,
         pager:pager,
         examDetail:result2.data,
@@ -55,10 +77,4 @@ async function getQuestionExamList(teaId, classId, examId, res, req){
         examId:examId
     });
 }
-
-router.post('/examQuery', function(req, res, next) {
-    res.render('examQuery');
-});
-
-
 module.exports = router;

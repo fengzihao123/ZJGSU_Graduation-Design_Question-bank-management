@@ -39,7 +39,7 @@
                         <td><%= item.duration %>分</td>
                         <td><%= item.totalPoint %>分</td>
                         <td>
-                            <img src="/images/xiugai.png" class="edit1" data-classid="<%= item.classId %>" data-examid="<%= item.examId %>">
+                            <img src="/images/xiugai.png" class="edit1" data-curname="<%= item.curName %>" data-classid="<%= item.classId %>" data-examid="<%= item.examId %>">
                             <img src="/images/shanchu.png" class="del1">
                         </td>
                     </tr>
@@ -53,10 +53,12 @@
         $(function (){
             var examId = '';
             var classId = '';
+            var curName = '';
             $('.edit1').click(function (){
                 examId = $(this).data('examid')
                 classId = $(this).data('classid')
-                window.location.href = `/makeQuestion?examId=${examId}&classId=${classId}`
+                curName = $(this).data('curname')
+                window.location.href = `/makeQuestion?examId=${examId}&classId=${classId}&curName=${curName}`
             })
         })
     </script>

@@ -12,7 +12,14 @@ const { getExamList,
         updateExam,
         updateAnswerPoint,
         updateExamQuestion,
-        getExamQuestionTOP
+        getExamQuestionTOP,
+        getExamQuestionRepeat,
+        postRepeat,
+        getRepeat,
+        updateRepeat,
+        getExamQuestionExcept,
+        deleteRpeat,
+        getMoban
     } = require('../controllers/exam')
 
 
@@ -61,6 +68,60 @@ const handleExamRoute = (req, res) =>{
         const examQuestionDataPromise = getExamQuestion(classId, examId, queType, queId);
         return examQuestionDataPromise.then(examQuestionData => {
             return new successModel(examQuestionData)
+        })
+    }
+
+    //考试题目查询-除了exmaId！=
+    if(method === 'GET' && req.path === '/exam/student/getExamQuestionExcept'){
+        const examId = req.query.examId || '';
+        const curName = req.query.curName || '';
+        const examQuestionDataPromise = getExamQuestionExcept(examId, curName);
+        return examQuestionDataPromise.then(examQuestionData => {
+            return new successModel(examQuestionData)
+        })
+    }
+
+    //考试题目查询--重复度
+    if(method === 'GET' && req.path === '/exam/student/getRepeat'){
+        const examId = req.query.examId || '';
+
+        const examQuestionDataPromise = getRepeat(examId);
+        return examQuestionDataPromise.then(examQuestionData => {
+            return new successModel(examQuestionData)
+        })
+    }
+
+    //重复度--新建
+    if(method === 'POST' && req.path === '/exam/answer/postRepeat'){
+        const examQuestionData = req.body;
+        const examQuestionDataPromise = postRepeat(examQuestionData);
+        return examQuestionDataPromise.then(examQuestionData => {
+            return new successModel(examQuestionData)
+        })
+    }
+
+    //查询--重复度
+    if(method === 'GET' && req.path === '/exam/student/getExamQuestionRepeat'){
+        const curName = req.query.curName || '';
+        const queType = req.query.queType || '';
+
+        const examQuestionDataPromise = getExamQuestionRepeat(queType, curName);
+        return examQuestionDataPromise.then(examQuestionData => {
+            return new successModel(examQuestionData)
+        })
+    }
+
+     //更新重复度
+     if(method === 'POST' && req.path === '/exam/student/updateRepeat'){
+        const examId = req.query.examId || '';
+        const examQuestionData = req.body;
+        const examQuestionDataPromise = updateRepeat(examId, examQuestionData);
+        return examQuestionDataPromise.then(examQuestionData => {
+            if(examQuestionData){
+                return new successModel('更新成功')
+            }else{
+                return new errorModel('更新失败')
+            }
         })
     }
 
@@ -194,9 +255,9 @@ const handleExamRoute = (req, res) =>{
     
 
     //删除教师
-    if(method === 'POST' && req.path === '/teacher/user/deleteUserInfo'){
-        const teaId = req.query.teaId || '';
-        const deleteTeacherDataPromise = deleteTeacher(teaId)
+    if(method === 'POST' && req.path === '/exam/student/deleteRepeat'){
+        const examId = req.query.examId || '';
+        const deleteTeacherDataPromise = deleteRpeat(examId)
         return deleteTeacherDataPromise.then(deleteTeacherData =>{
             if(deleteTeacherData){
                 return new successModel('删除成功')
@@ -206,6 +267,16 @@ const handleExamRoute = (req, res) =>{
         })
     }
 
+    //模板查询查询
+    if(method === 'GET' && req.path === '/exam/moban/getMoban'){
+        const moName = req.query.moName || '';
+        const curName = req.query.curName || '';
+
+        const examAnswerDataPromise = getMoban(moName, curName);
+        return examAnswerDataPromise.then(examAnswerData => {
+            return new successModel(examAnswerData)
+        })
+    }
 }
 
 module.exports = handleExamRoute;

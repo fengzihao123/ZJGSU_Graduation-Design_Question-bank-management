@@ -17,12 +17,13 @@ router.get('/', function(req, res, next) {
     let choiceD = req.query.choiceD
     let queType = req.query.queType
     let answer =  req.query.answer
-    getQuestionExamList(teaId, classId, examId, queId, stem, choiceA, choiceB, choiceC, choiceD, queType, answer, res, req)
+    let curName =  req.query.curName
+    getQuestionExamList(teaId, classId, examId, curName, queId, stem, choiceA, choiceB, choiceC, choiceD, queType, answer, res, req)
 });
 
 
-async function getQuestionExamList(teaId, classId, examId, queId, stem, choiceA, choiceB, choiceC, choiceD, queType, answer, res, req){
-    await upload('/exam/student/newExamQuestion',{classId, examId, queId, queType, stem, choiceA, choiceB, choiceC, choiceD, answer})
+async function getQuestionExamList(teaId, classId, examId, curName, queId, stem, choiceA, choiceB, choiceC, choiceD, queType, answer, res, req){
+    await upload('/exam/student/newExamQuestion',{classId, examId, curName, queId, queType, stem, choiceA, choiceB, choiceC, choiceD, answer})
     let result1 = await request('/question/question/getQuestion')
     let result2 = await request('/exam/student/getExamListTeacher',{teaId, examId})
     let resultDan = await request('/exam/student/getExamQuestion',{classId:result2.data[0].classId, examId, queType:'单选'})
