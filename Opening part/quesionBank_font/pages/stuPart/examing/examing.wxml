@@ -65,7 +65,7 @@
             <text class="iconfont icon-naozhong_o icon-naozhong_o" ></text>
             <!-- <text class="time_word1">118</text>
             <text class="time_word2">分钟</text> -->
-            <van-count-down bind:finish="timeFinsh" class="time_word1" time="{{ time  * 60 *1000 }}" />
+            <van-count-down bind:finish="timeFinsh" class="time_word1" time="{{ examDetail.data[0].duration  * 60 *1000 }}" />
         </view>
     </view>
     

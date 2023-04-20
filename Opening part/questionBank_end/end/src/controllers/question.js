@@ -46,14 +46,14 @@ const getQuestion = (curName, queType, chaName, difficulty, stem) =>{
 //题库查询--自动--困难
 const getQuestionAutoDiff = (diffNum, curName, queType) =>{
     //从数据库拿数据order by rand()
-    let sql = `select * from question where isDelete=0 and difficulty <=3 and curName='${curName}' and queType='${queType}' order by rand() limit ${parseInt(diffNum)}`;
+    let sql = `select * from question where isDelete=0 and difficulty >=3 and curName='${curName}' and queType='${queType}' order by rand() limit ${parseInt(diffNum)}`;
     return execSQL(sql)
 }
 
 //题库查询--自动--简单
 const getQuestionAutoSimple = (simpleNum, curName, queType) =>{
     //从数据库拿数据order by rand()
-    let sql = `select * from question where isDelete=0 and difficulty >=4 and curName='${curName}' and queType='${queType}' order by rand() limit ${parseInt(simpleNum)}`;
+    let sql = `select * from question where isDelete=0 and difficulty <=3 and curName='${curName}' and queType='${queType}' order by rand() limit ${parseInt(simpleNum)}`;
     return execSQL(sql)
 }
 

@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 });
 
 async function getQuestionExamList(teaId, examId, classId, res, req){
-    let result1 = await request('/question/question/getQuestion')
+    let result1 = await request('/exam/student/getExamQuestion',{classId, examId})
     let result2 = await request('/exam/student/getExamListTeacher',{teaId, examId})
     let resultDan = await request('/exam/student/getExamQuestion',{classId:result2.data[0].classId, examId, queType:'单选'})
     let resultDuo = await request('/exam/student/getExamQuestion',{classId:result2.data[0].classId, examId, queType:'多选'})
@@ -31,14 +31,13 @@ async function getQuestionExamList(teaId, examId, classId, res, req){
     QuestionNum.biangCheng = resultBian.data.length
 
     var pageNum = req.query.page;
-    console.log(pageNum)
 
     var pager = {};
     // todo 当前第几页
     pager.pageCurrent = pageNum || 1;
     // todo 总的记录数
     pager.maxNum = result1.data.length;
-    pager.pageSize = 2;
+    pager.pageSize = 5;
     // todo 一共多少页
     pager.pageCount = parseInt(Math.ceil(pager.maxNum / pager.pageSize))
 

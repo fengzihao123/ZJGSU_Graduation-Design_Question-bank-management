@@ -74,6 +74,7 @@
     width: 90%;
     height: 180px;
     margin-top: 40px;
+     display: grid;
     border: 1px solid gainsboro;
     background-color: white;
 }
@@ -88,4 +89,80 @@
     height: 40px;
     margin-left: 45%;
     margin-top: 80px;
+}
+.input-btn{
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 200px;
+}
+.button-btn{
+    width: 80px;
+    height: 33px;
+    background-color: #1F74E4;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    margin-left: 450px;
+}
+.a-btn{
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 750px;
+}
+.bodyPartContainer{
+    display: none;
+    position: absolute;
+    top:15%;
+    left: 5%;
+    z-index: 100;
+}
+.BodyPartTitle{
+    font-weight: 500;
+    font-size: 30px;
+    margin-left: 100px;
+}
+.BodyPartContentContainer{
+    display: flex;
+    margin-left: 250px;
+    margin-top: 50px;
+}
+.blueLine{
+    background-color: #0269D9;
+    width: 3px;
+    height: 500px;
+}
+.functionExplainContainer{
+    width: 800px;
+    height: 500px;
+    background-color: #EBF8FF;
+}
+.functionExplainTextContainer{
+    display: grid;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+.title{
+    font-size: 22px;
+    margin-top: 20px;
+}
+.content{
+    font-size: 20px;
+    margin-top: 5px;
+    font-weight: 600;
+}
+.button-explain{
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    width: 80px;
+    height: 33px;
+    background-color: #0269D9;
+    color: #fff;
+    margin-left: 650px;
+    margin-top: 30px;
+    border-radius: 5px;
 }

@@ -33,26 +33,47 @@
         <div class="importExplainContainer1">
             <text class="importExplainText">导入文件：</text>
             <div class="importContainer">
-                <input type="file" name="file">
+                <input type="file" name="file" class="input-btn">
+                <button class="button-btn">确定</button>
+                <a href="/readFile" class="a-btn">上传</a>
             </div>
         </div>
-        <button>确定</button>
+
     </form>
 
-    <a href="/readFile">上传</a>
+    <div class="bodyPartContainer">
+        <div class="BodyPartContentContainer">
+            <div class="blueLine"></div>
+            <div class="functionExplainContainer">
+                <div class="functionExplainTextContainer">
+                    <text class="title">在批量导入模块中，您可以按格式导入json文件和txt文件，格式说明如下：</text>
+                    <text class="content">　　·试题需要有序号，支持：1、</text>
+                    <text class="content">　　·答案、解析、难度、章节、课程名后面要有冒号， 如：答案：</text>
+                    <text class="content">　　·选项后面需要点或顿号，如：A、</text>
+                    <text class="content">　　·答案另起一行，如：答案：A</text>
+                    <text class="content">　　·课程名另起一行，如：课程名：计算机网络</text>
+                    <text class="content">　　·章节另起一行，如：章节:第一章序章</text>
+                    <text class="content">　　·题型另起一行，如：题型:单选</text>
+                    <text class="content">　　·难度另起一行，如：难度:1</text>
+                    <text class="content">　　·答案另起一行，如：答案:B</text>
+                    <text class="content">　　·每题之前需要分割线</text>
+                    <text class="content">　　·主观题等，答案中如有（1）（2）等，编辑成一行导入，不要分段</text>
+                </div>
+                <button class="button-explain">确定</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function (){
+            $('.importExplainA').click(function (){
+                $('.bodyPartContainer').show()
+            })
+            $('.button-explain').click(function (){
+                $('.bodyPartContainer').hide()
+            })
+        })
+    </script>
 
-<!--    <script>-->
-<!--        var openFile = function (event) {-->
-<!--            var input = event.target;-->
-<!--            var reader = new FileReader();-->
-<!--            reader.onload = function () {-->
-<!--                if (reader.result) {-->
-<!--                    window.location.href = `/readFile?path=${event.target}`-->
-<!--                }-->
-<!--            };-->
-<!--            reader.readAsText(input.files[0]);-->
-<!--        };-->
-<!--    </script>-->
 
 </div>
 

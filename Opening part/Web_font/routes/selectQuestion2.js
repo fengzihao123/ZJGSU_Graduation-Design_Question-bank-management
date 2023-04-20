@@ -48,7 +48,7 @@ async function getQuestionExamList(teaId, classId, examId, res, req, postData){
     pager.pageCurrent = pageNum || 1;
     // todo 总的记录数
     pager.maxNum = result1.data.length;
-    pager.pageSize = 2;
+    pager.pageSize = 6;
     // todo 一共多少页
     pager.pageCount = parseInt(Math.ceil(pager.maxNum / pager.pageSize))
 

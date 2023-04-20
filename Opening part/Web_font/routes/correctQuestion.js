@@ -14,13 +14,12 @@ router.get('/', function(req, res, next) {
 async function getStudentList(classId, res, req){
     let result = await request('/student/user/login',{classId})
     var pageNum = req.query.page;
-
     var pager = {};
     // todo 当前第几页
     pager.pageCurrent = pageNum || 1;
     // todo 总的记录数
     pager.maxNum = result.data.length;
-    pager.pageSize = 2;
+    pager.pageSize = 10;
     // todo 一共多少页
     pager.pageCount = parseInt(Math.ceil(pager.maxNum / pager.pageSize))
 

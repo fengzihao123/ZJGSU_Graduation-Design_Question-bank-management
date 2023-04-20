@@ -22,7 +22,7 @@ async function getStudentCourseList(classId, curName, res, req){
     pager.pageCurrent = pageNum || 1;
     // todo 总的记录数
     pager.maxNum = courseStudentList.data.length;
-    pager.pageSize = 2;
+    pager.pageSize = 10;
     // todo 一共多少页
     pager.pageCount = parseInt(Math.ceil(pager.maxNum / pager.pageSize))
 

@@ -54,41 +54,7 @@ router.get('/', function(req, res, next) {
                 let curName_before = result_curName[0].match(reg_curName1)
                 let curName = curName_before[0]
                 question.curName = curName
-                //todo choiceA
-                var reg_choiceA = /A、.+/
-                let result_choiceA = questionList[i].match(reg_choiceA)
-                var reg_choiceA1 = /[^A、]*$/
-                let choiceA_before = result_choiceA[0].match(reg_choiceA1)
-                let choiceA = choiceA_before[0]
-                question.choiceA = choiceA || '';
-                //todo choiceB
-                var reg_choiceB = /B、.+/
-                let result_choiceB = questionList[i].match(reg_choiceB)
-                var reg_choiceB1 = /[^B、]*$/
-                let choiceB_before = result_choiceB[0].match(reg_choiceB1)
-                let choiceB = choiceB_before[0]
-                question.choiceB = choiceB || '';
-                //todo choiceC
-                var reg_choiceC = /C、.+/
-                let result_choiceC = questionList[i].match(reg_choiceC)
-                var reg_choiceC1 = /[^C、]*$/
-                let choiceC_before = result_choiceC[0].match(reg_choiceC1)
-                let choiceC = choiceC_before[0]
-                question.choiceC = choiceC || '';
-                //todo choiceD
-                var reg_choiceD = /D、.+/
-                let result_choiceD = questionList[i].match(reg_choiceD)
-                var reg_choiceD1 = /[^A、]*$/
-                let choiceD_before = result_choiceD[0].match(reg_choiceD1)
-                let choiceD = choiceD_before[0]
-                question.choiceD = choiceD || '';
-                //todo 章节
-                var reg_chaName = /章节:.+/
-                let result_chaName = questionList[i].match(reg_chaName)
-                var reg_chaName1 = /[^章节:]*$/
-                let chaName_before = result_chaName[0].match(reg_chaName1)
-                let chaName = chaName_before[0]
-                question.chaName = chaName
+
                 //todo 题型
                 var reg_queType = /题型:.+/
                 let result_queType = questionList[i].match(reg_queType)
@@ -96,6 +62,44 @@ router.get('/', function(req, res, next) {
                 let queType_before = result_queType[0].match(reg_queType1)
                 let queType = queType_before[0]
                 question.queType = queType
+                if(queType == '单选' || queType == '多选'){
+                    //todo choiceA
+                    var reg_choiceA = /A、.+/
+                    let result_choiceA = questionList[i].match(reg_choiceA)
+                    var reg_choiceA1 = /[^A、]*$/
+                    let choiceA_before = result_choiceA[0].match(reg_choiceA1)
+                    let choiceA = choiceA_before[0]
+                    question.choiceA = choiceA || '无';
+                    //todo choiceB
+                    var reg_choiceB = /B、.+/
+                    let result_choiceB = questionList[i].match(reg_choiceB)
+                    var reg_choiceB1 = /[^B、]*$/
+                    let choiceB_before = result_choiceB[0].match(reg_choiceB1)
+                    let choiceB = choiceB_before[0]
+                    question.choiceB = choiceB || '无';
+                    //todo choiceC
+                    var reg_choiceC = /C、.+/
+                    let result_choiceC = questionList[i].match(reg_choiceC)
+                    var reg_choiceC1 = /[^C、]*$/
+                    let choiceC_before = result_choiceC[0].match(reg_choiceC1)
+                    let choiceC = choiceC_before[0]
+                    question.choiceC = choiceC || '无';
+                    //todo choiceD
+                    var reg_choiceD = /D、.+/
+                    let result_choiceD = questionList[i].match(reg_choiceD)
+                    var reg_choiceD1 = /[^A、]*$/
+                    let choiceD_before = result_choiceD[0].match(reg_choiceD1)
+                    let choiceD = choiceD_before[0]
+                    question.choiceD = choiceD || '无';
+                }
+                //todo 章节
+                var reg_chaName = /单元:.+/
+                let result_chaName = questionList[i].match(reg_chaName)
+                var reg_chaName1 = /[^单元:]*$/
+                let chaName_before = result_chaName[0].match(reg_chaName1)
+                let chaName = chaName_before[0]
+                question.chaName = chaName
+
 
                 //todo 难度
                 var reg_difficulty = /难度:.+/

@@ -14,10 +14,10 @@ router.get('/', function(req, res, next) {
     localStorage.setItem('curName',curName)
     let teaInfo = JSON.parse(localStorage.getItem('teaInfo'))
     let teaId = teaInfo[0].teaId
-    getQuestionExamList(teaId, classId, examId, res, req)
+    getQuestionExamList(teaId, classId, examId, res, req, curName)
 });
 
-async function getQuestionExamList(teaId, classId, examId, res, req){
+async function getQuestionExamList(teaId, classId, examId, res, req, curName){
     let result1 = await request('/question/question/getQuestion')
     let result2 = await request('/exam/student/getExamListTeacher',{teaId, examId})
     let resultDan = await request('/exam/student/getExamQuestion',{classId:result2.data[0].classId, examId, queType:'单选'})
@@ -41,7 +41,7 @@ async function getQuestionExamList(teaId, classId, examId, res, req){
     pager.pageCurrent = pageNum || 1;
     // todo 总的记录数
     pager.maxNum = result1.data.length;
-    pager.pageSize = 2;
+    pager.pageSize = 5;
     // todo 一共多少页
     pager.pageCount = parseInt(Math.ceil(pager.maxNum / pager.pageSize))
 
@@ -52,7 +52,12 @@ async function getQuestionExamList(teaId, classId, examId, res, req){
         examDetail:result2.data,
         questionNum:QuestionNum,
         classId:classId,
-        examId:examId
+        examId:examId,
+        curName:curName,
+        queType:'',
+        chaName:'',
+        difficulty:'',
+        stem:''
     });
 }
 

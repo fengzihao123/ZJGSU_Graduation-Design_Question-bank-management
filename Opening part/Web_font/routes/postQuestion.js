@@ -30,8 +30,9 @@ router.post('/', function(req, res, next) {
             var simpleNum_dan = danxuan - diffNum_dan
             var queType = '单选'
             // todo 在题库中查询对应科目，难度与数量的题目
+            console.log(diffNum_dan,simpleNum_dan)
             difficultyQuestion(diffNum_dan, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_dan, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_dan, curName, queType, examId, classId)
         }
         if(duoxuan){
             var diffNum_duo = parseInt(duoxuan * 0.1)
@@ -39,7 +40,7 @@ router.post('/', function(req, res, next) {
             var queType = '多选'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_duo, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_duo, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_duo, curName, queType, examId, classId)
         }
         if(tiankong){
             var diffNum_tian = parseInt(tiankong * 0.1)
@@ -47,7 +48,7 @@ router.post('/', function(req, res, next) {
             var queType = '填空'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_tian, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_tian, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_tian, curName, queType, examId, classId)
         }
         if(jisuan){
             var diffNum_ji = parseInt(jisuan * 0.1)
@@ -55,7 +56,7 @@ router.post('/', function(req, res, next) {
             var queType = '计算'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_ji, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_ji, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_ji, curName, queType, examId, classId)
         }
         if(wenda){
             var diffNum_wen = parseInt(wenda * 0.1)
@@ -63,7 +64,7 @@ router.post('/', function(req, res, next) {
             var queType = '问答'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_wen, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_wen, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_wen, curName, queType, examId, classId)
         }
         if(biancheng){
             var diffNum_bian = parseInt(biancheng * 0.1)
@@ -71,7 +72,7 @@ router.post('/', function(req, res, next) {
             var queType = '编程'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_bian, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_bian, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_bian, curName, queType, examId, classId)
         }
     }
 
@@ -84,7 +85,7 @@ router.post('/', function(req, res, next) {
             var queType = '单选'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_dan, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_dan, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_dan, curName, queType, examId, classId)
         }
         if(duoxuan){
             var diffNum_duo = parseInt(duoxuan * 0.3)
@@ -92,7 +93,7 @@ router.post('/', function(req, res, next) {
             var queType = '多选'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_duo, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_duo, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_duo, curName, queType, examId, classId)
         }
         if(tiankong){
             var diffNum_tian = parseInt(tiankong * 0.3)
@@ -100,7 +101,7 @@ router.post('/', function(req, res, next) {
             var queType = '填空'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_tian, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_tian, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_tian, curName, queType, examId, classId)
         }
         if(jisuan){
             var diffNum_ji = parseInt(jisuan * 0.3)
@@ -108,7 +109,7 @@ router.post('/', function(req, res, next) {
             var queType = '计算'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_ji, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_ji, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_ji, curName, queType, examId, classId)
         }
         if(wenda){
             var diffNum_wen = parseInt(wenda * 0.3)
@@ -116,7 +117,7 @@ router.post('/', function(req, res, next) {
             var queType = '问答'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_wen, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_wen, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_wen, curName, queType, examId, classId)
         }
         if(biancheng){
             var diffNum_bian = parseInt(biancheng * 0.3)
@@ -124,10 +125,10 @@ router.post('/', function(req, res, next) {
             var queType = '编程'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_bian, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_bian, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_bian, curName, queType, examId, classId)
         }
     }
-    // todo 中等难度  难度<=3的题目占50% ，难度>=4的题目占50%
+    // todo 困难难度  难度<=3的题目占50% ，难度>=4的题目占50%
     if(totalDifficulty == '困难'){
         // todo 单选题
         if(danxuan){
@@ -136,7 +137,7 @@ router.post('/', function(req, res, next) {
             var queType = '单选'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_dan, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_dan, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_dan, curName, queType, examId, classId)
         }
         if(duoxuan){
             var diffNum_duo = parseInt(duoxuan * 0.5)
@@ -144,7 +145,7 @@ router.post('/', function(req, res, next) {
             var queType = '多选'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_duo, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_duo, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_duo, curName, queType, examId, classId)
         }
         if(tiankong){
             var diffNum_tian = parseInt(tiankong * 0.5)
@@ -152,7 +153,7 @@ router.post('/', function(req, res, next) {
             var queType = '填空'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_tian, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_tian, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_tian, curName, queType, examId, classId)
         }
         if(jisuan){
             var diffNum_ji = parseInt(jisuan * 0.5)
@@ -160,7 +161,7 @@ router.post('/', function(req, res, next) {
             var queType = '计算'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_ji, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_ji, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_ji, curName, queType, examId, classId)
         }
         if(wenda){
             var diffNum_wen = parseInt(wenda * 0.5)
@@ -168,7 +169,7 @@ router.post('/', function(req, res, next) {
             var queType = '问答'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_wen, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_wen, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_wen, curName, queType, examId, classId)
         }
         if(biancheng){
             var diffNum_bian = parseInt(biancheng * 0.5)
@@ -176,7 +177,7 @@ router.post('/', function(req, res, next) {
             var queType = '编程'
             // todo 在题库中查询对应科目，难度与数量的题目
             difficultyQuestion(diffNum_bian, curName, queType, examId, classId)
-            //simpleQuestion(simpleNum_bian, curName, queType, examId, classId)
+            simpleQuestion(simpleNum_bian, curName, queType, examId, classId)
         }
     }
 });
@@ -207,7 +208,7 @@ async function difficultyQuestion(diffNum, curName, queType, examId, classId){
 
 async function simpleQuestion(simpleNum, curName, queType, examId, classId){
     //todo 查询到满足条件的对应数量的题目
-    let result = await request('/question/question/getQuestionAutoDiff',{simpleNum, curName, queType})
+    let result = await request('/question/question/getQuestionAutoSimple',{simpleNum, curName, queType})
     console.log(result.data)
     //todo 上传题目
     for(var i = 0; i < result.data.length; i++){

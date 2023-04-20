@@ -41,14 +41,19 @@ async function getQuestionList(res, req){
     pager.pageCurrent = pageNum || 1;
     // todo 总的记录数
     pager.maxNum = result.data.length;
-    pager.pageSize = 2;
+    pager.pageSize = 6;
     // todo 一共多少页
     pager.pageCount = parseInt(Math.ceil(pager.maxNum / pager.pageSize))
 
     var dataList = result.data.slice( (pager.pageCurrent-1) * pager.pageSize , (pager.pageCurrent-1) * pager.pageSize + pager.pageSize )
     res.render('questionQuery', {
         questionList:dataList,
-        pager:pager
+        pager:pager,
+        curName:'',
+        queType:'',
+        chaName:'',
+        difficulty:'',
+        stem:''
     });
 }
 
