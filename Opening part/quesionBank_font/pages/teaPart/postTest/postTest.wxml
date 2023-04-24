@@ -1,2 +1,3 @@
 <!--pages/teaPart/postTest/postTest.wxml-->
 <text>pages/teaPart/postTest/postTest.wxml</text>
+<image src="/image/blue.png"></image>

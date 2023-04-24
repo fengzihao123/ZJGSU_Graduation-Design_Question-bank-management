@@ -141,6 +141,9 @@ router.get('/', function(req, res, next) {
             }
         })
     }
+    if(fileType == '.md'){
+        console.log(11111)
+    }
 
 
 });

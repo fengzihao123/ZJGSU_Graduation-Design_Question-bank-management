@@ -40,7 +40,7 @@
                         <td><%= item.totalPoint %>分</td>
                         <td>
                             <img src="/images/xiugai.png" class="edit1" data-curname="<%= item.curName %>" data-classid="<%= item.classId %>" data-examid="<%= item.examId %>">
-                            <img src="/images/shanchu.png" class="del1">
+                            <img src="/images/shanchu.png" class="del1" data-examid="<%= item.examId %>">
                         </td>
                     </tr>
                 <% }) %>
@@ -59,6 +59,10 @@
                 classId = $(this).data('classid')
                 curName = $(this).data('curname')
                 window.location.href = `/makeQuestion?examId=${examId}&classId=${classId}&curName=${curName}`
+            })
+            $('.del1').click(function (){
+                examId = $(this).data('examid')
+                window.location.href = `/delExam?examId=${examId}`
             })
         })
     </script>

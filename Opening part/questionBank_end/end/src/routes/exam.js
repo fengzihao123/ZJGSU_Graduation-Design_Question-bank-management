@@ -19,7 +19,8 @@ const { getExamList,
         updateRepeat,
         getExamQuestionExcept,
         deleteRpeat,
-        getMoban
+        getMoban,
+        deleteExam
     } = require('../controllers/exam')
 
 
@@ -275,6 +276,19 @@ const handleExamRoute = (req, res) =>{
         const examAnswerDataPromise = getMoban(moName, curName);
         return examAnswerDataPromise.then(examAnswerData => {
             return new successModel(examAnswerData)
+        })
+    }
+
+    //删除考试
+    if(method === 'POST' && req.path === '/exam/student/deleteExam'){
+        const examId = req.query.examId || '';
+        const deleteTeacherDataPromise = deleteExam(examId)
+        return deleteTeacherDataPromise.then(deleteTeacherData =>{
+            if(deleteTeacherData){
+                return new successModel('删除成功')
+            }else{
+                return new errorModel('删除失败')
+            }
         })
     }
 }

@@ -318,6 +318,17 @@ const getMoban = (moName, curName) =>{
     
     return execSQL(sql)
 }
+
+//删除考试
+const deleteExam = (examId) =>{
+    const sql = `delete from exam where examId=${parseInt(examId)}`;
+    return execSQL(sql).then(deleteResult => {
+        if(deleteResult.affectedRows > 0){
+            return true;
+        }
+        return false
+    })
+}
 module.exports = {
     getExamList,
     getExamDetail,
@@ -339,5 +350,6 @@ module.exports = {
     updateRepeat,
     getExamQuestionExcept,
     deleteRpeat,
-    getMoban
+    getMoban,
+    deleteExam
 }

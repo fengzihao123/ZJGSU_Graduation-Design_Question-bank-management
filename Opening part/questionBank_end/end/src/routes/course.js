@@ -4,7 +4,9 @@ const { getCourseList,
         getTeacherCourseList,
         getTeacherCourseList1,
         deleteCourseStudent,
-        newCourseStudent
+        newCourseStudent,
+        getChapter,
+        getCourseDetailNoRepeat
     } = require('../controllers/course')
 
 
@@ -55,6 +57,15 @@ const handleCourseRoute = (req, res) =>{
             })
         }
 
+        //获取课程详情--不重复
+    if(method === 'GET' && req.path === '/course/student/getCourseDetailNoRepeat'){
+        const teaId = req.query.teaId || '';
+        const courseDetailDataPromise = getCourseDetailNoRepeat(teaId);
+        return courseDetailDataPromise.then(courseDetailData => {
+            return new successModel(courseDetailData)
+        })
+    }
+
    //删除课程信息
    if(method === 'POST' && req.path === '/course/student/deleteCourseStudent'){
     const id = req.query.id || '';
@@ -76,6 +87,18 @@ const handleCourseRoute = (req, res) =>{
             return new successModel(newCourseData)
         })
     }
+
+    //章节信息查询
+    if(method === 'GET' && req.path === '/course/student/getChapter'){
+        const curName = req.query.curName || '';
+
+        const courseListDataPromise = getChapter(curName);
+        return courseListDataPromise.then(courseListData => {
+            return new successModel(courseListData)
+        })
+    }
+
+
 }
 
 module.exports = handleCourseRoute;

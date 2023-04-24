@@ -56,6 +56,16 @@ const getCourseDetail = (stuId, curName) =>{
     return execSQL(sql)
 }
 
+// 课程信息查询---不重複
+const getCourseDetailNoRepeat = (teaId) =>{
+
+    let sql = `select distinct curName, curImage from teacherdetail where`;
+    if(teaId){
+        sql += ` teaId='${teaId}'`
+    }
+    return execSQL(sql)
+}
+
 //删除课程信息
 const deleteCourseStudent = (id) =>{
     const sql = `delete from curriculum where id=${id}`;
@@ -89,13 +99,25 @@ const newCourseStudent = (courseData = {}) =>{
     
 
 }
+
+// 课程章节查询
+const getChapter = (curName) =>{
+
+    let sql = `select * from chapter where`;
+    if(curName){
+        sql += ` curName='${curName}' order by id`
+    }
+    return execSQL(sql)
+}
 module.exports = {
     getCourseList,
     getCourseDetail,
     getTeacherCourseList,
     getTeacherCourseList1,
     deleteCourseStudent,
-    newCourseStudent
+    newCourseStudent,
+    getChapter,
+    getCourseDetailNoRepeat
     // creatNewTeacher,
     // updateTeacher,
     // deleteTeacher

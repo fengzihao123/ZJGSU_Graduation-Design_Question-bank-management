@@ -69,6 +69,8 @@ const handleTeacherRoute = (req, res) =>{
         })
     }
 
+ 
+
 }
 
 module.exports = handleTeacherRoute;

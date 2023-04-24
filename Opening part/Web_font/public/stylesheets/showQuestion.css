@@ -1,0 +1,327 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.headPartContainer{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background: #1F74E4;
+}
+.headPartText{
+    display: block;
+    line-height: 60px;
+    font-size: 26px;
+    margin-left: 40px;
+    font-weight: 600;
+    color: #fff;
+}
+.headPartText1{
+    display: block;
+    line-height: 60px;
+    font-size: 26px;
+    margin-left: 15px;
+    font-weight: 600;
+    color: #fff;
+}
+.headIcon{
+    margin-left: 68%;
+    font-size: 28px;
+    display: block;
+    line-height: 60px;
+    color: #fff;
+    font-weight: 600;
+}
+
+body{
+    background: gainsboro;
+}
+.fourPartContainer{
+    display: flex;
+}
+.leftPartContainer{
+    display: grid;
+}
+.leftHeadContainer{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 330px;
+    height: 100px;
+    background: #fff;
+    border: 1px solid gray;
+}
+.leftBodyContainer{
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 330px;
+    height: 580px;
+    background: #fff;
+    border: 1px solid gray;
+    overflow-y: auto;
+}
+.rightPartContainer{
+    display: grid;
+}
+.rightBodyContainer{
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 367px;
+    width: 1150px;
+    height: 630px;
+    background: #fff;
+    display: grid;
+    border: 1px solid gray;
+}
+.circleContainer{
+    display: grid;
+    margin-left: 77px;
+    margin-top: 15px;
+}
+.circle1{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: 2px solid red;
+}
+.circle2{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    background: #2595A1;
+}
+.circle3{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: 2px solid gray;
+}
+.circleIndex{
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 30px;
+}
+.circleText{
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 13px;
+}
+.oneItemContainer{
+    margin-left: 10px;
+    margin-top: 10px;
+    display: grid;
+}
+.oneItemText{
+    font-weight: 600;
+    font-size: 16px;
+}
+.oneItemSelectContainer{
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    display: flex;
+
+}
+.rightBodyOne{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+.rightOne{
+    width: 30px;
+    height: 30px;
+    background: #519CF7;
+}
+.rightOneOne{
+    display: block;
+    width: 50px;
+    height: 30px;
+    margin-left: 10px;
+    background: #5bc0de;
+}
+.rightOneText{
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.rightOneStem{
+    width: 806px;
+    height: 30px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 3px;
+    margin-left: 10px;
+}
+
+.rightBodyThree{
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 60px;
+}
+.rightThreeInput{
+    height: 300px;
+    width: 1110px;
+    font-size: 16px;
+    font-weight: 600;
+    padding-left: 20px;
+}
+.daFen{
+    position: absolute;
+    display: flex;
+    margin-top: 550px;
+    margin-left: 370px;
+}
+.daFenText{
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 2px;
+}
+.daFenInput{
+    width: 80px;
+    height: 28px;
+    margin-left: 10px;
+}
+.daFenButton{
+    width: 80px;
+    height: 28px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    display: block;
+    line-height: 28px;
+    color: white;
+    border: none;
+    margin-left: 30px;
+    background: #1F74E4;
+}
+.finish-a{
+    width: 80px;
+    height: 28px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    display: block;
+    line-height: 28px;
+    color: white;
+    border: none;
+    margin-left: 840px;
+    background: #1F74E4;
+}
+.allContainer{
+    display: grid;
+}
+.changeContainer{
+    display: flex;
+    position: absolute;
+    width: 1150px;
+    height: 40px;
+    background: #fff;
+    margin-top: 680px;
+    margin-left: 367px;
+    border: 1px solid gray;
+}
+.pre{
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    line-height: 40px;
+    margin-left: 100px;
+    text-align: center;
+}
+.next{
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    line-height: 40px;
+    margin-left: 815px;
+    text-align: center;
+}
+.choiceContainer{
+    margin-bottom: 10px;
+    display: flex;
+}
+.choiceType{
+    margin-left: 10%;
+    margin-top: 5px;
+    width: 34px;
+    height: 34px;
+    border: 1px solid gainsboro;
+    background-color: #EDF8E9;
+}
+.choiceText{
+    display: block;
+    text-align: center;
+    line-height: 34px;
+    font-size: 16px;
+    color: #A2BF87;
+    font-weight: 600;
+}
+.choiceContent{
+    margin-left: 10px;
+    width: 360px;
+    height: 34px;
+    font-size: 16px;
+    font-weight: 600;
+    padding-left: 10px;
+    margin-top: 8px;
+    border-radius: 10px;
+}
+.trueAnswer{
+    display: block;
+    margin-top: 30px;
+    color: #7EAEF1;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+.difficultyText{
+    color: #CC3366;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+.chaNameText{
+    color: #CC3366;;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.DC{
+    margin-top: 10px;
+}
+.analysisText{
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+    display: block;
+    color: rgb(4, 131, 4);
+    margin-left: 10px;
+}
+.stemContainer{
+    display: grid;
+    height: 200px;
+}
+.stemImg1{
+    margin-left: 100px;
+    width: 800px;
+    height: 50px;
+    margin-bottom: 5px;
+}

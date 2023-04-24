@@ -16,29 +16,6 @@ router.post('/', function(req, res, next) {
     getQuestionExamList(teaId, classId, examId, res, req)
 });
 
-
-
-async function difficultyQuestion(diffNum, curName, queType, examId, classId){
-    //todo 查询到满足条件的对应数量的题目
-    let result = await request('/question/question/getQuestionAutoDiff',{diffNum, curName, queType})
-    console.log(result.data)
-    //todo 上传题目
-    for(var i = 0; i < result.data.length; i++){
-        await upload('/exam/student/newExamQuestion',{
-            classId,
-            examId,
-            curName,
-            queId:result.data[i].queId,
-            queType:queType,
-            stem:result.data[i].stem,
-            choiceA:result.data[i].choiceA,
-            choiceB:result.data[i].choiceB,
-            choiceC:result.data[i].choiceC,
-            choiceD:result.data[i].choiceD,
-            answer:result.data[i].answer,
-        })
-    }
-}
 async function getQuestionExamList(teaId, classId, examId, res, req){
     let result1 = await request('/exam/student/getExamQuestion',{classId, examId})
     let result2 = await request('/exam/student/getExamListTeacher',{teaId, examId})

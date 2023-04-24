@@ -95,6 +95,7 @@
                     <% if(jiList.length){ %>
                         <div class="oneItemContainer">
                             <text class="oneItemText">计算题</text>
+                            <div class="oneItemSelectContainer">
                             <% jiList.forEach(function (item){ %>
                                 <% if(item.point > 0){ %>
                                     <div class="circle2 circle-ji" data-type="<%= item.queType %>" data-index="<%= jiList.indexOf(item) %>">
@@ -111,7 +112,8 @@
                                 <% } %>
                             <% }) %>
                         </div>
-                    <% } %>
+                    </div>
+                <% } %>
 
                     <% if(wenList.length){ %>
                     <div class="oneItemContainer">

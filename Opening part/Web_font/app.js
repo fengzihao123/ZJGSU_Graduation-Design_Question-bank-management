@@ -23,8 +23,13 @@ var makeQuestionAutoRouter = require('./routes/makeQuestionAuto');
 // todo 题库管理
 var questionExplainRouter = require('./routes/questionExplain');
 var questionQueryRouter = require('./routes/questionQuery');
+var questionQueryOneRouter = require('./routes/questionQueryOne');
 var AddQuestionRouter = require('./routes/AddQuestion');
 var AddQuestionAutoRouter = require('./routes/AddQuestionAuto');
+var curQuestionIndexRouter = require('./routes/curQuestionIndex');
+var searchQuestionRouter = require('./routes/searchQuestion');
+var showQuestionRouter = require('./routes/showQuestion');
+var showQuestionOneRouter = require('./routes/showQuestionOne');
 // todo 成绩查询
 var gradeCountRouter = require('./routes/gradeCount');
 var gradeQueryRouter = require('./routes/gradeQuery');
@@ -64,6 +69,7 @@ var deleteRepeatRouter = require('./routes/deleteRepeat');
 var mobanPostRouter = require('./routes/mobanPost');
 var readFileRouter = require('./routes/readFile');
 var addFileRouter = require('./routes/addFile');
+var delExamRouter = require('./routes/delExam');
 
 var app = express();
 
@@ -96,8 +102,13 @@ app.use('/makeQuestionAuto', makeQuestionAutoRouter);
 // todo 题库管理
 app.use('/admin/questionExplain', questionExplainRouter);
 app.use('/admin/questionQuery', questionQueryRouter);
+app.use('/questionQueryOne', questionQueryOneRouter);
 app.use('/admin/AddQuestion', AddQuestionRouter);
 app.use('/admin/AddQuestionAuto', AddQuestionAutoRouter);
+app.use('/admin/curQuestionIndex', curQuestionIndexRouter);
+app.use('/searchQuestion', searchQuestionRouter);
+app.use('/showQuestion', showQuestionRouter);
+app.use('/showQuestionOne', showQuestionOneRouter);
 // todo 成绩查询
 app.use('/admin/gradeCount', gradeCountRouter);
 app.use('/admin/gradeQuery', gradeQueryRouter);
@@ -137,6 +148,7 @@ app.use('/deleteRepeat', deleteRepeatRouter);
 app.use('/mobanPost', mobanPostRouter);
 app.use('/readFile', readFileRouter);
 app.use('/addFile', addFileRouter);
+app.use('/delExam', delExamRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

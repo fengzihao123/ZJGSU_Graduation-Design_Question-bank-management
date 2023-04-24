@@ -5,10 +5,8 @@ const {request} = require('../public/javascripts/request')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    console.log(req.query.curName)
-    let curName = req.query.curName
     localStorage = new LocalStorage('./scratch');
-    localStorage.setItem('curName',curName)
+    let curName = localStorage.getItem('curName')
     getQuestionList(res, req, curName);
 });
 async function getQuestionList(res, req, curName){

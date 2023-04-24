@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' href='/iconfont/iconfont.css'/>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/stylesheets/showQuestion.css'/>
+</head>
+<body>
+<div class="headPartContainer">
+    <text class="headPartText">查看题库/<%= curName %></text>
+    <i class="iconfont icon-shezhi headIcon"></i>
+</div>
+<div class="allContainer">
+    <div class="fourPartContainer">
+        <div class="leftPartContainer">
+            <div class="leftHeadContainer">
+                <div class="circleContainer">
+                    <div class="circle1"></div>
+                    <text class="circleText">当前</text>
+                </div>
+                <div class="circleContainer">
+                    <div class="circle3"></div>
+                    <text class="circleText">未选</text>
+                </div>
+            </div>
+
+            <div class="leftBodyContainer">
+                <% if(questionList.length){ %>
+                    <div class="oneItemContainer">
+                        <text class="oneItemText">题目</text>
+                        <div class="oneItemSelectContainer">
+                            <% questionList.forEach(function (item){ %>
+                                <% if(index == questionList.indexOf(item)){ %>
+                                    <div class="circle1 circle-dan" data-type="<%= item.queType %>" data-index="<%= questionList.indexOf(item) %>">
+                                        <text class="circleIndex"><%= questionList.indexOf(item) + 1 %></text>
+                                    </div>
+                                <% }else{ %>
+                                    <div class="circle3 circle-dan" data-type="<%= item.queType %>" data-index="<%= questionList.indexOf(item) %>">
+                                        <text class="circleIndex"><%= questionList.indexOf(item) + 1 %></text>
+                                    </div>
+                                <% } %>
+                            <% }) %>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+
+            <script src="/javascripts/jquery-3.2.1.js"></script>
+            <script>
+                $(function (){
+                    var index = 0;
+                    $('.circle-dan').click(function (){
+                        index = $(this).data('index')
+                        window.location.href = `/showQuestionOne?index=${index}`
+                    })
+                })
+            </script>
+
+        </div>
+
+            <div class="rightBodyContainer">
+                <div class="rightBodyOne">
+                    <div class="rightOneOne">
+                        <text class="rightOneText"><%= questionList[index].queType %></text>
+                    </div>
+                    <div class="rightOne">
+                        <text class="rightOneText"><%= index + 1 %></text>
+                    </div>
+                    <text class="rightOneStem"><%= questionList[index].stem%></text>
+                </div>
+
+                <div class="rightBodyThree">
+                    <% if(questionList[index].stemImgone){ %>
+                        <img src="/images/blue1BG.jpg"  class="stemImg1">
+                    <% } %>
+                    <% if(questionList[index].stemImgtwo){ %>
+                        <img src="/images/blueBG.jpg"  class="stemImg1">
+                    <% } %>
+                <!--      todo  选项          -->
+                    <% if(questionList[index].queType == '单选' || questionList[index].queType == '多选'){ %>
+                        <div class="choiceContainer">
+                            <div class="choiceType">
+                                <text class="choiceText">A</text>
+                            </div>
+                            <text class="choiceContent"><%= questionList[index].choiceA %></text>
+                        </div>
+                        <div class="choiceContainer">
+                            <div class="choiceType">
+                                <text class="choiceText">B</text>
+                            </div>
+                            <text class="choiceContent"><%= questionList[index].choiceB %></text>
+                        </div>
+                        <div class="choiceContainer">
+                            <div class="choiceType">
+                                <text class="choiceText">C</text>
+                            </div>
+                            <text class="choiceContent"><%= questionList[index].choiceC %></text>
+                        </div>
+                        <div class="choiceContainer">
+                            <div class="choiceType">
+                                <text class="choiceText">D</text>
+                            </div>
+                            <text class="choiceContent"><%= questionList[index].choiceD %></text>
+                        </div>
+                    <% } %>
+                        <div>
+                            <text class="trueAnswer">正确答案：<%= questionList[index].answer %></text>
+                        </div>
+                        <div class="DC">
+                            <text class="difficultyText">难度：<%= questionList[index].difficulty %></text>
+                            <text class="chaNameText">章节：<%= questionList[index].chaName %></text>
+                        </div>
+                        <text class="analysisText">解析：<%= questionList[index].analysis %></text>
+                        <% if(questionList[index].analysisImgone){ %>
+                            <img src="/images/blue1BG.jpg"  class="stemImg1">
+                        <% } %>
+                        <% if(questionList[index].analysisImgtwo){ %>
+                            <img src="/images/blueBG.jpg"  class="stemImg1">
+                        <% } %>
+                </div>
+
+            </div>
+
+        <div class="changeContainer">
+            <text class="pre" data-index="<%= index %>"><　上一题</text>
+            <text class="next" data-index="<%= index %>">下一题　></text>
+        </div>
+        <script>
+            $(function (){
+                var index = 0;
+                let length = parseInt(JSON.parse(JSON.stringify(<%- length %>)))
+                $('.pre').click(function (){
+                    index = parseInt($(this).data('index'))
+                    if(index == 0){
+                        index = length - 1
+                        window.location.href = `/showQuestionOne?index=${index}`
+                    }else{
+                        index--
+                        window.location.href = `/showQuestionOne?index=${index}`
+                    }
+                })
+                $('.next').click(function (){
+                    index = parseInt($(this).data('index'))
+                    if(index == length - 1 ){
+                        index = 0
+                        window.location.href = `/showQuestionOne?index=${index}`
+                    }else{
+                        index++
+                        window.location.href = `/showQuestionOne?index=${index}`
+                    }
+                })
+            })
+        </script>
+    </div>
+
+</div>
+
+</body>
+</html>

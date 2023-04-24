@@ -1,11 +1,14 @@
 {
     "pages": [
-        "pages/stuPart/myExam/myExam",
         "pages/stuPart/myCourse/myCourse",
+        "pages/teaPart/postTest/postTest",
+        
+        "pages/stuPart/myExam/myExam",
+        
         "pages/login/login",
 
         "pages/stuPart/course/course",
-        "pages/teaPart/postTest/postTest",
+    
 
         "pages/stuPart/historyError/historyError",
         "pages/stuPart/questionCollection/questionCollection", 
