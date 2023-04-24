@@ -233,6 +233,8 @@ const newQuestion = (questionData = {}) =>{
 
     const curName    = questionData.params.curName || ''
     const stem       = questionData.params.stem || ''
+    const stemImgone = questionData.params.stemImgone || ''
+    const stemImgtwo = questionData.params.stemImgtwo || ''
     const choiceA    = questionData.params.choiceA || ''
     const choiceB    = questionData.params.choiceB || ''
     const choiceC    = questionData.params.choiceC || ''
@@ -242,8 +244,10 @@ const newQuestion = (questionData = {}) =>{
     const difficulty = questionData.params.difficulty || ''
     const answer     = questionData.params.answer || ''
     const analysis     = questionData.params.analysis || ''
+    const analysisImgone = questionData.params.analysisImgone || ''
+    const analysisImgtwo = questionData.params.analysisImgtwo || ''
     
-    const sql = `insert into question values(0, '${curName}', '${stem}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', '${chaName}', '${queType}', ${parseInt(difficulty)}, '${answer}', '${analysis}', 0)`
+    const sql = `insert into question values(0, '${curName}', '${stem}', '${stemImgone}', '${stemImgtwo}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', '${chaName}', '${queType}', ${parseInt(difficulty)}, '${answer}', '${analysis}', '${analysisImgone}', '${analysisImgtwo}', 0)`
     return execSQL(sql).then(updateResult =>{
         if(updateResult.affectedRows > 0){
             return true;
