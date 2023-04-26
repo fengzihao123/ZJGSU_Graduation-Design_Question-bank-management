@@ -1,0 +1,11 @@
+<!--pages/stuPart/gradeDetail/gradeDetail.wxml-->
+<view class="singleGradeContainer">
+  <text class="totalGradeContainer">各题型成绩</text>
+</view>
+<view class="my_chart">
+  <ec-canvas id="mychart_dom" canvas_id="mychart" ec="{{ec}}"></ec-canvas>
+</view>
+<view class="singleGradeContainer">
+  <text class="totalGradeContainer1">成绩分析</text>
+</view>
+

@@ -1,0 +1,39 @@
+<!--pages/stuPart/courseDetail/courseDetail.wxml-->
+<view class="titleContainer">
+    <text class="title_word">我的课程</text>
+    <view class="title_line"></view>
+</view>
+
+<view class="courseContainer">
+    <view class="course_layoutContainer">
+        <view class="course_layout" bindtap="toCourseDetail">
+            <view class="course">
+                <image src="{{courseDetail.data[0].curImage}}" class="course_picture"></image>
+                <view class="courseinfo">
+                    <text class="Name">课程名：</text>
+                    <text class="Name1">{{courseDetail.data[0].curName}}</text>
+                </view>
+                <view class="courseinfo1">
+                    <text class="Name">学　号：</text>
+                    <text class="Name1">{{courseDetail.data[0].stuId}}</text>
+                </view>
+                <view class="courseinfo1">
+                    <text class="Name">姓　名：</text>
+                    <text class="Name1">{{courseDetail.data[0].stuName}}</text>
+                </view>
+                <view class="courseinfo2" bindtap="toPerson">
+                    <text class="Name">个人情况：</text>
+                    <view class="examChaxun">
+                        <text class="examChaxun_word">查询</text>
+                    </view>
+                </view>
+                <view class="courseinfo3" bindtap="toClass">
+                    <text class="Name">整体情况：</text>
+                    <view class="examChaxun">
+                        <text class="examChaxun_word">查询</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

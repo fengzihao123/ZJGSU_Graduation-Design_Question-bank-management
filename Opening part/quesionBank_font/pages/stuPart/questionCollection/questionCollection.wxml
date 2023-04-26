@@ -1,4 +1,6 @@
 <!--pages/stuPart/historyError/historyError.wxml-->
+<view class="allContainer" wx:if="{{collectList.data.length}}">
+
 <!-- 选择题 -->
     <!-- 单选题 -->
     <view class="danxuantiContainer">
@@ -201,4 +203,8 @@
         </van-popup>
         </view>
     </view>
+</view>
+<view wx:else>
+    <image src="../../../static/images/kong.jpg" class="image_bg" ></image>
+</view>
     

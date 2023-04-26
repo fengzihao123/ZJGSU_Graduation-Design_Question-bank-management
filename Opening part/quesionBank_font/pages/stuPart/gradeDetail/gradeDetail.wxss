@@ -1,0 +1,21 @@
+.my_chart{
+    width: 750rpx;
+    height: 500rpx;
+}
+.ec-canvas{
+    width: 100%;
+    height: 100%;
+}
+.totalGradeContainer{
+    color: green;
+    display: block;
+    margin-left: 40rpx;
+    font-weight: 600;
+    margin-top: 80rpx;
+}
+.totalGradeContainer1{
+    color: #6666FF;
+    display: block;
+    margin-left: 40rpx;
+    font-weight: 600;
+}

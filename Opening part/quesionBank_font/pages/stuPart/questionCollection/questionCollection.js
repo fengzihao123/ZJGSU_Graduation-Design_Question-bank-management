@@ -104,8 +104,8 @@ Page({
       },
 
       //收藏列表获取
-      async getCollectList(stuId){
-          let collectList = await request('/question/collect/getCollection',{stuId:stuId})
+      async getCollectList(stuId, curName){
+          let collectList = await request('/question/collect/getCollection',{stuId, curName})
           this.setData({
               collectList
           })
@@ -170,8 +170,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let stuInfo = wx.getStorageSync('stuInfo')
-        this.getCollectList(stuInfo[0].stuId)
+        let stuId = options.stuId;
+        let curName = options.curName
+        this.getCollectList(stuId, curName)
         
     },
 

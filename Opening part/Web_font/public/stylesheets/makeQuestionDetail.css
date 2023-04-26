@@ -589,7 +589,18 @@ ul{
     background-color: #379BFF;
     border-radius: 10px;
     display: block;
-    margin-left: 45%;
+    margin-left: 40%;
+    outline: none;
+    border: none;
+}
+.finish1{
+    width: 100px;
+    margin-top: 20px;
+    height: 40px;
+    background-color: #8470FF;
+    border-radius: 10px;
+    display: block;
+    margin-left: 30px;
     outline: none;
     border: none;
 }
@@ -646,4 +657,7 @@ ul{
     font-size: 16px;
     margin-left: 350px;
     cursor: pointer;
+}
+.button{
+    display: flex;
 }

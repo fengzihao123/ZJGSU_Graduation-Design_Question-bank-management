@@ -72,6 +72,7 @@ Page({
             queId:errorList.data[index].queId,
             stuId:errorList.data[index].stuId,
             queType:errorList.data[index].queType,
+            curName:errorList.data[index].curName,
             stem:errorList.data[index].stem,
             choiceA:errorList.data[index].choiceA,
             choiceB:errorList.data[index].choiceB,
@@ -123,8 +124,8 @@ Page({
       },
 
       //错题列表获取
-      async getErrorList(stuId){
-          let errorList = await request('/question/errorQuestion/getError',{stuId:stuId})
+      async getErrorList(stuId, curName){
+          let errorList = await request('/question/errorQuestion/getError',{stuId,curName})
           this.setData({
               errorList
           })
@@ -202,12 +203,10 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-        let stuInfo = wx.getStorageSync('stuInfo')
-        this.setData({
-            stuInfo
-        })
-        this.getErrorList(stuInfo[0].stuId)
+    onLoad: function (options) {  
+        let curName = options.curName
+        let stuId = options.stuId
+        this.getErrorList(stuId, curName)
     },
 
     /**

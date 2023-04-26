@@ -25,7 +25,8 @@ const handleQuestionRoute = (req, res) =>{
     //题库收藏查询
     if(method === 'GET' && req.path === '/question/collect/getCollection'){ 
         const stuId = req.query.stuId || '';
-        const questionCollectDataPromise = getQuestionCollect(stuId);
+        const curName = req.query.curName || '';
+        const questionCollectDataPromise = getQuestionCollect(stuId, curName);
         return questionCollectDataPromise.then(questionCollectData => {
             return new successModel(questionCollectData)
         })
@@ -34,7 +35,8 @@ const handleQuestionRoute = (req, res) =>{
     //题库错误查询
     if(method === 'GET' && req.path === '/question/errorQuestion/getError'){ 
         const stuId = req.query.stuId || '';
-        const questionErrorDataPromise = getQuestionError(stuId);
+        const curName = req.query.curName || ''
+        const questionErrorDataPromise = getQuestionError(stuId, curName);
         return questionErrorDataPromise.then(questionErrorData => {
             return new successModel(questionErrorData)
         })

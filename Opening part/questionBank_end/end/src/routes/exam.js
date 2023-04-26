@@ -66,7 +66,8 @@ const handleExamRoute = (req, res) =>{
         const examId = req.query.examId || '';
         const queType = req.query.queType || '';
         const queId = req.query.queId || '';
-        const examQuestionDataPromise = getExamQuestion(classId, examId, queType, queId);
+        const curName = req.query.curName || '';
+        const examQuestionDataPromise = getExamQuestion(classId, examId, queType, queId, curName);
         return examQuestionDataPromise.then(examQuestionData => {
             return new successModel(examQuestionData)
         })

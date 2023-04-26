@@ -63,13 +63,13 @@ Page({
       // 跳转历史错题
       toHistory(){
         wx.navigateTo({
-          url: '../historyError/historyError',
+          url: '../historyErrorSelect/historyErrorSelect',
         })
       },
       //  跳转题目收藏
       toCollection(){
         wx.navigateTo({
-          url: '../questionCollection/questionCollection',
+          url: '../questionCollectionSelect/questionCollectionSelect',
         })
       },
 

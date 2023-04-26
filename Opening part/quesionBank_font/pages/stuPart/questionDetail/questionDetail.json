@@ -1,0 +1,10 @@
+{
+  "usingComponents": 
+  {
+    "van-popup": "@vant/weapp/popup/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index"
+  },
+  "navigationBarTitleText": "错题"
+}

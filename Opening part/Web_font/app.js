@@ -20,6 +20,7 @@ var correctQuestionOneRouter = require('./routes/correctQuestionOne');
 var correctQuestionDetailRouter = require('./routes/correctQuestionDetail');
 var correctQuestionDetailOneRouter = require('./routes/correctQuestionDetailOne');
 var makeQuestionAutoRouter = require('./routes/makeQuestionAuto');
+var exportExamRouter = require('./routes/exportExam');
 // todo 题库管理
 var questionExplainRouter = require('./routes/questionExplain');
 var questionQueryRouter = require('./routes/questionQuery');
@@ -99,6 +100,7 @@ app.use('/correctQuestionOne', correctQuestionOneRouter);
 app.use('/correctQuestionDetail', correctQuestionDetailRouter);
 app.use('/correctQuestionDetailOne', correctQuestionDetailOneRouter);
 app.use('/makeQuestionAuto', makeQuestionAutoRouter);
+app.use('/exportExam', exportExamRouter);
 // todo 题库管理
 app.use('/admin/questionExplain', questionExplainRouter);
 app.use('/admin/questionQuery', questionQueryRouter);

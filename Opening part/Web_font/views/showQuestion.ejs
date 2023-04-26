@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="referrer" content="no-referrer">
     <title>Document</title>
     <link rel='stylesheet' href='/iconfont/iconfont.css'/>
     <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
@@ -76,10 +77,10 @@
 
                 <div class="rightBodyThree">
                     <% if(questionList[index].stemImgone){ %>
-                        <img src="/images/blue1BG.jpg"  class="stemImg1">
+                        <img src="<%= questionList[index].stemImgone %>"  class="stemImg1">
                     <% } %>
                     <% if(questionList[index].stemImgtwo){ %>
-                        <img src="/images/blueBG.jpg"  class="stemImg1">
+                        <img src="<%= questionList[index].stemImgtwo %>"  class="stemImg1">
                     <% } %>
                 <!--      todo  选项          -->
                     <% if(questionList[index].queType == '单选' || questionList[index].queType == '多选'){ %>
@@ -117,10 +118,10 @@
                         </div>
                         <text class="analysisText">解析：<%= questionList[index].analysis %></text>
                         <% if(questionList[index].analysisImgone){ %>
-                            <img src="/images/blue1BG.jpg"  class="stemImg1">
+                            <img src="<%= questionList[index].analysisImgone %>"  class="stemImg1">
                         <% } %>
                         <% if(questionList[index].analysisImgtwo){ %>
-                            <img src="/images/blueBG.jpg"  class="stemImg1">
+                            <img src="<%= questionList[index].analysisImgtwo %>"  class="stemImg1">
                         <% } %>
                 </div>
 

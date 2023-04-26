@@ -9,13 +9,26 @@ Page({
      * 页面的初始数据
      */
     data: {
+      courseList:[],
         stuInfo:[],
         scoreList:[], 
         gradeList:[],
         curNameList:[],
         ec:{
           onInit: initChart
-        }
+        },
+        option: [
+          { text: '学期', value: '' },
+          { text: '2022-2023 第二学期', value: '2022-2023 第二学期' },
+          { text: '2022-2023 第一学期', value: '2022-2023 第一学期' },
+          { text: '2021-2022 第二学期', value: '2021-2022 第二学期' },
+          { text: '2021-2022 第一学期', value: '2021-2022 第一学期' },
+          { text: '2020-2021 第二学期', value: '2020-2021 第二学期' },
+          { text: '2020-2021 第一学期', value: '2020-2021 第一学期' },
+          { text: '2019-2020 第二学期', value: '2019-2020 第二学期' },
+          { text: '2019-2020 第一学期', value: '2019-2020 第一学期' },
+        ],
+        value: '2022-2023 第二学期',
     },
     //页面跳转
     onChange(event) {
@@ -30,6 +43,11 @@ Page({
             })
         }
       },
+         //学期选择
+    change(event){
+      console.log(event.detail)
+      this.getCourse(event.detail)
+  },
 
       // 成绩查询
       async getGrade(stuId){
@@ -48,7 +66,13 @@ Page({
         wx.setStorageSync('scoreList', scoreList)  
         wx.setStorageSync('curNameList', curNameList)      
       },
-     
+     // 课程列表获取
+     async getCourse(term){
+      let courseList = await request('/course/student/getCourseList',{stuId:this.data.stuInfo[0].stuId,term:term})
+      this.setData({
+        courseList
+      })
+    },
         
     
 
@@ -61,6 +85,15 @@ Page({
         stuInfo
       })
       this.getGrade(stuInfo[0].stuId)
+      this.getCourse('2022-2023 第二学期')
+    },
+
+    // 跳转到 gradeDetail
+    toGradeDetail(event){
+      let curName = event.currentTarget.dataset.course.curName
+      wx.navigateTo({
+        url: '../gradeSelect/gradeSlect?curName=' + curName + '&stuId=' + this.data.stuInfo[0].stuId,
+      })
     },
 
     /**

@@ -2,7 +2,7 @@ const {execSQL} = require('../db/mysql')
 // 跟课程相关的方法
 
 // 课程列表查询
-const getCourseList = (stuId, term) =>{
+const getCourseList = (stuId, term, curName) =>{
 
     let sql = `select * from curriculum where`;
     if(stuId){
@@ -10,6 +10,9 @@ const getCourseList = (stuId, term) =>{
     }
     if(term){
         sql += ` and term='${term}'`
+    }
+    if(curName){
+        sql += ` and curName='${curName}'`
     }
     return execSQL(sql)
 }

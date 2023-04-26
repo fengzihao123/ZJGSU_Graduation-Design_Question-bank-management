@@ -1,0 +1,40 @@
+<!--pages/stuPart/gradeDetail/gradeDetail.wxml-->
+<view class="singleGradeContainer">
+  <text class="totalGradeContainer">总体成绩分布</text>
+</view>
+<view class="my_chart">
+  <ec-canvas id="mychart_dom" canvas_id="mychart" ec="{{ec}}"></ec-canvas>
+</view>
+<view class="singleGradeContainer">
+  <text class="totalGradeContainer1">错题前五</text>
+</view>
+<view class="oneQuestionContainer" >
+
+  <view class="index">
+    <text class="title">题号</text>
+  </view>
+  <view class="queType">
+    <text class="title">题型</text>
+  </view>
+  <view class="stem">
+    <text class="title_stem">题目</text>
+  </view>
+  <view class="errorCount">
+    <text class="title_error">错误数</text>
+  </view>
+</view>
+<view class="oneQuestionContainer" wx:for="{{questionList.data}}" bindtap="toQuestionDetail" data-que="{{item}}">
+  <view class="index">
+    <text class="content_id">{{item.queId}}</text>
+  </view>
+  <view class="queType">
+    <text class="content">{{item.queType}}</text>
+  </view>
+  <view class="stem">
+    <text class="content_stem">{{item.stem}}</text>
+  </view>
+  <view class="errorCount">
+    <text class="content_error">{{item.errorCount}}</text>
+  </view>
+</view>
+

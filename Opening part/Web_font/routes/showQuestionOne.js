@@ -16,6 +16,7 @@ router.get('/', function(req, res, next) {
 async function getQuestionList(curName, index, res){
     //todo  查询所有的该科目题目
     let resultList = await request('/question/question/getQuestion',{curName})
+    console.log(resultList.data[index])
     res.render('showQuestion',{
         questionList:resultList.data,
         curName:curName,

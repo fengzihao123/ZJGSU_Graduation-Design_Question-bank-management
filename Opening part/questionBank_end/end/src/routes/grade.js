@@ -15,7 +15,8 @@ const handleGradeRoute = (req, res) =>{
     if(method === 'GET' && req.path === '/grade/student/getGrade'){ 
         const stuId = req.query.stuId || '';
         const examId = req.query.examId || '';
-        const gradeDataPromise = getGrade(stuId, examId);
+        const curName = req.query.curName || '';
+        const gradeDataPromise = getGrade(stuId, examId, curName);
         return gradeDataPromise.then(gradeData => {
             return new successModel(gradeData)
         })

@@ -4,8 +4,33 @@
     <text class="title_word">我的成绩</text>
     <view class="title_line"></view>
 </view>
+<text class="totalGradeContainer">总体成绩</text>
 
 <view class="my_chart">
   <ec-canvas id="mychart_dom" canvas_id="mychart" ec="{{ec}}"></ec-canvas>
+</view>
+
+<view class="singleGradeContainer">
+  <text class="totalGradeContainer">单科成绩</text>
+</view>
+<view class="pickerContainer">
+    <view class="picker">
+        <text class="picker_word">学期选择：</text>
+        <van-dropdown-menu class="picker_select">
+            <van-dropdown-item bind:change="change" value="{{ value }}" options="{{ option }}" />
+        </van-dropdown-menu>
+    </view>
+    <view class="picker_line"></view>
+</view>
+
+<view class="courseContainer">
+    <view class="course_layoutContainer" >
+        <view class="course_layout" wx:for="{{courseList.data}}" bindtap="toGradeDetail" data-index="{{index}}" data-course="{{item}}">
+            <view class="course">
+                <image src="{{item.curImage}}" class="course_picture"></image>
+                <text class="coureseName">{{item.curName}}</text>
+            </view>
+        </view>
+    </view>
 </view>
 

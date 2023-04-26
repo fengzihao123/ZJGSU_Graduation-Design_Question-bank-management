@@ -2,7 +2,7 @@ const {execSQL} = require('../db/mysql')
 // 跟成绩相关的方法
 
 // 成绩查询
-const getGrade = (stuId, examId) =>{
+const getGrade = (stuId, examId, curName) =>{
     //从数据库拿数据
     let sql = `select * from grade where`;
     if(stuId){
@@ -10,6 +10,9 @@ const getGrade = (stuId, examId) =>{
     }
     if(examId){
         sql += ` and examId=${examId}`;
+    }
+    if(curName){
+        sql += ` and curName='${curName}'`;
     }
     return execSQL(sql)
 }
@@ -19,7 +22,7 @@ const getGradeTeacher = (examId) =>{
     //从数据库拿数据
     let sql = `select * from grade where`;
     if(examId){
-        sql += ` examId=${examId}`;
+        sql += ` examId=${parseInt(examId)}`;
     }
     return execSQL(sql)
 }

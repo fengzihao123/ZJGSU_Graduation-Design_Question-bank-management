@@ -19,7 +19,8 @@ const handleCourseRoute = (req, res) =>{
     if(method === 'GET' && req.path === '/course/student/getCourseList'){
         const stuId = req.query.stuId || '';
         const term = req.query.term || '';
-        const courseListDataPromise = getCourseList(stuId, term);
+        const curName = req.query.curName || '';
+        const courseListDataPromise = getCourseList(stuId, term, curName);
         return courseListDataPromise.then(courseListData => {
             return new successModel(courseListData)
         })

@@ -43,7 +43,7 @@ const getExamDetail = (examId) =>{
 }
 
 // 考试题目查询
-const getExamQuestion = (classId, examId, queType, queId) =>{
+const getExamQuestion = (classId, examId, queType, queId, curName) =>{
     let sql = `select * from questioning where`;
     if(examId){
         sql += ` examId=${examId}`
@@ -55,7 +55,10 @@ const getExamQuestion = (classId, examId, queType, queId) =>{
         sql += ` and queType='${queType}'`
     }
     if(queId){
-        sql += ` and queId='${queId}'`
+        sql += ` and queId=${queId}`
+    }
+    if(curName){
+        sql += ` and curName='${curName}'`
     }
     return execSQL(sql)
 }

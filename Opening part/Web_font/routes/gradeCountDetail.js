@@ -10,8 +10,8 @@ router.get('/', function(req, res, next) {
 
 });
 async function getGradeList(examId, res){
-    let gradeList = await request('/grade/student/getGradeTeacher',{examId})
-    let questionList = await  request('/exam/student/getExamQuestionTOP',{examId})
+        let gradeList = await request('/grade/student/getGradeTeacher',{examId})
+        let questionList = await  request('/exam/student/getExamQuestionTOP',{examId})
     var countData = []
     var value0_59 = 0;
     var value60_69 = 0;

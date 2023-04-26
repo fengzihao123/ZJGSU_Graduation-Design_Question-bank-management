@@ -10,7 +10,7 @@ Page({
         courseList:[],
         stuInfo:[],
         option: [
-            { text: '学期', value: 'a' },
+            { text: '学期', value: '' },
             { text: '2022-2023 第二学期', value: '2022-2023 第二学期' },
             { text: '2022-2023 第一学期', value: '2022-2023 第一学期' },
             { text: '2021-2022 第二学期', value: '2021-2022 第二学期' },
@@ -20,7 +20,7 @@ Page({
             { text: '2019-2020 第二学期', value: '2019-2020 第二学期' },
             { text: '2019-2020 第一学期', value: '2019-2020 第一学期' },
           ],
-          value: 'a',
+          value: '2022-2023 第二学期',
         //   value_content: '',
       },
     
@@ -55,7 +55,7 @@ Page({
        this.setData({
          stuInfo
        })
-      this.getCourse('')
+      this.getCourse('2022-2023 第二学期')
     },
 
     /**
