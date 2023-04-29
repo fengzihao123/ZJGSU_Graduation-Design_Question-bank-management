@@ -1,0 +1,436 @@
+/* pages/stuPart/examing/examing.wxss */
+.quanbuContainer{
+    display: flex;
+    margin-left: 20rpx;
+}
+.timeContainer{
+    position: fixed;
+    right: 0;
+    margin-right: 20rpx;
+}
+.headview{
+    display: flex;
+    width: 100%;
+    height: 60rpx;
+    background-color:rgb(241, 241, 241);
+}
+.text_quanbu{
+    display: block;
+    margin-top: 9rpx;
+    margin-left: 30rpx;
+    font-weight: 600;
+}
+.text_quanbu1{
+    display: block;
+    margin-top: 9rpx;
+    margin-left: 20rpx;
+    color: royalblue;
+    font-weight: 600;
+}
+.icon-naozhong_o{
+    font-size: 40rpx;
+    position: fixed;
+    margin-top: 7rpx;
+    right: 0;
+    margin-right: 160rpx;
+}
+.time_word1{
+    position: fixed;
+    right: 0;
+    margin-top: 10rpx;
+    margin-right: 35rpx;
+}
+.time_word2{
+    position: fixed;
+    right: 0;
+    margin-top: 7rpx;
+    margin-right: 17rpx;
+}
+
+
+
+
+.danxuantiContainer{
+    margin-top: 20rpx;
+}
+.danxuanti{
+
+    display: flex;
+    margin-left: 30rpx;
+}
+.questionType{
+    margin-top: 5rpx;
+    position: absolute;
+    width: 95rpx;
+    height: 36rpx;
+    background-color: cornflowerblue;
+}
+.questionType1{
+    margin-top: 5rpx;
+    position: absolute;
+    width: 95rpx;
+    height: 36rpx;
+    background-color: #9999FF;
+}
+.questionType2{
+    margin-top: 5rpx;
+    position: absolute;
+    width: 95rpx;
+    height: 36rpx;
+    background-color: #99CC33;
+}
+.questionType3{
+    margin-top: 5rpx;
+    position: absolute;
+    width: 95rpx;
+    height: 36rpx;
+    background-color: #6600FF;
+}
+.questionType4{
+    margin-top: 5rpx;
+    position: absolute;
+    width: 95rpx;
+    height: 36rpx;
+    background-color: #CCCC33;
+}
+.questionType5{
+    margin-top: 5rpx;
+    position: absolute;
+    width: 95rpx;
+    height: 36rpx;
+    background-color: #FF33CC;
+}
+.QTword{
+    position: absolute;
+    font-size: 28rpx;
+    margin-bottom: 5rpx;
+    margin-left: 18rpx;
+    color: cornsilk;
+    align-items: center;
+}
+.QTitle{
+    margin-top: 2rpx;
+    font-size: 28rpx;
+    margin-right: 30rpx;
+    margin-left: 100rpx;
+}
+.titleLine{
+    margin-top: 50rpx;
+    width:90%;
+    margin-left: 5%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+
+
+.line{
+    margin-top: 20rpx;
+    width:98%;
+    margin-left: 1%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+.choice{
+    font-size: 28rpx;
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+}
+.choice_word{
+    margin-left: 30rpx;
+}
+
+.tailContainer{
+    width: 100%;
+    height: 80rpx;
+    position: fixed;
+    bottom: 0;
+}
+.tailview{
+    display: flex;
+    background-color:rgb(241, 241, 241);
+}
+.piro{
+    margin-left: 30rpx;
+    color: green;
+}
+.next{
+    position: fixed;
+    right: 0;
+    margin-right: 30rpx;
+    color: green;
+}
+
+.datiType1{
+    display: grid;
+}
+
+.popContainer{
+   display: grid;
+}
+.timuContainer{
+    
+}
+.timu1{
+    margin-top: 20rpx;
+    display: grid;
+}
+.timu2{
+    margin-top: 20rpx;
+    display: grid;
+}
+.timu3{
+    margin-top: 20rpx;
+    display: grid;
+}
+.timu4{
+    margin-top: 20rpx;
+    display: grid;
+}
+.timu5{
+    margin-top: 20rpx;
+    display: grid;
+}
+.timu6{
+    margin-top: 20rpx;
+    display: grid;
+}
+
+.pop_circle{
+    width: 60rpx;
+    height: 60rpx;
+    background-color: darkgray;
+    border-radius: 50%;
+    margin-left: 30rpx;
+    margin-top: 20rpx;
+}
+.pop_timu{
+    position: absolute;
+    font-size: 30rpx;
+    font-weight: 600;
+    margin-left: 20rpx;
+    margin-top: 8rpx;
+}
+.pop_circle1{
+    width: 60rpx;
+    height: 60rpx;
+    border: 1rpx red solid;
+    border-radius: 50%;
+    margin-left: 30rpx;
+    margin-top: 20rpx;
+}
+.type1{
+    margin-left: 32rpx;
+    font-size: 28rpx;
+    font-weight: 600;
+}
+.typeContainer{
+    display: flex;
+}
+
+.pop_circle2{
+    width: 60rpx;
+    height: 60rpx;
+    border: 1rpx darkgray solid;
+    border-radius: 50%;
+    margin-left: 30rpx;
+    margin-top: 20rpx;
+}
+.type2{
+    margin-left: 32rpx;
+    font-size: 28rpx;
+    font-weight: 600;
+}
+
+.pop_circle3{
+    width: 60rpx;
+    height: 60rpx;
+    border: 1rpx darkgray solid;
+    background-color: #009999;
+    border-radius: 50%;
+    margin-left: 30rpx;
+    margin-top: 20rpx;
+}
+.pop_circle4{
+    width: 100rpx;
+    height: 60rpx;
+    border: 1rpx darkgray solid;
+    border-radius: 20rpx;
+    background-color: #3399FF;
+    margin-left: 30rpx;
+    margin-top: 20rpx;
+}
+.datiType4{
+    margin-left: 270rpx;
+    margin-top: 20rpx;
+}
+.type4{
+    margin-top: 10rpx;
+    position: absolute;
+    margin-left: 20rpx;
+    font-size: 28rpx;
+    color: white;
+    font-weight: 600;
+}
+.type3{
+    margin-left: 32rpx;
+    font-size: 28rpx;
+    font-weight: 600;
+}
+.choiceLine{
+    margin-top: 20rpx;
+    width:98%;
+    margin-left: 1%;
+    height:2rpx;
+    background:#d3d1d1;
+}
+.timuCon{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+.timu_word{
+    margin-left: 30rpx;
+    font-size: 28rpx;
+    font-weight: 600;
+}
+.kuang{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+.cancle{
+    color: red;
+    font-size: 28rpx;
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+    font-weight: 600;
+}
+.next-btn{
+    position:absolute;
+    z-index: 20;
+    top: 50%;
+    left: 27%;
+}
+.Con1Text2{
+    position: absolute;
+    z-index: 20;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 157rpx;
+    margin-left: 290rpx;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style:italic;
+    text-shadow: 10px 10px 10px rgb(44, 43, 43);
+    color: #fff;
+}
+.Con1Text3{
+    position: absolute;
+    z-index: 20;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 257rpx;
+    margin-left: 280rpx;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style:italic;
+    text-shadow: 10px 10px 10px rgb(44, 43, 43);
+    color: red;
+}
+.Con1Text4{
+    position: absolute;
+    z-index: 20;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 357rpx;
+    margin-left: 270rpx;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style:italic;
+    text-shadow: 10px 10px 10px rgb(44, 43, 43);
+    color: #fff;
+}
+
+.Con1Text5{
+    position: absolute;
+    z-index: 20;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 457rpx;
+    margin-left: 320rpx;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style:italic;
+    text-shadow: 10px 10px 10px rgb(44, 43, 43);
+    color: rgb(34, 118, 243);
+}
+
+.Con1Text6{
+    position: absolute;
+    z-index: 20;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 157rpx;
+    margin-left: 290rpx;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style:italic;
+    text-shadow: 10px 10px 10px rgb(44, 43, 43);
+    color: rgb(36, 33, 33);
+}
+.Con1Text7{
+    position: absolute;
+    z-index: 20;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 257rpx;
+    margin-left: 280rpx;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style:italic;
+    text-shadow: 10px 10px 10px rgb(44, 43, 43);
+    color: red;
+}
+.Con1Text8{
+    position: absolute;
+    z-index: 20;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 357rpx;
+    margin-left: 270rpx;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style:italic;
+    text-shadow: 10px 10px 10px rgb(44, 43, 43);
+    color: rgb(36, 33, 33);
+}
+
+.image_bg{
+    position: absolute;
+    z-index: 1;
+    width:100%;
+    height:94vh;
+  }
+.cancle_word{
+    margin-left: 30rpx;
+}
+.datiquContainer{
+    margin-top: 30rpx;
+}
+.inputStyle{
+    margin-top: 30rpx;
+    width: 92%;
+    height: 400rpx;
+    margin-left: 4%;
+    background-color: rgb(245, 242, 242);
+}
+.datiqu_word{
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+    font-size: 30rpx;
+    font-weight: 600;
+}
+
+.successImage{
+    position:absolute;
+    z-index: 20;
+    width: 200rpx;
+    height: 200rpx;
+    top: 30%;
+    left: 40%;
+}

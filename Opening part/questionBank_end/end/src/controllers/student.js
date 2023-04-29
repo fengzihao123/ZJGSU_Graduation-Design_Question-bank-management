@@ -79,6 +79,40 @@ const updateTeacher = (teaId, teacherData = {}) =>{
 
 }
 
+// 插入十秒挑战
+const creatNewChallenge = (challengeData) =>{
+    //将数据存到数据库中
+    const stuName = challengeData.stuName
+    const curName = challengeData.curName
+    const score = challengeData.score
+    const stuId = challengeData.stuId
+    const count = challengeData.count
+
+    const sql = `
+    insert into challenge (id, stuName, curName, score, stuId, time, count) values (0, '${stuName}', '${curName}', ${score}, '${stuId}', '第九周', ${count})
+    `
+    return execSQL(sql).then(insertedResult => {
+        console.log(insertedResult)
+        return{
+            teaId: insertedResult.insertteaId
+        }
+    })
+
+}
+
+
+// 查询十秒挑战
+const getChallenge = (stuId, curName) =>{
+    let sql = ``
+    if(stuId){
+        sql += `select * from challenge where stuId='${stuId}' and curName='${curName}'`
+    }else {
+        sql += `select * from challenge where curName='${curName}' order by score desc limit 10`;
+    }
+    return execSQL(sql)
+
+}
+
 //删除教师信息
 const deleteTeacher = (teaId) =>{
     const sql = `delete from teacher where teaId='${teaId}'`;
@@ -92,5 +126,7 @@ const deleteTeacher = (teaId) =>{
 module.exports = {
     getStudentLoginResult,
     getClassInfo,
-    getStudentDetail
+    getStudentDetail,
+    creatNewChallenge,
+    getChallenge
 }

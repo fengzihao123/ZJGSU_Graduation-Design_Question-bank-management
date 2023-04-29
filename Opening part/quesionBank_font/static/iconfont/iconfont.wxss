@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2834266 */
-  src: url('//at.alicdn.com/t/c/font_2834266_g84yobz30nr.woff2?t=1679064806660') format('woff2'),
-       url('//at.alicdn.com/t/c/font_2834266_g84yobz30nr.woff?t=1679064806660') format('woff'),
-       url('//at.alicdn.com/t/c/font_2834266_g84yobz30nr.ttf?t=1679064806660') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_2834266_m1i80lwvq7i.woff2?t=1682558229517') format('woff2'),
+       url('//at.alicdn.com/t/c/font_2834266_m1i80lwvq7i.woff?t=1682558229517') format('woff'),
+       url('//at.alicdn.com/t/c/font_2834266_m1i80lwvq7i.ttf?t=1682558229517') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,22 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gotcha:before {
+  content: "\e6bd";
+}
+
+.icon-suoding:before {
+  content: "\e8d4";
+}
+
+.icon-jurassic_user:before {
+  content: "\e6a5";
+}
+
+.icon-nav-01:before {
+  content: "\e66f";
 }
 
 .icon-youjiantou-cu:before {

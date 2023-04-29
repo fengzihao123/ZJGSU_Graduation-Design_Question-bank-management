@@ -1,0 +1,100 @@
+<!--pages/stuPart/examing/examing.wxml-->
+<view class="successContainer" wx:if="{{isSuccess}}">
+<view class="headContainer">
+    <view class="headview">
+        <view class="quanbuContainer">
+            <text class="text_quanbu">Level</text>
+            <text class="text_quanbu1">{{level}}</text>
+            <text class="text_quanbu">题数</text>
+            <text class="text_quanbu1">{{index + 1}}</text>
+            <text class="text_quanbu">得分</text>
+            <text class="text_quanbu1">{{score}}</text>
+        </view>
+        <view class="timeContainer">
+            <text class="iconfont icon-naozhong_o icon-naozhong_o" ></text>
+            <!-- <text class="time_word1">118</text>
+            <text class="time_word2">分钟</text> -->
+            <van-count-down bind:finish="timeFinsh" class="time_word1" time="{{ time  * 60 *1000 }}" />
+        </view>
+    </view>
+    
+</view>
+
+<view class="quanbuContainer" wx:if="{{index < 4}}">
+    <image src="../../../static/images/success.gif" class="successImage" wx:if="{{isImg}}"></image>
+    <image src="../../../static/images/false1.gif" class="successImage" wx:if="{{isFlaseImg}}"></image>
+    <image src="../../../static/images/time.gif" class="successImage" wx:if="{{isTime}}"></image>
+    <!-- 单选题 -->
+    <view class="danxuantiContainer" wx:if="{{questionList[index].queType == '单选'}}" >
+        <view class="danxuanti">
+            <view class="questionType">
+                <text class="QTword">单选</text>
+            </view>
+            <text class="QTitle">{{questionList[index].stem}}</text>
+        </view>
+        <view class="titleLine"></view>
+        <!-- 四个选项 -->
+        <view class="isXuanze" >
+            <view class="cancle" bindtap="cancleA" wx:if="{{answer[index] == 'A'}}">
+                <text>A</text>
+                <text class="cancle_word" >{{questionList[index].choiceA}}</text>
+            </view>
+            <view class="choice" bindtap="chooseA" wx:else>
+                <text>A</text>
+                <text class="choice_word" >{{questionList[index].choiceA}}</text>
+            </view>
+            <view class="choiceLine"></view>
+
+            <view class="cancle" bindtap="cancleB" wx:if="{{answer[index] == 'B'}}">
+                <text>B</text>
+                <text class="cancle_word" >{{questionList[index].choiceB}}</text>
+            </view>
+            <view class="choice" bindtap="chooseB" wx:else>
+                <text>B</text>
+                <text class="choice_word" >{{questionList[index].choiceB}}</text>
+            </view>
+            <view class="choiceLine"></view>
+            <view class="cancle" bindtap="cancleC" wx:if="{{answer[index] == 'C'}}">
+                <text>C</text>
+                <text class="cancle_word" >{{questionList[index].choiceC}}</text>
+            </view>
+            <view class="choice" bindtap="chooseC" wx:else>
+                <text>C</text>
+                <text class="choice_word" >{{questionList[index].choiceC}}</text>
+            </view>
+            <view class="choiceLine"></view>
+    
+            <view class="cancle" bindtap="cancleD" wx:if="{{answer[index] == 'D'}}">
+                <text>D</text>
+                <text class="cancle_word" >{{questionList[index].choiceD}}</text>
+            </view>
+            <view class="choice" bindtap="chooseD"wx:else>
+                <text>D</text>
+                <text class="choice_word">{{questionList[index].choiceD}}</text>
+            </view>
+            
+        </view>
+        
+        <view class="choiceLine"></view>
+</view>
+</view>
+
+<view class="nextLevelContainer"wx:else >
+    <image src="../../../static/images/bbb.jpg" class="image_bg" ></image>
+    <text class="Con1Text2">恭喜你！</text>
+    <text class="Con1Text3">LEVEL {{level}}</text>
+    <text class="Con1Text4">挑战成功</text>
+    <button bindtap="nextLevel" class="next-btn">下一关</button>
+</view>
+</view>
+<view class="shibai" wx:else>
+    <image src="../../../static/images/grey.jpg" class="image_bg" ></image>
+    <text class="Con1Text6">很遗憾！</text>
+    <text class="Con1Text7">LEVEL {{level}}</text>
+    <text class="Con1Text8">挑战失败</text>
+    <text class="Con1Text5">{{score}}分</text>
+    <button bindtap="backPage" class="next-btn">返回</button>
+</view>
+
+
+

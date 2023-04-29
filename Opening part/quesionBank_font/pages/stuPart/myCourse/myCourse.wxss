@@ -136,12 +136,12 @@
 }
 .iconResult{
     font-size: 30px;
-    margin-left: 180rpx;
+    margin-left: 110rpx;
     font-weight: 600;
 }
 .resultText{
     font-size: 14px;
-    margin-left: 155rpx;
+    margin-left: 85rpx;
 }
 /* 中下部样式 */
 .historyBack{

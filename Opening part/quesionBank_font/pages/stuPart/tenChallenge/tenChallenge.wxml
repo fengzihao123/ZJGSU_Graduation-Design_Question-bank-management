@@ -1,0 +1,29 @@
+<view class="positionContainer">
+    <!-- 头部红色背景 -->
+    <view class="headBackground">
+        <!-- 上部 -->
+        <view class="Con1">
+            <text class="Con1Text2">十秒挑战</text>
+        </view>
+    </view>
+</view>
+<view class="pickerContainer">
+    <view class="picker">
+        <text class="picker_word">学期选择：</text>
+        <van-dropdown-menu class="picker_select">
+            <van-dropdown-item bind:change="change" value="{{ value }}" options="{{ option }}" />
+        </van-dropdown-menu>
+    </view>
+    <view class="picker_line"></view>
+</view>
+
+<view class="courseContainer">
+    <view class="course_layoutContainer" >
+        <view class="course_layout" wx:for="{{courseList.data}}" bindtap="toChallengeDetail" data-index="{{index}}" data-course="{{item}}">
+            <view class="course">
+                <image src="{{item.curImage}}" class="course_picture"></image>
+                <text class="coureseName">{{item.curName}}</text>
+            </view>
+        </view>
+    </view>
+</view>

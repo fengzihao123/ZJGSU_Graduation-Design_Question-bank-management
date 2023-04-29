@@ -49,6 +49,23 @@ const getQuestion = (curName, queType, chaName, difficulty, stem) =>{
     return execSQL(sql)
 }
 
+//题库查询---十秒挑战
+const getQuestionTen = (curName, difficulty, num) =>{
+    //从数据库拿数据
+    let sql = `select * from question where isDelete=0`;
+    if(curName){
+        sql += ` and curName='${curName}'`;
+    }
+    if(difficulty){
+        sql += ` and difficulty=${difficulty} and queType='单选'`;
+    }
+    if(num){
+        sql += ` order by rand() limit ${parseInt(num)}`;
+    }
+    return execSQL(sql)
+}
+
+
 //题库查询--自动--困难
 const getQuestionAutoDiff = (diffNum, curName, queType) =>{
     //从数据库拿数据order by rand()
@@ -279,5 +296,6 @@ module.exports = {
     getQuestionDetail,
     newError,
     getQuestionAutoDiff,
-    getQuestionAutoSimple
+    getQuestionAutoSimple,
+    getQuestionTen
 }

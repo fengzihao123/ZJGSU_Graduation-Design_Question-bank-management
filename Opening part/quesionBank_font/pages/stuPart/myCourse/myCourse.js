@@ -59,6 +59,13 @@ Page({
           url: '../course/course',
         })
       },
+      
+      //前往十秒挑战
+      toChallenge(){
+        wx.navigateTo({
+          url: '../tenChallenge/tenChallenge',
+        })
+      },
 
       // 跳转历史错题
       toHistory(){

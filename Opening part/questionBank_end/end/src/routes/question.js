@@ -13,7 +13,8 @@ const { getQuestionCollect,
         getQuestionDetail,
         newError,
         getQuestionAutoDiff,
-        getQuestionAutoSimple
+        getQuestionAutoSimple,
+        getQuestionTen
     } = require('../controllers/question')
 
 
@@ -50,6 +51,17 @@ const handleQuestionRoute = (req, res) =>{
         const difficulty = req.query.difficulty || '';
         const stem = req.query.stem || '';
         const questionDataPromise = getQuestion(curName, queType, chaName, difficulty, stem);
+        return questionDataPromise.then(questionData => {
+            return new successModel(questionData)
+        })
+    }
+
+     //题库查询--十秒挑战
+     if(method === 'GET' && req.path === '/question/question/getQuestionTen'){ 
+        const curName = req.query.curName || '';
+        const difficulty = req.query.difficulty || '';
+        const num = req.query.num || '';
+        const questionDataPromise = getQuestionTen(curName, difficulty, num);
         return questionDataPromise.then(questionData => {
             return new successModel(questionData)
         })

@@ -47,7 +47,7 @@
     </view>
 
 <!-- 中部样式 -->
-<view class="jobResult">
+    <view class="jobResult">
         <text class="jobResultTitle">课程</text>
         <view class="resultContainer">
             <view class="rCon" bindtap="courseDescription">
@@ -57,6 +57,10 @@
             <view class="rCon" bindtap="toCourse">
                 <text class="iconfont icon-kecheng iconResult"></text>
                 <text class="resultText">我的课程</text>  
+            </view>
+            <view class="rCon" bindtap="toChallenge">
+                <text class="iconfont icon-gotcha iconResult"></text>
+                <text class="resultText">十秒挑战</text>  
             </view>
             <van-popup show="{{ show }}" bind:close="onClose">
             <view class="explainContainer">

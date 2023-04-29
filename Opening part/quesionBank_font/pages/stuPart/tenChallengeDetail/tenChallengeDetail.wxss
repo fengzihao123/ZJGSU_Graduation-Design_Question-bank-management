@@ -1,0 +1,123 @@
+.positionContainer{
+    width: 100%;
+    height: 100%;
+}
+.positionContainer .headBackground{
+    display: grid;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 200rpx;
+    /* background-color: #33CC66; */
+    background: -webkit-linear-gradient(left,#F35E4A,#C05251,#C05251);
+}
+.Con1{
+    display: flex;
+}
+.textContainer{
+    display: grid;
+}
+.headImage{
+    position: absolute;
+    right: 0;
+    height: 200rpx;
+    width: 250rpx;
+}
+.Con1Text1{
+    margin-top: 15rpx;
+    font-size: 24px;
+    font-weight: 600;
+    margin-left: 40rpx;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 10px 10px 10px rgb(44, 43, 43);
+    color: #fff;
+}
+.Con1Text3{
+    font-size: 26px;
+    font-weight: 600;
+    margin-left: 50rpx;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 10px 10px 10px rgb(44, 43, 43);
+    color: #fff;
+}
+.middleContainer{
+    display: flex;
+    width: 100%;
+    height: 150rpx;
+}
+.middleTextCon{
+    display: grid;
+}
+.middleText{
+    font-size: 36rpx;
+    font-weight: 600;
+    display: block;
+    margin-top: 20rpx;
+    margin-left: 20rpx;
+}
+.middleText1{
+    display: block;
+    font-weight: 600;
+    color: gray;
+    margin-top: 15rpx;
+    margin-left: 40rpx;
+}
+.middleImgae{
+    margin-top: 25rpx;
+    width: 200rpx;
+    height: 100rpx;
+    position:absolute;
+    right: 50rpx;
+}
+.bodyContainer{
+    position: absolute;
+    width: 100%;
+    /* height: 1050rpx; */
+    background-color: #EEEEEE;
+}
+.bodyHeadContainer{
+    position: relative;
+    width: 94%;
+    height: 80rpx;
+    margin-left: 3%;
+    margin-top: 30rpx;
+    border-radius: 40rpx;
+    margin-bottom: 30rpx;
+    background-color: #FCF1D3;
+}
+.bodyHeadText{
+    color: #BA9F1E;
+    display: block;
+    text-align: center;
+    line-height: 80rpx;
+}
+.onePersonContainer{
+    width: 100%;
+    height: 100rpx;
+    background-color: #fff;
+    display: flex;
+}
+.avatalImg{
+    margin-left: 30rpx;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+}
+.userName{
+    margin-left: 20rpx;
+    display: block;
+    margin-top: 20rpx;
+}
+.userName1{
+    margin-left: 20rpx;
+    display: block;
+    color: grey;
+    margin-top: 20rpx;
+}
+.userName2{
+   position: absolute;
+   right: 30rpx;
+    display: block;
+    color: red;
+    margin-top: 20rpx;
+}

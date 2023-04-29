@@ -1,0 +1,31 @@
+<view class="positionContainer">
+    <!-- 头部红色背景 -->
+    <view class="headBackground">
+        <!-- 上部 -->
+        <view class="Con1">
+        <view class="textContainer">
+            <text class="Con1Text1">十秒挑战得分</text>
+            <text class="Con1Text3">TOP10</text>
+        </view>
+        <image src="../../../static/images/jiangbei.jpg" class="headImage"></image>
+        </view>
+    </view>
+</view>
+<view class="middleContainer">
+    <view class="middleTextCon">
+        <text class="middleText">十秒挑战得分榜</text>
+        <text class="middleText1">第九周</text>
+    </view>
+    <image class="middleImgae" src="../../../static/images/start.png" bindtap="toChallengeGame"></image>
+</view>
+<view class="bodyContainer">
+    <view class="bodyHeadContainer">
+        <text class="bodyHeadText">计算机网络·得分情况排行</text>
+    </view>
+    <view class="onePersonContainer" wx:for="{{topList}}">
+       <image src="../../../static/images/nan.jpeg" class="avatalImg"></image> 
+       <text class="userName">{{item.stuName}} · </text>
+       <text class="userName1">第{{item.count}}次</text>
+       <text class="userName2">{{item.score}}分</text>
+    </view>
+</view>

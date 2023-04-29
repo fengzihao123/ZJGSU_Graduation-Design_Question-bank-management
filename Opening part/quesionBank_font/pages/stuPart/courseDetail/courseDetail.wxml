@@ -27,6 +27,12 @@
                         <text class="examChaxun_word">查询</text>
                     </view>
                 </view>
+                <view class="courseinfo3" bindtap="toChallenge">
+                    <text class="Name">十秒挑战：</text>
+                    <view class="examChaxun1">
+                        <text class="examChaxun_word">挑战</text>
+                    </view>
+                </view>
             </view>
         </view>
     </view>

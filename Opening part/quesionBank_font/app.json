@@ -1,5 +1,8 @@
 {
     "pages": [
+        "pages/stuPart/tenChallenge/tenChallenge",
+        "pages/stuPart/tenChallengeDetail/tenChallengeDetail",
+       
         "pages/stuPart/myCourse/myCourse",
         "pages/stuPart/myGrade/myGrade",
         "pages/stuPart/gradeSelect/gradeSlect",
@@ -24,7 +27,8 @@
         "pages/teaPart/studentGM/studentGM",
         "pages/stuPart/gradeDetail/gradeDetail",
         "pages/stuPart/gradeDetailClass/gradeDetailClass",
-        "pages/stuPart/questionDetail/questionDetail"
+        "pages/stuPart/questionDetail/questionDetail",
+        "pages/stuPart/challengeGame/challengeGame"
     ],
     "window": {
         "backgroundTextStyle": "light",

@@ -2,6 +2,8 @@ const { successModel, errorModel } = require("../model/responseModel");
 const { getStudentLoginResult,
         getClassInfo, 
         getStudentDetail,
+        creatNewChallenge,
+        getChallenge
         
     } = require('../controllers/student')
 
@@ -64,6 +66,26 @@ const handleStudentRoute = (req, res) =>{
             }
         })
         
+    }
+    
+    //插入十秒挑战
+    if(method === 'POST' && req.path === '/challenge/socre/newScore'){
+        const challengeData = req.body;
+        const newChallengeDataPromise = creatNewChallenge(challengeData);
+        return newChallengeDataPromise.then(challengeData => {
+            return new successModel(challengeData)
+        })
+    }
+
+    //查询十秒挑战
+    if(method === 'GET' && req.path === '/challenge/socre/getScore'){
+
+        const stuId = req.query.stuId || '';
+        const curName = req.query.curName || '';
+        const newChallengeDataPromise = getChallenge(stuId, curName);
+        return newChallengeDataPromise.then(challengeData => {
+            return new successModel(challengeData)
+        })
     }
 
     //删除教师

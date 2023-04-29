@@ -1,53 +1,49 @@
-// pages/stuPart/courseDetail/courseDetail.js
+// pages/stuPart/tenChallengeDetail/tenChallengeDetail.js
 import request from '../../../utils/request'
+import upload from '../../../utils/upload'
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-      courseDetail:[],
-      stuInfo: [],
       curName: '',
-      teaInfo:[]
+      stuId: '',
+      stuName: '',
+      topList:[]
     },
-    //前往考试页面
-    toExam(){
-        wx.switchTab({
-          url: '../myExam/myExam?curName=' + this.data.courseDetail.data[0].curName,
+    // 前往挑战小游戏
+    toChallengeGame(){
+      let curName = this.data.curName;
+      let stuId = this.data.stuId;
+      let stuName = this.data.stuName;
+        wx.navigateTo({
+          url: '../challengeGame/challengeGame?curName=' + curName + '&stuId=' + stuId + '&stuName=' + stuName,
         })
     },
-
-    //前往10s挑战
-    toChallenge(){
-      wx.navigateTo({
-        url: '../tenChallenge/tenChallenge',
-      })
-    },
-
-    //获取课程详情
-    async getCourseDetail(stuId, curName){
-      let courseDetail = await request('/course/student/getCourseDetail',{stuId:stuId,curName})
-      let teaInfo = await request('/teacher/user/userInfo',{teaId:courseDetail.data[0].teaId})
-      this.setData({
-        courseDetail,
-        teaInfo
-      })
-    },
-
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
       let curName = options.curName
-      let stuInfo = wx.getStorageSync('stuInfo')
+      let stuId = options.stuId
+      let stuName = options.stuName
       this.setData({
         curName,
-        stuInfo
+        stuId,
+        stuName
       })
-      this.getCourseDetail(stuInfo[0].stuId, curName)
+      this.getTop()
+    },
+
+    //获取排行榜
+    async getTop(){
+      let curName = this.data.curName
+      let topList = await request('/challenge/socre/getScore',{curName})
+      this.setData({
+        topList:topList.data
+      })
     },
 
     /**
