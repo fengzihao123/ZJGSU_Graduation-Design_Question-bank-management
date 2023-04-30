@@ -41,12 +41,9 @@
     margin-top: 7rpx;
     margin-right: 17rpx;
 }
-
-
-
-
 .danxuantiContainer{
     margin-top: 20rpx;
+    margin-bottom: 100rpx;
 }
 .danxuanti{
 
@@ -309,6 +306,7 @@
 
 .datiquContainer{
     margin-top: 30rpx;
+    margin-bottom: 70rpx;
 }
 .inputStyle{
     margin-top: 30rpx;

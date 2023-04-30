@@ -21,8 +21,9 @@ router.get('/', function(req, res, next) {
                 console.error(err)
             }
             let questionList = data.split('分割线')
-            let question = {};
+
             for(var i = 0; i < questionList.length; i++){
+                let question = {};
                 //todo 题干
                 var reg_stem=/\d+\..+/;
                 let result_stem = questionList[i].match(reg_stem)
@@ -133,8 +134,9 @@ router.get('/', function(req, res, next) {
                 console.error(err)
             }
             let questionList = data.split('分割线')
-            let question = {};
+
             for(var i = 0; i < questionList.length; i++){
+                let question = {};
                 //todo 题干
                 var reg_stem=/\d+\..+/;
                 let result_stem = questionList[i].match(reg_stem)
@@ -230,12 +232,13 @@ router.get('/', function(req, res, next) {
                 //todo  解析
                 var reg_analysis = /解析:.+/
                 let result_analysis = questionList[i].match(reg_analysis)
-                var reg_analysis1 = /[^解析:]*$/
-                let analysis_before = result_analysis[0].match(reg_analysis1)
-                let analysis = analysis_before[0]
-                question.analysis = analysis
                 //todo 继续将解析分类
                 let analysisList = result_analysis[0].split('![]')
+                var reg_analysis1 = /[^解析:]*$/
+                let analysis_before = analysisList[0].match(reg_analysis1)
+                let analysis = analysis_before[0]
+
+                question.analysis = analysis
                 //todo 图片1
                 if(analysisList[1]){
                     var reg_analysisImg = /\((.*?)\)/

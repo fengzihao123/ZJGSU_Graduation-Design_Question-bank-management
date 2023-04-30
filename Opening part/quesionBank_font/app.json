@@ -1,9 +1,8 @@
 {
     "pages": [
+        "pages/stuPart/myCourse/myCourse",
         "pages/stuPart/tenChallenge/tenChallenge",
         "pages/stuPart/tenChallengeDetail/tenChallengeDetail",
-       
-        "pages/stuPart/myCourse/myCourse",
         "pages/stuPart/myGrade/myGrade",
         "pages/stuPart/gradeSelect/gradeSlect",
         "pages/stuPart/questionCollectionSelect/questionCollectionSelect",

@@ -46,15 +46,11 @@
     margin-top: 7rpx;
     margin-right: 17rpx;
 }
-
-
-
-
 .danxuantiContainer{
     margin-top: 20rpx;
+    margin-bottom: 100rpx;
 }
 .danxuanti{
-
     display: flex;
     margin-left: 30rpx;
 }

@@ -32,6 +32,8 @@
             </view>
             <text class="QTitle">{{questionList[index].stem}}</text>
         </view>
+        <image wx:if="{{questionList.data[index].stemImgone}}" class="stemImg" src="https://img2.baidu.com/it/u=640840283,3198496400&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></image>
+        <image wx:if="{{questionList.data[index].stemImgtwo}}" class="stemImg" src="https://img2.baidu.com/it/u=640840283,3198496400&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></image>
         <view class="titleLine"></view>
         <!-- 四个选项 -->
         <view class="isXuanze" >

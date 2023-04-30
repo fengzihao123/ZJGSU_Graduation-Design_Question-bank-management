@@ -137,6 +137,10 @@ const AddCollect = (questionData) =>{
     const queType = questionData.queType
     const curName = questionData.curName
     const stem = questionData.stem
+    const stemImgone = questionData.stemImgone
+    const stemImgtwo = questionData.stemImgtwo
+    const analysisImgone = questionData.analysisImgone
+    const analysisImgtwo = questionData.analysisImgtwo
     const choiceA = questionData.choiceA
     const choiceB = questionData.choiceB
     const choiceC = questionData.choiceC
@@ -149,8 +153,8 @@ const AddCollect = (questionData) =>{
     const isPick = questionData.isPick
     console.log(analysis)
 
-    // const sql = `insert into collect (queId, stuId, queType, stem, choiceA, choiceB, choiceC, choiceD, difficulty, chaName, explain, answer, isCollect, isPick) values (${queId}, '${stuId}', '${queType}', '${stem}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', ${difficulty}, '${chaName}', '${explain}', '${answer}', ${isCollect}, '${isPick}')`
-    const sql = `insert into collect (queId, stuId, queType, curName, stem, choiceA, choiceB, choiceC, choiceD, difficulty, chaName, answer, isCollect, isPick, analysis) values (${queId}, '${stuId}', '${queType}', '${curName}', '${stem}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', ${difficulty}, '${chaName}', '${answer}', ${isCollect}, '${isPick}', '${analysis}')`
+    const sql = `insert into collect (queId, stuId, queType, curName, stem, stemImgone, stemImgtwo, choiceA, choiceB, choiceC, choiceD, difficulty, chaName, answer, isCollect, isPick, analysis, analysisImgone, analysisImgtwo) values 
+    (${queId}, '${stuId}', '${queType}', '${curName}', '${stem}', '${stemImgone}', '${stemImgtwo}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', ${difficulty}, '${chaName}', '${answer}', ${isCollect}, '${isPick}', '${analysis}', '${analysisImgone}', '${analysisImgtwo}')`
     
     return execSQL(sql).then(insertedResult => {
         console.log(insertedResult)
@@ -183,6 +187,10 @@ const newError = (questionData) =>{
     const queType = questionData.params.queType
     const curName = questionData.params.curName
     const stem = questionData.params.stem
+    const stemImgone = questionData.params.stemImgone
+    const stemImgtwo = questionData.params.stemImgtwo
+    const analysisImgone = questionData.params.analysisImgone
+    const analysisImgtwo = questionData.params.analysisImgtwo
     const choiceA = questionData.params.choiceA
     const choiceB = questionData.params.choiceB
     const choiceC = questionData.params.choiceC
@@ -191,11 +199,11 @@ const newError = (questionData) =>{
     const chaName = questionData.params.chaName
     const analysis = questionData.params.analysis
     const answer = questionData.params.answer
-    const myAnswer = questionData.params.myAnswer
+    const myAnswer = questionData.params.myAnswer   
     
     if(queType == '单选' || queType == '多选'){
-        const sql = `insert into error (queId, stuId, queType, curName, stem, choiceA, choiceB, choiceC, choiceD, difficulty, chaName, analysis, answer, myAnswer, isError, isCollect, isPick)
-        values (${queId}, '${stuId}', '${queType}', '${curName}', '${stem}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', ${difficulty}, '${chaName}', '${analysis}', '${answer}', '${myAnswer}', 1, 0, 'false')`
+        const sql = `insert into error (queId, stuId, queType, curName, stem, stemImgone, stemImgtwo, choiceA, choiceB, choiceC, choiceD, difficulty, chaName, analysis, analysisImgone, analysisImgtwo, answer, myAnswer, isError, isCollect, isPick)
+        values (${queId}, '${stuId}', '${queType}', '${curName}', '${stem}', '${stemImgone}', '${stemImgtwo}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', ${difficulty}, '${chaName}', '${analysis}', '${analysisImgone}', '${analysisImgtwo}', '${answer}', '${myAnswer}', 1, 0, 'false')`
         return execSQL(sql).then(updateResult =>{
             if(updateResult.affectedRows > 0){
                 return true;
@@ -203,8 +211,8 @@ const newError = (questionData) =>{
             return false;
         }) 
     }else{
-        const sql = `insert into error (queId, stuId, queType, curName, stem, difficulty, chaName, analysis, answer, myAnswer, isError, isCollect, isPick)
-        values (${queId}, '${stuId}', '${queType}', '${curName}', '${stem}', ${difficulty}, '${chaName}', '${analysis}', '${answer}', '${myAnswer}', 1, 0, 'false')`
+        const sql = `insert into error (queId, stuId, queType, curName, stem, stemImgone, stemImgtwo, difficulty, chaName, analysis, analysisImgone, analysisImgtwo, answer, myAnswer, isError, isCollect, isPick)
+        values (${queId}, '${stuId}', '${queType}', '${curName}', '${stem}', '${stemImgone}', '${stemImgtwo}', ${difficulty}, '${chaName}', '${analysis}', '${analysisImgone}', '${answer}', '${myAnswer}', 1, 0, 'false')`
         return execSQL(sql).then(updateResult =>{
             if(updateResult.affectedRows > 0){
                 return true;

@@ -11,6 +11,10 @@ router.get('/', function(req, res, next) {
     let teaId = teaInfo[0].teaId
     let queId =   parseInt(req.query.queId)
     let stem =    req.query.stem
+    let stemImgone = req.query.stemImgone
+    let stemImgtwo = req.query.stemImgtwo
+    let analysisImgone = req.query.analysisImgone
+    let analysisImgtwo = req.query.analysisImgtwo
     let choiceA = req.query.choiceA
     let choiceB = req.query.choiceB
     let choiceC = req.query.choiceC
@@ -18,12 +22,12 @@ router.get('/', function(req, res, next) {
     let queType = req.query.queType
     let answer =  req.query.answer
     let curName =  req.query.curName
-    getQuestionExamList(teaId, classId, examId, curName, queId, stem, choiceA, choiceB, choiceC, choiceD, queType, answer, res, req)
+    getQuestionExamList(teaId, classId, examId, curName, queId, stem, stemImgone, stemImgtwo, choiceA, choiceB, choiceC, choiceD, queType, answer, analysisImgone, analysisImgtwo, res, req)
 });
 
 
-async function getQuestionExamList(teaId, classId, examId, curName, queId, stem, choiceA, choiceB, choiceC, choiceD, queType, answer, res, req){
-    await upload('/exam/student/newExamQuestion',{classId, examId, curName, queId, queType, stem, choiceA, choiceB, choiceC, choiceD, answer})
+async function getQuestionExamList(teaId, classId, examId, curName, queId, stem, stemImgone, stemImgtwo, choiceA, choiceB, choiceC, choiceD, queType, answer, analysisImgone, analysisImgtwo, res, req){
+    await upload('/exam/student/newExamQuestion',{classId, examId, curName, queId, queType, stem, stemImgone, stemImgtwo, choiceA, choiceB, choiceC, choiceD, answer, analysisImgone, analysisImgtwo})
     let result1 = await request('/question/question/getQuestion')
     let result2 = await request('/exam/student/getExamListTeacher',{teaId, examId})
     let resultDan = await request('/exam/student/getExamQuestion',{classId:result2.data[0].classId, examId, queType:'单选'})

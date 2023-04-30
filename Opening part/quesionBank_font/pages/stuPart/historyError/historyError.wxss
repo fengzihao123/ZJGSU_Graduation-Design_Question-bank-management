@@ -11,6 +11,10 @@
     height: 36rpx;
     background-color: cornflowerblue;
 }
+.stemImg{
+    width: 96%;
+    margin-left: 2%;
+}
 .QTword{
     position: absolute;
     font-size: 28rpx;
@@ -136,7 +140,9 @@
 .choice_word{
     margin-left: 30rpx;
 }
-
+.kong{
+    margin-bottom: 50rpx;
+}
 .choiceDX{
     font-size: 28rpx;
 }
@@ -170,6 +176,7 @@
 }
 .explain{
     margin: 30rpx;
+    margin-bottom: 180rpx;
 }
 .explain_title{
     font-weight: 600;

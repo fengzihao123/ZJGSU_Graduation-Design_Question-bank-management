@@ -74,6 +74,8 @@ Page({
             queType:errorList.data[index].queType,
             curName:errorList.data[index].curName,
             stem:errorList.data[index].stem,
+            stemImgone:errorList.data[index].stemImgone,
+            stemImgtwo:errorList.data[index].stemImgtwo,
             choiceA:errorList.data[index].choiceA,
             choiceB:errorList.data[index].choiceB,
             choiceC:errorList.data[index].choiceC,
@@ -81,6 +83,8 @@ Page({
             difficulty:errorList.data[index].difficulty,
             chaName:errorList.data[index].chaName,
             analysis:errorList.data[index].analysis,
+            analysisImgone:errorList.data[index].analysisImgone,
+            analysisImgtwo:errorList.data[index].analysisImgtwo,
             answer:errorList.data[index].answer,
             isCollect:1,
             isPick:'false'

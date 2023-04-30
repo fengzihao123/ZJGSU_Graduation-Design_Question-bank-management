@@ -78,6 +78,8 @@
             </view>
             <text class="QTitle">{{questionList.data[index].stem}}</text>
         </view>
+        <image wx:if="{{questionList.data[index].stemImgone}}" class="stemImg" src="https://img2.baidu.com/it/u=640840283,3198496400&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></image>
+        <image wx:if="{{questionList.data[index].stemImgtwo}}" class="stemImg" src="https://img2.baidu.com/it/u=640840283,3198496400&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></image>
         <view class="titleLine"></view>
         <!-- 四个选项 -->
         <view class="isXuanze" >
@@ -131,6 +133,8 @@
             </view>
             <text class="QTitle">{{questionList.data[index].stem}}</text>
         </view>
+        <image wx:if="{{questionList.data[index].stemImgone}}" class="stemImg" src="https://img2.baidu.com/it/u=640840283,3198496400&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></image>
+        <image wx:if="{{questionList.data[index].stemImgtwo}}" class="stemImg" src="https://img2.baidu.com/it/u=640840283,3198496400&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></image>
         <view class="titleLine"></view>
 <view class="isXuanze" >
             <wxs module="tools" src="../../function.wxs"/>  
@@ -167,7 +171,7 @@
                 <text>D</text>
                 <text class="cancle_word" >{{questionList.data[index].choiceD}}</text>
             </view>
-            <view class="choice" bindtap="D_chooseD"wx:else>
+            <view class="choice kkk" bindtap="D_chooseD"wx:else>
                 <text>D</text>
                 <text class="choice_word">{{questionList.data[index].choiceD}}</text>
             </view>
@@ -183,6 +187,8 @@
             </view>
             <text class="QTitle">{{questionList.data[index].stem}}</text>
         </view>
+        <image wx:if="{{questionList.data[index].stemImgone}}" class="stemImg" src="https://img2.baidu.com/it/u=640840283,3198496400&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></image>
+        <image wx:if="{{questionList.data[index].stemImgtwo}}" class="stemImg" src="https://img2.baidu.com/it/u=640840283,3198496400&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></image>
         <view class="titleLine"></view>
         <!-- 答题区 -->
         <view class="datiquContainer">
@@ -215,6 +221,8 @@
             </view>
             <text class="QTitle">{{questionList.data[index].stem}}</text>
         </view>
+        <image wx:if="{{questionList.data[index].stemImgone}}" class="stemImg" src="https://img2.baidu.com/it/u=640840283,3198496400&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></image>
+        <image wx:if="{{questionList.data[index].stemImgtwo}}" class="stemImg" src="https://img2.baidu.com/it/u=640840283,3198496400&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></image>
         <view class="titleLine"></view>
         <!-- 答题区 -->
         <view class="datiquContainer">
@@ -231,6 +239,8 @@
             </view>
             <text class="QTitle">{{questionList.data[index].stem}}</text>
         </view>
+        <image wx:if="{{questionList.data[index].stemImgone}}" class="stemImg" src="https://img2.baidu.com/it/u=640840283,3198496400&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></image>
+        <image wx:if="{{questionList.data[index].stemImgtwo}}" class="stemImg" src="https://img2.baidu.com/it/u=640840283,3198496400&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></image>
         <view class="titleLine"></view>
         <!-- 答题区 -->
         <view class="datiquContainer">

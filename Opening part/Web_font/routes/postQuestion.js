@@ -197,11 +197,15 @@ async function difficultyQuestion(diffNum, curName, queType, examId, classId){
             queId:result.data[i].queId,
             queType:queType,
             stem:result.data[i].stem,
+            stemImgone:result.data[i].stemImgone,
+            stemImgtwo:result.data[i].stemImgtwo,
             choiceA:result.data[i].choiceA,
             choiceB:result.data[i].choiceB,
             choiceC:result.data[i].choiceC,
             choiceD:result.data[i].choiceD,
             answer:result.data[i].answer,
+            analysisImgone:result.data[i].analysisImgone,
+            analysisImgtwo:result.data[i].analysisImgtwo,
         })
     }
 }
@@ -219,11 +223,15 @@ async function simpleQuestion(simpleNum, curName, queType, examId, classId){
             queId:result.data[i].queId,
             queType:queType,
             stem:result.data[i].stem,
+            stemImgone:result.data[i].stemImgone,
+            stemImgtwo:result.data[i].stemImgtwo,
             choiceA:result.data[i].choiceA,
             choiceB:result.data[i].choiceB,
             choiceC:result.data[i].choiceC,
             choiceD:result.data[i].choiceD,
             answer:result.data[i].answer,
+            analysisImgone:result.data[i].analysisImgone,
+            analysisImgtwo:result.data[i].analysisImgtwo,
         })
     }
 }

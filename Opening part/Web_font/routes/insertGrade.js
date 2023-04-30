@@ -32,6 +32,8 @@ async function insertGrade(examId, stuId, res){
                 queType:errorQuestion.data[0].queType,
                 curName:errorQuestion.data[0].curName,
                 stem:errorQuestion.data[0].stem,
+                stemImgone:errorQuestion.data[0].stemImgone || '',
+                stemImgtwo:errorQuestion.data[0].stemImgtwo || '',
                 choiceA:errorQuestion.data[0].choiceA,
                 choiceB:errorQuestion.data[0].choiceB,
                 choiceC:errorQuestion.data[0].choiceC,
@@ -40,6 +42,8 @@ async function insertGrade(examId, stuId, res){
                 chaName:errorQuestion.data[0].chaName,
                 analysis:errorQuestion.data[0].analysis,
                 answer:errorQuestion.data[0].answer,
+                analysisImgone:errorQuestion.data[0].analysisImgone || '',
+                analysisImgtwo:errorQuestion.data[0].analysisImgtwo || '',
                 myAnswer:result_dan.data[i].myAnswer
             })
             let questionCount = await request('/exam/student/getExamQuestion',{examId,queId:result_dan.data[i].queId})
@@ -62,6 +66,8 @@ async function insertGrade(examId, stuId, res){
                 queType:errorQuestion.data[0].queType,
                 curName:errorQuestion.data[0].curName,
                 stem:errorQuestion.data[0].stem,
+                stemImgone:errorQuestion.data[0].stemImgone || '',
+                stemImgtwo:errorQuestion.data[0].stemImgtwo || '',
                 choiceA:errorQuestion.data[0].choiceA,
                 choiceB:errorQuestion.data[0].choiceB,
                 choiceC:errorQuestion.data[0].choiceC,
@@ -70,7 +76,9 @@ async function insertGrade(examId, stuId, res){
                 chaName:errorQuestion.data[0].chaName,
                 analysis:errorQuestion.data[0].analysis,
                 answer:errorQuestion.data[0].answer,
-                myAnswer:result_duo.data[i].myAnswer
+                analysisImgone:errorQuestion.data[0].analysisImgone || '',
+                analysisImgtwo:errorQuestion.data[0].analysisImgtwo || '',
+                myAnswer:result_dan.data[i].myAnswer
             })
             let questionCount = await request('/exam/student/getExamQuestion',{examId,queId:result_duo.data[i].queId})
             let errorCount = questionCount.data[0].errorCount
@@ -92,6 +100,8 @@ async function insertGrade(examId, stuId, res){
                 queType:errorQuestion.data[0].queType,
                 curName:errorQuestion.data[0].curName,
                 stem:errorQuestion.data[0].stem,
+                stemImgone:errorQuestion.data[0].stemImgone || '',
+                stemImgtwo:errorQuestion.data[0].stemImgtwo || '',
                 choiceA:errorQuestion.data[0].choiceA,
                 choiceB:errorQuestion.data[0].choiceB,
                 choiceC:errorQuestion.data[0].choiceC,
@@ -100,7 +110,9 @@ async function insertGrade(examId, stuId, res){
                 chaName:errorQuestion.data[0].chaName,
                 analysis:errorQuestion.data[0].analysis,
                 answer:errorQuestion.data[0].answer,
-                myAnswer:result_tian.data[i].myAnswer
+                analysisImgone:errorQuestion.data[0].analysisImgone || '',
+                analysisImgtwo:errorQuestion.data[0].analysisImgtwo || '',
+                myAnswer:result_dan.data[i].myAnswer
             })
             let questionCount = await request('/exam/student/getExamQuestion',{examId,queId:result_tian.data[i].queId})
             let errorCount = questionCount.data[0].errorCount

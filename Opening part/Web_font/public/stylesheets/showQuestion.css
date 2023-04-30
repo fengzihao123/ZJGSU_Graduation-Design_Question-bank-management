@@ -170,9 +170,12 @@ body{
 }
 
 .rightBodyThree{
+    width: 100%;
     position: absolute;
     margin-left: 20px;
     margin-top: 60px;
+    height: 550px;
+    overflow-y: auto;
 }
 .rightThreeInput{
     height: 300px;
@@ -321,7 +324,6 @@ body{
 }
 .stemImg1{
     margin-left: 100px;
-    width: 800px;
-    height: 50px;
+    width: 400px;
     margin-bottom: 5px;
 }

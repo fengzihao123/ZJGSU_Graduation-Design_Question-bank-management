@@ -143,13 +143,18 @@ const newExamQuestion = (examQuestionData = {}) =>{
     const queId = examQuestionData.params.queId
     const queType = examQuestionData.params.queType
     const stem = examQuestionData.params.stem
+    const stemImgone = examQuestionData.params.stemImgone || ''
+    const stemImgtwo = examQuestionData.params.stemImgtwo || ''
     const choiceA = examQuestionData.params.choiceA
     const choiceB = examQuestionData.params.choiceB
     const choiceC = examQuestionData.params.choiceC
     const choiceD = examQuestionData.params.choiceD
     const answer = examQuestionData.params.answer
+    const analysisImgone = examQuestionData.params.analysisImgone || ''
+    const analysisImgtwo = examQuestionData.params.analysisImgtwo || ''
+    console.log(stemImgone,stemImgtwo)
 
-    const sql = `insert into questioning (classId, examId, curName, queId, queType, stem, choiceA, choiceB, choiceC, choiceD, answer, selectStatus, errorCount) values (${classId}, ${examId}, '${curName}' ,${queId}, '${queType}', '${stem}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', '${answer}', '2', 0)`
+    const sql = `insert into questioning (classId, examId, curName, queId, queType, stem, stemImgone, stemImgtwo, choiceA, choiceB, choiceC, choiceD, answer, analysisImgone, analysisImgtwo, selectStatus, errorCount) values (${classId}, ${examId}, '${curName}' ,${queId}, '${queType}', '${stem}', '${stemImgone}', '${stemImgtwo}', '${choiceA}', '${choiceB}', '${choiceC}', '${choiceD}', '${answer}', '${analysisImgone}', '${analysisImgtwo}', '2', 0)`
     return execSQL(sql).then(updateResult =>{
         if(updateResult.affectedRows > 0){
             return true;

@@ -157,6 +157,10 @@
             var queType = '';
             var answer = '';
             var curName = '';
+            var stemImgone = '';
+            var stemImgtwo = '';
+            var analysisImgone = '';
+            var analysisImgtwo = '';
 
             $('.edit').click(function () {
                 queId = $(this).data('queid')
@@ -168,13 +172,17 @@
                 queType = $(this).data('quetype')
                 answer = $(this).data('answer')
                 curName = $(this).data('curname')
+                stemImgone = $(this).data('stemone')
+                stemImgtwo = $(this).data('stemtwo')
+                analysisImgone = $(this).data('analysisone')
+                analysisImgtwo = $(this).data('analysistwo')
                 // var editId = 'edit-'
                 // var delId = 'del-'
                 // editId += queId
                 // delId += queId
                 // $('#'+editId).attr('src','/images/square.png')
                 // $('#'+delId).attr('src','/images/cha.png')
-                window.location.href = `/insertExamQuestion?queId=${queId}&stem=${stem}&choiceA=${choiceA}&choiceB=${choiceB}&choiceC=${choiceC}&choiceD=${choiceD}&queType=${queType}&answer=${answer}&curName=${curName}`
+                window.location.href = `/insertExamQuestion?queId=${queId}&stem=${stem}&stemImgone=${stemImgone}&stemImgtwo=${stemImgtwo}&choiceA=${choiceA}&choiceB=${choiceB}&choiceC=${choiceC}&choiceD=${choiceD}&queType=${queType}&answer=${answer}&curName=${curName}&analysisImgone=${analysisImgone}&analysisImgtwo=${analysisImgtwo}`
             })
             // $('.del').click(function () {
             //     queId = $(this).data('queid')
@@ -218,6 +226,8 @@
                              data-choicec="<%= item.choiceC %>" data-choiced="<%= item.choiceD %>"
                              data-chaname="<%= item.chaName %>" data-quetype="<%= item.queType %>"
                              data-difficulty="<%= item.difficulty %>" data-answer="<%= item.answer %>"
+                             data-stemone="<%= item.stemImgone %>" data-stemtwo="<%= item.stemImgtwo %>"
+                             data-analysisone="<%= item.analysisImgone %>" data-analysistwo="<%= item.analysisImgtwo %>"
                         >
 <!--                        <img src="/images/square.png" class="del" id="del-<%= item.queId %>" data-queid="<%= item.queId %>">-->
                     </td>
